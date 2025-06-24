@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoogleGenAI } from '@google/genai';
-import { environment } from '../../environments/environment.development';
+import { ChatbotWindowComponent } from '../chatbotWindow/chatbotWindow.component';
 
 @Component({
-  selector: 'app-chat-popup',
-  imports: [CommonModule],
-  templateUrl: './chatPopup.component.html',
-  styleUrl: './chatPopup.component.scss',
+  selector: 'app-chatbot-floating',
+  imports: [CommonModule, ChatbotWindowComponent],
+  templateUrl: './chatbotFloating.component.html',
+  styleUrl: './chatbotFloating.component.scss',
 })
-export class ChatPopupComponent {
-  private readonly geminiApiKey: string = environment.GEMINI_API_KEY;
+export class ChatbotFloatingComponent {
+  chatStarted: boolean = false;
+  startChat() {
+    this.chatStarted = true;
+  }
+  /**
+   * 
+   *  private readonly geminiApiKey: string = environment.GEMINI_API_KEY;
 
   initGeminiChatModal() {
     const apiKey = this.geminiApiKey;
@@ -32,4 +37,5 @@ export class ChatPopupComponent {
         console.log('Chatbot initialized:', response);
       });
   }
+   */
 }

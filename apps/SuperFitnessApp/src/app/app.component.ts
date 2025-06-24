@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { ChatbotComponent } from './features/chatbot/chatbot.component';
+import { ChatbotFloatingComponent } from './features/chatbot/chatbotFloating/chatbotFloating.component';
 
 @Component({
-  imports: [RouterModule, ButtonModule, ChatbotComponent],
+  imports: [RouterModule, ButtonModule, ChatbotFloatingComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
