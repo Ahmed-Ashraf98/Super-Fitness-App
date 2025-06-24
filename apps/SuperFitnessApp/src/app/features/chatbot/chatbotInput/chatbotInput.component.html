@@ -1,9 +1,20 @@
-<p-iconfield>
-  <p-inputicon styleClass="pi pi-search" />
-  <input
-    type="text"
-    pInputText
-    placeholder="Ask Me Any Things"
-    class="w-[90%]"
-  />
-</p-iconfield>
+<div class="input-box flex items-center gap-2">
+  <div class="input-field w-[80%]">
+    <p-iconfield>
+      <p-inputicon
+        styleClass="pi pi-pencil"
+        style="color: var(--primary-color)"
+      />
+      <input
+        type="text"
+        pInputText
+        placeholder="Ask Me Any Things"
+        class="w-full"
+      />
+    </p-iconfield>
+  </div>
+  <i
+    class="pi pi-send"
+    style="font-size: 16px; color: var(--primary-color)"
+  ></i>
+</div>
