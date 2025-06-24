@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatbotWindowComponent } from '../chatbotWindow/chatbotWindow.component';
-
 @Component({
   selector: 'app-chatbot-floating',
   imports: [CommonModule, ChatbotWindowComponent],

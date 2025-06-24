@@ -1,2 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
+
+@use 'primeicons/primeicons.css';
+
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('/fonts/BalooThambi2-Regular.woff') format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('/fonts/BalooThambi2-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('/fonts/BalooThambi2-ExtraBold.woff') format('woff');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'BalooThambi2';
+  src: url('/fonts/BalooThambi2-SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+
+:root {
+  --primary-color: #ff4100;
+  --text-color: #333333;
+  --border-radius: 20px;
+  --font-family: 'BalooThambi2', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+}
