@@ -46,19 +46,19 @@ export class AuthApiService implements AuthAPI {
   }
 
   Login(data: loginUser): Observable<LoginRes | never[]> {
-    return this._HttpClient.post(AuthENDPOINT.LOGIN, data).pipe(
+    return this._HttpClient.post(AuthENDPOINT.SIGNIN, data).pipe(
       map((res: any) => this._AuthLoginAPIAdapter.adapt(res)),
     );
   }
 
   Regester(data: registerUser): Observable<RegisterRes | never[]> {
-    return this._HttpClient.post(AuthENDPOINT.REGISER, data).pipe(
+    return this._HttpClient.post(AuthENDPOINT.SIGNUP, data).pipe(
       map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)),
     );
   }
 
   Forgetpass(data: ForgetPassUser): Observable<any> {
-    return this._HttpClient.post(AuthENDPOINT.FORGET_PASSWORD, data);
+    return this._HttpClient.post(AuthENDPOINT.FORGOT_PASSWORD, data);
   }
 
   VerifyCode(data: VerifyCodeUser): Observable<any> {
@@ -66,24 +66,12 @@ export class AuthApiService implements AuthAPI {
   }
 
   resetpass(data: ResetPassUser): Observable<any> {
-    return this._HttpClient.post(AuthENDPOINT.RESET_PASSWORD, data);
+    return this._HttpClient.put(AuthENDPOINT.RESET_PASSWORD, data);
   }
 
   Logout(): Observable<any> {
-    return this._HttpClient.get(AuthENDPOINT.LOGIN_OUT);
+    return this._HttpClient.get(AuthENDPOINT.LOGOUT);
   }
 
-  GetUserRole(userEmail: string): Observable<userRoleRes> {
-    const token = localStorage.getItem('token');
-    if (!token || this.isTokenExpired(token)) {
-      return of({
-        roles: [],
-        email: '',
-        userName: '',
-        fullName: ''
-      });
-    }
-
-    return this._HttpClient.get<userRoleRes>(`${AuthENDPOINT.Get_User_Role}/${userEmail}`);
-  }
+  
 }
