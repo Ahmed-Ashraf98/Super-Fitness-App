@@ -1,3 +1,3 @@
 export interface VerifyCodeUser{
-    code:string
+    resetCode:string
 } 

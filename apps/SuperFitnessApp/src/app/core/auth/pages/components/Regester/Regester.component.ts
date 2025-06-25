@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
 import {
   AbstractControl,
@@ -18,6 +18,7 @@ import { HttpErrorResponse } from '@angular/common/http'; // ✅ الصحيح
   imports: [
     CommonModule,
     ReactiveFormsModule, // ✅ أضف هذا
+    RouterLink
   ],
   templateUrl: './Regester.component.html',
   styleUrl: './Regester.component.scss',
