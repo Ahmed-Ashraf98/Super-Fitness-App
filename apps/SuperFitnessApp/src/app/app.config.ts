@@ -8,7 +8,7 @@ import {
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { provideStore } from '@ngrx/store';
-import { chatbotReducers } from './chatbot/chatbot.reducers';
+import { chatbotReducers } from './store/chatbot/chatbot.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
