@@ -1,0 +1,95 @@
+<div>
+  <p class="greeting">Hey There</p>
+  <h1 class="title">Create An Account</h1>
+</div>
+
+<div class="form-box">
+  <form [formGroup]="register" (ngSubmit)="signup()">
+    @if (step == 1) {
+    <input type="text" placeholder="First Name" formControlName="fname" />
+    <input type="text" placeholder="Last Name" formControlName="lname" />
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input type="password" placeholder="Password" formControlName="password" />
+    <input
+      type="password"
+      placeholder="RePassword"
+      formControlName="repassword"
+    />
+
+    <div class="forgot">
+      <a href="#">Forget Password ?</a>
+    </div>
+
+    <div class="divider">Or</div>
+
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-google"></i>
+      <i class="fab fa-apple"></i>
+    </div>
+
+    <button type="submit" class="btn" [disabled]="register.invalid">
+      Next
+    </button>
+
+    <p class="switch">Already have an account? <a href="#">Login</a></p>
+    } 
+    @if (step == 2) {
+    <div class="form-box gender-step">
+      <div class="step-indicator">2/6</div>
+      <div class="gender-title">TELL US ABOUT YOURSELF!</div>
+      <div class="gender-subtitle">We Need To Know Your Gender</div>
+      <div class="gender-options">
+        <button
+          type="button"
+          class="gender-btn"
+          [class.selected]="selectedGender === 'Male'"
+          (click)="selectGender('Male')"
+        >
+          <span class="gender-icon male"><i class="fas fa-mars"></i></span>
+          <span class="gender-label">Male</span>
+        </button>
+
+        <button
+          type="button"
+          class="gender-btn"
+          [class.selected]="selectedGender === 'Female'"
+          (click)="selectGender('Female')"
+        >
+          <span class="gender-icon female"><i class="fas fa-venus"></i></span>
+          <span class="gender-label">Female</span>
+        </button>
+      </div>
+
+      <button class="btn next-btn" type="submit" [disabled]="!selectedGender">
+        Submit
+      </button>
+    </div>
+    } 
+    @if (step == 3) {
+    <div class="form-box age-step">
+      <div class="step-indicator"><span class="step-bar"></span>2/6</div>
+      <div class="age-title">How Old Are You ?</div>
+      <div class="age-subtitle">
+        This Helps Us Create Your Personalized Plan
+      </div>
+      <div class="age-picker">
+        <div class="age-label">Year</div>
+        <div class="age-list">
+          <span class="age-item faded">22</span>
+          <span class="age-item faded">23</span>
+          <span class="age-item">24</span>
+          <span class="age-item selected">25</span>
+          <span class="age-item">26</span>
+          <span class="age-item faded">27</span>
+          <span class="age-item faded">28</span>
+        </div>
+        <div class="age-arrows">
+          <span class="arrow up"><i class="fas fa-caret-up"></i></span>
+        </div>
+      </div>
+      <button class="btn next-btn">Next</button>
+    </div>
+    }
+  </form>
+</div>
