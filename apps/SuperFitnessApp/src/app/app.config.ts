@@ -7,6 +7,8 @@ import {
 } from '@angular/platform-browser';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import { provideStore } from '@ngrx/store';
+import { chatbotReducers } from './chatbot/chatbot.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +22,9 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: '.dark',
         },
       },
+    }),
+    provideStore({
+      chatbot: chatbotReducers,
     }),
   ],
 };
