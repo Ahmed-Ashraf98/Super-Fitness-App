@@ -1,6 +1,6 @@
 export enum ChatbotRole {
   USER = 'user',
-  ASSISTANT = 'assistant',
+  AI = 'ai',
 }
 
 export interface ChatMessage {

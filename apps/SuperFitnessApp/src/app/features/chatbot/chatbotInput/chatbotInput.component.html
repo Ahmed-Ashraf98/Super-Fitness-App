@@ -8,12 +8,14 @@
       <input
         type="text"
         pInputText
+        [(ngModel)]="userMessage"
         placeholder="Ask Me Any Things"
         class="w-full"
       />
     </p-iconfield>
   </div>
   <i
+    (click)="sendMessage()"
     class="pi pi-send"
     style="font-size: 16px; color: var(--primary-color)"
   ></i>

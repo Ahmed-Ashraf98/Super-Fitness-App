@@ -11,10 +11,7 @@ export const chatbotReducers = createReducer(
   })),
   on(ChatbotActions.aiResponse, (state, { content }) => ({
     ...state,
-    chatHistory: [
-      ...state.chatHistory,
-      { role: ChatbotRole.ASSISTANT, content },
-    ],
+    chatHistory: [...state.chatHistory, { role: ChatbotRole.AI, content }],
     isLoading: false,
   })),
   on(ChatbotActions.clearChat, () => initialChatState)
