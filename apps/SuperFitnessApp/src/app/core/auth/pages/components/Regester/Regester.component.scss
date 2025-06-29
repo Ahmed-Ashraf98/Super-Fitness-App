@@ -18,6 +18,7 @@
   text-transform: capitalize;
 }
 
+// Container for the multi-step registration form
 .form-box {
   margin: auto !important;
   width: 80%;
@@ -25,9 +26,15 @@
   border-width: 1px;
   gap: 8px;
   padding: 40px;
-
+  min-height: 600px;         
+  transition: height 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   form {
+    display: flex;
     flex-direction: column;
     gap: 0;
   }
@@ -45,7 +52,6 @@
     font-weight: 400;
     transition: border 0.2s;
     box-shadow: none;
-    gap: 8px;
 
     &::placeholder {
       color: #bbb;
@@ -72,7 +78,7 @@
 
   .divider {
     text-align: center;
-    margin: 18px 0 18px 0;
+    margin: 18px 0;
     color: #bbb;
     position: relative;
     font-size: 15px;
@@ -88,13 +94,8 @@
       background: #bbb;
     }
 
-    &::before {
-      left: 0;
-    }
-
-    &::after {
-      right: 0;
-    }
+    &::before { left: 0; }
+    &::after  { right: 0; }
   }
 
   .social-icons {
@@ -104,7 +105,7 @@
     margin-bottom: 20px;
 
     i {
-      color: rgb(255, 255, 255);
+      color: #fff;
       padding: 8px;
       border-radius: 50%;
       font-size: 16px;
@@ -126,7 +127,7 @@
   }
 
   .btn {
-    width: 100%;
+    width: 40%;
     background: #ff4100;
     padding: 15px;
     border: none;
@@ -136,8 +137,7 @@
     font-size: 18px;
     cursor: pointer;
     transition: background 0.3s;
-    margin-top: 8px;
-    margin-bottom: 0;
+    margin: 8px 10px 0;
 
     &:hover {
       background: #e83e00;
@@ -157,15 +157,15 @@
   }
 }
 
+// Gender-selection step
 .gender-step {
   width: 100%;
-  max-width: 410px;
   margin: auto;
   background: rgba(30, 30, 30, 0.65);
   border-radius: 32px;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
-  padding: 48px 36px 36px 36px;
+  padding: 48px 36px 36px;
   backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
@@ -223,193 +223,74 @@
       cursor: pointer;
       transition: border 0.2s, background 0.2s, color 0.2s;
 
-      .gender-icon {
-        font-size: 32px;
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .gender-label {
-        font-size: 16px;
-        font-weight: 500;
-      }
+      .gender-icon { font-size: 32px; margin-bottom: 6px; }
+      .gender-label { font-size: 16px; font-weight: 500; }
 
       &.selected,
       &:hover {
-        border: 2px solid #ff4100;
+        border-color: #ff4100;
         background: #ff4100;
         color: #fff;
       }
-
-      &.selected .gender-icon,
-      &:hover .gender-icon {
-        color: #fff;
-      }
-
-      &.selected .gender-label,
-      &:hover .gender-label {
-        color: #fff;
-      }
-    }
-
-    .gender-btn+.gender-btn {
-      margin-top: 12px;
-    }
-  }
-
-  .next-btn {
-    width: 100%;
-    background: #ff4100;
-    padding: 15px;
-    border: none;
-    border-radius: 22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 8px;
-    margin-bottom: 0;
-
-    &:hover {
-      background: #e83e00;
     }
   }
 }
 
-.age-step {
-  width: 100%;
-  max-width: 410px;
-  margin: auto;
-  background: rgba(30, 30, 30, 0.65);
-  border-radius: 32px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
-  padding: 48px 36px 36px 36px;
-  backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+// Picker step (age, weight, height)
+.picker-step {
+  text-align: center;
 
   .step-indicator {
-    color: #fff;
-    font-size: 20px;
+    margin-bottom: 16px;
     font-weight: 500;
-    margin-bottom: 18px;
-    text-align: center;
-    width: 100%;
-    position: relative;
-
-    .step-bar {
-      display: block;
-      width: 24px;
-      height: 4px;
-      background: linear-gradient(90deg, #ff4100 80%, transparent 100%);
-      border-radius: 8px;
-      margin: 0 auto 2px auto;
-    }
   }
 
-  .age-title {
-    color: #fff;
-    font-size: 32px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-    text-transform: none;
+  .picker-title {
+    font-size: 20px;
+    margin-bottom: 8px;
   }
 
-  .age-subtitle {
-    color: #d2d2d2;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 32px;
+  .picker-subtitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: #ccc;
   }
 
-  .age-picker {
-    width: 100%;
+  .picker-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 32px;
-
-    .age-label {
-      color: #ff4100;
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-
-    .age-list {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 8px;
-      margin-bottom: 8px;
-
-      .age-item {
-        color: #fff;
-        font-size: 26px;
-        font-weight: 700;
-        opacity: 0.7;
-        transition: all 0.2s;
-        min-width: 32px;
-        text-align: center;
-
-        &.selected {
-          color: #ff4100;
-          font-size: 32px;
-          opacity: 1;
-        }
-
-        &.faded {
-          color: #bbb;
-          font-size: 18px;
-          opacity: 0.4;
-        }
-      }
-    }
-
-    .age-arrows {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 0;
-
-      .arrow {
-        color: #ff4100;
-        font-size: 28px;
-        cursor: pointer;
-        user-select: none;
-        margin: 0;
-        line-height: 1;
-      }
-    }
+    justify-content: center;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .next-btn {
-    width: 100%;
-    background: #ff4100;
-    padding: 15px;
-    border: none;
-    border-radius: 22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
+  .picker-item {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    border-radius: 50%;
+    background: #444;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 8px;
-    margin-bottom: 0;
+    scroll-snap-align: center;
+    transition: transform 0.2s, background 0.2s;
 
-    &:hover {
-      background: #e83e00;
+    &.left,
+    &.right {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+
+    &.hidden { display: none; }
+
+    &.center {
+      background: #ff4500;
+      font-weight: bold;
+      transform: scale(1.2);
     }
   }
 }

@@ -1,98 +1,175 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  AbstractControl,
+  ValidatorFn,
+} from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
-import {
-  AbstractControl,
-  ReactiveFormsModule,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
-import { validsignup } from 'apps/SuperFitnessApp/src/app/shared/utils/validsignup';
-import { HttpErrorResponse } from '@angular/common/http'; // ✅ الصحيح
+import { HttpErrorResponse } from '@angular/common/http';
+import { registerUser } from 'apps/SuperFitnessApp/src/lib/auth-api/src/lib/interface/register';
 
 @Component({
   selector: 'app-regester',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule, // ✅ أضف هذا
-  ],
-  templateUrl: './Regester.component.html',
-  styleUrl: './Regester.component.scss',
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './regester.component.html',
+  styleUrls: ['./regester.component.scss'],
 })
-export class RegesterComponent {
-  private ngUnsubscribe = new Subject<void>();
-  private _router = inject(Router);
-  private _AuthApiService = inject(AuthApiService);
+export class RegisterComponent implements OnInit, OnDestroy {
+  form!: FormGroup;
+  loading = false;
+  errorMessage = '';
 
-  errormessage: string = '';
-  step: number = 1; // البداية من الخطوة الأولى
-  selectedGender: string = '';
+  // Pickers data
+  ages: number[]    = Array.from({ length: 83 }, (_, i) => i + 18);   // 18–100
+  weights: number[] = Array.from({ length: 120 }, (_, i) => i + 30);  // 30–149
+  heights: number[] = Array.from({ length: 120 }, (_, i) => i + 100); // 100–219
 
-  register: FormGroup = new FormGroup(
-    {
-      fname: new FormControl(null, validsignup.name),
-      lname: new FormControl(null, validsignup.name),
-      email: new FormControl(null, validsignup.email),
-      password: new FormControl(null, validsignup.Password),
-      repassword: new FormControl(null),
-      gender: new FormControl(null, validsignup.name),
-    },
-    { validators: this.confirmpass }
-  );
+  steps = ['Account','Gender','Age','Weight','Height','Goal & Activity'];
+  currentStep = 0;
 
-  confirmpass(g: AbstractControl) {
-    return g.get('password')?.value == g.get('repassword')?.value
-      ? null
-      : { missmatch: true };
+  private destroy$ = new Subject<void>();
+  private router    = inject(Router);
+  private authService = inject(AuthApiService);
+  private fb          = inject(FormBuilder);
+
+  ngOnInit() {
+    this.form = this.fb.group({
+        fname:      ['', [Validators.required, Validators.minLength(2)]],
+        lname:      ['', [Validators.required, Validators.minLength(2)]],
+        email:      ['', [Validators.required, Validators.email]],
+        password:   ['', [Validators.required, Validators.minLength(6)]],
+        repassword: ['', [Validators.required]],
+        gender:     [null, Validators.required],
+        age:        [null, [Validators.required]],
+        weight:     [null, [Validators.required]],
+        height:     [null, [Validators.required]],
+        goal:         [null, Validators.required],
+        activityLevel:[null, Validators.required],
+      },
+      { validators: RegisterComponent.passwordMatch }
+    );
   }
 
-  nextStep() {
-    if (
-      this.step === 1 &&
-      this.register.get('fname')?.valid &&
-      this.register.get('lname')?.valid &&
-      this.register.get('email')?.valid &&
-      this.register.get('password')?.valid &&
-      this.register.get('repassword')?.valid &&
-      !this.register.errors?.['missmatch']
-    ) {
-      this.step = 2;
+  // age picker
+  get selectedAgeIndex() {
+    return this.ages.findIndex(a => a === this.form.value.age);
+  }
+  onPickAge(age: number) {
+    this.form.get('age')!.setValue(age);
+  }
+  positionClassAge(idx: number) {
+    const d = idx - this.selectedAgeIndex;
+    if (d === 0) return 'center';
+    if (d === -1) return 'left';
+    if (d === 1) return 'right';
+    return 'hidden';
+  }
+
+  // weight picker
+  get selectedWeightIndex() {
+    return this.weights.findIndex(w => w === this.form.value.weight);
+  }
+  onPickWeight(w: number) {
+    this.form.get('weight')!.setValue(w);
+  }
+  positionClassWeight(idx: number) {
+    const d = idx - this.selectedWeightIndex;
+    if (d === 0) return 'center';
+    if (d === -1) return 'left';
+    if (d === 1) return 'right';
+    return 'hidden';
+  }
+
+  // height picker
+  get selectedHeightIndex() {
+    return this.heights.findIndex(h => h === this.form.value.height);
+  }
+  onPickHeight(h: number) {
+    this.form.get('height')!.setValue(h);
+  }
+  positionClassHeight(idx: number) {
+    const d = idx - this.selectedHeightIndex;
+    if (d === 0) return 'center';
+    if (d === -1) return 'left';
+    if (d === 1) return 'right';
+    return 'hidden';
+  }
+
+  // static validator
+  static passwordMatch: ValidatorFn = (g: AbstractControl) => {
+    const pass   = g.get('password')!.value;
+    const repass= g.get('repassword')!.value;
+    return pass === repass ? null : { mismatch: true };
+  };
+
+  isFirstStep() { return this.currentStep === 0; }
+  isLastStep()  { return this.currentStep === this.steps.length - 1; }
+
+  next() {
+    if (this.formStepValid() && !this.isLastStep()) {
+      this.currentStep++;
+    }
+  }
+  prev() {
+    if (!this.isFirstStep()) {
+      this.currentStep--;
     }
   }
 
-  selectGender(gender: string) {
-    this.selectedGender = gender;
-    this.register.get('gender')?.setValue(gender);
+  // each step controls
+  stepControls(): string[][] {
+    return [
+      ['fname','lname','email','password','repassword'],
+      ['gender'],
+      ['age'],
+      ['weight'],
+      ['height'],
+      ['goal','activityLevel']
+    ];
+  }
+  formStepValid(): boolean {
+    const keys = this.stepControls()[this.currentStep];
+    const allValid = keys.every(k => this.form.get(k)!.valid);
+    return allValid && !this.form.hasError('mismatch');
   }
 
-  signup() {
-    if (this.step === 1) {
-      this.nextStep(); // انتقل للخطوة التالية فقط
-      return;
-    }
+  submit() {
+    if (this.form.invalid) return;
+    this.loading = true;
+    const payload: registerUser = {
+      firstName:     this.form.value.fname,
+      lastName:      this.form.value.lname,
+      email:         this.form.value.email,
+      password:      this.form.value.password,
+      rePassword:    this.form.value.repassword,
+      gender:        this.form.value.gender,
+      age:           this.form.value.age,
+      weight:        this.form.value.weight,
+      height:        this.form.value.height,
+      goal:          this.form.value.goal,
+      activityLevel: this.form.value.activityLevel
+    };
 
-    if (this.register.invalid) return;
-
-    this._AuthApiService
-      .Regester(this.register.value)
-      .pipe(takeUntil(this.ngUnsubscribe))
+    this.authService.Regester(payload)
+      .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: (res: any) => {
-          if (res.message === undefined) {
-            this._router.navigate(['']);
-          }
-        },
+        next: () => this.router.navigate(['/']),
         error: (err: HttpErrorResponse) => {
-          this.errormessage = err.error?.message || 'An error occurred';
-        },
+          this.errorMessage = err.error?.message || 'An unexpected error';
+          this.loading = false;
+        }
       });
   }
 
   ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
