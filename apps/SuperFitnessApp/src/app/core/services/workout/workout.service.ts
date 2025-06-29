@@ -9,18 +9,18 @@ import { environment } from '../../environments/environment';
 })
 export class WorkoutService {
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private readonly _httpClient: HttpClient) { }
 
   getAllExercises(): Observable<IGetExercisesResponse> {
-    return this._httpClient.get<IGetExercisesResponse>(`${environment.baseUrl}${environment.apiEndpoints.exercises.getAllExercises()}`);
+    return this._httpClient.get<IGetExercisesResponse>(environment.api.exercises.getAllExercises());
   };
 
   getExercisesByMuscleAndDifficulty(muscleId: string, difficultyId: string): Observable<IGetExercisesByMuscleAndDifficultyResponse> {
-    return this._httpClient.get<IGetExercisesByMuscleAndDifficultyResponse>(`${environment.baseUrl}${environment.apiEndpoints.exercises.getExercisesByMuscleAndDifficulty(muscleId, difficultyId)}`);
+    return this._httpClient.get<IGetExercisesByMuscleAndDifficultyResponse>(environment.api.exercises.getExercisesByMuscleAndDifficulty(muscleId, difficultyId));
   };
 
   getRandomExercises(muscleId: string, difficultyId: string, limit: number): Observable<IGetRandomExercisesResponse> {
-    return this._httpClient.get<IGetRandomExercisesResponse>(`${environment.baseUrl}${environment.apiEndpoints.exercises.getRandomExercises(muscleId, difficultyId, limit)}`);
+    return this._httpClient.get<IGetRandomExercisesResponse>(environment.api.exercises.getRandomExercises(muscleId, difficultyId, limit));
   };
 
 }
