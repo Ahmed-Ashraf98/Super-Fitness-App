@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss';
+@use 'tailwindcss';
+@use "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+.color-242424{
+    color: #242424;
+
+}
+.color-FF4100{
+    color: #FF4100;
+}
+.bg-FF4100{
+    background: #FF4100;
+
+}
+.bg-FFFF2{
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(86px)
+}
