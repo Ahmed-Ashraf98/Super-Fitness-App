@@ -14,31 +14,39 @@ export const AUTH_ROUTES: Routes = [
       {
         path: 'login',
         loadComponent: () =>
-          import('./pages/components/login/login.component').then((c) => c.LoginComponent),
+          import('./pages/components/login/login.component').then(
+            (c) => c.LoginComponent
+          ),
       },
       {
         path: 'regester',
         loadComponent: () =>
-          import('./pages/components/Regester/Regester.component').then((c) => c.RegesterComponent),
+          import('./pages/components/Regester/Regester.component').then(
+            (c) => c.RegisterComponent
+          )
       },
 
       {
         path: 'forgot-password',
         loadComponent: () =>
-          import('./pages/components/ForgetPass/forget-pass/forget-pass.component').then((c) => c.ForgetPassComponent),
+          import(
+            './pages/components/ForgetPass/forget-pass/forget-pass.component'
+          ).then((c) => c.ForgetPassComponent),
       },
       {
         path: 'otp-code',
         loadComponent: () =>
-          import('./pages/components/ForgetPass/otp-code/otp-code.component').then((c) => c.OtpCodeComponent),
+          import(
+            './pages/components/ForgetPass/otp-code/otp-code.component'
+          ).then((c) => c.OtpCodeComponent),
       },
       {
         path: 'reset-password',
         loadComponent: () =>
-          import('./pages/components/ForgetPass/reset-pass/reset-pass.component').then((c) => c.ResetPassComponent),
+          import(
+            './pages/components/ForgetPass/reset-pass/reset-pass.component'
+          ).then((c) => c.ResetPassComponent),
       },
-
-
     ],
   },
 ];

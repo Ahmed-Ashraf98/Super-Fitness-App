@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gender',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './gender.component.html',
-  styleUrl: './gender.component.scss',
+  styleUrls: ['./gender.component.scss'],
 })
-export class GenderComponent {}
+export class GenderComponent {
+   @Input() form!: FormGroup;
+  currentStep = 1; 
+  stepsLength = 6; 
+}

@@ -1,1 +1,21 @@
-<p>age works!</p>
+<div class="step-header mb-5">
+  <div class="arc"></div>
+  <div class="step-indicator">{{ currentStep }}/{{ stepsLength }}</div>
+</div>
+
+<h2 class="picker-title">How Old Are You ?</h2>
+<p class="picker-subtitle">This Helps Us Create Your Personalized Plan</p>
+
+<h1 class="text-[#ff4500] m-5 text-center">Yea</h1>
+<div class="picker-list">
+  <div
+    *ngFor="let age of ages; let i = index"
+    class="picker-item"
+    [ngClass]="positionClassAge(i)"
+    (click)="onPickAge(age)"
+  >
+    {{ age }}
+    <span *ngIf="positionClassAge(i) === 'center'" class="arrow-up"></span>
+  </div>
+</div>
+

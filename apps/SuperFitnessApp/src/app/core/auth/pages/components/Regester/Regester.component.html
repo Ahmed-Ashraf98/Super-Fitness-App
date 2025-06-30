@@ -1,163 +1,78 @@
 <div class="register-container">
-  <div class="progress">
-    <div
-      class="progress-bar"
-      [style.width.%]="((currentStep + 1) / steps.length) * 100"
-    ></div>
-  </div>
+  <form [formGroup]="form" (ngSubmit)="isLastStep() ? submit() : next()">
+    <div class="step-wrapper">
+      <ng-container [ngSwitch]="currentStep" class="my-5">
+        <!-- Step 0: Account -->
+        <app-account-form
+          *ngSwitchCase="0"
+          [form]="form"
+          (nextStep)="next()"
+          (submitForm)="submit()"
+        ></app-account-form>
 
-  <div>
-    <form [formGroup]="form" (ngSubmit)="isLastStep() ? submit() : next()">
-      <ng-container [ngSwitch]="currentStep">
-        <!-- Account Step -->
-        <div *ngSwitchCase="0" class="step">
-          <app-account-form
-            [form]="form"
-            (nextStep)="next()"
-            (submitForm)="submit()"
-          ></app-account-form>
-        </div>
+        <!-- Step 1: Gender -->
+        <app-gender *ngSwitchCase="1" [form]="form"></app-gender>
 
-        <!-- Gender Step -->
-        <div *ngSwitchCase="1" class="gender-step">
-          <div class="step-indicator">
-            {{ currentStep + 1 }}/{{ steps.length }}
-          </div>
-          <div class="gender-title">Tell Us Your Gender</div>
-          <div class="gender-subtitle">Select one option</div>
-          <div class="gender-options">
-            <button
-              type="button"
-              class="gender-btn"
-              [class.selected]="form.value.gender === 'Male'"
-              (click)="form.get('gender')?.setValue('Male')"
-            >
-              <span class="gender-icon">♂</span>
-              <span class="gender-label">Male</span>
-            </button>
-            <button
-              type="button"
-              class="gender-btn"
-              [class.selected]="form.value.gender === 'Female'"
-              (click)="form.get('gender')?.setValue('Female')"
-            >
-              <span class="gender-icon">♀</span>
-              <span class="gender-label">Female</span>
-            </button>
-          </div>
-        </div>
+        <!-- Step 2: Age -->
+        <app-age
+          *ngSwitchCase="2"
+          [form]="form"
+          [ages]="ages"
+          [selectedAgeIndex]="selectedAgeIndex"
+          [positionClassAge]="positionClassAge.bind(this)"
+          [onPickAge]="onPickAge.bind(this)"
+        ></app-age>
 
-        <div *ngSwitchCase="2" class="picker-step">
-          <div class="step-header">
-            <div class="arc"></div>
-            <div class="step-indicator">
-              {{ currentStep + 1 }}/{{ steps.length }}
-            </div>
-          </div>
-          <h2 class="picker-title">How Old Are You?</h2>
-          <p class="picker-subtitle">
-            This Helps Us Create Your Personalized Plan
-          </p>
-          <div class="picker-list">
-            <div
-              *ngFor="let age of ages; let i = index"
-              class="picker-item"
-              [ngClass]="positionClassAge(i)"
-              (click)="onPickAge(age)"
-            >
-              {{ age }}
-              <span
-                *ngIf="positionClassAge(i) === 'center'"
-                class="arrow-up"
-              ></span>
-            </div>
-          </div>
-        </div>
+        <!-- Step 3: Weight -->
+        <app-weight
+          *ngSwitchCase="3"
+          [form]="form"
+          [weights]="weights"
+          [selectedWeightIndex]="selectedWeightIndex"
+          [positionClassWeight]="positionClassWeight.bind(this)"
+          [onPickWeight]="onPickWeight.bind(this)"
+        ></app-weight>
 
-        <!-- Step 3: Weight Picker -->
-        <div *ngSwitchCase="3" class="picker-step">
-          <div class="step-indicator">
-            {{ currentStep + 1 }}/{{ steps.length }}
-          </div>
-          <h2 class="picker-title">Your Weight (kg)</h2>
-          <div class="picker-list">
-            <div
-              *ngFor="let w of weights; let i = index"
-              class="picker-item"
-              [ngClass]="positionClassWeight(i)"
-              (click)="onPickWeight(w)"
-            >
-              {{ w }}
-              <span
-                *ngIf="positionClassWeight(i) === 'center'"
-                class="arrow-up"
-              ></span>
-            </div>
-          </div>
-        </div>
+        <!-- Step 4: Height -->
+        <app-height
+          *ngSwitchCase="4"
+          [form]="form"
+          [heights]="heights"
+          [selectedHeightIndex]="selectedHeightIndex"
+          [positionClassHeight]="positionClassHeight.bind(this)"
+          [onPickHeight]="onPickHeight.bind(this)"
+        ></app-height>
 
-        <!-- Step 4: Height Picker -->
-        <div *ngSwitchCase="4" class="picker-step">
-          <div class="step-indicator">
-            {{ currentStep + 1 }}/{{ steps.length }}
-          </div>
-          <h2 class="picker-title">Your Height (cm)</h2>
-          <div class="picker-list">
-            <div
-              *ngFor="let h of heights; let i = index"
-              class="picker-item"
-              [ngClass]="positionClassHeight(i)"
-              (click)="onPickHeight(h)"
-            >
-              {{ h }}
-              <span
-                *ngIf="positionClassHeight(i) === 'center'"
-                class="arrow-up"
-              ></span>
-            </div>
-          </div>
-        </div>
+        <!-- Step 5: Goal -->
+        <app-goal *ngSwitchCase="5" [form]="form"></app-goal>
 
-        <!-- Step 5: Goal & Activity -->
-        <div *ngSwitchCase="5" class="step">
-          <div class="step-indicator">
-            {{ currentStep + 1 }}/{{ steps.length }}
-          </div>
-          <div class="title">Set Your Goal & Activity</div>
-          <select formControlName="goal">
-            <option value="">Select Goal</option>
-            <option value="Lose Weight">Lose Weight</option>
-            <option value="Build Muscle">Build Muscle</option>
-          </select>
-          <select formControlName="activityLevel">
-            <option value="">Select Activity</option>
-            <option value="Low">Low</option>
-            <option value="Moderate">Moderate</option>
-            <option value="High">High</option>
-          </select>
-        </div>
+        <!-- Step 6: Activity Level -->
+        <app-activity-level
+          *ngSwitchCase="6"
+          [form]="form"
+        ></app-activity-level>
       </ng-container>
+    </div>
 
-      <div class="actions">
-  <button
-    type="button"
-    class="btn next-btn"
-    (click)="prev()"
-    [disabled]="isFirstStep()"
-  >
-    Back
-  </button>
-  <button
-    type="submit"
-    class="btn next-btn"
-    [disabled]="loading || !formStepValid()"
-  >
-    {{ isLastStep() ? 'Submit' : 'Next' }}
-  </button>
-</div>
+    <!-- Actions -->
+    <div class="actions">
+      <button
+        type="button"
+        class="btn next-btn"
+        (click)="prev()"
+        [disabled]="isFirstStep()"
+      >
+        Back
+      </button>
+      <button
+        type="submit"
+        class="btn next-btn"
+        [disabled]="loading || !formStepValid()"
+      >
+        {{ isLastStep() ? 'Submit' : 'Next' }}
+      </button>
+    </div>
 
-
-      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-    </form>
-  </div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </form>
 </div>

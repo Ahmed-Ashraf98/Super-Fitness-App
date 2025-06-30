@@ -1,4 +1,4 @@
-<div class="form-box">
+<form [formGroup]="form" class="form-box">
   <div class="greeting title">Create Your Account</div>
   <input formControlName="fname" placeholder="First Name" />
   <input formControlName="lname" placeholder="Last Name" />
@@ -7,7 +7,7 @@
   <input formControlName="repassword" placeholder="Confirm Password" type="password" />
 
   <div class="forgot">
-    <a href="#">Forget Password ?</a>
+    <a routerLink="/auth/forgot-password">Forget Password ?</a>
   </div>
 
   <div class="divider">Or</div>
@@ -17,4 +17,4 @@
     <i class="fab fa-google"></i>
     <i class="fab fa-apple"></i>
   </div>
-</div>
+</form>

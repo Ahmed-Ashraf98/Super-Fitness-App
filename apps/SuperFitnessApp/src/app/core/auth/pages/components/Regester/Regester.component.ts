@@ -13,162 +13,199 @@ import { Router } from '@angular/router';
 import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
 import { HttpErrorResponse } from '@angular/common/http';
 import { registerUser } from 'apps/SuperFitnessApp/src/lib/auth-api/src/lib/interface/register';
+import { AccountFormComponent } from './components steps/Account-form/account-form.component';
+import { GenderComponent } from './components steps/gender/gender.component';
+import { AgeComponent } from './components steps/age/age.component';
+import { WeightComponent } from './components steps/weight/weight.component';
+import { HeightComponent } from './components steps/height/height.component';
+import { GoalComponent } from './components steps/goal/goal.component';
+import { ActivityLevelComponent } from './components steps/activityLevel/activityLevel.component';
 
 @Component({
   selector: 'app-regester',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './regester.component.html',
-  styleUrls: ['./regester.component.scss'],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    AccountFormComponent,
+    GenderComponent,
+    AgeComponent,
+    WeightComponent,
+    HeightComponent,
+    GoalComponent,
+    ActivityLevelComponent,
+  ],
+  templateUrl: './Regester.component.html',
+  styleUrls: ['./Regester.component.scss'],
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   loading = false;
   errorMessage = '';
 
-  // Pickers data
-  ages: number[]    = Array.from({ length: 83 }, (_, i) => i + 18);   // 18–100
-  weights: number[] = Array.from({ length: 120 }, (_, i) => i + 30);  // 30–149
-  heights: number[] = Array.from({ length: 120 }, (_, i) => i + 100); // 100–219
+  // Picker ranges
+  readonly ages = this.range(10, 99);
+  readonly weights = this.range(30, 149);
+  readonly heights = this.range(100, 219);
 
-  steps = ['Account','Gender','Age','Weight','Height','Goal & Activity'];
+  steps = ['Account', 'Gender', 'Age', 'Weight', 'Height', 'Goal', 'Activity'];
   currentStep = 0;
 
   private destroy$ = new Subject<void>();
-  private router    = inject(Router);
-  private authService = inject(AuthApiService);
-  private fb          = inject(FormBuilder);
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthApiService);
+  private readonly fb = inject(FormBuilder);
 
   ngOnInit() {
-    this.form = this.fb.group({
-        fname:      ['', [Validators.required, Validators.minLength(2)]],
-        lname:      ['', [Validators.required, Validators.minLength(2)]],
-        email:      ['', [Validators.required, Validators.email]],
-        password:   ['', [Validators.required, Validators.minLength(6)]],
+    this.initializeForm();
+  }
+
+  private initializeForm(): void {
+    this.form = this.fb.group(
+      {
+        fname: ['', [Validators.required, Validators.minLength(2)]],
+        lname: ['', [Validators.required, Validators.minLength(2)]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
         repassword: ['', [Validators.required]],
-        gender:     [null, Validators.required],
-        age:        [null, [Validators.required]],
-        weight:     [null, [Validators.required]],
-        height:     [null, [Validators.required]],
-        goal:         [null, Validators.required],
-        activityLevel:[null, Validators.required],
+        gender: [null, Validators.required],
+        age: [18, Validators.required],
+        weight: [70, Validators.required],
+        height: [150, Validators.required],
+        goal: [null, Validators.required],
+        activityLevel: [null, Validators.required],
       },
-      { validators: RegisterComponent.passwordMatch }
+      { validators: RegisterComponent.passwordMatchValidator }
     );
   }
 
-  // age picker
-  get selectedAgeIndex() {
-    return this.ages.findIndex(a => a === this.form.value.age);
+  // Utility function to create ranges
+  private range(start: number, end: number): number[] {
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   }
-  onPickAge(age: number) {
-    this.form.get('age')!.setValue(age);
+
+  // Common picker logic
+  getSelectedIndex(list: number[], value: number): number {
+    return list.findIndex((v) => v === value);
   }
-  positionClassAge(idx: number) {
-    const d = idx - this.selectedAgeIndex;
-    if (d === 0) return 'center';
-    if (d === -1) return 'left';
-    if (d === 1) return 'right';
+
+  onPick(value: number, controlName: string): void {
+    this.form.get(controlName)?.setValue(value);
+  }
+
+  positionClass(list: number[], value: number, idx: number): string {
+    const selectedIndex = this.getSelectedIndex(list, value);
+    const diff = idx - selectedIndex;
+    if (diff === 0) return 'center';
+    if (diff > 0 && diff <= 3) return `r${diff}`;
+    if (diff < 0 && diff >= -3) return `l${Math.abs(diff)}`;
     return 'hidden';
   }
 
-  // weight picker
-  get selectedWeightIndex() {
-    return this.weights.findIndex(w => w === this.form.value.weight);
+  // Age methods
+  get selectedAgeIndex(): number {
+    return this.getSelectedIndex(this.ages, this.form.value.age);
   }
-  onPickWeight(w: number) {
-    this.form.get('weight')!.setValue(w);
+  onPickAge(age: number): void {
+    this.onPick(age, 'age');
   }
-  positionClassWeight(idx: number) {
-    const d = idx - this.selectedWeightIndex;
-    if (d === 0) return 'center';
-    if (d === -1) return 'left';
-    if (d === 1) return 'right';
-    return 'hidden';
+  positionClassAge(idx: number): string {
+    return this.positionClass(this.ages, this.form.value.age, idx);
   }
 
-  // height picker
-  get selectedHeightIndex() {
-    return this.heights.findIndex(h => h === this.form.value.height);
+  // Weight methods
+  get selectedWeightIndex(): number {
+    return this.getSelectedIndex(this.weights, this.form.value.weight);
   }
-  onPickHeight(h: number) {
-    this.form.get('height')!.setValue(h);
+  onPickWeight(weight: number): void {
+    this.onPick(weight, 'weight');
   }
-  positionClassHeight(idx: number) {
-    const d = idx - this.selectedHeightIndex;
-    if (d === 0) return 'center';
-    if (d === -1) return 'left';
-    if (d === 1) return 'right';
-    return 'hidden';
+  positionClassWeight(idx: number): string {
+    return this.positionClass(this.weights, this.form.value.weight, idx);
   }
 
-  // static validator
-  static passwordMatch: ValidatorFn = (g: AbstractControl) => {
-    const pass   = g.get('password')!.value;
-    const repass= g.get('repassword')!.value;
-    return pass === repass ? null : { mismatch: true };
+  // Height methods
+  get selectedHeightIndex(): number {
+    return this.getSelectedIndex(this.heights, this.form.value.height);
+  }
+  onPickHeight(height: number): void {
+    this.onPick(height, 'height');
+  }
+  positionClassHeight(idx: number): string {
+    return this.positionClass(this.heights, this.form.value.height, idx);
+  }
+
+  static passwordMatchValidator: ValidatorFn = (control: AbstractControl) => {
+    const password = control.get('password')?.value;
+    const repassword = control.get('repassword')?.value;
+    return password === repassword ? null : { mismatch: true };
   };
 
-  isFirstStep() { return this.currentStep === 0; }
-  isLastStep()  { return this.currentStep === this.steps.length - 1; }
+  isFirstStep(): boolean {
+    return this.currentStep === 0;
+  }
 
-  next() {
+  isLastStep(): boolean {
+    return this.currentStep === this.steps.length - 1;
+  }
+
+  next(): void {
     if (this.formStepValid() && !this.isLastStep()) {
       this.currentStep++;
     }
   }
-  prev() {
+
+  prev(): void {
     if (!this.isFirstStep()) {
       this.currentStep--;
     }
   }
 
-  // each step controls
-  stepControls(): string[][] {
+  private stepControls(): string[][] {
     return [
-      ['fname','lname','email','password','repassword'],
+      ['fname', 'lname', 'email', 'password', 'repassword'],
       ['gender'],
       ['age'],
       ['weight'],
       ['height'],
-      ['goal','activityLevel']
+      ['goal'],
+      ['activityLevel'],
     ];
   }
+
   formStepValid(): boolean {
-    const keys = this.stepControls()[this.currentStep];
-    const allValid = keys.every(k => this.form.get(k)!.valid);
+    const controls = this.stepControls()[this.currentStep];
+    const allValid = controls.every((key) => this.form.get(key)?.valid);
     return allValid && !this.form.hasError('mismatch');
   }
 
-  submit() {
+  submit(): void {
     if (this.form.invalid) return;
+
     this.loading = true;
     const payload: registerUser = {
-      firstName:     this.form.value.fname,
-      lastName:      this.form.value.lname,
-      email:         this.form.value.email,
-      password:      this.form.value.password,
-      rePassword:    this.form.value.repassword,
-      gender:        this.form.value.gender,
-      age:           this.form.value.age,
-      weight:        this.form.value.weight,
-      height:        this.form.value.height,
-      goal:          this.form.value.goal,
-      activityLevel: this.form.value.activityLevel
+      firstName: this.form.value.fname,
+      lastName: this.form.value.lname,
+      email: this.form.value.email,
+      password: this.form.value.password,
+      rePassword: this.form.value.repassword,
+      gender: this.form.value.gender,
+      weight: this.form.value.weight,
+      height: this.form.value.height,
+      age: this.form.value.age,
+      goal: this.form.value.goal,
+      activityLevel: this.form.value.activityLevel,
     };
 
-    this.authService.Regester(payload)
+    this.authService
+      .Regester(payload)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: () => this.router.navigate(['/']),
-        error: (err: HttpErrorResponse) => {
-          this.errorMessage = err.error?.message || 'An unexpected error';
-          this.loading = false;
-        }
+        next: () => this.router.navigate(['/auth/login']),
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
