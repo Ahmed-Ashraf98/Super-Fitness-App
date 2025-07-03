@@ -27,17 +27,7 @@ export const AUTH_ROUTES: Routes = [
         loadComponent: () =>
           import('./pages/components/ForgetPass/forget-pass/forget-pass.component').then((c) => c.ForgetPassComponent),
       },
-      {
-        path: 'otp-code',
-        loadComponent: () =>
-          import('./pages/components/ForgetPass/otp-code/otp-code.component').then((c) => c.OtpCodeComponent),
-      },
-      {
-        path: 'reset-password',
-        loadComponent: () =>
-          import('./pages/components/ForgetPass/reset-pass/reset-pass.component').then((c) => c.ResetPassComponent),
-      },
-
+     
 
     ],
   },
