@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @use 'tailwindcss';
 @use "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
@@ -21,3 +22,10 @@
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(86px)
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600;700&display=swap');
+
+html, body {
+  font-family: 'Baloo Thambi 2', system-ui, sans-serif;
+}
+

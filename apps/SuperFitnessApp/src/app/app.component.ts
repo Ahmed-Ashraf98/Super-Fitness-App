@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -8,6 +9,11 @@ declare function initFlowbite(): void;
 
 @Component({
   imports: [RouterModule, ButtonModule, MainPageComponent],
+  import { RouterOutlet } from '@angular/router';
+
+@Component({
+  imports: [RouterOutlet],
+
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
