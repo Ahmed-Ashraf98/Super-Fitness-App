@@ -3,11 +3,13 @@ import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { FlowbiteService } from './core/services/flowbite.service';
 import { MainPageComponent } from "./shared/components/main-page/main-page.component";
+import { RouterOutlet } from '@angular/router';
 declare function initFlowbite(): void;
 
 
+
 @Component({
-  imports: [RouterModule, ButtonModule, MainPageComponent],
+  imports: [RouterModule, ButtonModule, MainPageComponent,RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
