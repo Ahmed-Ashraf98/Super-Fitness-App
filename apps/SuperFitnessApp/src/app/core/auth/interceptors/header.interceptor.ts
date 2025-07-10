@@ -1,22 +1,27 @@
-import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
-@Injectable()
-export class HeaderInterceptor implements HttpInterceptor {
-  private jwtHelper = new JwtHelperService();
+export const headerInterceptor: HttpInterceptorFn = (req, next) => {
+  const auth: AuthService = inject(AuthService);
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('token');
-    if (token && !this.jwtHelper.isTokenExpired(token)) {
-      const cloned = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return next.handle(cloned);
-    }
-    return next.handle(req);
+  // URLs اللي ما نضيفش فيها التوكن
+  const excludedUrls = ['/auth/signup', '/auth/signin'];
+
+  const isExcluded = excludedUrls.some(url => req.url.includes(url));
+
+  if (isExcluded) {
+    return next(req);
   }
-} 
+
+  const currentToken = auth.currentToken;
+
+  if (currentToken) {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${currentToken}`,
+      },
+    });
+  }
+  return next(req);
+};

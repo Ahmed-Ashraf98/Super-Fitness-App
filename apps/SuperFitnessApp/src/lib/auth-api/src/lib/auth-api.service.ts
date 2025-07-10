@@ -22,13 +22,13 @@ export class AuthApiService implements AuthAPI {
     private _AuthLoginAPIAdapter: AuthLoginAPIAdapter,
     private _AuthRegisterAPIAdapter: AuthRegisterAPIAdapter
   ) { }
-  Login(data: loginUser): Observable<LoginRes | never[]> {
+  Login(data: loginUser): Observable<LoginRes> {
     return this._HttpClient.post(AuthENDPOINT.LOGIN, data).pipe(
       map((res: any) =>  this._AuthLoginAPIAdapter.adapt(res)),
     );
   }
 
-  Regester(data: registerUser): Observable<RegisterRes | never[]> {
+  Regester(data: registerUser): Observable<RegisterRes> {
     return this._HttpClient.post(AuthENDPOINT.REGISER, data).pipe(
       map((res: any) => this._AuthRegisterAPIAdapter.adapt(res)),
     );
