@@ -34,7 +34,7 @@
       <h2 class="text-center">Reset Password</h2>
       <form [formGroup]="resetForm" (ngSubmit)="submitReset()">
         <div class="input-group">
-          <input type="email" formControlName="email" placeholder="Email" readonly />
+          <input type="email" formControlName="email" placeholder="Email" readonly style="display: none;" />
         </div>
         <div class="input-group">
           <input type="password" formControlName="newPassword" placeholder="New Password" aria-label="New Password" />
