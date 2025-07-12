@@ -10,4 +10,8 @@ export const aiResponse = createAction(
   props<{ content: string }>()
 );
 
+export const openChat = createAction('[Chatbot] Open Chat');
+
+// export const closeChat = createAction('[Chatbot] Close Chat');
+
 export const clearChat = createAction('[Chatbot] Clear Chat');

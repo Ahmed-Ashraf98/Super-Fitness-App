@@ -1,22 +1,25 @@
 <div class="input-box flex items-center gap-2">
-  <div class="input-field w-[80%]">
-    <p-iconfield>
-      <p-inputicon
-        styleClass="pi pi-pencil"
-        style="color: var(--primary-color)"
-      />
-      <input
-        type="text"
-        pInputText
-        [(ngModel)]="userMessage"
-        placeholder="Ask Me Any Things"
-        class="w-full"
-      />
-    </p-iconfield>
-  </div>
+  <form class="w-[80%]" [formGroup]="formObj" (ngSubmit)="sendMessage()">
+    <div class="w-full">
+      <p-iconfield>
+        <p-inputicon
+          styleClass="pi pi-pencil"
+          style="color: var(--primary-color)"
+        />
+        <input
+          type="text"
+          pInputText
+          formControlName="prompt"
+          placeholder="Ask Me Any Things"
+          class="w-full"
+        />
+      </p-iconfield>
+    </div>
+  </form>
+
   <i
     (click)="sendMessage()"
-    class="pi pi-send"
+    class="pi pi-send cursor-pointer"
     style="font-size: 16px; color: var(--primary-color)"
   ></i>
 </div>

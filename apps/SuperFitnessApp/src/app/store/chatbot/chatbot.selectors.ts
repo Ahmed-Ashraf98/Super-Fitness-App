@@ -12,3 +12,5 @@ export const loadingStatus = createSelector(
   chatbotSelectors,
   (state) => state.isLoading
 );
+
+export const isOpen = createSelector(chatbotSelectors, (state) => state.isOpen);

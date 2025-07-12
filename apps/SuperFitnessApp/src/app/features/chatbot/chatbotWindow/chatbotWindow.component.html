@@ -1,6 +1,10 @@
 <!-- <p-skeleton styleClass="mb-2" borderRadius="16px" width="10rem" />
 <p-skeleton width="8rem" height="1rem" styleClass="mb-2" borderRadius="16px" /> -->
-<div class="chatbot-window">
+<div
+  class="chatbot-window"
+  [class.open]="isOpen$ | async"
+  [class.close]="!(isOpen$ | async)"
+>
   <div class="chatbot-window__container h-full w-full position-relative">
     <div
       class="chatbot-window__header mt-[41px] mx-[16px] flex justify-between items-center"

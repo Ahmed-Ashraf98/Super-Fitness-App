@@ -4,7 +4,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-chatbot-input',
   imports: [
@@ -13,17 +13,21 @@ import { FormsModule } from '@angular/forms';
     InputIconModule,
     InputTextModule,
     ButtonModule,
-    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './chatbotInput.component.html',
   styleUrl: './chatbotInput.component.scss',
 })
 export class ChatbotInputComponent {
-  userMessage: string = '';
   onSend = output<string>();
 
+  formObj = new FormGroup({
+    prompt: new FormControl(''),
+  });
+
   sendMessage() {
-    this.onSend.emit(this.userMessage);
-    this.userMessage = '';
+    console.log('Sending message:', this.formObj.value.prompt);
+    this.onSend.emit(this.formObj.value.prompt!);
+    this.formObj.reset();
   }
 }

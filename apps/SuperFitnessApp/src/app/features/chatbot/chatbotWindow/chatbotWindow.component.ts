@@ -24,10 +24,10 @@ export class ChatbotWindowComponent implements OnInit {
     maxOutputTokens: 1024,
   };
 
-  // private readonly genAI!: GoogleGenAI;
   private chatModal!: Chat;
   chatHistory$!: Observable<ChatMessage[]>;
   isLoading$!: Observable<boolean>;
+  isOpen$!: Observable<boolean>;
 
   private readonly _store = inject(Store);
 
@@ -37,22 +37,10 @@ export class ChatbotWindowComponent implements OnInit {
       apiKey: apiKey,
     });
 
-    // genAI.chats.create();
-
     this.chatModal = genAI.chats.create({
       model: this.geminiModel,
       config: this.geminiConfig,
     });
-
-    // this.chatModal
-    //   .sendMessage({
-    //     message: 'Help me with my fitness goals!',
-    //   })
-    //   .then((response) => {
-    //     console.log('Chatbot initialized:', response);
-    //     let res = this.chatModal.getHistory();
-    //     console.log('Chat history:', res);
-    //   });
   }
 
   sendMessage(message: string) {
@@ -83,9 +71,14 @@ export class ChatbotWindowComponent implements OnInit {
     this.isLoading$ = this._store.select(ChatbotSelectors.loadingStatus);
   }
 
+  trackChatStatus() {
+    this.isOpen$ = this._store.select(ChatbotSelectors.isOpen);
+  }
+
   ngOnInit(): void {
     this.initGeminiChatModal();
     this.trackChatHistory();
     this.trackLoading();
+    this.trackChatStatus();
   }
 }

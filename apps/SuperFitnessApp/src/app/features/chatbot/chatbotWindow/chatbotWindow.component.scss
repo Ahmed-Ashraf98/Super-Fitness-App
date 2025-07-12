@@ -1,16 +1,34 @@
 .chatbot-window {
   width: 375px;
   color: #fff;
-  height: 60%;
-  bottom: 0;
-  border-radius: 20px;
-  border-width: 2px;
-  position: fixed;
-  border: 2px solid #ff4100;
+  // border-radius: 20px;
+  // border-width: 2px;
+  // position: relative;
+  // border: 2px solid #ff4100;
   box-shadow: 0px 4px 217.4px 0px #000000;
   overflow: hidden;
   background: url('/chat-window-bg.jpg') no-repeat 65% 50%;
   background-size: cover;
+  transform: translateY(100%);
+  transition: all 0.5s;
+
+  &.open {
+    border-radius: 20px;
+    border-width: 2px;
+    border: 2px solid #ff4100;
+    transform: translateY(0);
+    height: calc(100vh - 200px);
+    // animation: open-chatbot 0.5s ease-in-out;
+  }
+
+  &.close {
+    border-radius: 20px;
+    border-width: 0px;
+    border: 0px solid #ff4100;
+    transform: translateY(100%);
+    height: 0;
+    // animation: close-chatbot 0.5s ease-in-out;
+  }
 }
 
 .chatbot-window__container {
@@ -70,4 +88,22 @@
 .chatbot-window__messages::-webkit-scrollbar-thumb:hover {
   /* Use a darker color directly if not using SCSS */
   background-color: #e03a00; /* slightly darker than #ff4100 */
+}
+
+@keyframes open-chatbot {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes close-chatbot {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }

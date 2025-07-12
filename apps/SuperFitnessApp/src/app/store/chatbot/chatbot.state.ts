@@ -12,10 +12,12 @@ export interface ChatbotState {
   chatHistory: ChatMessage[];
   isLoading: boolean;
   error: string | null;
+  isOpen: boolean;
 }
 
 export const initialChatState: ChatbotState = {
   chatHistory: [],
   isLoading: false,
   error: null,
+  isOpen: false,
 };

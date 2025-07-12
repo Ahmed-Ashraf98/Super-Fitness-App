@@ -4,6 +4,12 @@ import * as ChatbotActions from './chatbot.actions';
 
 export const chatbotReducers = createReducer(
   initialChatState,
+
+  on(ChatbotActions.openChat, (state) => ({
+    ...state,
+    isOpen: true,
+  })),
+
   on(ChatbotActions.sendMessage, (state, { content }) => ({
     ...state,
     chatHistory: [...state.chatHistory, { role: ChatbotRole.USER, content }],
