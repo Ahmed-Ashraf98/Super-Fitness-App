@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChatbotInputComponent } from '../chatbotInput/chatbotInput.component';
 import { GoogleGenAI, Chat } from '@google/genai';
@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment.development';
 import * as ChatbotSelectors from '../../../store/chatbot/chatbot.selectors';
 import * as ChatbotActions from '../../../store/chatbot/chatbot.actions';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { ChatMessage } from '../../../store/chatbot/chatbot.state';
 import { MessageCardComponent } from '../messageCard/messageCard.component';
 
@@ -27,7 +27,8 @@ export class ChatbotWindowComponent implements OnInit {
   private chatModal!: Chat;
   chatHistory$!: Observable<ChatMessage[]>;
   isLoading$!: Observable<boolean>;
-  isOpen$!: Observable<boolean>;
+  isOpen: boolean = false;
+  sub$ = new Subject();
 
   private readonly _store = inject(Store);
 
@@ -41,6 +42,12 @@ export class ChatbotWindowComponent implements OnInit {
       model: this.geminiModel,
       config: this.geminiConfig,
     });
+  }
+
+  startChat() {
+    setTimeout(() => {
+      this.sendMessage('Hello');
+    }, 2000);
   }
 
   sendMessage(message: string) {
@@ -72,7 +79,17 @@ export class ChatbotWindowComponent implements OnInit {
   }
 
   trackChatStatus() {
-    this.isOpen$ = this._store.select(ChatbotSelectors.isOpen);
+    this._store
+      .select(ChatbotSelectors.isOpen)
+      .pipe(takeUntil(this.sub$))
+      .subscribe({
+        next: (val) => {
+          this.isOpen = val;
+          if (this.isOpen) {
+            this.startChat();
+          }
+        },
+      });
   }
 
   ngOnInit(): void {
