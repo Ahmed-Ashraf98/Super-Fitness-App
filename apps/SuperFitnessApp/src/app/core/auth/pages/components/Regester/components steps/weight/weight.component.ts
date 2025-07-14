@@ -14,12 +14,6 @@ export class WeightComponent {
   @Input() selectedWeightIndex!: number;
   @Input() positionClassWeight!: (i: number) => string;
   @Input() onPickWeight!: (w: number) => void;
-
-  get currentStep(): number {
-    return 3;
-  }
-
-  get stepsLength(): number {
-    return 6;
-  }
+  @Input() currentStep!: number;
+  @Input() stepsLength!: number;
 }

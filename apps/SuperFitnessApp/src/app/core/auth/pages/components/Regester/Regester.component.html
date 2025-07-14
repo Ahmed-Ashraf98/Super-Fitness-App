@@ -1,60 +1,63 @@
 <div class="register-container">
   <form [formGroup]="form" (ngSubmit)="isLastStep() ? submit() : next()">
-    <div class="step-wrapper">
-      <ng-container [ngSwitch]="currentStep" class="my-5">
-        <!-- Step 0: Account -->
-        <app-account-form
-          *ngSwitchCase="0"
-          [form]="form"
-          (nextStep)="next()"
-          (submitForm)="submit()"
-        ></app-account-form>
-
-        <!-- Step 1: Gender -->
-        <app-gender *ngSwitchCase="1" [form]="form"></app-gender>
-
-        <!-- Step 2: Age -->
-        <app-age
-          *ngSwitchCase="2"
-          [form]="form"
-          [ages]="ages"
-          [selectedAgeIndex]="selectedAgeIndex"
-          [positionClassAge]="positionClassAge.bind(this)"
-          [onPickAge]="onPickAge.bind(this)"
-        ></app-age>
-
-        <!-- Step 3: Weight -->
-        <app-weight
-          *ngSwitchCase="3"
-          [form]="form"
-          [weights]="weights"
-          [selectedWeightIndex]="selectedWeightIndex"
-          [positionClassWeight]="positionClassWeight.bind(this)"
-          [onPickWeight]="onPickWeight.bind(this)"
-        ></app-weight>
-
-        <!-- Step 4: Height -->
-        <app-height
-          *ngSwitchCase="4"
-          [form]="form"
-          [heights]="heights"
-          [selectedHeightIndex]="selectedHeightIndex"
-          [positionClassHeight]="positionClassHeight.bind(this)"
-          [onPickHeight]="onPickHeight.bind(this)"
-        ></app-height>
-
-        <!-- Step 5: Goal -->
-        <app-goal *ngSwitchCase="5" [form]="form"></app-goal>
-
-        <!-- Step 6: Activity Level -->
-        <app-activity-level
-          *ngSwitchCase="6"
-          [form]="form"
-        ></app-activity-level>
-      </ng-container>
+    <div class="step-wrapper my-5">
+      @switch (currentStep()) { @case (0) {
+      <app-account-form
+        [form]="form"
+        (nextStep)="next()"
+        (submitForm)="submit()"
+      ></app-account-form>
+      } @case (1) {
+      <app-gender
+        [form]="form"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-gender>
+      } @case (2) {
+      <app-age
+        [form]="form"
+        [ages]="ages"
+        [selectedAgeIndex]="selectedAgeIndex"
+        [positionClassAge]="positionClassAge.bind(this)"
+        [onPickAge]="onPickAge.bind(this)"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-age>
+      } @case (3) {
+      <app-weight
+        [form]="form"
+        [weights]="weights"
+        [selectedWeightIndex]="selectedWeightIndex"
+        [positionClassWeight]="positionClassWeight.bind(this)"
+        [onPickWeight]="onPickWeight.bind(this)"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-weight>
+      } @case (4) {
+      <app-height
+        [form]="form"
+        [heights]="heights"
+        [selectedHeightIndex]="selectedHeightIndex"
+        [positionClassHeight]="positionClassHeight.bind(this)"
+        [onPickHeight]="onPickHeight.bind(this)"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-height>
+      } @case (5) {
+      <app-goal
+        [form]="form"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-goal>
+      } @case (6) {
+      <app-activity-level
+        [form]="form"
+        [currentStep]="currentStep() + 1"
+        [stepsLength]="steps.length"
+      ></app-activity-level>
+      } }
     </div>
 
-    <!-- Actions -->
     <div class="actions">
       <button
         type="button"
@@ -73,6 +76,8 @@
       </button>
     </div>
 
-    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    @if (errorMessage) {
+    <div class="error">{{ errorMessage }}</div>
+    }
   </form>
 </div>

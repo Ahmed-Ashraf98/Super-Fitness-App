@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   readonly heights = this.range(100, 219);
 
   steps = ['Account', 'Gender', 'Age', 'Weight', 'Height', 'Goal', 'Activity'];
-  currentStep = 0;
+  currentStep = signal(0);
 
   private destroy$ = new Subject<void>();
   private readonly router = inject(Router);
@@ -142,22 +142,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
   };
 
   isFirstStep(): boolean {
-    return this.currentStep === 0;
+    return this.currentStep() === 0;
   }
 
   isLastStep(): boolean {
-    return this.currentStep === this.steps.length - 1;
+    return this.currentStep() === this.steps.length - 1;
   }
 
   next(): void {
     if (this.formStepValid() && !this.isLastStep()) {
-      this.currentStep++;
+      this.currentStep.update((value) => value + 1);
     }
   }
 
   prev(): void {
     if (!this.isFirstStep()) {
-      this.currentStep--;
+      this.currentStep.update((value) => value - 1);
     }
   }
 
@@ -174,7 +174,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   formStepValid(): boolean {
-    const controls = this.stepControls()[this.currentStep];
+    const controls = this.stepControls()[this.currentStep()];
     const allValid = controls.every((key) => this.form.get(key)?.valid);
     return allValid && !this.form.hasError('mismatch');
   }

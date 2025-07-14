@@ -16,12 +16,6 @@ export class HeightComponent {
   @Input() selectedHeightIndex!: number;
   @Input() positionClassHeight!: (i: number) => string;
   @Input() onPickHeight!: (h: number) => void;
-
-  get currentStep(): number {
-    return 4;
-  }
-
-  get stepsLength(): number {
-    return 6;
-  }
+  @Input() currentStep!: number;
+  @Input() stepsLength!: number;
 }

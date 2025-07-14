@@ -10,7 +10,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./gender.component.scss'],
 })
 export class GenderComponent {
-   @Input() form!: FormGroup;
-  currentStep = 1; 
-  stepsLength = 6; 
+  @Input() form!: FormGroup;
+  @Input() currentStep!: number;
+  @Input() stepsLength!: number;
 }

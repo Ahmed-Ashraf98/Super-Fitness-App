@@ -10,6 +10,6 @@ import { ReactiveFormsModule, FormGroup } from '@angular/forms';
 })
 export class ActivityLevelComponent {
   @Input() form!: FormGroup;
-  currentStep = 6;
-  stepsLength = 6;
+  @Input() currentStep!: number;
+  @Input() stepsLength!: number;
 }

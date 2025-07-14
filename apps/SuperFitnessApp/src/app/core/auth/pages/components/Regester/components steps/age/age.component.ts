@@ -14,12 +14,6 @@ export class AgeComponent {
   @Input() selectedAgeIndex!: number;
   @Input() positionClassAge!: (i: number) => string;
   @Input() onPickAge!: (age: number) => void;
-
-  get currentStep(): number {
-    return 2; // ثابت أو يُمرّر إن أردت
-  }
-
-  get stepsLength(): number {
-    return 6; // ثابت أو يُمرّر إن أردت
-  }
+  @Input() currentStep!: number;
+  @Input() stepsLength!: number;
 }

@@ -11,6 +11,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class GoalComponent {
   @Input() form!: FormGroup;
-  currentStep = 5; // Assuming this is the fifth step in the registration process
-  stepsLength = 6; // Total number of steps in the registration process
+  @Input() currentStep!: number;
+@Input() stepsLength!: number;
+
 }
