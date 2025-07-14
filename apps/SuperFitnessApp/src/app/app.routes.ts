@@ -10,5 +10,14 @@ export const appRoutes: Routes = [
   {
     path: 'auth',
     children: AUTH_ROUTES, 
-  },
+  },{
+        path: 'home',
+        loadComponent: () =>
+          import('./shared/components/home/home.component').then((c) => c.HomeComponent),
+      },
+     {
+        path: 'about',
+        loadComponent: () =>
+          import('./shared/components/about-us/about-us.component').then((c) => c.AboutUsComponent),
+      },
 ];
