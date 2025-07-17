@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
-
+@use "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 @use 'primeicons/primeicons.css';
 
 @font-face {
@@ -34,6 +36,39 @@
   --font-family: 'BalooThambi2', sans-serif;
 }
 
-body {
-  font-family: var(--font-family);
+.color-242424{
+    color: #242424;
+
+}
+.color-FF4100{
+    color: #FF4100;
+}
+.bg-FF4100{
+    background: #FF4100;
+
+}
+.bg-FFFF2{
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(86px)
+}
+.bg-F3F3F4{
+    background: #F3F3F4;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;600;700&display=swap');
+
+html, body {
+  // font-family: 'Baloo Thambi 2', system-ui, sans-serif;
+  font-family: var(--font-family), system-ui, sans-serif;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(86.099px);
+    z-index: 1;
+}
+.z{
+    z-index: 2;
 }
