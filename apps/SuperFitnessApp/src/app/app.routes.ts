@@ -13,11 +13,11 @@ export const appRoutes: Routes = [
   },{
         path: 'home',
         loadComponent: () =>
-          import('./shared/components/home/home.component').then((c) => c.HomeComponent),
+          import('./core/components/home/home.component').then((c) => c.HomeComponent),
       },
      {
         path: 'about',
         loadComponent: () =>
-          import('./shared/components/about-us/about-us.component').then((c) => c.AboutUsComponent),
+          import('./core/components/about-us/about-us.component').then((c) => c.AboutUsComponent),
       },
 ];
