@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class HorizonbarComponent {
 
-  horizon=["outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes",]
+  horizon=["outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","personal trainers"]
 
 }
