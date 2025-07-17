@@ -6,7 +6,7 @@ import { Adapter } from '../interface/adapter';
   providedIn: 'root',
 })
 export class AuthLoginAPIAdapter implements Adapter {
-  constructor() {}
+  // constructor() {}
   adapt(data: ProfileDataRes): LoginRes {
     return {
       message: data.message,

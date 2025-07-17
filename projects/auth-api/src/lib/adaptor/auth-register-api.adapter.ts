@@ -8,7 +8,7 @@ import { RegisterRes } from '../interface/registerRes';
 })
 export class AuthRegisterAPIAdapter implements Adapter {
 
-  constructor() { }
+  // constructor() { }
   adapt(data:ProfileDataRes):RegisterRes{
      return {
       message:data.message,
