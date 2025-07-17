@@ -5,10 +5,19 @@ export const appRoutes: Routes = [
  {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'auth',
+    redirectTo: 'home',
   },
   {
     path: 'auth',
     children: AUTH_ROUTES, 
-  },
+  },{
+        path: 'home',
+        loadComponent: () =>
+          import('./core/components/home/home.component').then((c) => c.HomeComponent),
+      },
+     {
+        path: 'about',
+        loadComponent: () =>
+          import('./core/components/about-us/about-us.component').then((c) => c.AboutUsComponent),
+      },
 ];
