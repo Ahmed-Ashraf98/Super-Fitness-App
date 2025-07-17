@@ -4,19 +4,28 @@ export interface LoginRes{
     email:string
 }
 
-export interface LoginAPIRes{
-    message:string,
-    token:string,
-        email:string,
 
-    user:{
-    _id:string,
-    username:string,
-    fristname:string,
-    lastname:string,
-    phone:string,
-    role:string,
-    isverified:boolean,
-    createAt:string
-    }
-}
+
+export interface ProfileDataRes {
+    message: string
+    user: User
+    token: string
+
+  }
+  
+  export interface User {
+    _id: string
+    firstName: string
+    lastName: string
+    email: string
+    gender: string
+    age: number
+    weight: number
+    height: number
+    activityLevel: string
+    goal: string
+    photo: string
+    createdAt: string
+    passwordChangedAt: string
+  }
+  

@@ -5,15 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { AuthENDPOINT } from './enums/AuthAPI.endpoint';
 import { AuthLoginAPIAdapter } from './adaptor/auth-login-api.adapter';
 import { loginUser } from './interface/login';
-import { LoginRes } from './interface/loginRes';
+import { LoginRes, ProfileDataRes } from './interface/loginRes';
 import { AuthRegisterAPIAdapter } from './adaptor/auth-register-api.adapter';
 import { registerUser } from './interface/register';
 import { RegisterRes } from './interface/registerRes';
 import { ForgetPassUser } from './interface/forgetPass';
 import { VerifyCodeUser } from './interface/VerifyCode';
 import { ResetPassUser } from './interface/ResetPass';
-import { userRoleRes } from './interface/userRoleRes';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { UpdateUserProfileData } from './interface/updateUserProfile';
 
 @Injectable({
   providedIn: 'root',
@@ -27,19 +27,6 @@ export class AuthApiService implements AuthAPI {
     private _AuthRegisterAPIAdapter: AuthRegisterAPIAdapter
   ) { }
 
-  private getEmailFromToken(): string {
-    const token = localStorage.getItem('token');
-    if (token) {
-      try {
-        const decodedToken = this.jwtHelper.decodeToken(token);
-        return decodedToken?.email || '';
-      } catch (e) {
-        console.error('Error decoding token:', e);
-        return '';
-      }
-    }
-    return '';
-  }
 
   private isTokenExpired(token: string): boolean {
     return this.jwtHelper.isTokenExpired(token);
@@ -73,5 +60,12 @@ export class AuthApiService implements AuthAPI {
     return this._HttpClient.get(AuthENDPOINT.LOGOUT);
   }
 
-  
+  getProfileData(): Observable<ProfileDataRes> {
+    return this._HttpClient.get<ProfileDataRes>(AuthENDPOINT.PROFILE_DATA);
+  }
+
+  editProfile(data: UpdateUserProfileData): Observable<ProfileDataRes> {
+    return this._HttpClient.put<ProfileDataRes>(AuthENDPOINT.EDIT_PROFILE, data);
+  }
+ 
 }
