@@ -31,16 +31,18 @@ export class ChatbotWindowComponent implements OnInit {
   sub$ = new Subject();
 
   private readonly _store = inject(Store);
+  private readonly _apiKey = this.geminiApiKey;
+  private readonly genAI = new GoogleGenAI({ apiKey: this._apiKey });
 
   initGeminiChatModal() {
-    const apiKey = this.geminiApiKey;
-    const genAI = new GoogleGenAI({
-      apiKey: apiKey,
-    });
+    this.chatModal = this.getChat();
+  }
 
-    this.chatModal = genAI.chats.create({
+  getChat(): Chat {
+    return this.genAI.chats.create({
       model: this.geminiModel,
       config: this.geminiConfig,
+      history: [],
     });
   }
 
@@ -86,6 +88,7 @@ export class ChatbotWindowComponent implements OnInit {
         next: (val) => {
           this.isOpen = val;
           if (this.isOpen) {
+            this.initGeminiChatModal();
             this.startChat();
           }
         },
