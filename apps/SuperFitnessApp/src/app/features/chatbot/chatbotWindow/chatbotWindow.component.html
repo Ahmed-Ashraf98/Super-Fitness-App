@@ -10,7 +10,7 @@
         <img src="/chat-menu.png" alt="chat menu" srcset="" />
       </button>
     </div>
-    <div class="chatbot-window__contentbox w-full h-[50%] my-5">
+    <div class="chatbot-window__contentbox w-full my-5">
       <div class="chatbot-window__messages w-full h-full overflow-y-auto">
         <!-- cards here -->
         @for (chatObj of chatHistory$ | async; track $index) { @if (!$first) {

@@ -67,6 +67,10 @@
   border-bottom-left-radius: 20px;
 }
 
+.chatbot-window__contentbox {
+  height: calc(100% - 200px);
+}
+
 .chat-pic-wrapper {
   box-shadow: 0px 0px 10px 0px #ff410040;
 }
