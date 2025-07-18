@@ -1,4 +1,9 @@
-import { ApplicationConfig, importProvidersFrom, provideAppInitializer, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  provideAppInitializer,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import {
@@ -7,7 +12,15 @@ import {
 } from '@angular/platform-browser';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { provideStore } from '@ngrx/store';
+import { chatbotReducers } from './store/chatbot/chatbot.reducers';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
 import { HeaderInterceptor } from './core/auth/interceptors/header.interceptor';
 import { appInit } from './shared/utils/app.utils';
 import { httpLoaderFactory } from './shared/utils/translateUtils';
@@ -17,6 +30,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideAppInitializer(appInit),
     provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideHttpClient(withFetch()),
@@ -34,6 +48,9 @@ export const appConfig: ApplicationConfig = {
         preset: Aura,
         options: { darkModeSelector: '.dark' },
       },
+    }),
+    provideStore({
+      chatbot: chatbotReducers,
     }),
     {
       provide: HTTP_INTERCEPTORS,

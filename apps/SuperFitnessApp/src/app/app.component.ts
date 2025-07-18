@@ -6,8 +6,6 @@ import { MainPageComponent } from "./shared/components/main-page/main-page.compo
 import { RouterOutlet } from '@angular/router';
 declare function initFlowbite(): void;
 
-
-
 @Component({
   imports: [RouterModule, ButtonModule, MainPageComponent,RouterOutlet],
   selector: 'app-root',
