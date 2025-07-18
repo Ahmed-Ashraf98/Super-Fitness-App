@@ -1,4 +1,4 @@
-import { environment } from './../../../../../../../../environments/environment';
+import { environment } from '../../../../../../../../environments/environment';
 
 export class AuthENDPOINT {
   static LOGIN = `${environment.baseUrl}/api/v1/auth/signin`;
