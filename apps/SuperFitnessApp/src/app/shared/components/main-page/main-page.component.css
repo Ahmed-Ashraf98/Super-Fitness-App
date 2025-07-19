@@ -1,0 +1,14 @@
+.main-page{
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(86.09px)
+}
+.main-bg{
+    background-image: url('/hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.main-bg2{
+  background: linear-gradient(90deg, #d4d8db, #e7ded8, #d4d8db);
+  
+}
