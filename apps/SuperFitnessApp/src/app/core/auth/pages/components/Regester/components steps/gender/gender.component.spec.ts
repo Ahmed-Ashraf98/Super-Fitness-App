@@ -1,16 +1,16 @@
+import { GenderComponent } from './gender.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterComponent } from './Regester.component';
 
-describe('RegesterComponent', () => {
-  let component: RegisterComponent;
-  let fixture: ComponentFixture<RegisterComponent>;
+describe('GenderComponent', () => {
+  let component: GenderComponent;
+  let fixture: ComponentFixture<GenderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent],
+      imports: [GenderComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RegisterComponent);
+    fixture = TestBed.createComponent(GenderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

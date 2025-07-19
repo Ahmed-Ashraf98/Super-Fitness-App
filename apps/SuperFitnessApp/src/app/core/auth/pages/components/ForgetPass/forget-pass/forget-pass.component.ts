@@ -39,10 +39,14 @@ export class ForgetPassComponent {
     digit6: ['', [Validators.required, Validators.pattern(/^[0-9]$/)]]
   });
 
-  resetForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    newPassword: ['', [Validators.required, Validators.minLength(8)]]
-  });
+ resetForm = this.fb.group(
+  {
+    newPassword: ['', [Validators.required, Validators.minLength(8)]],
+    confirmPassword: ['', Validators.required]
+  },
+  { validators: this.passwordMatchValidator }
+);
+
 
   @ViewChildren('otpInput') otpInputs!: QueryList<ElementRef>;
 
@@ -83,24 +87,28 @@ export class ForgetPassComponent {
       });
   }
 
-  submitReset() {
-    if (this.resetForm.invalid) return;
-    this._authApiService.resetpass({ email: this.resetForm.get('email')?.value || '', newPassword: this.resetForm.get('newPassword')?.value || '' })
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe({
-        next: () => {
-          this.errorMessage = '';
-          this.currentStep = Step.Email;
-          this.emailForm.reset();
-          this.otpForm.reset();
-          this.resetForm.reset();
-          this.router.navigate(['/auth/login']);
-        },
-        error: (err) => {
-          this.errorMessage = err.error?.message || 'Failed to reset password.';
-        }
-      });
-  }
+ submitReset() {
+  if (this.resetForm.invalid) return;
+  this._authApiService.resetpass({
+    email: this.emailForm.get('email')?.value || '',
+    newPassword: this.resetForm.get('newPassword')?.value || ''
+  })
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe({
+      next: () => {
+        this.errorMessage = '';
+        this.currentStep = Step.Email;
+        this.emailForm.reset();
+        this.otpForm.reset();
+        this.resetForm.reset();
+        this.router.navigate(['/auth/login']);
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Failed to reset password.';
+      }
+    });
+}
+
 
   moveToNext(event: any, nextInput: number) {
     const input = event.target;
@@ -111,6 +119,11 @@ export class ForgetPassComponent {
       this.otpInputs.toArray()[nextInput - 1].nativeElement.focus();
     }
   }
+passwordMatchValidator(form: FormGroup) {
+  const password = form.get('newPassword')?.value;
+  const confirmPassword = form.get('confirmPassword')?.value;
+  return password === confirmPassword ? null : { mismatch: true };
+}
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();

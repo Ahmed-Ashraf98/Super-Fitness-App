@@ -1,7 +1,7 @@
 :host {
     display: block;
-    width: 100vw;
-    height: 100vh;
+    width: 99vw;
+    min-height: 100vh; // نخليه مرن بدل height ثابت
     font-family: 'Poppins', sans-serif;
     background-image: url('/auth-bg.jpg');
     background-size: cover;
@@ -15,7 +15,7 @@
     position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(25px);
     z-index: 1;
 }
 
@@ -27,7 +27,7 @@
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    height: 700px;
+    min-height: 700px;
     margin: auto;
     border-radius: 20px;
     overflow: hidden;
@@ -41,6 +41,7 @@
         top: 0;
         width: 1.5px;
         height: 100%;
+        background: #ff4100;
         z-index: 3;
         border-radius: 2px;
         transform: translateX(-50%);
@@ -53,11 +54,9 @@
         align-items: center;
         justify-content: flex-start;
         background: transparent;
-        height: 100%;
         padding-top: 48px;
         padding-bottom: 48px;
         margin-right: 5px;
-        border-right: 2px solid #FF4100;
 
         .logo-img {
             width: 200px;
@@ -83,10 +82,35 @@
         justify-content: center;
         align-items: center;
         color: white;
-        height: 100%;
-        padding: 0;
-        padding-right: 5px;
+        width: 100%;
+        padding: 15px 20px 20px 0;
         border-radius: 0 20px 20px 0;
         position: relative;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 95%;
+        min-width: 0;
+        flex-direction: column;
+        border-radius: 20px;
+        margin-top: 20px;
+
+        &::before {
+            display: none;
+        }
+
+        .left {
+            display: none;
+        }
+
+        .right {
+            flex: 1;
+            width: 100%;
+            justify-content: start;
+            border-radius: 20px;
+            padding:20px;
+        }
     }
 }
