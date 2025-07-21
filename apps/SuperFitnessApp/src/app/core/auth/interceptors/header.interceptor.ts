@@ -14,7 +14,7 @@ export const headerInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req);
   }
 
-  const currentToken = auth.currentToken;
+  const currentToken = auth.getToken;
 
   if (currentToken) {
     req = req.clone({

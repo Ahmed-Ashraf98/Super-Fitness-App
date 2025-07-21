@@ -16,12 +16,12 @@ import { provideStore } from '@ngrx/store';
 import { chatbotReducers } from './store/chatbot/chatbot.reducers';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
-  HTTP_INTERCEPTORS,
   HttpClient,
   provideHttpClient,
   withFetch,
+  withInterceptors,
 } from '@angular/common/http';
-import { HeaderInterceptor } from './core/auth/interceptors/header.interceptor';
+import { headerInterceptor } from './core/auth/interceptors/header.interceptor';
 import { appInit } from './shared/utils/app.utils';
 import { httpLoaderFactory } from './shared/utils/translateUtils';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -33,7 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(), withInterceptors([headerInterceptor])),
     importProvidersFrom([
       TranslateModule.forRoot({
         loader: {
@@ -52,10 +52,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       chatbot: chatbotReducers,
     }),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HeaderInterceptor,
-      multi: true,
-    },
+
   ],
 };
