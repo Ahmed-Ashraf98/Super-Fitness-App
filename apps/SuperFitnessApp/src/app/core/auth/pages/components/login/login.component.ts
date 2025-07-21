@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
-import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
+import { AuthApiService } from '../../../../../../../../../projects/auth-api/src/lib/auth-api.service';
+
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

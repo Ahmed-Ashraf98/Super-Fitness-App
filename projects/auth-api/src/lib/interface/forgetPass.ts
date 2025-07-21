@@ -1,3 +1,3 @@
 export interface ForgetPassUser {
-    email: string
+  email: string;
 }

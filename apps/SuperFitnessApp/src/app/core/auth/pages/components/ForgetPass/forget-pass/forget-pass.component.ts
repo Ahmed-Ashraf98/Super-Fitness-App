@@ -1,9 +1,9 @@
 import { Component, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {   Router } from '@angular/router';
+import { AuthApiService } from 'projects/auth-api/src/lib/auth-api.service';
 
 enum Step {
   Email = 'Email',
