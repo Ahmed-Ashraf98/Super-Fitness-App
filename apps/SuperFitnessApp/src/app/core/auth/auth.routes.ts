@@ -7,11 +7,6 @@ export const AUTH_ROUTES: Routes = [
       import('./pages/auth-page.component').then((c) => c.AuthPageComponent),
     children: [
       {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'login',
-      },
-      {
         path: 'login',
         loadComponent: () =>
           import('./pages/components/login/login.component').then(
@@ -19,7 +14,7 @@ export const AUTH_ROUTES: Routes = [
           ),
       },
       {
-        path: 'regester',
+        path: 'register',
         loadComponent: () =>
           import('./pages/components/Regester/Regester.component').then(
             (c) => c.RegisterComponent
