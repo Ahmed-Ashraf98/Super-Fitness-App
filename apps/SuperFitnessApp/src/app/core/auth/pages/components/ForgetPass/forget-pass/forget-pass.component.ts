@@ -1,9 +1,9 @@
 import { Component, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {   Router } from '@angular/router';
+import { AuthApiService } from 'projects/auth-api/src/lib/auth-api.service';
 
 enum Step {
   Email = 'Email',
@@ -53,61 +53,78 @@ export class ForgetPassComponent {
   errorMessage = '';
   successMessage = '';
 
-  submitEmail() {
-    if (this.emailForm.invalid) return;
-    this._authApiService.Forgetpass({ email: this.emailForm.get('email')?.value || '' })
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe({
-        next: () => {
-          this.errorMessage = '';
-          this.currentStep = Step.Otp;
-          this.resetForm.controls['email'].setValue(this.emailForm.value.email ?? null); // carry email to reset step
-        },
-        error: (err) => {
-          this.errorMessage = err.error?.message || 'Failed to send reset email.';
-          this.successMessage = '';
-        }
-      });
-  }
+submitEmail() {
+  if (this.emailForm.invalid) return;
 
-  submitOtp() {
-    if (this.otpForm.invalid) return;
-    const resetCode = Object.values(this.otpForm.value).join('');
-    this._authApiService.VerifyCode({ resetCode })
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe({
-        next: () => {
-          this.errorMessage = '';
-          this.currentStep = Step.Reset;
-        },
-        error: (err) => {
-          this.errorMessage = err.error?.message || 'Invalid code.';
-          this.successMessage = '';
-        }
-      });
-  }
+  const email = this.emailForm.get('email')?.value || '';
 
- submitReset() {
-  if (this.resetForm.invalid) return;
-  this._authApiService.resetpass({
-    email: this.emailForm.get('email')?.value || '',
-    newPassword: this.resetForm.get('newPassword')?.value || ''
-  })
+  this._authApiService.Forgetpass({ email })
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe({
       next: () => {
         this.errorMessage = '';
-        this.currentStep = Step.Email;
-        this.emailForm.reset();
-        this.otpForm.reset();
-        this.resetForm.reset();
-        this.router.navigate(['/auth/login']);
+        this.successMessage = '';
+        this.currentStep = Step.Otp;
       },
       error: (err) => {
-        this.errorMessage = err.error?.message || 'Failed to reset password.';
+        this.errorMessage = err.error?.message || 'Failed to send reset email.';
+        this.successMessage = '';
       }
     });
 }
+
+
+submitOtp() {
+  if (this.otpForm.invalid) return;
+
+  const code = Object.values(this.otpForm.value).join('');
+  const email = this.emailForm.get('email')?.value || '';
+
+  this._authApiService.VerifyCode({ code, email })
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe({
+      next: () => {
+        this.errorMessage = '';
+        this.currentStep = Step.Reset;
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Invalid code.';
+        this.successMessage = '';
+      }
+    });
+}
+
+
+ submitReset() {
+  if (this.resetForm.invalid) return;
+
+  const email = this.emailForm.get('email')?.value || '';
+  const password = this.resetForm.get('newPassword')?.value || '';
+  const confirmPassword = this.resetForm.get('confirmPassword')?.value || '';
+
+  this._authApiService.resetpass({
+    email,
+    password,
+    confirmPassword
+  })
+  .pipe(takeUntil(this.ngUnsubscribe))
+  .subscribe({
+    next: () => {
+      this.errorMessage = '';
+      this.successMessage = 'Password reset successfully.';
+      this.currentStep = Step.Email;
+      this.emailForm.reset();
+      this.otpForm.reset();
+      this.resetForm.reset();
+      this.router.navigate(['/auth/login']);
+    },
+    error: (err) => {
+      this.errorMessage = err.error?.message || 'Failed to reset password.';
+      this.successMessage = '';
+    }
+  });
+}
+
 
 
   moveToNext(event: any, nextInput: number) {

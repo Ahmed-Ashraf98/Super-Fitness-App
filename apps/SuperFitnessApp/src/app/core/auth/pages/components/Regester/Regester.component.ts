@@ -1,3 +1,4 @@
+import { AuthApiService } from '../../../../../../../../../projects/auth-api/src/lib/auth-api.service';
 import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -10,9 +11,7 @@ import {
 } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/public-api';
 import { HttpErrorResponse } from '@angular/common/http';
-import { registerUser } from 'apps/SuperFitnessApp/src/lib/auth-api/src/lib/interface/register';
 import { AccountFormComponent } from './components steps/Account-form/account-form.component';
 import { GenderComponent } from './components steps/gender/gender.component';
 import { AgeComponent } from './components steps/age/age.component';
@@ -20,6 +19,7 @@ import { WeightComponent } from './components steps/weight/weight.component';
 import { HeightComponent } from './components steps/height/height.component';
 import { GoalComponent } from './components steps/goal/goal.component';
 import { ActivityLevelComponent } from './components steps/activityLevel/activityLevel.component';
+import { registerUser } from 'projects/auth-api/src/lib/interface/register';
 
 @Component({
   selector: 'app-regester',
