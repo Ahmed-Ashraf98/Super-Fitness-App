@@ -7,18 +7,24 @@
       
   </a>
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-    <div class="relative cursor-pointer">
-      <button type="button" class="cursor-pointer text-white bg-FF4100 font-bold hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">LOGIN</button>
-      <div class="w-[35px] h-[35px] rounded-full bg-FF4100 flex items-center justify-center border-3 border-white absolute -right-6 top-0">
-        <img src="arrow.png" alt="">
+    @if (isLoggedIn) {
+      <div class="relative cursor-pointer flex items-center">
+        <img src="/user.png" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
       </div>
-    </div>
-    <div class="relative cursor-pointer">
-      <button type="button" class="cursor-pointer color-FF4100 bg-transparent border-2 ms-[32px] font-bold hover:bg-FF4100 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIGN UP</button>
-      <div class="w-[35px] h-[35px] rounded-full bg-FF4100 flex items-center justify-center border-3 border-white absolute -right-6 top-0">
-        <img src="arrow.png" alt="">
+    } @else {
+      <div class="relative cursor-pointer">
+        <button routerLink="/auth/login" class="cursor-pointer text-white bg-FF4100 font-bold hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">LOGIN</button>
+        <div class="w-[35px] h-[35px] rounded-full bg-FF4100 flex items-center justify-center border-3 border-white absolute -right-6 top-0">
+          <img src="arrow.png" alt="">
+        </div>
       </div>
-    </div>
+      <div class="relative cursor-pointer">
+        <button routerLink="/auth/regester" class="cursor-pointer color-FF4100 bg-transparent border-2 ms-[32px] font-bold hover:bg-FF4100 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-full text-base px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SIGN UP</button>
+        <div class="w-[35px] h-[35px] rounded-full bg-FF4100 flex items-center justify-center border-3 border-white absolute -right-6 top-0">
+          <img src="arrow.png" alt="">
+        </div>
+      </div>
+    }
       <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">

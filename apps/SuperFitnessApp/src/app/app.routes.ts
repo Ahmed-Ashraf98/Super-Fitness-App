@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
   },{
         path: 'home',
         loadComponent: () =>
-          import('./core/components/home/home.component').then((c) => c.HomeComponent),
+          import('./shared/components/main-page/main-page.component').then((c) => c.MainPageComponent),
       },
      {
         path: 'about',
