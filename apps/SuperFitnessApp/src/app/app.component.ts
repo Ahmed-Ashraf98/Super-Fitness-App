@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { FlowbiteService } from './core/services/flowbite.service';
-import { MainPageComponent } from "./shared/components/main-page/main-page.component";
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from "./shared/components/footer/footer.component";
-import { NavbarComponent } from "./shared/components/navbar/navbar.component";
+import { NavbarComponent } from "./core/layout/navbar/navbar.component";
+import { FooterComponent } from "./core/layout/footer/footer.component";
 declare function initFlowbite(): void;
 
 @Component({
-  imports: [RouterModule, ButtonModule,  RouterOutlet, FooterComponent, NavbarComponent],
+  imports: [RouterModule, ButtonModule, RouterOutlet, NavbarComponent, FooterComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

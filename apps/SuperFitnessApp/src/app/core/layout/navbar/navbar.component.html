@@ -1,0 +1,104 @@
+<!-- navbar.component.html -->
+<div class="w-full relative">
+  <!-- Background Overlay with Blur -->
+  <div class="absolute inset-0 z-0 bg-black/30 backdrop-blur-[90px]"></div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 px-4 sm:px-6 lg:px-20 pt-6 pb-4">
+    <header class="flex flex-wrap justify-between items-center gap-4 w-full">
+      <!-- Left Side: Logo -->
+      <div class="flex items-center justify-between w-full lg:w-auto">
+        <img src="logo.png" alt="FitGym Logo" class="w-[86px] h-[54px]" />
+
+        <!-- Right Side in Mobile: User + Menu -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button
+            (click)="toggleMenu()"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          @if (isLoggedIn) {
+          <div class="cursor-pointer">
+            <img src="/user.png" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+          </div>
+          }
+
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav
+        class="transition-all duration-300 ease-in-out w-full lg:w-auto flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8 xl:gap-10 mt-4 lg:mt-0"
+        [ngClass]="{
+          'flex': isMenuOpen,
+          'hidden': !isMenuOpen,
+          'lg:flex': true
+        }"
+      >
+        <a
+          routerLink="/home"
+          routerLinkActive="text-[#ff4100]"
+          (click)="closeMenu()"
+          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#ff4100] hover:text-[#ff4100] transition-colors"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/about"
+          routerLinkActive="text-[#ff4100]"
+          (click)="closeMenu()"
+          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
+        >
+          About
+        </a>
+        <a
+          routerLink="/classes"
+          routerLinkActive="text-[#ff4100]"
+          (click)="closeMenu()"
+          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
+        >
+          Classes
+        </a>
+        <a
+          routerLink="/healthy"
+          routerLinkActive="text-[#ff4100]"
+          (click)="closeMenu()"
+          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
+        >
+          Healthy
+        </a>
+      </nav>
+
+      <!-- Auth Buttons -->
+      <div class="w-full lg:w-auto flex flex-col lg:flex-row items-start lg:items-center gap-4 mt-4 lg:mt-0">
+        @if (isLoggedIn) {
+        <div class="hidden lg:flex relative cursor-pointer items-center">
+          <img src="/user.png" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
+        </div>
+        } @else {
+        <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+          <button
+            routerLink="/auth/login"
+            (click)="closeMenu()"
+            class="text-white bg-[#FF4100] font-bold hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 rounded-full text-base px-6 py-2 w-full sm:w-auto"
+          >
+            LOGIN
+          </button>
+          <button
+            routerLink="/auth/regester"
+            (click)="closeMenu()"
+            class="text-[#FF4100] border-2 border-[#FF4100] font-bold hover:bg-[#FF4100] hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 rounded-full text-base px-6 py-2 w-full sm:w-auto"
+          >
+            SIGN UP
+          </button>
+        </div>
+        }
+      </div>
+    </header>
+  </div>
+</div>

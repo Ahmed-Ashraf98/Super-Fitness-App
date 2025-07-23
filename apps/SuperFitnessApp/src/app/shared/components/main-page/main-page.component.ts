@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarComponent } from '../../../core/layout/navbar/navbar.component';
 import { HorizonbarComponent } from '../horizonbar/horizonbar.component';
 import { WhyUsComponent } from '../why-us/why-us.component';
-import { FooterComponent } from '../footer/footer.component';
-import { HomeComponent } from '../../../core/components/home/home.component';
-import { AboutUsComponent } from '../../../core/components/about-us/about-us.component';
+import { FooterComponent } from '../../../core/layout/footer/footer.component';
+import { HomeComponent } from '../../../features/pages/home/home.component';
+import { AboutUsComponent } from '../../../features/pages/about-us/about-us.component';
 import { ChatbotFloatingComponent } from '../../../features/chatbot/chatbotFloating/chatbotFloating.component';
 
 @Component({
   selector: 'app-main-page',
   imports: [
-    NavbarComponent,
     HomeComponent,
     HorizonbarComponent,
     AboutUsComponent,
     WhyUsComponent,
-    FooterComponent,
     ChatbotFloatingComponent,
   ],
   templateUrl: './main-page.component.html',
