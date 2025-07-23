@@ -9,7 +9,7 @@
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
     @if (isLoggedIn) {
       <div class="relative cursor-pointer flex items-center">
-        <img src="/user.png" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
+        <img src="/user.png" routerLink="/user-profile" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
       </div>
     } @else {
       <div class="relative cursor-pointer">

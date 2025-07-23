@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './features/pages/user-profile/user-profile.component';
 import { Routes } from '@angular/router';
 import { AUTH_ROUTES } from './core/auth/auth.routes';
 
@@ -20,4 +21,10 @@ export const appRoutes: Routes = [
         loadComponent: () =>
           import('./core/components/about-us/about-us.component').then((c) => c.AboutUsComponent),
       },
+
+      {
+        path:'user-profile',
+        loadComponent: () =>
+          import('./features/pages/user-profile/user-profile.component').then((c) => c.UserProfileComponent),
+      }
 ];
