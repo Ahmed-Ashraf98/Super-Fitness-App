@@ -1,5 +1,5 @@
-export interface ResetPassUser {
-  email: string;
-  password: string;
-  confirmPassword: string;
+export interface ResetPassUser{
+    email:string ,
+    newPassword:string
+
 }

@@ -1,3 +1,4 @@
+import { changePassword } from './interface/changePassword';
 import { Injectable } from '@angular/core';
 import { AuthAPI } from './base/AuthAPI';
 import { map, Observable, of } from 'rxjs';
@@ -46,6 +47,11 @@ export class AuthApiService implements AuthAPI {
     return this._HttpClient.post(AuthENDPOINT.FORGOT_PASSWORD, data);
   }
 
+  changePassword(data: changePassword): Observable<any>{
+    return this._HttpClient.patch(AuthENDPOINT.CHANGE_PASSWORD, data);
+
+  }
+
   VerifyCode(data: VerifyCodeUser): Observable<any> {
     return this._HttpClient.post(AuthENDPOINT.VERIFY_RESET_CODE, data);
   }
@@ -53,6 +59,7 @@ export class AuthApiService implements AuthAPI {
   resetpass(data: ResetPassUser): Observable<any> {
     return this._HttpClient.put(AuthENDPOINT.RESET_PASSWORD, data);
   }
+
 
   Logout(): Observable<any> {
     return this._HttpClient.get(AuthENDPOINT.LOGOUT);

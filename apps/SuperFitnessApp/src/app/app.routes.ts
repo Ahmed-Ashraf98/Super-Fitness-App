@@ -1,6 +1,7 @@
 import { UserProfileComponent } from './features/pages/user-profile/user-profile.component';
 import { Routes } from '@angular/router';
 import { AUTH_ROUTES } from './core/auth/auth.routes';
+import { AuthGuard } from './core/auth/guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -27,6 +28,7 @@ export const appRoutes: Routes = [
   },
       {
         path:'user-profile',
+        canActivate: [AuthGuard],
         loadComponent: () =>
           import('./features/pages/user-profile/user-profile.component').then((c) => c.UserProfileComponent),
       }

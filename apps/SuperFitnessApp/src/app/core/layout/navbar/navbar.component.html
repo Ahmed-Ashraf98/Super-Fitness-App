@@ -23,9 +23,9 @@
             </svg>
           </button>
           @if (isLoggedIn) {
-          <div class="cursor-pointer">
-            <img src="/user.png" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
-          </div>
+            <a routerLink="/user-profile" class="cursor-pointer">
+              <img src="/user.png" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
+            </a>
           }
 
         </div>
@@ -77,7 +77,7 @@
       <!-- Auth Buttons -->
       <div class="w-full lg:w-auto flex flex-col lg:flex-row items-start lg:items-center gap-4 mt-4 lg:mt-0">
         @if (isLoggedIn) {
-        <div class="hidden lg:flex relative cursor-pointer items-center">
+        <div routerLink="/user-profile" class="hidden lg:flex relative cursor-pointer items-center">
           <img src="/user.png" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
         </div>
         } @else {
@@ -90,7 +90,7 @@
             LOGIN
           </button>
           <button
-            routerLink="/auth/regester"
+            routerLink="/auth/register"
             (click)="closeMenu()"
             class="text-[#FF4100] border-2 border-[#FF4100] font-bold hover:bg-[#FF4100] hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 rounded-full text-base px-6 py-2 w-full sm:w-auto"
           >

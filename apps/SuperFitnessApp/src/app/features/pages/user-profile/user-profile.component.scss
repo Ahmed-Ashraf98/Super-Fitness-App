@@ -54,11 +54,39 @@
   text-align: center;
 }
 .profile-top-btn {
-  background:  #ff4100;
+  min-width: 160px;
+  width: 100%;
+  max-width: 220px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 50px;
+  background: var(--primary-color);
   color: #fff;
-  padding: 10px 16px;
-    border-radius: 50px;
-  
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(255,65,0,0.08);
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1024px) {
+  .profile-top-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.profile-top-btn span, .profile-top-btn-text {
+  text-align: left;
+  flex: 1;
+}
+.profile-top-btn img {
+  width: 24px;
+  height: 24px;
+  margin-left: 0.5rem;
+  margin-right: 0;
 }
 
 .profile-top-icon {
@@ -85,15 +113,15 @@
   
 .profile-card:hover {
   box-shadow: 0 12px 32px rgba(255,65,0,0.13);
-  border: 1.5px solid #ff4100;
+  border: 1.5px solid var(--primary-color);
 }
 .profile-icon {
   font-size: 2rem;
   margin-bottom: 0.7rem;
-  color: #ff4100;
+  color: var(--primary-color);
 }
 .profile-accent {
-  color: #ff4100;
+  color: var( --primary-color);
   font-weight: 600;
   text-align: center;
 }
@@ -133,7 +161,7 @@
     transition: 0.4s;
   }
   .switch input:checked + .slider {
-    background-color: #ff4100;
+    background-color: var(--primary-color);
   }
   .slider:before {
     position: absolute;
@@ -149,6 +177,229 @@
   .switch input:checked + .slider:before {
     transform: translateX(20px);
   }
+  
+
+
+
+:root {
+  --primary-color: #ff4100;
+}
+
+.custom-dark-dialog .p-dialog-header {
+  background: #181818 !important;
+  color: #fff !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.custom-dark-dialog .p-dialog-content {
+  background: #181818 !important;
+  color: #fff !important;
+}
+.custom-dark-dialog .p-button {
+  background: var(--primary-color) !important;
+  color: #000 !important;
+  border: none !important;
+}
+.custom-light-dialog .p-dialog-header {
+  background: #fff !important;
+  color: #181818 !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.custom-light-dialog .p-dialog-content {
+  background: #fff !important;
+  color: #181818 !important;
+}
+.custom-light-dialog .p-button {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.p-error {
+  color: #ff4100 !important;
+}
+.p-success {
+  color: #00c853 !important;
+}
+  
+
+
+
+.pro-dialog .p-dialog {
+  border-radius: 18px !important;
+}
+.pro-dialog .p-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+.pro-field {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.2rem;
+}
+.pro-field-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.pro-dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  justify-content: center;
+}
+.pro-label {
+  font-weight: 500;
+  margin-bottom: 0;
+  color: inherit;
+  display: block;
+  letter-spacing: 0.01em;
+  min-width: 110px;
+  text-align: left;
+}
+.pro-input {
+  border-radius: 50px !important;
+  border: 1.5px solid var(--primary-color) !important;
+  font-size: 0.98rem;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  outline: none !important;
+  margin-bottom: 0;
+  width: 100%;
+  
+  text-align: left;
+}
+.pro-input:focus {
+  border: 1.5px solid var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(255,65,0,0.10);
+}
+.pro-input::placeholder {
+  color: var(--primary-color);
+  font-weight: 600;
+  opacity: 1;
+}
+.p-error {
+  margin-top: 0.18rem;
+  margin-bottom: 0;
+  font-size: 0.93em;
+  text-align: left;
+}
+.pro-btn {
+  border-radius: 50px !important;
+  font-size: 1.13rem !important;
+  font-weight: 700 !important;
+  margin-top: 0.7rem;
+  box-shadow: 0 4px 16px rgba(255,65,0,0.10);
+  background: linear-gradient(90deg, #ff4100 60%, #ff6a1a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+.pro-btn:active, .pro-btn:focus {
+  filter: brightness(0.97);
+  box-shadow: 0 2px 8px rgba(255,65,0,0.13);
+}
+.pro-btn:hover {
+  background: linear-gradient(90deg, #ff6a1a 0%, #ff4100 100%) !important;
+  color: #fff !important;
+}
+  
+.show-password-btn {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0 0.2rem;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.show-password-btn:hover {
+  color: #ff6a1a;
+}
+  
+.logout-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.logout-dialog-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: inherit;
+}
+.logout-dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+  
+.password-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.password-success-message {
+  background: #fff;
+  color: var(--primary-color);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(255,65,0,0.13);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeInScale 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.password-success-message .pi {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fadeInScale 0.5s cubic-bezier(0.4,0,0.2,1);
+}
   
 
 

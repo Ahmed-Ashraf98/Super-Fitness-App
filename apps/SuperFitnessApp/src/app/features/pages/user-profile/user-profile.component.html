@@ -1,69 +1,64 @@
 <div class="overlay"></div>
 <div class="flex flex-col items-center min-h-screen justify-center relative z-10 px-2 py-8">
   <div class="w-full max-w-5xl mx-auto">
-    
+
     <!-- Profile top section -->
-    <div class="flex flex-col md:flex-row gap-4 md:gap-8 mb-8 justify-evenly w-full">
-      <div class="profile-top-card">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8 mb-8 w-full justify-center items-stretch">
+      <div class="profile-top-card w-full md:w-1/3">
         <div class="profile-top-title">Your Goal</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
-        <div>
-          <button class="profile-top-btn flex items-center gap-18">
-            Lose Weight
+        <div class="flex justify-center md:justify-start w-full">
+          <button class="profile-top-btn flex items-center gap-2 cursor-pointer">
+            <span class="profile-top-btn-text">Lose Weight</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
       </div>
-
-      <div class="profile-top-card">
+    
+      <div class="profile-top-card w-full md:w-1/3">
         <div class="profile-top-title">Level</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
-        <div>
-          <button class="profile-top-btn flex items-center gap-18">
-            Beginner
+        <div class="flex justify-center md:justify-start w-full">
+          <button class="profile-top-btn flex items-center gap-2">
+            <span class="profile-top-btn-text">Beginner</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
       </div>
-
-      <div class="profile-top-card">
+    
+      <div class="profile-top-card w-full md:w-1/3">
         <div class="profile-top-title">Weight</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
-        <div>
-          <button class="profile-top-btn flex items-center gap-18">
-            Lose Weight
+        <div class="flex justify-center md:justify-start w-full">
+          <button class="profile-top-btn flex items-center gap-2">
+            <span class="profile-top-btn-text">Lose Weight</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
       </div>
     </div>
+    
+    <!-- Grid for profile cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 auto-rows-fr">
 
-    <div class="container mx-auto px-4">
-
-
-    <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8 mb-8 auto-rows-fr">
-      <div class="h-full">
-
-      <div class="profile-card">
-        <span class="profile-icon ">
+      <div class="profile-card" (click)="openResetDialog()">
+        <span class="profile-icon">
           <img class="m-4" src="/ChangeIconOrange.png" alt="">
         </span>
         <div>Change Password</div>
       </div>
-    </div>
 
-    
-      <div class="h-full">
       <div class="profile-card">
         <img class="m-4" src="/Language.png" alt="">
         <div class="text-center">
           Select Language <br />
           <span class="profile-accent">(English)</span>
         </div>
+        <label class="switch mt-2">
+          <input (click)="toggleLang()" type="checkbox" checked />
+          <span class="slider"></span>
+        </label>
       </div>
-    </div>
-    
-    <div class="h-full">
 
       <div class="profile-card">
         <img class="m-4" src="/line-md_light-dark.png" alt="">
@@ -72,47 +67,101 @@
             Mood <span class="profile-accent">(Dark)</span>
           </div>
           <label class="switch mt-2">
-            <input type="checkbox" checked />
+            <input (click)="toggleTheme()" type="checkbox" checked />
             <span class="slider"></span>
           </label>
         </div>
       </div>
-    </div>
 
-    <div class="h-full">
-    
       <div class="profile-card">
         <img class="m-4" src="/Security Warning.png" alt="">
         <div>Privacy Policy</div>
       </div>
-    </div>
-
-    <div class="h-full">
 
       <div class="profile-card">
         <img class="m-4" src="/Lock Setting.png" alt="">
         <div>Security</div>
       </div>
-    </div>
-
-    <div class="h-full">
 
       <div class="profile-card">
         <img class="m-4" src="/Help.png" alt="">
         <div>Help</div>
       </div>
+
     </div>
-  </div>
 
-</div>
-
-    
-    
-    <!-- Logout button -->
-    <div class="flex justify-center">
-      <div class="profile-card logout">
+    <!-- Logout -->
+    <div (click)="openLogoutDialog()" class="flex justify-center">
+      <div class="profile-card logout cursor-pointer">
         <img class="m-4" src="/logout.png" alt="">
-        <div class="profile-accent">Logout</div>
+        <div class="profile-accent text-3xl">Logout</div>
       </div>
     </div>
+
+    <!-- Logout Confirmation Dialog -->
+    <p-dialog header="Confirm Logout" [(visible)]="showLogoutDialog" [modal]="true" [closable]="false"
+      [dismissableMask]="true" [style]="{width: '350px', 'border-radius': '18px'}"
+      [contentStyle]="{'background': themeVal ? '#181818' : '#fff', 'color': themeVal ? '#fff' : '#181818', 'padding': '2rem 1.5rem'}"
+      [baseZIndex]="10000" [styleClass]="themeVal ? 'custom-dark-dialog pro-dialog' : 'custom-light-dialog pro-dialog'"
+      (onHide)="closeLogoutDialog()">
+      <div class="logout-dialog-content">
+        <i class="pi pi-sign-out" style="color:#ff4100;font-size:2.2rem;display:block;margin-bottom:1.2rem;"></i>
+        <div class="logout-dialog-title">Are you sure you want to logout?</div>
+        <div class="logout-dialog-actions">
+          <button pButton type="button" label="Cancel" class="pro-btn"
+            style="background:#e0e0e0;color:#222;margin-right:1rem;" (click)="closeLogoutDialog()"></button>
+          <button pButton type="button" label="Logout" class="pro-btn" (click)="confirmLogout()"></button>
+        </div>
+      </div>
+    </p-dialog>
   </div>
+</div>
+
+<!-- PrimeNG Dialog for Reset Password -->
+<p-dialog header="Change Password" [(visible)]="showResetDialog" [modal]="true" [closable]="true"
+  [dismissableMask]="true" [style]="{width: '400px', 'border-radius': '18px'}"
+  [contentStyle]="{'background': themeVal ? '#181818' : '#fff', 'color': themeVal ? '#fff' : '#181818', 'padding': '2rem 1.5rem'}"
+  [baseZIndex]="10000" [styleClass]="themeVal ? 'custom-dark-dialog pro-dialog' : 'custom-light-dialog pro-dialog'"
+  (onHide)="closeResetDialog()">
+  <form [formGroup]="resetForm" (ngSubmit)="submitReset()" class="pro-form">
+    <div class="pro-dialog-title">
+      <i class="pi pi-lock" style="color:#ff4100;font-size:2rem;"></i>
+      <span>Reset Your Password</span>
+    </div>
+    <div class="pro-field p-field mb-4">
+      <div class="pro-field-row" style="position:relative;">
+        <input id="password" [type]="showPassword ? 'text' : 'password'" pInputText formControlName="password"
+          class="pro-input" placeholder="Password" />
+        <button type="button" (click)="toggleShowPassword()" class="show-password-btn" tabindex="-1">
+          <i class="pi" [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'"></i>
+        </button>
+      </div>
+    </div>
+    <div class="pro-field p-field mb-4">
+      <div class="pro-field-row" style="position:relative;">
+        <input id="newPassword" [type]="showNewPassword ? 'text' : 'password'" pInputText formControlName="newPassword"
+          class="pro-input" placeholder="New Password" />
+        <button type="button" (click)="toggleShowNewPassword()" class="show-password-btn" tabindex="-1">
+          <i class="pi" [ngClass]="showNewPassword ? 'pi-eye-slash' : 'pi-eye'"></i>
+        </button>
+      </div>
+    </div>
+    @if (resetError) {
+    <div class="p-error mb-2">{{ resetError }}</div>
+    }
+    @if (resetSuccess) {
+    <div class="p-success mb-2">{{ resetSuccess }}</div>
+    }
+    <button pButton type="submit" label="Change Password" [disabled]="resetForm.invalid || resetLoading"
+      [style.background]="'#ff4100'" [style.color]="themeVal ? '#000' : '#fff'" class="w-full pro-btn"></button>
+  </form>
+</p-dialog>
+
+@if (showPasswordChangeSuccess) {
+<div class="password-success-overlay animate-fade-in">
+  <div class="password-success-message" [ngClass]="{ 'dark': themeVal }">
+    <i class="pi pi-check-circle"></i>
+    Password changed successfully!
+  </div>
+</div>
+}

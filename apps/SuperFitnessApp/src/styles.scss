@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
 @use 'flowbite/src/themes/default';
-@plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
+
 @import 'primeicons/primeicons.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
   font-family: 'BalooThambi2';
@@ -35,6 +36,8 @@
   --border-radius: 20px;
   --font-family: 'BalooThambi2', sans-serif;
 }
+
+
 
 .color-242424 {
   color: #242424;

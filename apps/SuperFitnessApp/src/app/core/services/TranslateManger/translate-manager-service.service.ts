@@ -18,24 +18,21 @@ export class TranslateManagerService {
   initTranslate() {
     this.translateService.addLangs(['ar', 'en']);
     this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
-    let lang = this.cookiesManager.getCookie(this.langKey);
-
-    if (lang) {
-      this.setHTMLLang(lang as Lang);
-      this.setCurrentLang(lang as Lang);
-      this.translateService.setDefaultLang(lang);
-      this.translateService.use(lang);
-    }
-
+  
+    let lang = (this.cookiesManager.getCookie(this.langKey) as string) || 'en';
+  
+    this.setHTMLLang(lang as Lang);
+    this.setCurrentLang(lang as Lang);
+  
     console.log(`Init Lang is  ==> ${lang}`);
-
-    return this.translateService.use(lang || 'en').pipe(
+  
+    return this.translateService.use(lang).pipe(
       tap(() => {
-        console.log(`Init Lang is  ==> ${lang}`);
+        console.log(`Translation initialized with lang: ${lang}`);
       })
     );
   }
+  
 
   toggleLanguage(): void {
     let currentLang = this.cookiesManager.getCookie(this.langKey);
