@@ -139,6 +139,15 @@ export class UserProfileComponent implements OnInit {
     this._translateManager.toggleLanguage();
   }
 
+  setLang(lang: 'en' | 'ar') {
+    this.langVal = lang === 'ar';
+    this._translateManager.setCurrentLang(lang);
+    this._translateManager.setHTMLLang(lang);
+    // If you use ngx-translate directly, update it here as well
+    // (this._translateManager as any).translateService.setDefaultLang(lang);
+    // (this._translateManager as any).translateService.use(lang);
+  }
+
   getUserPrefFromCookies() {
     const theme = this._themeManager.getCurrentTheme();
     const lang = this._translateManager.getCurrentLang();

@@ -563,5 +563,35 @@ body:not(.dark) .weight-unit,
   color: #242424 !important;
 }
   
+.lang-btn-group {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.lang-btn {
+  padding: 5px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  outline: none;
+  min-width: 110px;
+}
+.lang-btn.selected {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(255,65,0,0.10);
+}
+.lang-btn:not(.selected):hover {
+  background: #ffe3d3;
+  color: var(--primary-color);
+}
+  
 
 

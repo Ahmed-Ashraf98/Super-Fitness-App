@@ -50,14 +50,13 @@
 
       <div class="profile-card">
         <img class="m-4" src="/Language.png" alt="">
-        <div class="text-center">
-          Select Language <br />
-          <span class="profile-accent">(English)</span>
+        <div class="text-center mb-2">
+          Select Language
         </div>
-        <label class="switch mt-2">
-          <input (click)="toggleLang()" type="checkbox" checked />
-          <span class="slider"></span>
-        </label>
+        <div class="lang-btn-group">
+          <button type="button" class="lang-btn" [ngClass]="{'selected': !langVal}" (click)="setLang('en')">English</button>
+          <button type="button" class="lang-btn" [ngClass]="{'selected': langVal}" (click)="setLang('ar')">العربية</button>
+        </div>
       </div>
 
       <div class="profile-card">
