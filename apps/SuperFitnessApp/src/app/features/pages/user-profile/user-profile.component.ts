@@ -1,3 +1,4 @@
+import { UpdateUserProfileData } from './../../../../../../../projects/auth-api/src/lib/interface/updateUserProfile';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
@@ -9,6 +10,8 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -16,7 +19,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
   standalone: true,
-  imports: [DialogModule, ButtonModule, InputTextModule, ReactiveFormsModule, CommonModule],
+  imports: [DialogModule, ButtonModule, InputTextModule, ReactiveFormsModule, CommonModule, DropdownModule, FormsModule],
 })
 export class UserProfileComponent implements OnInit {
 
@@ -45,6 +48,32 @@ export class UserProfileComponent implements OnInit {
   showNewPassword = false;
   showPasswordChangeSuccess = false;
 
+  userProfile: UpdateUserProfileData | null = null;
+  showEditPopup = false;
+  editField: 'goal' | 'level' | 'weight' | null = null;
+  editForm: FormGroup = this.fb.group({
+    goal: [''],
+    level: [''],
+    weight: ['']
+  });
+  goalOptions = [
+    { label: 'Gain Weight', value: 'Gain Weight' },
+    { label: 'Lose Weight', value: 'Lose Weight' },
+    { label: 'Get Fitter', value: 'Get Fitter' },
+    { label: 'Gain More Flexible', value: 'Gain More Flexible' },
+    { label: 'Learn The Basic', value: 'Learn The Basic' }
+  ];
+  levelOptions = [
+    { label: 'Rookie', value: 'Rookie' },
+    { label: 'Beginner', value: 'Beginner' },
+    { label: 'Intermediate', value: 'Intermediate' },
+    { label: 'Advance', value: 'Advance' },
+    { label: 'True Beast', value: 'True Beast' }
+  ];
+  editLoading = false;
+  editError = '';
+  editSuccess = '';
+
   openResetDialog() {
     this.resetForm.reset();
     this.resetError = '';
@@ -60,20 +89,33 @@ export class UserProfileComponent implements OnInit {
   submitReset() {
     this.resetAttempted = true;
     if (this.resetForm.invalid) return;
+  
     this.resetLoading = true;
     this.resetError = '';
     this.resetSuccess = '';
+    
     const { password, newPassword } = this.resetForm.value;
+  
     this._authApiService.changePassword({ password, newPassword }).subscribe({
       next: () => {
         this.resetSuccess = 'Password changed successfully!';
         this.resetLoading = false;
         this.resetAttempted = false;
         this.showPasswordChangeSuccess = true;
+  
+        // ✅ تسجيل خروج إجباري لأن التوكن أصبح غير صالح
         setTimeout(() => {
-          localStorage.removeItem('token');
+          // localStorage.removeItem('token'); // نحذف التوكن الأول
+          this._authApiService.Logout().subscribe({
+            next: () => {
+              this._router.navigate(['/auth/login']);
+            },
+            error: () => {
+              // حتى لو فشل اللوج آوت، نوجّه المستخدم
+              this._router.navigate(['/auth/login']);
+            }
+          });
           this.closeResetDialog();
-          this._router.navigate(['/auth/login']);
           this.showPasswordChangeSuccess = false;
         }, 1500);
       },
@@ -83,6 +125,8 @@ export class UserProfileComponent implements OnInit {
       }
     });
   }
+  
+
 
   toggleTheme() {
     this.themeVal = !this.themeVal;
@@ -138,11 +182,75 @@ export class UserProfileComponent implements OnInit {
     this.showNewPassword = !this.showNewPassword;
   }
 
-  ngOnInit(): void {
-    this._themeManager.initTheme();
-    this.getUserPrefFromCookies();
+  UpdateUserProfile(data: UpdateUserProfileData) {
+    this._authApiService.editProfile(data).subscribe({
+      next: (res) => {
+        console.log('UpdateUserProfile successful:', res);
+      }
+    });
   }
 
+  ngOnInit() {
+    this._themeManager.initTheme();
+    this.getUserPrefFromCookies();
+    this._authApiService.getProfileData().subscribe(data => {
+      this.userProfile = {
+        ...data.user,
+        gender: (data.user.gender === 'male' || data.user.gender === 'female') ? data.user.gender : 'male'
+      };
+      this.editForm.patchValue({
+        goal: data.user.goal,
+        level: data.user.activityLevel,
+        weight: data.user.weight
+      });
+    });
+  }
+
+  openEditPopup(field: 'goal' | 'level' | 'weight') {
+    this.editField = field;
+    if (this.userProfile) {
+      this.editForm.patchValue({
+        goal: this.userProfile.goal,
+        level: this.userProfile.activityLevel,
+        weight: this.userProfile.weight
+      });
+    }
+    this.editError = '';
+    this.editSuccess = '';
+    this.showEditPopup = true;
+  }
+
+  closeEditPopup() {
+    this.showEditPopup = false;
+  }
+
+  submitEdit() {
+    if (!this.userProfile) return;
+    this.editLoading = true;
+    this.editError = '';
+    this.editSuccess = '';
+    const updated: UpdateUserProfileData = {
+      ...this.userProfile,
+      goal: this.editForm.value.goal,
+      activityLevel: this.editForm.value.level,
+      weight: this.editForm.value.weight
+    };
+    this._authApiService.editProfile(updated).subscribe({
+      next: (res) => {
+        this.userProfile = {
+          ...res.user,
+          gender: (res.user.gender === 'male' || res.user.gender === 'female') ? res.user.gender : 'male'
+        };
+        this.editSuccess = 'Profile updated!';
+        this.editLoading = false;
+        setTimeout(() => this.closeEditPopup(), 1200);
+      },
+      error: (err) => {
+        this.editError = err?.error?.message || 'Failed to update profile.';
+        this.editLoading = false;
+      }
+    });
+  }
 
 
 }

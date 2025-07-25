@@ -1,5 +1,5 @@
-<div class="overlay"></div>
-<div class="flex flex-col items-center min-h-screen justify-center relative z-10 px-2 py-8">
+<div class="overlay" [ngClass]="{ 'overlay-light': !themeVal, 'overlay-dark': themeVal }"></div>
+<div class="flex flex-col items-center min-h-screen justify-center relative z-10 px-2 py-8" [ngClass]="{ 'text-dark': !themeVal, 'text-light': themeVal }">
   <div class="w-full max-w-5xl mx-auto">
 
     <!-- Profile top section -->
@@ -8,8 +8,8 @@
         <div class="profile-top-title">Your Goal</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
         <div class="flex justify-center md:justify-start w-full">
-          <button class="profile-top-btn flex items-center gap-2 cursor-pointer">
-            <span class="profile-top-btn-text">Lose Weight</span>
+          <button class="profile-top-btn flex items-center gap-2 cursor-pointer" (click)="openEditPopup('goal')">
+            <span class="profile-top-btn-text">{{ userProfile?.goal || 'Set Goal' }}</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
@@ -19,8 +19,8 @@
         <div class="profile-top-title">Level</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
         <div class="flex justify-center md:justify-start w-full">
-          <button class="profile-top-btn flex items-center gap-2">
-            <span class="profile-top-btn-text">Beginner</span>
+          <button class="profile-top-btn flex items-center gap-2" (click)="openEditPopup('level')">
+            <span class="profile-top-btn-text">{{ userProfile?.activityLevel || 'Set Level' }}</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
@@ -30,8 +30,8 @@
         <div class="profile-top-title">Weight</div>
         <div class="profile-top-sub">TAP TO CHANGE</div>
         <div class="flex justify-center md:justify-start w-full">
-          <button class="profile-top-btn flex items-center gap-2">
-            <span class="profile-top-btn-text">Lose Weight</span>
+          <button class="profile-top-btn flex items-center gap-2" (click)="openEditPopup('weight')">
+            <span class="profile-top-btn-text">{{ userProfile?.weight || 'Set Weight' }}</span>
             <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />
           </button>
         </div>
@@ -121,7 +121,7 @@
 <p-dialog header="Change Password" [(visible)]="showResetDialog" [modal]="true" [closable]="true"
   [dismissableMask]="true" [style]="{width: '400px', 'border-radius': '18px'}"
   [contentStyle]="{'background': themeVal ? '#181818' : '#fff', 'color': themeVal ? '#fff' : '#181818', 'padding': '2rem 1.5rem'}"
-  [baseZIndex]="10000" [styleClass]="themeVal ? 'custom-dark-dialog pro-dialog' : 'custom-light-dialog pro-dialog'"
+  [baseZIndex]="10000" [styleClass]="(themeVal ? 'custom-dark-dialog pro-dialog text-light' : 'custom-light-dialog pro-dialog text-dark')"
   (onHide)="closeResetDialog()">
   <form [formGroup]="resetForm" (ngSubmit)="submitReset()" class="pro-form">
     <div class="pro-dialog-title">
@@ -165,3 +165,58 @@
   </div>
 </div>
 }
+
+<!-- Edit User Data Popup -->
+<p-dialog header="Edit {{ editField | titlecase }}" [(visible)]="showEditPopup" [modal]="true" [closable]="true"
+  [dismissableMask]="true" [style]="{width: '500px', 'border-radius': '18px'}"
+  [contentStyle]="{'background': themeVal ? '#181818' : '#fff', 'color': themeVal ? '#fff' : '#181818', 'padding': '2.5rem 2.5rem', 'overflow': 'visible'}"
+  [baseZIndex]="10000" [styleClass]="(themeVal ? 'custom-dark-dialog pro-dialog text-light' : 'custom-light-dialog pro-dialog text-dark')"
+  (onHide)="closeEditPopup()">
+  <form [formGroup]="editForm" (ngSubmit)="submitEdit()" class="pro-form">
+    <div class="pro-dialog-title">
+      <i class="pi pi-user-edit" style="color:#ff4100;font-size:2rem;"></i>
+      <span>Edit {{ editField | titlecase }}</span>
+    </div>
+    <div *ngIf="editField === 'goal'">
+      <div class="mb-2">Current: <b>{{ userProfile?.goal }}</b></div>
+      <div class="goal-radio-group">
+        <button *ngFor="let opt of goalOptions"
+                type="button"
+                class="goal-radio-btn"
+                [ngClass]="{'selected': editForm.value.goal === opt.value, 'dark': themeVal}"
+                (click)="editForm.patchValue({goal: opt.value})">
+          <span>{{ opt.label }}</span>
+          <span class="radio-indicator">
+            <span *ngIf="editForm.value.goal === opt.value" class="radio-dot"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="editField === 'level'">
+      <div class="mb-2">Current: <b>{{ userProfile?.activityLevel }}</b></div>
+      <div class="goal-radio-group">
+        <button *ngFor="let opt of levelOptions"
+                type="button"
+                class="goal-radio-btn"
+                [ngClass]="{'selected': editForm.value.level === opt.value, 'dark': themeVal}"
+                (click)="editForm.patchValue({level: opt.value})">
+          <span>{{ opt.label }}</span>
+          <span class="radio-indicator">
+            <span *ngIf="editForm.value.level === opt.value" class="radio-dot"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="editField === 'weight'">
+      <div class="mb-2">Current: <b>{{ userProfile?.weight }}</b></div>
+      <div class="weight-input-group">
+        <input type="number" formControlName="weight" class="pro-input weight-input" min="1" max="500" />
+        <span class="weight-unit">kg</span>
+      </div>
+      <input #weightSlider type="range" min="1" max="500" [value]="editForm.value.weight" (input)="editForm.patchValue({weight: +weightSlider.value})" class="weight-slider" />
+    </div>
+    <div *ngIf="editError" class="p-error mb-2">{{ editError }}</div>
+    <div *ngIf="editSuccess" class="p-success mb-2">{{ editSuccess }}</div>
+    <button pButton type="submit" label="Save" [disabled]="editForm.invalid || editLoading" [style.background]="'#ff4100'" [style.color]="themeVal ? '#000' : '#fff'" class="w-full pro-btn"></button>
+  </form>
+</p-dialog>

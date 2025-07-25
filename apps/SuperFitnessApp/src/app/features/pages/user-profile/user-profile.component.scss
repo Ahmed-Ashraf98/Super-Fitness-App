@@ -18,6 +18,12 @@
     backdrop-filter: blur(25px);
     z-index: 1;
 }
+body:not(.dark) .overlay, .custom-light-dialog .overlay {
+  background-color: #FFFFFF99;
+}
+body:not(.dark) .custom-light-dialog, .custom-light-dialog {
+  color: #242424;
+}
 
 .profile-wrapper {
   position: relative;
@@ -231,12 +237,7 @@
   flex-direction: column;
   align-items: center;
 }
-.pro-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
+
 .pro-field {
   width: 100%;
   max-width: 340px;
@@ -399,6 +400,167 @@
 }
 .animate-fade-in {
   animation: fadeInScale 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+  
+.goal-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.goal-radio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  font-size: 1.13rem;
+  font-weight: 600;
+  border: 2px solid #888;
+  border-radius: 50px;
+  background: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: border 0.2s, color 0.2s, background 0.2s;
+  outline: none;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+.goal-radio-btn:last-child {
+  margin-bottom: 0;
+}
+.goal-radio-btn.selected {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.goal-radio-btn.dark {
+  background: #232323;
+  color: #fff;
+  border-color: #444;
+}
+.goal-radio-btn.selected.dark {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: #232323;
+
+}
+.goal-radio-btn:not(.selected):hover {
+  border-color: var(--primary-color);
+}
+.radio-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  background: transparent;
+  margin-left: 1rem;
+  transition: border 0.2s;
+}
+.goal-radio-btn.selected .radio-indicator {
+  border-color: var(--primary-color);
+}
+.radio-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: block;
+}
+  
+.weight-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.weight-input {
+  font-size: 2.1rem;
+  font-weight: 700;
+  width: 120px;
+  text-align: center;
+  border-radius: 18px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: #fff;
+  padding: 0.6rem 0.5rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.weight-input:focus {
+  border: 2px solid #ff4100;
+}
+.weight-unit {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-left: 0.2rem;
+}
+.weight-slider {
+  width: 100%;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  accent-color: var(--primary-color);
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ff4100 60%, #ff6a1a 100%);
+}
+// Remove scrollbars from dialog content
+.pro-dialog .p-dialog-content {
+  overflow: visible !important;
+}
+  
+.overlay-light {
+  background-color: #FFFFFF99 !important;
+}
+.overlay-dark {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.text-dark {
+  color: #242424 !important;
+}
+.text-light {
+  color: #fff !important;
+}
+  
+body:not(.dark) .profile-top-title,
+.text-dark .profile-top-title {
+  color: #242424 !important;
+}
+body:not(.dark) .profile-top-sub,
+.text-dark .profile-top-sub {
+  color: #242424 !important;
+  opacity: 0.7;
+}
+body:not(.dark) .profile-card,
+.text-dark .profile-card {
+  color: #242424 !important;
+}
+
+body:not(.dark) .profile-icon,
+.text-dark .profile-icon {
+  color: #242424 !important;
+}
+body:not(.dark) .goal-radio-btn,
+.text-dark .goal-radio-btn {
+  color: #242424 !important;
+}
+body:not(.dark) .goal-radio-btn.selected,
+.text-dark .goal-radio-btn.selected {
+  color: var(--primary-color) !important;
+}
+body:not(.dark) .weight-input,
+.text-dark .weight-input {
+  color: #242424 !important;
+  border-color: #242424 !important;
+}
+body:not(.dark) .weight-unit,
+.text-dark .weight-unit {
+  color: #242424 !important;
 }
   
 

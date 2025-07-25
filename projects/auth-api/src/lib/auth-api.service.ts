@@ -1,7 +1,8 @@
+import { AuthService } from './../../../../apps/SuperFitnessApp/src/app/core/services/auth/auth.service';
 import { changePassword } from './interface/changePassword';
 import { Injectable } from '@angular/core';
 import { AuthAPI } from './base/AuthAPI';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthENDPOINT } from './enums/AuthAPI.endpoint';
 import { AuthLoginAPIAdapter } from './adaptor/auth-login-api.adapter';
@@ -24,7 +25,8 @@ export class AuthApiService implements AuthAPI {
   constructor(
     private _HttpClient: HttpClient,
     private _AuthLoginAPIAdapter: AuthLoginAPIAdapter,
-    private _AuthRegisterAPIAdapter: AuthRegisterAPIAdapter
+    private _AuthRegisterAPIAdapter: AuthRegisterAPIAdapter,
+    private _AuthService: AuthService
   ) {}
 
   private isTokenExpired(token: string): boolean {
@@ -48,7 +50,15 @@ export class AuthApiService implements AuthAPI {
   }
 
   changePassword(data: changePassword): Observable<any>{
-    return this._HttpClient.patch(AuthENDPOINT.CHANGE_PASSWORD, data);
+    return this._HttpClient.patch(AuthENDPOINT.CHANGE_PASSWORD, data).pipe(
+      tap((res: any) => {
+        // لو السيرفر بيرجع توكن جديد بعد التعديل
+        if (res.token) {
+          this._AuthService.saveToken(res.token); // خزنه في localStorage
+        }
+      })
+    );
+
 
   }
 
@@ -70,9 +80,13 @@ export class AuthApiService implements AuthAPI {
   }
 
   editProfile(data: UpdateUserProfileData): Observable<ProfileDataRes> {
-    return this._HttpClient.put<ProfileDataRes>(
-      AuthENDPOINT.EDIT_PROFILE,
-      data
+    return this._HttpClient.put<ProfileDataRes>(AuthENDPOINT.EDIT_PROFILE, data).pipe(
+      tap((res: any) => {
+        if (res.token) {
+          this._AuthService.saveToken(res.token);
+        }
+      })
     );
   }
+  
 }
