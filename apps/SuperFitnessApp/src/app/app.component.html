@@ -1,2 +1,9 @@
-<app-main-page></app-main-page>
-<!-- <router-outlet></router-outlet> -->
+<ng-container *ngIf="showLayout">
+  <app-navbar></app-navbar>
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="showLayout">
+  <app-footer></app-footer>
+</ng-container>

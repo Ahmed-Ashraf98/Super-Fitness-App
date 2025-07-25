@@ -14,14 +14,14 @@ export const appRoutes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./core/components/home/home.component').then(
+      import('./features/pages/home/home.component').then(
         (c) => c.HomeComponent
       ),
   },
   {
     path: 'about',
     loadComponent: () =>
-      import('./core/components/about-us/about-us.component').then(
+      import('./features/pages/about-us/about-us.component').then(
         (c) => c.AboutUsComponent
       ),
   },
