@@ -4,6 +4,9 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 @import 'primeicons/primeicons.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
   font-family: 'BalooThambi2';
