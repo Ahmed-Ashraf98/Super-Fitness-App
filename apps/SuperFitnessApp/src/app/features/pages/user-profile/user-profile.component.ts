@@ -105,14 +105,15 @@ export class UserProfileComponent implements OnInit {
   
         // ✅ تسجيل خروج إجباري لأن التوكن أصبح غير صالح
         setTimeout(() => {
-          // localStorage.removeItem('token'); // نحذف التوكن الأول
+          localStorage.removeItem('token'); // نحذف التوكن الأول
           this._authApiService.Logout().subscribe({
             next: () => {
               this._router.navigate(['/auth/login']);
+              
             },
             error: () => {
               // حتى لو فشل اللوج آوت، نوجّه المستخدم
-              this._router.navigate(['/auth/login']);
+              console.log('Logout failed:');
             }
           });
           this.closeResetDialog();

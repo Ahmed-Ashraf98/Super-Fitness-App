@@ -10,8 +10,6 @@ export class AuthService {
   getToken(): string | null {
     return typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   }
-  saveToken(token: string): void {
-    localStorage.setItem('token', token);
-  }
+  
   }
   
