@@ -4,13 +4,25 @@ const { join } = require('path');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
+    join(__dirname, 'apps/SuperFitnessApp/src/**/!(*.stories|*.spec).{ts,html}'),
     ...createGlobPatternsForDependencies(__dirname),
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#ff4100',
+        darkText: '#333333',
+      },
+      borderRadius: {
+        xl: '20px',
+      },
+      fontFamily: {
+        baloo: ['BalooThambi2', 'sans-serif'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+  ],
 };
-
-

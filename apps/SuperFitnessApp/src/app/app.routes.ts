@@ -15,8 +15,8 @@ export const appRoutes: Routes = [
   }, {
     path: 'home',
     loadComponent: () =>
-      import('./shared/components/main-page/main-page.component').then(
-        (c) => c.MainPageComponent
+      import('./features/pages/home/home.component').then(
+        (c) => c.HomeComponent
       ),
   },
   {
