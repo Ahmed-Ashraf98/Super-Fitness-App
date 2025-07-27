@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { error } from 'node:console';
 
 
 @Component({
@@ -97,7 +98,9 @@ export class UserProfileComponent implements OnInit {
     const { password, newPassword } = this.resetForm.value;
   
     this._authApiService.changePassword({ password, newPassword }).subscribe({
-      next: () => {
+      next: (res) => {
+        console.log('Password changed successfully:', res);
+        localStorage.setItem('token', res.token);
         this.resetSuccess = 'Password changed successfully!';
         this.resetLoading = false;
         this.resetAttempted = false;
@@ -105,15 +108,16 @@ export class UserProfileComponent implements OnInit {
   
         // ✅ تسجيل خروج إجباري لأن التوكن أصبح غير صالح
         setTimeout(() => {
-          localStorage.removeItem('token'); // نحذف التوكن الأول
+          // localStorage.removeItem('token'); // نحذف التوكن الأول
           this._authApiService.Logout().subscribe({
             next: () => {
+              localStorage.removeItem('token');
               this._router.navigate(['/auth/login']);
               
             },
-            error: () => {
+            error: (err) => {
               // حتى لو فشل اللوج آوت، نوجّه المستخدم
-              console.log('Logout failed:');
+              console.log('Logout failed:' , err);
             }
           });
           this.closeResetDialog();
@@ -240,10 +244,10 @@ export class UserProfileComponent implements OnInit {
     this.editError = '';
     this.editSuccess = '';
     const updated: UpdateUserProfileData = {
-      ...this.userProfile,
       goal: this.editForm.value.goal,
       activityLevel: this.editForm.value.level,
       weight: this.editForm.value.weight
+
     };
     this._authApiService.editProfile(updated).subscribe({
       next: (res) => {
@@ -258,6 +262,7 @@ export class UserProfileComponent implements OnInit {
       error: (err) => {
         this.editError = err?.error?.message || 'Failed to update profile.';
         this.editLoading = false;
+        console.log('Failed to update profile:', err);
       }
     });
   }
