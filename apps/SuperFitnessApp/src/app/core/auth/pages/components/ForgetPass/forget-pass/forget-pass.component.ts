@@ -99,13 +99,11 @@ submitOtp() {
   if (this.resetForm.invalid) return;
 
   const email = this.emailForm.get('email')?.value || '';
-  const password = this.resetForm.get('newPassword')?.value || '';
-  const confirmPassword = this.resetForm.get('confirmPassword')?.value || '';
+  const newPassword = this.resetForm.get('newPassword')?.value || '';
 
   this._authApiService.resetpass({
     email,
-    password,
-    confirmPassword
+    newPassword
   })
   .pipe(takeUntil(this.ngUnsubscribe))
   .subscribe({

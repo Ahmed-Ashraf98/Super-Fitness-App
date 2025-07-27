@@ -11,7 +11,6 @@ export interface ProfileDataRes {
 }
 
 export interface User {
-  _id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -21,7 +20,5 @@ export interface User {
   height: number;
   activityLevel: string;
   goal: string;
-  photo: string;
-  createdAt: string;
-  passwordChangedAt: string;
+
 }
