@@ -1,5 +1,5 @@
 .card-container {
-  width: 402px;
+  max-width: 400px;
   height: 398px;
   border-radius: 8px;
 }
@@ -21,7 +21,7 @@
   left: 0;
   height: 100px;
   background: #24242480;
-  backdrop-filter: blur(58.20000076293945px);
+  backdrop-filter: blur(40.20000076293945px);
 
   &__title {
     font-weight: 700;
