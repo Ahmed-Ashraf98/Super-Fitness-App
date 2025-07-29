@@ -1,0 +1,48 @@
+.card-container {
+  width: 402px;
+  height: 398px;
+  border-radius: 8px;
+}
+
+.card-wrapper {
+  position: relative;
+}
+
+.card-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100px;
+  background: #24242480;
+  backdrop-filter: blur(58.20000076293945px);
+
+  &__title {
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 22.2px;
+    line-height: 33.6px;
+    letter-spacing: 2.24px;
+    vertical-align: middle;
+  }
+
+  &__readMore {
+    cursor: pointer;
+
+    &__text {
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 20px;
+      line-height: 18px;
+      letter-spacing: 0px;
+      vertical-align: middle;
+      color: #ff4100;
+    }
+  }
+}
