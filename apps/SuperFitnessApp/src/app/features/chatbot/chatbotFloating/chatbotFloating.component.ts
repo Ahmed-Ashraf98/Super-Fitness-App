@@ -14,13 +14,14 @@ import { Observable } from 'rxjs';
 export class ChatbotFloatingComponent implements OnInit {
   private readonly _store = inject(Store);
   chatStatus$!: Observable<boolean>;
+  chatIsReady$!: Observable<boolean>;
 
   startChat() {
     this._store.dispatch(ChatbotActions.openChat());
   }
 
   closeChat() {
-    this._store.dispatch(ChatbotActions.clearChat());
+    this._store.dispatch(ChatbotActions.closeChat());
   }
 
   trackChatStatus() {
