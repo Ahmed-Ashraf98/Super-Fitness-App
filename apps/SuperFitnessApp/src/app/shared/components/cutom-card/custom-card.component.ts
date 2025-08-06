@@ -11,13 +11,13 @@ export class CustomCardComponent {
   itemId = input<string>();
   cardImg = input.required<string>();
   cardTitle = input.required<string>();
-  onReadMore = output<string | void>();
+  onReadMore = output<string | undefined>();
 
   readMore() {
     if (this.itemId()) {
       this.onReadMore.emit(this.itemId()!);
     } else {
-      this.onReadMore.emit();
+      this.onReadMore.emit(undefined);
     }
   }
 }

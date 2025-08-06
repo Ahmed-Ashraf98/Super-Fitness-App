@@ -6,7 +6,7 @@ import { NavbarComponent } from './core/layout/navbar/navbar.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { filter } from 'rxjs/operators';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-declare function initFlowbite(): void;
+import { initFlowbite } from 'flowbite';
 
 @Component({
   imports: [

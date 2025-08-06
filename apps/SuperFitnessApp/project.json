@@ -24,12 +24,15 @@
         ],
         "styles": [
           "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "node_modules/flowbite/dist/flowbite.min.css",
           "apps/SuperFitnessApp/src/styles.scss"
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["apps/SuperFitnessApp/src", "node_modules"]
         },
-        "scripts": [],
+        "scripts": [
+          "node_modules/flowbite/dist/flowbite.min.js"
+        ],
         "server": "apps/SuperFitnessApp/src/main.server.ts",
         "ssr": {
           "entry": "apps/SuperFitnessApp/src/server.ts"
