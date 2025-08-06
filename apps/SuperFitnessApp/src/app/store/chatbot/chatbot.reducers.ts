@@ -8,6 +8,7 @@ export const chatbotReducers = createReducer(
   on(ChatbotActions.openChat, (state) => ({
     ...state,
     isOpen: true,
+    isLoading: true,
   })),
 
   on(ChatbotActions.sendMessage, (state, { content }) => ({
@@ -20,5 +21,8 @@ export const chatbotReducers = createReducer(
     chatHistory: [...state.chatHistory, { role: ChatbotRole.AI, content }],
     isLoading: false,
   })),
+
+  on(ChatbotActions.closeChat, () => initialChatState),
+
   on(ChatbotActions.clearChat, () => initialChatState)
 );
