@@ -25,4 +25,11 @@ export const appRoutes: Routes = [
         (c) => c.AboutUsComponent
       ),
   },
+  {
+    path: 'classes',
+    loadComponent: () =>
+      import('./features/pages/fitness-class/fitness-class.component').then(
+        (c) => c.FitnessClassComponent
+      ),
+  },
 ];

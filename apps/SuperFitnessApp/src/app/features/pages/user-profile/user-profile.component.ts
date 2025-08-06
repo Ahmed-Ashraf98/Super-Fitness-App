@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
 import { TranslateManagerService } from 'apps/SuperFitnessApp/src/app/core/services/TranslateManger/translate-manager-service.service';
-import { AuthApiService } from 'apps/SuperFitnessApp/src/lib/auth-api/src/lib/auth-api.service';
+import { AuthApiService } from 'projects/auth-api/src/lib/auth-api.service';
 
 @Component({
   selector: 'app-user-profile',

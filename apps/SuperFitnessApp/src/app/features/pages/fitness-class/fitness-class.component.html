@@ -1,1 +1,28 @@
-<p>fitness-class works!</p>
+<!-- 1) قائمة الاختيارات (التابات) -->
+<ul class="flex space-x-4 mb-6">
+  <li *ngFor="let g of muscleGroups">
+    <button
+      (click)="selectGroup(g._id)"
+      [ngClass]="{
+        'bg-orange-500 text-white': selectedGroupId === g._id,
+        'bg-gray-800 text-gray-300': selectedGroupId !== g._id
+      }"
+      class="px-4 py-2 rounded-full"
+    >
+      {{ g.name }}
+    </button>
+  </li>
+</ul>
+
+<!-- 2) شبكة الكروت -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <ng-container *ngFor="let g of muscleGroups">
+    <div *ngIf="shouldShow(g)" class="bg-gray-900 rounded-lg overflow-hidden">
+      <img [src]="'/assets/images/' + g._id + '.jpg'" alt="{{ g.name }}" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold">{{ g.name }}</h3>
+        <button class="mt-2 text-orange-400 hover:underline">Explore</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
