@@ -1,5 +1,7 @@
+import { UserProfileComponent } from './features/pages/user-profile/user-profile.component';
 import { Routes } from '@angular/router';
 import { AUTH_ROUTES } from './core/auth/auth.routes';
+import { AuthGuard } from './core/auth/guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -9,9 +11,8 @@ export const appRoutes: Routes = [
   },
   {
     path: 'auth',
-    children: AUTH_ROUTES,
-  },
-  {
+    children: AUTH_ROUTES, 
+  }, {
     path: 'home',
     loadComponent: () =>
       import('./features/pages/home/home.component').then(
@@ -32,4 +33,10 @@ export const appRoutes: Routes = [
         (c) => c.FitnessClassComponent
       ),
   },
+  {
+    path:'user-profile',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./features/pages/user-profile/user-profile.component').then((c) => c.UserProfileComponent),
+  }
 ];

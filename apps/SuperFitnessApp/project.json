@@ -63,18 +63,19 @@
       },
       "defaultConfiguration": "production"
     },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "SuperFitnessApp:build:production"
-        },
-        "development": {
-          "buildTarget": "SuperFitnessApp:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
+ "serve": {
+  "executor": "@angular-devkit/build-angular:dev-server",
+  "configurations": {
+    "production": {
+      "buildTarget": "SuperFitnessApp:build:production"
     },
+    "development": {
+      "buildTarget": "SuperFitnessApp:build:development",
+      "proxyConfig": "apps/SuperFitnessApp/proxy.conf.json"
+    }
+  },
+  "defaultConfiguration": "development"
+},
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
