@@ -9,7 +9,7 @@ import { CustomCardComponent } from "../../../shared/components/cutom-card/custo
   imports: [CommonModule, CustomCardComponent],
   standalone: true,
   templateUrl: './fitness-class.component.html',
-  styleUrls: ['./fitness-class.component.Scss']
+  styleUrls: ['./fitness-class.component.scss']
 })
 export class FitnessClassComponent {
   muscleGroups: MusclesGroup[] = [];
