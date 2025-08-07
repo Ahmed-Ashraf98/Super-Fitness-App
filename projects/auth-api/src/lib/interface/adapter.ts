@@ -1,3 +1,3 @@
 export interface Adapter {
-  adapt(data: any): any;
-}
+    adapt(data: any): any;
+  }

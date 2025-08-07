@@ -8,7 +8,8 @@ export class AuthService {
 
   constructor() {}
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   }
+  
   }
   

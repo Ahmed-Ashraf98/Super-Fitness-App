@@ -1,122 +1,127 @@
 <!-- navbar.component.html -->
-<div class="w-full relative">
-  <!-- Background Overlay with Blur -->
-  <div class="absolute inset-0 z-0 bg-black/30 backdrop-filter backdrop-blur-md"></div>
+<nav class="navbar absolute top-0 left-0 w-full z-50 transition-colors duration-300">
+  <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-20 py-4">
+    <!-- Logo -->
+    <a routerLink="/home" class="flex-shrink-0">
+      <img src="logo.png" alt="FitGym Logo" class="w-16 sm:w-20 lg:w-[86px] h-auto" />
+    </a>
 
-  <!-- Header Content -->
-  <div class="relative z-10 px-4 max-sm:px-6 lg:px-20 max-sm:pt-4 max-sm:pb-0 pt-6 pb-4">
-    <header class="flex flex-wrap justify-between items-center gap-4 w-full">
-      <!-- Left Side: Logo -->
-      <div class="flex items-center justify-between w-full lg:w-auto">
-        <img src="logo.png" alt="FitGym Logo" class="w-[86px] h-[54px]" />
-
-        <!-- Right Side in Mobile: Buttons + User + Menu -->
-        <div class="flex items-center gap-2 lg:hidden">
-          @if (!isLoggedIn) {
-          <div class="flex gap-2">
-            <button
-              routerLink="/auth/login"
-              (click)="closeMenu()"
-              class="text-white bg-[#FF4100] font-bold rounded-full text-sm px-3 py-1 hover:bg-orange-600"
-            >
-              LOGIN
-            </button>
-            <button
-              routerLink="/auth/regester"
-              (click)="closeMenu()"
-              class="text-[#FF4100] border border-[#FF4100] font-bold rounded-full text-sm px-3 py-1 hover:bg-[#FF4100] hover:text-white"
-            >
-              SIGN UP
-            </button>
-          </div>
-          } @else {
-          <div class="cursor-pointer">
-            <img src="/user.png" alt="User" class="w-10 h-10 rounded-full border-2 border-white" />
-          </div>
-          }
-
-          <!-- Menu Button -->
-          <button
-            (click)="toggleMenu()"
-            type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
-          >
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Navigation Links -->
-      <nav
-        class="transition-all duration-300 ease-in-out w-full lg:w-auto flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-8 xl:gap-10 mt-4 lg:mt-0"
-        [ngClass]="{
-          'flex': isMenuOpen,
-          'hidden': !isMenuOpen,
-          'lg:flex': true
-        }"
-      >
-        <a
-          routerLink="/home"
-          routerLinkActive="text-[#ff4100]"
-          (click)="closeMenu()"
-          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#ff4100] hover:text-[#ff4100] transition-colors"
-        >
+    <!-- Links (Desktop) -->
+    <ul class="hidden lg:flex items-center space-x-8">
+      <li>
+        <a routerLink="/home" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">
           Home
         </a>
-        <a
-          routerLink="/about"
-          routerLinkActive="text-[#ff4100]"
-          (click)="closeMenu()"
-          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
-        >
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">
           About
         </a>
-        <a
-          routerLink="/classes"
-          routerLinkActive="text-[#ff4100]"
-          (click)="closeMenu()"
-          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
-        >
+      </li>
+      <li>
+        <a routerLink="/classes" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">
           Classes
         </a>
-        <a
-          routerLink="/healthy"
-          routerLinkActive="text-[#ff4100]"
-          (click)="closeMenu()"
-          class="block py-2 text-[18px] font-bold font-['Baloo_Thambi_2'] capitalize text-[#242424] hover:text-[#ff4100] transition-colors"
-        >
+      </li>
+      <li>
+        <a routerLink="/healthy" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">
           Healthy
         </a>
-      </nav>
+      </li>
+    </ul>
 
-      <!-- Auth Buttons (Visible only on large screens) -->
-      <div class="hidden lg:flex flex-row items-center gap-4">
-        @if (!isLoggedIn) {
-        <div class="flex gap-3">
-          <button
-            routerLink="/auth/login"
-            (click)="closeMenu()"
-            class="text-white bg-[#FF4100] font-bold rounded-full text-base px-6 py-2 hover:bg-orange-600"
-          >
-            LOGIN
-          </button>
-          <button
-            routerLink="/auth/regester"
-            (click)="closeMenu()"
-            class="text-[#FF4100] border-2 border-[#FF4100] font-bold rounded-full text-base px-6 py-2 hover:bg-[#FF4100] hover:text-white"
-          >
-            SIGN UP
-          </button>
-        </div>
-        } @else {
-        <div class="flex relative cursor-pointer items-center">
-          <img src="/user.png" alt="Account" class="w-10 h-10 rounded-full border-2 border-white" />
-        </div>
-        }
-      </div>
-    </header>
+    <!-- Auth / User Icon -->
+    <div class="flex items-center space-x-2 sm:space-x-4">
+      <ng-container *ngIf="!isLoggedIn; else userBlock">
+        <button routerLink="/auth/login" (click)="closeMenu()"
+                class="hidden sm:inline-block bg-[#FF4100] text-white font-bold rounded-full px-4 py-2 hover:bg-orange-600 transition">
+          LOGIN
+        </button>
+        <button routerLink="/auth/register" (click)="closeMenu()"
+                class="hidden sm:inline-block border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full px-4 py-2 hover:bg-[#FF4100] hover:text-white transition">
+          SIGN UP
+        </button>
+      </ng-container>
+      <ng-template #userBlock>
+        <a routerLink="/user-profile" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white">
+          <img src="/user.png" alt="User" class="w-full h-full object-cover" />
+        </a>
+      </ng-template>
+
+      <!-- Mobile menu button -->
+      <button (click)="toggleMenu()" class="lg:hidden inline-flex items-center rounded-full justify-center p-2 bg-[#ff4100] rounded-lg text-white hover:bg-white/20 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+ <!-- backdrop: يغطي الشاشة بالكامل -->
+<div
+*ngIf="isMenuOpen"
+class="fixed inset-0 bg-black/5 backdrop-blur-sm z-40"
+(click)="closeMenu()"
+></div>
+
+<!-- side panel: القايمة الجانبية -->
+<div
+  *ngIf="isMenuOpen"
+  class="lg:hidden transition-colors duration-300 fixed top-0 left-0 w-64 h-[271px] bg-[#242424] opacity-100 z-50 flex flex-col gap-6 pt-6 pr-4 pb-6 pl-4"
+>
+  <!-- Header with Logo -->
+  <div class="flex items-center justify-between">
+    <a routerLink="/home" (click)="closeMenu()" class="flex-shrink-0">
+      <img src="logo.png" alt="FitGym Logo" class="w-12 sm:w-16 h-auto" />
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="flex-1">
+    <ul class="flex flex-col space-y-6">
+      <li>
+        <a routerLink="/home" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">
+          About
+        </a>
+      </li>
+      <li>
+        <a routerLink="/classes" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">
+          Classes
+        </a>
+      </li>
+      <li>
+        <a routerLink="/healthy" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">
+          Healthy
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Auth Buttons -->
+  <div *ngIf="!isLoggedIn" class="flex flex-col space-y-2">
+    <button
+      routerLink="/auth/login"
+      (click)="closeMenu()"
+      class="bg-[#FF4100] text-white font-bold rounded-full py-2 px-4 text-sm hover:bg-orange-600 transition"
+    >
+      LOGIN
+    </button>
+    <button
+      routerLink="/auth/register"
+      (click)="closeMenu()"
+      class="border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full py-2 px-4 text-sm hover:bg-[#FF4100] hover:text-white transition"
+    >
+      SIGN UP
+    </button>
   </div>
 </div>
+
+
+</nav>

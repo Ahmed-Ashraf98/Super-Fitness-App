@@ -1,28 +1,31 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
+import { TranslateManagerService } from '../../services/TranslateManger/translate-manager-service.service';
 
 export const headerInterceptor: HttpInterceptorFn = (req, next) => {
-  const auth: AuthService = inject(AuthService);
+  const trans = inject(TranslateManagerService);
 
-  // URLs اللي ما نضيفش فيها التوكن
-  const excludedUrls = ['/auth/signup', '/auth/signin'];
-
-  const isExcluded = excludedUrls.some(url => req.url.includes(url));
+  const excludedUrls = ['/signup', '/signin'];
+  const isExcluded = excludedUrls.some(url => req.url.endsWith(url));
 
   if (isExcluded) {
     return next(req);
   }
 
-  const currentToken = auth.getToken;
+  const currentLang = trans.getCurrentLang();
+
+
+  const currentToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
   if (currentToken) {
     req = req.clone({
       setHeaders: {
         Authorization: `Bearer ${currentToken}`,
+        'accept-language': currentLang === 'ar' ? 'ar' : 'en',
       },
     });
   }
+
 
   return next(req);
 };
