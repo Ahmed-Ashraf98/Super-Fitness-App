@@ -14,7 +14,7 @@ export const headerInterceptor: HttpInterceptorFn = (req, next) => {
 
   const currentLang = trans.getCurrentLang();
 
-  // ✅ بدل استخدام AuthService، نقرأ التوكن مباشرة
+
   const currentToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
   if (currentToken) {
@@ -26,9 +26,6 @@ export const headerInterceptor: HttpInterceptorFn = (req, next) => {
     });
   }
 
-  console.log('Request URL:', req.url);
-  console.log('Is Excluded:', isExcluded);
-  console.log('Token Sent:', currentToken);
 
   return next(req);
 };

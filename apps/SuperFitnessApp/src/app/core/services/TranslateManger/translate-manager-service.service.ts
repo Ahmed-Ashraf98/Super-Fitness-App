@@ -24,11 +24,10 @@ export class TranslateManagerService {
     this.setHTMLLang(lang as Lang);
     this.setCurrentLang(lang as Lang);
   
-    console.log(`Init Lang is  ==> ${lang}`);
   
     return this.translateService.use(lang).pipe(
       tap(() => {
-        console.log(`Translation initialized with lang: ${lang}`);
+      
       })
     );
   }
