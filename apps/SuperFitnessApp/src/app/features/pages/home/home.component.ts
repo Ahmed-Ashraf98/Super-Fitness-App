@@ -3,7 +3,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { WhyUsComponent } from './components/why-us/why-us.component';
 import { ChatbotFloatingComponent } from '../../chatbot/chatbotFloating/chatbotFloating.component';
-import { HorizonbarComponent } from "./components/horizonbar/horizonbar.component";
+import { HorizonbarComponent } from './components/horizonbar/horizonbar.component';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +12,8 @@ import { HorizonbarComponent } from "./components/horizonbar/horizonbar.componen
     AboutUsComponent,
     WhyUsComponent,
     ChatbotFloatingComponent,
-    HorizonbarComponent
-],
+    HorizonbarComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

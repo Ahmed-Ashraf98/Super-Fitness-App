@@ -1,0 +1,13 @@
+::ng-deep
+  .custom-slider
+  .p-carousel-indicator-active
+  .p-carousel-indicator-button {
+  background: var(--primary-color);
+  width: 30px;
+}
+
+::ng-deep .custom-slider .p-carousel-indicator-button {
+  background: #f3f3f4;
+  width: 10px;
+  height: 10px;
+}

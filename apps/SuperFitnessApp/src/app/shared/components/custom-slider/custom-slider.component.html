@@ -1,0 +1,27 @@
+<p-carousel
+  [value]="groupedItems"
+  [circular]="true"
+  [showNavigators]="false"
+  [autoplayInterval]="autoplayInterval()"
+  styleClass="custom-slider"
+>
+  <ng-template pTemplate="item" let-pageItems>
+    <div
+      class="grid gap-3 content-center"
+      [style.display]="'grid'"
+      [style.gridAutoRows]="'max-content'"
+    >
+      @for (row of getRows(); track row) {
+      <div
+        class="grid gap-3"
+        [style.gridTemplateColumns]="'repeat(' + closNum + ', minmax(0, 1fr))'"
+      >
+        @for (item of pageItems.slice(row * closNum, (row + 1) * closNum); track
+        $index) {
+        <app-custom-card itemId="12" cardTitle="Test" cardImg="meal-test.jpg" />
+        }
+      </div>
+      }
+    </div>
+  </ng-template>
+</p-carousel>
