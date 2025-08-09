@@ -21,18 +21,19 @@ export class CustomSliderComponent implements OnInit {
   numOfRows = input<number>(2);
   numOfColumns = input<number>(3);
   autoplayInterval = input<number>(0);
+  itemsList = input<any[]>();
 
   closNum = 0;
   rowsNum = 0;
 
-  items = [
-    { name: 'A', age: 23 },
-    { name: 'B', age: 23 },
-    { name: 'C', age: 23 },
-    { name: 'D', age: 23 },
-    { name: 'vvvvvvvvvvvvvvv', age: 3 },
-    { name: 'aaaaaaaaaaa', age: 443 },
-  ];
+  // items = [
+  //   { name: 'A', age: 23 },
+  //   { name: 'B', age: 23 },
+  //   { name: 'C', age: 23 },
+  //   { name: 'D', age: 23 },
+  //   { name: 'vvvvvvvvvvvvvvv', age: 3 },
+  //   { name: 'aaaaaaaaaaa', age: 443 },
+  // ];
 
   groupedItems: any[][] = [];
 
@@ -60,16 +61,11 @@ export class CustomSliderComponent implements OnInit {
     else if (width <= 767) columns = 2;
     else if (width <= 1199) columns = 2;
     else if (width <= 1400) columns = 3;
-
-    console.log(columns);
-
     const rows = 2;
     const perPage = rows * columns;
-    this.groupedItems = this.groupItems(this.items, perPage);
+    this.groupedItems = this.groupItems(this.itemsList()!, perPage);
     this.closNum = columns;
     this.rowsNum = rows;
-
-    console.log(this.groupedItems);
   }
 
   setColAndRow() {
@@ -80,7 +76,7 @@ export class CustomSliderComponent implements OnInit {
   ngOnInit() {
     this.setColAndRow();
     const perPage = this.numOfRows() * this.numOfColumns();
-    this.groupedItems = this.groupItems(this.items, perPage);
+    this.groupedItems = this.groupItems(this.itemsList()!, perPage);
     this.updateGrouping(window.innerWidth);
     window.addEventListener('resize', this.onResize);
   }
