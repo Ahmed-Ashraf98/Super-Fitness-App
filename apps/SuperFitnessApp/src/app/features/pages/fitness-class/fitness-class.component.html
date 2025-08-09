@@ -1,1 +1,41 @@
-<p>fitness-class works!</p>
+  <!-- Tabs (Navigation Bar) -->
+<ul class="flex flex-wrap space-x-2 mb-10 bg-gray-900/80 rounded-full p-3 shadow-lg justify-center backdrop-blur-md">
+  <li>
+    <button
+      (click)="selectGroup('full_body')"
+      [ngClass]="{
+        'bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-lg scale-105': selectedGroupId === 'full_body',
+        'bg-gray-800 text-gray-300 hover:bg-gray-700': selectedGroupId !== 'full_body'
+      }"
+      class="px-6 py-2 rounded-full font-bold uppercase transition-all duration-300 transform hover:scale-105"
+    >
+      Full Body
+    </button>
+  </li>
+  <li *ngFor="let g of muscleGroups">
+    <button
+      (click)="selectGroup(g._id)"
+      [ngClass]="{
+        'bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-lg scale-105': selectedGroupId === g._id,
+        'bg-gray-800 text-gray-300 hover:bg-gray-700': selectedGroupId !== g._id
+      }"
+      class="px-6 py-2 rounded-full font-bold uppercase transition-all duration-300 transform hover:scale-105"
+    >
+      {{ g.name }}
+    </button>
+  </li>
+</ul>
+
+<!-- Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  <ng-container *ngFor="let g of muscleGroups">
+    <div *ngIf="shouldShow(g)" class="transition-transform duration-300 hover:scale-105">
+      <app-custom-card
+        [itemId]="g._id"
+        [cardImg]="'/assets/images/' + g._id + '.jpg'"
+        [cardTitle]="g.name"
+        (onReadMore)="onReadMore($event)"
+      ></app-custom-card>
+    </div>
+  </ng-container>
+</div>

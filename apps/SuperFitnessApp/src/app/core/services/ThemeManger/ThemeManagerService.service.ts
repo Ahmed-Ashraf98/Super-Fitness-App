@@ -25,7 +25,7 @@ export class ThemeManagerService {
 
     return of(theme).pipe(
       tap(() => {
-        console.log(`Init Theme is  ==> ${theme}`);
+       
       })
     );
   }

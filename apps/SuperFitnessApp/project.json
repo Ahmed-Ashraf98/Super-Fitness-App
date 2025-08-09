@@ -24,12 +24,15 @@
         ],
         "styles": [
           "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "node_modules/flowbite/dist/flowbite.min.css",
           "apps/SuperFitnessApp/src/styles.scss"
         ],
         "stylePreprocessorOptions": {
           "includePaths": ["apps/SuperFitnessApp/src", "node_modules"]
         },
-        "scripts": [],
+        "scripts": [
+          "node_modules/flowbite/dist/flowbite.min.js"
+        ],
         "server": "apps/SuperFitnessApp/src/main.server.ts",
         "ssr": {
           "entry": "apps/SuperFitnessApp/src/server.ts"
@@ -60,18 +63,19 @@
       },
       "defaultConfiguration": "production"
     },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "SuperFitnessApp:build:production"
-        },
-        "development": {
-          "buildTarget": "SuperFitnessApp:build:development"
-        }
-      },
-      "defaultConfiguration": "development"
+ "serve": {
+  "executor": "@angular-devkit/build-angular:dev-server",
+  "configurations": {
+    "production": {
+      "buildTarget": "SuperFitnessApp:build:production"
     },
+    "development": {
+      "buildTarget": "SuperFitnessApp:build:development",
+      "proxyConfig": "apps/SuperFitnessApp/proxy.conf.json"
+    }
+  },
+  "defaultConfiguration": "development"
+},
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
