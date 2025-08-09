@@ -1,0 +1,30 @@
+::ng-deep {
+  .p-tablist-content .p-tablist-tab-list {
+    border-width: 0;
+    & .p-ripple.p-tab.p-component {
+      color: white;
+      border-width: 0;
+
+      &.p-tab-active {
+        background-color: var(--primary-color);
+      }
+    }
+
+    & .p-tab {
+      text-align: center;
+      justify-content: center;
+      border-width: 0;
+      opacity: 1;
+      height: 35px;
+      min-width: 70px;
+      gap: 8px;
+      border-radius: 20px;
+      padding: 8px;
+    }
+
+    & .p-tablist-active-bar {
+      width: 0px !important;
+      border-width: 0;
+    }
+  }
+}
