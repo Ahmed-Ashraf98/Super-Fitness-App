@@ -1,34 +1,27 @@
 <p-carousel
-  [value]="[
-    { name: 'vvvvvvvvvvvvvvv', age: 3 },
-    { name: 'aaaaaaaaaaa', age: 443 }
-  ]"
-  [numVisible]="3"
-  [numScroll]="3"
-  [circular]="false"
-  [responsiveOptions]="responsiveOptions"
+  [value]="groupedItems"
+  [circular]="true"
+  [showNavigators]="false"
+  [autoplayInterval]="autoplayInterval()"
   styleClass="custom-slider"
 >
-  <ng-template let-product #item>
-    <div class="border border-surface rounded-border m-2 p-4">
-      <div class="mb-4">
-        <div class="relative mx-auto">
-          <img [alt]="'d'" class="w-full rounded-border" />
-          <p-tag
-            [value]="'okkkk'"
-            class="absolute"
-            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"
-          />
-        </div>
+  <ng-template pTemplate="item" let-pageItems>
+    <div
+      class="grid gap-3 content-center"
+      [style.display]="'grid'"
+      [style.gridAutoRows]="'max-content'"
+    >
+      @for (row of getRows(); track row) {
+      <div
+        class="grid gap-3"
+        [style.gridTemplateColumns]="'repeat(' + closNum + ', minmax(0, 1fr))'"
+      >
+        @for (item of pageItems.slice(row * closNum, (row + 1) * closNum); track
+        $index) {
+        <app-custom-card itemId="12" cardTitle="Test" cardImg="meal-test.jpg" />
+        }
       </div>
-      <div class="mb-4 font-medium">Hmmmmmmmmmmm</div>
-      <div class="flex justify-between items-center">
-        <div class="mt-0 font-semibold text-xl">{{ '$' + 45 }}</div>
-        <span>
-          <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
-          <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
-        </span>
-      </div>
+      }
     </div>
   </ng-template>
 </p-carousel>
