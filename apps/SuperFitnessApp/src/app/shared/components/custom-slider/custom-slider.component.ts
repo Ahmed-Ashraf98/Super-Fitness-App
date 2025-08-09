@@ -1,19 +1,11 @@
 import { Component, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
-import { TagModule } from 'primeng/tag';
 import { CustomCardComponent } from '../cutom-card/custom-card.component';
 
 @Component({
   selector: 'app-custom-slider',
-  imports: [
-    CommonModule,
-    CarouselModule,
-    ButtonModule,
-    TagModule,
-    CustomCardComponent,
-  ],
+  imports: [CommonModule, CarouselModule, CustomCardComponent],
   templateUrl: './custom-slider.component.html',
   styleUrl: './custom-slider.component.scss',
 })

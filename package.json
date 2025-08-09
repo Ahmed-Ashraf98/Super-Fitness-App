@@ -2,7 +2,9 @@
   "name": "@fitness-org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:dev": "npx nx s SuperFitnessApp"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~19.2.0",
@@ -26,7 +28,7 @@
     "flowbite": "^3.1.2",
     "jwt-decode": "^4.0.0",
     "ngx-cookie-service-ssr": "^19.0.0",
-    "ngx-owl-carousel-o": "^20.0.0",
+    "ngx-owl-carousel-o": "^19.0.2",
     "primeicons": "^7.0.0",
     "primeng": "^19.1.4",
     "rxjs": "~7.8.0",
