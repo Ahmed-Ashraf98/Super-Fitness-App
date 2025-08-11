@@ -38,5 +38,14 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/pages/user-profile/user-profile.component').then((c) => c.UserProfileComponent),
-  }
+  },
+  {
+    path: 'healthy',
+    loadComponent: () =>
+      import('./features/pages/healthy-nutri/healthy-nutri.component').then(
+        (c) => c.HealthyNutriComponent
+      ),
+  },
+
+
 ];

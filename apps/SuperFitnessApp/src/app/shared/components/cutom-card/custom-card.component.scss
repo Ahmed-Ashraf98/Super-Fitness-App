@@ -2,58 +2,44 @@
   max-width: 400px;
   height: 398px;
   border-radius: 8px;
-}
-
-.card-wrapper {
   position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
+.card-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Full background image */
 .card-img {
+  width: 100%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: transform 0.5s ease;
 }
 
-.card-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 100px;
-  background: #24242480;
-  backdrop-filter: blur(40.20000076293945px);
-
-  &__title {
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 22.2px;
-    line-height: 33.6px;
-    letter-spacing: 2.24px;
-    vertical-align: middle;
-  }
-
-  &__readMore {
-    cursor: pointer;
-
-    &__text {
-      font-weight: 500;
-      font-style: Medium;
-      font-size: 20px;
-      line-height: 18px;
-      letter-spacing: 0px;
-      vertical-align: middle;
-      color: #ff4100;
-    }
-  }
-}
-:host {
-  display: block;
-}
-
-button {
-  transition: all 0.3s ease-in-out;
-}
-
-button:hover {
+.card-container:hover .card-img {
   transform: scale(1.05);
+}
+
+/* Text overlay at bottom only */
+.card-footer__readMore {
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.card-footer__readMore__text {
+  font-weight: 500;
+  font-size: 20px;
+  color: #ff4100;
+  transition: color 0.3s ease;
+
+}
+
+.card-footer__readMore:hover .card-footer__readMore__text {
+  color: #ff5722;
 }

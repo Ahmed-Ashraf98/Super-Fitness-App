@@ -1,1 +1,42 @@
-<p>healthy-nutri works!</p>
+<div class="overlay" [ngClass]="{ 'overlay-light': !themeVal, 'overlay-dark': themeVal }"></div>
+<div class="healthy-container profile-wrapper">
+  <!-- Header Section -->
+  <section class="header-section mb-12 mt-20">
+    <div class="logo-section text-center mb-8">
+      <div class="logo-container">
+          <img src="/Healthy.png" alt="healthy" class="">
+        <div class="subtitle-container">
+          <img src="/HealthyNutritions.png" alt="Healthy Nutritions">
+        </div>
+      </div>
+    </div>
+    
+    <div class="main-heading text-center mb-12">
+      <h2 class="hero-title">
+        FUEL YOUR FITNESS JOURNEY WITH CUSTOMIZED 
+        <span class="highlight-text">MEAL PLANS</span> 
+        FOR YOU
+      </h2>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section mb-8" *ngIf="categories.length > 0">    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div 
+        *ngFor="let category of categories" 
+        class="category-card cursor-pointer"
+        (click)="onCategorySelect(category.strCategory)"
+      >
+        <app-custom-card
+          [itemId]="category.strCategory"
+          [cardTitle]="category.strCategory"
+          [cardImg]="category.strCategoryThumb"
+          (onReadMore)="onCategorySelect($event!)"
+        ></app-custom-card>
+      </div>
+    </div>
+  </section>
+
+
+</div>
