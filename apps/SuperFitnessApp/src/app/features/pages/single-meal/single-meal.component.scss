@@ -13,3 +13,27 @@
 .overlay-dark {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+
+/* Chrome, Safari, Edge */
+aside::-webkit-scrollbar {
+  width: 8px; /* عرض الشريط */
+}
+
+aside::-webkit-scrollbar-track {
+  background: transparent; /* خلفية المسار */
+}
+
+aside::-webkit-scrollbar-thumb {
+  background-color: #FF4100; /* لون المقبض */
+  border-radius: 10px; /* شكل المقبض */
+  border: 2px solid transparent; /* لإضافة تباعد داخلي */
+  background-clip: content-box;
+}
+
+/* Firefox */
+aside {
+  scrollbar-width: thin;
+  scrollbar-color: #FF4100 transparent;
+}
+
