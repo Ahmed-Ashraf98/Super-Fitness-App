@@ -46,6 +46,13 @@ export const appRoutes: Routes = [
         (c) => c.HealthyNutriComponent
       ),
   },
+  {
+    path: 'single-meal/:id',
+    loadComponent: () =>
+      import('./features/pages/single-meal/single-meal.component').then(
+        (c) => c.SingleMealComponent
+      ),
+  },
 
 
 ];

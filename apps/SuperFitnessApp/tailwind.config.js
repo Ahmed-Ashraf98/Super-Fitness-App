@@ -4,7 +4,7 @@ const { join } = require('path');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    join(__dirname, 'apps/SuperFitnessApp/src/**/!(*.stories|*.spec).{ts,html}'),
+    join(__dirname, 'apps/SuperFitnessApp/src/**/!(*.stories|*.spec).{ts,html,scss}'),
     ...createGlobPatternsForDependencies(__dirname),
     './node_modules/flowbite/**/*.js',
   ],

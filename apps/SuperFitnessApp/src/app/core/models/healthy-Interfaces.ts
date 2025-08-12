@@ -12,6 +12,7 @@ export interface Category {
   } 
 
   export interface MealDetails {
+    meals: any
     idMeal: string
     strMeal: string
     strMealAlternate: any

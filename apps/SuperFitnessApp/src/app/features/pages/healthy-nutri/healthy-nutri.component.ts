@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { HealthyServiceService } from '../../../core/services/healthey/healthy-service.service';
 import { CommonModule } from '@angular/common';
 import { Meals, MealDetails } from '../../../core/models/healthy-Interfaces';
@@ -49,6 +50,7 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
     private healthyService: HealthyServiceService,
     private themeManager: ThemeManagerService,
     private _translateManager: TranslateManagerService,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -86,12 +88,10 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
   }
  
   filterMealsByType(filterType: string): void {
-    console.log('🔍 Filtering meals by type:', filterType);
     this.selectedFilter = filterType;
   
     // لو لسه مفيش داتا، نرجع فورًا
     if (!this.allMeals.length) {
-      console.log('⚠️ No meals available for filtering');
       this.filteredMeals = [];
       this.displayedMeals = [];
       return;
@@ -99,11 +99,9 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
   
     if (filterType === 'all') {
       this.filteredMeals = [...this.allMeals];
-      console.log('✅ All meals selected:', this.filteredMeals.length);
     } else {
       const allowedKeywords =
         this.mealTypeFilters[filterType as keyof typeof this.mealTypeFilters] || [];
-      console.log('🔑 Keywords for', filterType, ':', allowedKeywords);
   
       this.filteredMeals = this.allMeals.filter(meal => {
         const mealName = meal.strMeal?.toLowerCase() || '';
@@ -112,24 +110,20 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
         );
         
         if (hasMatch) {
-          console.log('🍽️ Meal matched:', meal.strMeal, 'for filter:', filterType);
         }
         
         return hasMatch;
       });
       
-      console.log('📊 Filtered meals count for', filterType, ':', this.filteredMeals.length);
     }
   
     // التحديث الفوري للقائمة
     this.displayedMeals = [...this.filteredMeals];
-    console.log('🔄 Updated displayedMeals:', this.displayedMeals.length);
     this.selectedMealDetails = null;
   }
   
 
   onFilterChange(filterId: string): void {
-    console.log('🎯 Filter change event received:', filterId);
     this.filterMealsByType(filterId);
   }
 
@@ -145,7 +139,8 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
 
   onMealSelect(mealId: string | undefined): void {
     if (mealId) {
-      this.getMealDetails(mealId);
+      // Navigate to single-meal component with the meal ID
+      this.router.navigate(['single-meal', mealId]);
     }
   }
 

@@ -1,24 +1,24 @@
 <!-- Overlay -->
+<div class="my-10 ">
 <div
   class="overlay"
   [ngClass]="{ 'overlay-light': !themeVal, 'overlay-dark': themeVal }"
-  *ngIf="allMeals.length > 0 || displayedMeals.length > 0"
 ></div>
 
 <div class="healthy-container profile-wrapper">
 
   <!-- Header Section -->
-  <section class="header-section mb-12 mt-20">
-    <div class="logo-section text-center mb-8">
+  <section class="header-section">
+    <div class="logo-section">
       <div class="logo-container">
-        <img src="/Healthy.png" alt="healthy" />
+        <img src="/Healthy.png" alt="healthy" class="main-logo" />
         <div class="subtitle-container">
-          <img src="/HealthyNutritions.png" alt="Healthy Nutritions" />
+          <img src="/HealthyNutritions.png" alt="Healthy Nutritions" class="subtitle-logo" />
         </div>
       </div>
     </div>
 
-    <div class="main-heading text-center mb-12">
+    <div class="main-heading">
       <h2 class="hero-title">
         FUEL YOUR FITNESS JOURNEY WITH CUSTOMIZED
         <span class="highlight-text">MEAL PLANS</span>
@@ -28,8 +28,8 @@
   </section>
 
   <!-- Filter Tabs Section -->
-  <section *ngIf="allMeals.length > 0" class="filter-tabs-section mb-8">
-    <div class="max-w-4xl mx-auto">
+  <section *ngIf="allMeals.length > 0" class="filter-tabs-section">
+    <div class="tabs-container">
       <app-custom-tab
         [tabs]="filterTabs"
         [defaultTab]="0"
@@ -39,7 +39,7 @@
   </section>
 
   <!-- Meals Section -->
-  <section *ngIf="displayedMeals.length > 0" class="meals-section mb-8">
+  <section *ngIf="displayedMeals.length > 0" class="meals-section">
     <div class="meals-slider-container">
       <app-custom-slider
         [itemsList]="displayedMeals"
@@ -54,19 +54,21 @@
   <!-- No Results State -->
   <section
     *ngIf="filteredMeals.length === 0 && allMeals.length > 0"
-    class="empty-state text-center"
+    class="empty-state"
   >
-    <p class="text-lg opacity-70">No meals found for the selected filter</p>
-    <p class="text-sm opacity-50 mt-2">Try a different filter or check back later</p>
-  </section>
-
-  <!-- Loading State -->
-  <section *ngIf="allMeals.length === 0" class="empty-state text-center">
-    <div class="animate-pulse">
-      <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4"></div>
-      <p class="text-lg opacity-70">Loading meals...</p>
-      <p class="text-sm opacity-50 mt-2">Please wait while we fetch delicious options</p>
+    <div class="empty-content">
+      <p class="empty-title">No meals found for the selected filter</p>
+      <p class="empty-subtitle">Try a different filter or check back later</p>
     </div>
   </section>
 
+  <!-- Loading State -->
+  <section *ngIf="allMeals.length === 0" class="loading-state">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p class="loading-title">Loading meals...</p>
+      <p class="loading-subtitle">Please wait while we fetch delicious options</p>
+    </div>
+  </section>
+</div>
 </div>
