@@ -76,3 +76,41 @@ body {
 .z {
   z-index: 2;
 }
+
+
+.p-tablist-content .p-tablist-tab-list {
+  border-width: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.p-tablist-content .p-tablist-tab-list .p-ripple.p-tab.p-component {
+  color: white;
+  border-width: 0;
+  padding-inline: 10px;
+}
+
+.p-tablist-content .p-tablist-tab-list .p-ripple.p-tab.p-component.p-tab-active {
+  background-color: var(--primary-color);
+}
+
+.p-tablist-content .p-tablist-tab-list .p-tab {
+  text-align: center;
+  justify-content: center;
+  border-width: 0;
+  opacity: 1;
+  height: 35px;
+  min-width: 70px;
+  gap: 8px;
+  border-radius: 20px;
+  padding: 8px;
+  margin: 0 4px;
+}
+
+.p-tablist-content .p-tablist-tab-list .p-tablist-active-bar {
+  width: 0px !important;
+  border-width: 0;
+}

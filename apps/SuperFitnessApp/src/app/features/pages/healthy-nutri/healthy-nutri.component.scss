@@ -122,21 +122,52 @@
   font-weight: 800;
 }
 
-/* Categories and Meals Sections */
-.categories-section,
+/* Meals Section */
 .meals-section {
   width: 100%;
 }
 
-.category-card,
-.meal-card {
-  transition: transform 0.3s ease;
+/* Meals Slider Container */
+.meals-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.category-card:hover,
-.meal-card:hover {
-  transform: translateY(-5px);
+.overlay-light ~ .profile-wrapper .meals-slider-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* Filter Tabs Section */
+.filter-tabs-section {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-tabs-section .card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.overlay-light ~ .profile-wrapper .filter-tabs-section .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Meal cards are now handled by the custom-slider component */
+
+/* Pagination removed - now using slider navigation */
 
 /* Meal Details Section */
 .meal-details-section {
