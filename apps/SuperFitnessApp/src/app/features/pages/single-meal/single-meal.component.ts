@@ -1,9 +1,8 @@
-// SingleMealComponent.ts
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, catchError, of, interval } from 'rxjs';
-import { MealDetails, Meals } from '../../../core/models/healthy-Interfaces';
+import { MealDetails, Meals, Category } from '../../../core/models/healthy-Interfaces';
 import { HealthyServiceService } from '../../../core/services/healthey/healthy-service.service';
 import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
 import { TranslateManagerService } from '../../../core/services/TranslateManger/translate-manager-service.service';
@@ -18,7 +17,8 @@ import { tabData } from '../../../shared/components/custom-tab/tab.model';
 })
 export class SingleMealComponent implements OnInit, OnDestroy {
   mealDetails: MealDetails | null = null;
-  mealsList: Meals[] = [] ;
+  mealsList: Meals[] = [];
+  categories: Category[] = [];
   mealId: string | null = null;
   themeVal = false;
   langVal = false;
@@ -26,6 +26,7 @@ export class SingleMealComponent implements OnInit, OnDestroy {
   showSidebar = false;
 
   currentFilter: string = 'breakfast';
+  filterTabs: tabData[] = [{ id: 'breakfast', title: 'Breakfast' }];
 
   private themeSubscription?: Subscription;
   private routeSubscription?: Subscription;
@@ -38,41 +39,42 @@ export class SingleMealComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
 
-  
-  filterTabs: tabData[] = [
-    { id: 'all', title: 'All Meals' },
-    { id: 'breakfast', title: 'Breakfast' },
-    { id: 'lunch', title: 'Lunch' },
-    { id: 'dinner', title: 'Dinner' }
-  ];
-
-  mealTypeFilters: { [key: string]: string[] } = {
-    breakfast: ['Breakfast', 'Cereal', 'Eggs', 'Pancakes', 'Waffles', 'Oatmeal', 'Toast', 'Bacon', 'Sausage', 'Yogurt', 'Fruit', 'Granola'],
-    lunch: ['Sandwich', 'Salad', 'Soup', 'Pasta', 'Rice', 'Chicken', 'Fish', 'Beef', 'Vegetarian', 'Burger', 'Pizza', 'Wrap'],
-    dinner: ['Steak', 'Seafood', 'Pasta', 'Rice', 'Chicken', 'Fish', 'Beef', 'Vegetarian', 'Dessert', 'Roast', 'Grill']
-  };
-
   ngOnInit(): void {
     this.themeManager.initTheme();
     this.getUserPrefFromCookies();
-  
-    // استمع للباراميتر من الرابط
+
+    this.getCategories();
+
     this.routeSubscription = this.route.paramMap.subscribe(params => {
-      this.mealId = params.get('id'); // اسم الباراميتر في الروت لازم يكون 'id'
+      this.mealId = params.get('id');
       if (this.mealId) {
         this.displayMealDetails(this.mealId);
       }
     });
-  
-    this.getAllMeals();
+
+    this.filterMealsByType('breakfast'); // تحميل الإفطار افتراضيًا
   }
-  
+
   getUserPrefFromCookies(): void {
     const theme = this.themeManager.getCurrentTheme();
     const lang = this._translateManager.getCurrentLang();
 
     this.themeVal = theme === 'dark';
     this.langVal = lang === 'ar';
+  }
+
+  getCategories(): void {
+    this.healthyService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+        this.filterTabs = [
+          { id: 'breakfast', title: 'Breakfast' },
+          ...categories
+            .filter(cat => cat.strCategory.toLowerCase() !== 'breakfast')
+            .map(cat => ({ id: cat.strCategory, title: cat.strCategory }))
+        ];
+      }
+    });
   }
 
   displayMealDetails(mealId: string): void {
@@ -86,35 +88,26 @@ export class SingleMealComponent implements OnInit, OnDestroy {
       }
     });
   }
-  getAllMeals(): void {
+
+  filterMealsByType(filterType: string): void {
     this.isLoading = true;
-    // جلب كل الوجبات من category عام (مثلاً 'Misc' أو 'Seafood' لو API تسمح)
-    this.healthyService.getMealsByCategory('Seafood').pipe( // استبدل الكاتيجوري حسب API
+    this.healthyService.getMealsByCategory(filterType).pipe(
       catchError(() => of([]))
     ).subscribe({
-      next: (response) => {
-        if (this.currentFilter === 'all') {
-          this.mealsList = response || [];
-        } else {
-          const keywords = this.mealTypeFilters[this.currentFilter.toLowerCase()] || [];
-          this.mealsList = (response || []).filter(meal => 
-            keywords.some(keyword => meal.strMeal.toLowerCase().includes(keyword.toLowerCase()))
-          );
-        }
+      next: (meals) => {
+        this.mealsList = meals || [];
         this.isLoading = false;
-        console.log('Filtered mealsList:', this.mealsList);
       }
     });
   }
 
-  changeFilter(filter: string): void {
-    this.currentFilter = filter.toLowerCase();
-    this.getAllMeals();
+  changeFilter(filterId: string): void {
+    this.currentFilter = filterId;
+    this.filterMealsByType(filterId);
   }
 
   getIngredients(meal: MealDetails | null): { name: string; measure: string }[] {
     if (!meal) return [];
-  
     const ingredients = [];
     for (let i = 1; i <= 20; i++) {
       const ingredient = (meal as any)[`strIngredient${i}`];
@@ -125,13 +118,9 @@ export class SingleMealComponent implements OnInit, OnDestroy {
     }
     return ingredients;
   }
-  
-  
 
   ngOnDestroy(): void {
     this.themeSubscription?.unsubscribe();
     this.routeSubscription?.unsubscribe();
   }
 }
-
-

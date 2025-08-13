@@ -26,12 +26,12 @@
 <button
   class="px-4 py-1 rounded-full text-sm text-white"
   [ngClass]="{
-    'bg-[#FF4100]': currentFilter.toLowerCase() === 'all',
+    'bg-[#FF4100]': currentFilter.toLowerCase() === 'beaf',
     'hover:bg-[#FF4100]': true
   }"
-  (click)="changeFilter('all')"
+  (click)="changeFilter('Beef')"
 >
-  All
+  Beef
 </button>
 
 <button
@@ -48,23 +48,34 @@
 <button
   class="px-4 py-1 rounded-full text-sm text-white"
   [ngClass]="{
-    'bg-[#FF4100]': currentFilter.toLowerCase() === 'lunch',
+    'bg-[#FF4100]': currentFilter.toLowerCase() === 'chicken',
     'hover:bg-[#FF4100]': true
   }"
-  (click)="changeFilter('Lunch')"
+  (click)="changeFilter('Chicken')"
 >
-  Lunch
+Chicken
 </button>
 
 <button
   class="px-4 py-1 rounded-full text-sm text-white"
   [ngClass]="{
-    'bg-[#FF4100]': currentFilter.toLowerCase() === 'dinner',
+    'bg-[#FF4100]': currentFilter.toLowerCase() === 'seafood',
     'hover:bg-[#FF4100]': true
   }"
-  (click)="changeFilter('Dinner')"
+  (click)="changeFilter('Seafood')"
 >
-  Dinner
+Seafood
+</button>
+
+<button
+  class="px-4 py-1 rounded-full text-sm text-white"
+  [ngClass]="{
+    'bg-[#FF4100]': currentFilter.toLowerCase() === 'dessert',
+    'hover:bg-[#FF4100]': true
+  }"
+  (click)="changeFilter('Dessert')"
+>
+Dessert
 </button>
 </div>
 
