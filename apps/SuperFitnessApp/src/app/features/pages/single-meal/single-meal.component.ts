@@ -5,8 +5,8 @@ import { Subscription, catchError, of, interval } from 'rxjs';
 import { MealDetails, Meals, Category } from '../../../core/models/healthy-Interfaces';
 import { HealthyServiceService } from '../../../core/services/healthey/healthy-service.service';
 import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
-import { TranslateManagerService } from '../../../core/services/TranslateManger/translate-manager-service.service';
 import { tabData } from '../../../shared/components/custom-tab/tab.model';
+import { TranslateManagerService } from '../../../core/services/TranslateManger/translate-manager-service.service';
 
 @Component({
   selector: 'app-single-meal',
