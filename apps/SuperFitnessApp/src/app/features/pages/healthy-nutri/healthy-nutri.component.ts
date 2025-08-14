@@ -15,7 +15,7 @@ import { TranslateManagerService } from '../../../core/services/TranslateManger/
 @Component({
   selector: 'app-healthy-nutri',
   standalone: true,
-  imports: [CommonModule, CustomTabComponent, CustomSliderComponent, TranslateModule],
+  imports: [CommonModule, CustomTabComponent, CustomSliderComponent, TranslateModule, ],
   templateUrl: './healthy-nutri.component.html',
   styleUrl: './healthy-nutri.component.scss'
 })

@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-us',
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, ],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })

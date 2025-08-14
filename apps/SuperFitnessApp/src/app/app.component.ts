@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
 import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { initFlowbite } from 'flowbite';
 import { HorizonbarComponent } from "./features/pages/home/components/horizonbar/horizonbar.component";
+import { ChatbotFloatingComponent } from "./features/chatbot/chatbotFloating/chatbotFloating.component";
 
 @Component({
   imports: [
@@ -16,7 +17,8 @@ import { HorizonbarComponent } from "./features/pages/home/components/horizonbar
     NavbarComponent,
     FooterComponent,
     CommonModule,
-    HorizonbarComponent
+    HorizonbarComponent,
+    ChatbotFloatingComponent
 ],
   selector: 'app-root',
   templateUrl: './app.component.html',

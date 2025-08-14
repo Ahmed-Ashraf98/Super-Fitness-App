@@ -15,8 +15,9 @@ import { CustomSliderComponent } from '../../../shared/components/custom-slider/
     CommonModule,
     CarouselModule,
     CustomSliderComponent,
-    TranslateModule,
-  ],
+    TranslateModule
+    
+],
   standalone: true,
   templateUrl: './fitness-class.component.html',
   styleUrls: ['./fitness-class.component.scss'],
