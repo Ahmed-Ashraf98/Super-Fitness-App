@@ -11,14 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
-import { error } from 'node:console';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
   standalone: true,
-  imports: [DialogModule, ButtonModule, InputTextModule, ReactiveFormsModule, CommonModule, DropdownModule, FormsModule],
+  imports: [DialogModule, TranslateModule,ButtonModule, InputTextModule, ReactiveFormsModule, CommonModule, DropdownModule, FormsModule],
 })
 export class UserProfileComponent implements OnInit {
 

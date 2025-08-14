@@ -1,23 +1,21 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { HealthyServiceService } from '../../../core/services/healthey/healthy-service.service';
 import { CommonModule } from '@angular/common';
 import { Meals, MealDetails, Category } from '../../../core/models/healthy-Interfaces';
 import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
-import { CustomCardComponent } from '../../../shared/components/cutom-card/custom-card.component';
 import { CustomTabComponent } from '../../../shared/components/custom-tab/custom-tab.component';
 import { CustomSliderComponent } from '../../../shared/components/custom-slider/custom-slider.component';
 import { Subscription, interval } from 'rxjs';
 import { tabData } from '../../../shared/components/custom-tab/tab.model';
-import { HorizonbarComponent } from "../home/components/horizonbar/horizonbar.component";
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateManagerService } from '../../../core/services/TranslateManger/translate-manager-service.service';
 
 @Component({
   selector: 'app-healthy-nutri',
   standalone: true,
-  imports: [CommonModule, CustomCardComponent, CustomTabComponent, CustomSliderComponent, HorizonbarComponent, RouterLink, TranslateModule],
+  imports: [CommonModule, CustomTabComponent, CustomSliderComponent, TranslateModule],
   templateUrl: './healthy-nutri.component.html',
   styleUrl: './healthy-nutri.component.scss'
 })

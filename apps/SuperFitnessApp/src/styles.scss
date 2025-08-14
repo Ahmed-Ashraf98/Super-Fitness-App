@@ -66,20 +66,6 @@ body {
   // font-family: 'Baloo Thambi 2', system-ui, sans-serif;
   font-family: var(--font-family), system-ui, sans-serif;
 }
-
-/* Utility: make a section span the full viewport width even inside padded containers */
-[dir='rtl'] .rtl-full-bleed,
-[dir='ltr'] .rtl-full-bleed {
-  width: 99vw !important;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
-
-/* RTL helpers */
-[dir='rtl'] .text-rtl {
-  text-align: right !important;
-}
-
 .overlay {
   position: absolute;
   inset: 0;
@@ -127,4 +113,25 @@ body {
 .p-tablist-content .p-tablist-tab-list .p-tablist-active-bar {
   width: 0px !important;
   border-width: 0;
+}
+ 
+
+/* Scrollbar في Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* الخلفية */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FF4100; /* اللون البرتقالي */
+  border-radius: 10px;
+}
+
+/* Scrollbar في Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF4100 transparent;
 }

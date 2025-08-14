@@ -7,7 +7,6 @@ import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeMan
 import { tabData } from '../../../shared/components/custom-tab/tab.model';
 import { CarouselModule } from 'primeng/carousel';
 import { TranslateModule } from '@ngx-translate/core';
-import { HorizonbarComponent } from '../home/components/horizonbar/horizonbar.component';
 import { CustomSliderComponent } from '../../../shared/components/custom-slider/custom-slider.component';
 
 @Component({
@@ -15,7 +14,6 @@ import { CustomSliderComponent } from '../../../shared/components/custom-slider/
   imports: [
     CommonModule,
     CarouselModule,
-    HorizonbarComponent,
     CustomSliderComponent,
     TranslateModule,
   ],
