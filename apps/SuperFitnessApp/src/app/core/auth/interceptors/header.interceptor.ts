@@ -5,8 +5,10 @@ import { TranslateManagerService } from '../../services/TranslateManger/translat
 export const headerInterceptor: HttpInterceptorFn = (req, next) => {
   const trans = inject(TranslateManagerService);
 
-  const excludedUrls = ['/signup', '/signin'];
-  const isExcluded = excludedUrls.some(url => req.url.endsWith(url));
+  const excludedUrls = ['/signup', '/signin', '/healthy', '/about', '/classes', '/home', 'https://www.themealdb.com/api/json/v1/1/categories.php',
+    'https://www.themealdb.com/api/json/v1/1/lookup.php',
+    'https://www.themealdb.com/api/json/v1/1/filter.php'];
+  const isExcluded = excludedUrls.some(url => req.url.startsWith(url));
 
   if (isExcluded) {
     return next(req);

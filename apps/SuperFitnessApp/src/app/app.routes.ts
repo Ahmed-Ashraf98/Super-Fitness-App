@@ -34,9 +34,32 @@ export const appRoutes: Routes = [
       ),
   },
   {
+    path: 'class/:id',
+    loadComponent: () =>
+      import('./features/pages/single-class/single-class.component').then(
+        (c) => c.SingleClassComponent
+      ),
+  },
+  {
     path:'user-profile',
     canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/pages/user-profile/user-profile.component').then((c) => c.UserProfileComponent),
-  }
+  },
+  {
+    path: 'healthy',
+    loadComponent: () =>
+      import('./features/pages/healthy-nutri/healthy-nutri.component').then(
+        (c) => c.HealthyNutriComponent
+      ),
+  },
+  {
+    path: 'single-meal/:id',
+    loadComponent: () =>
+      import('./features/pages/single-meal/single-meal.component').then(
+        (c) => c.SingleMealComponent
+      ),
+  },
+
+
 ];

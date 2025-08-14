@@ -1,13 +1,33 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-horizonbar',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './horizonbar.component.html',
   styleUrl: './horizonbar.component.css'
 })
 export class HorizonbarComponent {
 
-  horizon=["outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","outdoor & online trainers","personal training","live classes","personal trainers","outdoor & online trainers","personal training","live classes","personal trainers"]
+  horizon=[
+    'home.horizon.outdoor_online',
+    'home.horizon.personal_training',
+    'home.horizon.live_classes',
+    'home.horizon.personal_trainers',
+    'home.horizon.outdoor_online',
+    'home.horizon.personal_training',
+    'home.horizon.live_classes',
+    'home.horizon.personal_trainers',
+    'home.horizon.outdoor_online',
+    'home.horizon.personal_training',
+    'home.horizon.live_classes',
+    'home.horizon.outdoor_online',
+    'home.horizon.personal_training',
+    'home.horizon.live_classes',
+    'home.horizon.personal_trainers',
+    'home.horizon.outdoor_online',
+    'home.horizon.personal_training',
+    'home.horizon.live_classes',
+    'home.horizon.personal_trainers']
 
 }

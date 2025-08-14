@@ -1,9 +1,16 @@
 ::ng-deep {
   .p-tablist-content .p-tablist-tab-list {
     border-width: 0;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
     & .p-ripple.p-tab.p-component {
       color: white;
       border-width: 0;
+      padding-inline: 10px;
 
       &.p-tab-active {
         background-color: var(--primary-color);
@@ -20,6 +27,7 @@
       gap: 8px;
       border-radius: 20px;
       padding: 8px;
+      margin: 0 4px;
     }
 
     & .p-tablist-active-bar {
@@ -27,4 +35,18 @@
       border-width: 0;
     }
   }
+}
+
+/* Additional centering for the card container */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ensure the tabs container is centered */
+:host {
+  display: block;
+  width: 100%;
 }

@@ -1,25 +1,15 @@
-<div class="relative rounded-2xl overflow-hidden shadow-xl group">
-  <!-- Background Image -->
-  <div
-    [style.background-image]="'url(' + cardImg() + ')'"
-    class="w-full h-72 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
-  ></div>
+<div class="card-container group" (click)="readMore()">
+  <!-- Background Image with scale effect -->
+  <div 
+    class="card-img"
+    [style.background-image]="'url(' + cardImg() + ')'">
+  </div>
 
-  <!-- Gradient Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-  <!-- Footer Content -->
-  <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col">
-    <p class="text-white text-xl font-bold uppercase">{{ cardTitle() }}</p>
-    <button
-      (click)="readMore()"
-      class="mt-3 inline-flex items-center text-white bg-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 w-max"
-    >
-      Explore
-      <svg class="ml-2" width="20" height="20" viewBox="0 0 34 34" fill="none">
-        <rect y="17" width="24" height="24" rx="12" transform="rotate(-45 0 17)" fill="#fff"/>
-        <path d="M19.3 13.9C18.5 14.7 17 14.7 16.1 13.9L15.8 13.6 15.1 14.3 15.5 14.6C16.1 15.2 16.9 15.5 17.7 15.5L13.5 19.7 14.2 20.4 18.4 16.2C18.4 17 18.7 17.9 19.3 18.5L19.6 18.8 20.3 18.1 20 17.7C19.2 16.9 19.2 15.4 20 14.6L20.3 14.3 19.6 13.6 19.3 13.9Z" fill="#171E2E"/>
-      </svg>
-    </button>
+  <!-- Overlay for text only at bottom (no scale) -->
+  <div class="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md flex flex-col p-4">
+    <p class="text-white text-lg font-semibold mb-2">{{ cardTitle() }}</p>
+    <div class="card-footer__readMore ">
+      <div class="card-footer__readMore__text flex">Explore <img src="/exploreIcon.png" alt="Explore"></div>
+    </div>
   </div>
 </div>

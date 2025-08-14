@@ -1,13 +1,19 @@
-::ng-deep
-  .custom-slider
-  .p-carousel-indicator-active
-  .p-carousel-indicator-button {
-  background: var(--primary-color);
-  width: 30px;
-}
-
 ::ng-deep .custom-slider .p-carousel-indicator-button {
   background: #f3f3f4;
   width: 10px;
   height: 10px;
+}
+
+::ng-deep .custom-slider .p-carousel-indicator-active .p-carousel-indicator-button {
+  background: var(--primary-color);
+  width: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  ::ng-deep .custom-slider .p-carousel .p-carousel-prev,
+  ::ng-deep .custom-slider .p-carousel .p-carousel-next {
+    width: 35px;
+    height: 35px;
+  }
 }

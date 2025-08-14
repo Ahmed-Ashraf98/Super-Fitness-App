@@ -2,11 +2,12 @@ import { Component, OnInit, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HorizonbarComponent } from 'apps/SuperFitnessApp/src/app/features/pages/home/components/horizonbar/horizonbar.component';
 import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, HorizonbarComponent],
+  imports: [CommonModule, HorizonbarComponent, TranslateModule],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
 })

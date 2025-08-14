@@ -31,4 +31,14 @@ section.hero {
   .hero .overlay-dark {
     background-color: rgba(0, 0, 0, 0.7);
   }
+
+  /* RTL adjustments */
+  :host-context([dir='rtl']) .hero-text {
+    text-align: right;
+  }
+  :host-context([dir='rtl']) .cta-arrow {
+    right: auto !important;
+    left: -1rem !important;
+    transform: translateY(-50%) scaleX(-1) !important;
+  }
   
