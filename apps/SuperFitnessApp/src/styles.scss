@@ -66,6 +66,20 @@ body {
   // font-family: 'Baloo Thambi 2', system-ui, sans-serif;
   font-family: var(--font-family), system-ui, sans-serif;
 }
+
+/* Utility: make a section span the full viewport width even inside padded containers */
+[dir='rtl'] .rtl-full-bleed,
+[dir='ltr'] .rtl-full-bleed {
+  width: 99vw !important;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* RTL helpers */
+[dir='rtl'] .text-rtl {
+  text-align: right !important;
+}
+
 .overlay {
   position: absolute;
   inset: 0;

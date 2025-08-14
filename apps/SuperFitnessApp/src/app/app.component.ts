@@ -5,8 +5,9 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './core/layout/navbar/navbar.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { filter } from 'rxjs/operators';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { initFlowbite } from 'flowbite';
+import { HorizonbarComponent } from "./features/pages/home/components/horizonbar/horizonbar.component";
 
 @Component({
   imports: [
@@ -15,7 +16,8 @@ import { initFlowbite } from 'flowbite';
     NavbarComponent,
     FooterComponent,
     CommonModule,
-  ],
+    HorizonbarComponent
+],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -26,8 +28,9 @@ export class AppComponent implements OnInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
+    private _viewportScroller: ViewportScroller,
     private flowbiteService: FlowbiteService,
-    private router: Router
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,11 +39,16 @@ export class AppComponent implements OnInit {
     }
 
     // متابعة تغييرات الراوتر
-    this.router.events
+    this._router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         // لو الرابط فيه /auth نخفي النافبار والفوتر
         this.showLayout = !event.url.startsWith('/auth');
+      });
+      this._router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
+          this._viewportScroller.scrollToPosition([0, 0]);
+        }
       });
   }
 }

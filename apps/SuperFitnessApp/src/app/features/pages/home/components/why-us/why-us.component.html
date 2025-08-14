@@ -1,11 +1,11 @@
 <div class="mt-8 sm:mt-12 lg:mt-16 flex flex-col lg:flex-row gap-8 lg:gap-12">
   <!-- Content Section -->
-  <div class="w-full lg:w-3/5">
+  <div class="w-full lg:w-3/5 content-text">
     <div class="relative">
       <img src="Whyus.png" alt="" class="w-full max-w-xs lg:max-w-sm" />
       <div class="flex absolute bottom-0">
         <img src="weight.png" class="ps-2 w-6 h-6" alt="" />
-        <p class="ps-4 text-[#FF4100] text-sm sm:text-base">Why us</p>
+        <p class="ps-4 text-[#FF4100] text-sm sm:text-base">{{ 'why.badge' | translate }}</p>
       </div>
     </div>
     <div class="mt-8 sm:mt-12">
@@ -13,19 +13,17 @@
         <h2
           class="text-[#242424] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase"
         >
-          Elevate fitness with the
+          {{ 'why.title_1' | translate }}
         </h2>
         <h2
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF4100] uppercase"
         >
-          best way <span class="text-[#242424] dark:text-white">possible</span>
+          {{ 'why.title_2_a' | translate }} <span class="text-[#242424] dark:text-white">{{ 'why.title_2_b' | translate }}</span>
         </h2>
         <p
           class="text-[#242424] dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl font-normal pt-4 sm:pt-6 lg:pt-8 pe-0 lg:pe-8"
         >
-          We offer a fitness journey that's tailored to your goals, supported by
-          professional trainers and a welcoming community. Whether it's weight
-          loss, strength building, or overall wellness, our proven methods.
+          {{ 'why.desc' | translate }}
         </p>
       </div>
 
@@ -41,13 +39,12 @@
             <h4
               class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"
             >
-              personalized fitness plans
+              {{ 'why.f1_title' | translate }}
             </h4>
             <p
               class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"
             >
-              We tailor every workout to fit your unique goals and fitness level
-              ensuring that you make the most progress.
+              {{ 'why.f1_desc' | translate }}
             </p>
           </div>
         </div>
@@ -62,13 +59,12 @@
             <h4
               class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"
             >
-              results-driven focus
+              {{ 'why.f2_title' | translate }}
             </h4>
             <p
               class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"
             >
-              Everything we do is designed to help you achieve measurable
-              results, whether you're aiming for weight loss.
+              {{ 'why.f2_desc' | translate }}
             </p>
           </div>
         </div>
@@ -83,13 +79,12 @@
             <h4
               class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"
             >
-              state-of-the-art equipment
+              {{ 'why.f3_title' | translate }}
             </h4>
             <p
               class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"
             >
-              We provide the latest in gym equipment, from cardio machines to
-              free weights, designed to support every type.
+              {{ 'why.f3_desc' | translate }}
             </p>
           </div>
         </div>

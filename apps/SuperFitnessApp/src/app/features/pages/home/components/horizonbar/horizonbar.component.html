@@ -2,7 +2,7 @@
     <div class="flex shrink-0  py-6 items-center horizon-scroll overflow-hidden">
         @for (item of horizon; track $index) {
             <ul aria-hidden="true" class="flex items-center shrink-0">
-                <li><p class="text-[24px] font-bold text-white">{{item}}</p></li>
+                <li><p class="text-[24px] font-bold text-white">{{ item | translate }}</p></li>
                 <li class="mx-4"><img src="Vector.png" alt=""></li>
             </ul>
             <!-- <div>

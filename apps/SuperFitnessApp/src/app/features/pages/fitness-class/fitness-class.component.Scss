@@ -167,6 +167,8 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabs-glass {
@@ -355,6 +357,8 @@
   .subtitle-text {
     font-size: 1rem;
   }
+  .tabs-container { padding: 0 6px; }
+  .tabs-container button { min-width: 86px; height: 34px; font-size: 0.75rem; }
 }
 
 @media (max-width: 480px) {

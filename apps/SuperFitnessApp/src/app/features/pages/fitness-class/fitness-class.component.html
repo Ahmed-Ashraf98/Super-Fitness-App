@@ -23,8 +23,8 @@
 
       <div class="main-heading">
         <h2 class="hero-title">
-          TRANSFORM YOUR BODY WITH OUR DYNAMIC
-          <span class="highlight-text">UPCOMING WORKOUTS</span>
+          {{ 'fitnessClass.hero_title_1' | translate }}
+          <span class="highlight-text">{{ 'fitnessClass.hero_title_2' | translate }}</span>
         </h2>
       </div>
     </section>
@@ -54,7 +54,7 @@
                 }"
                 class="px-2 py-2 rounded-full font-semibold uppercase tracking-wide transition-all duration-300   w-full text-xs md:text-sm flex items-center justify-center gap-2 backdrop-blur-md border border-white/10"
               >
-                <span class="truncate">{{ tab.title }}</span>
+                <span class="truncate">{{ tab.id === 'full_body' ? ('fitnessClass.full_body' | translate) : tab.title }}</span>
               </button>
             </div>
           </ng-template>
@@ -81,8 +81,8 @@
       class="empty-state"
     >
       <div class="empty-content">
-        <p class="empty-title">No workouts found for the selected filter</p>
-        <p class="empty-subtitle">Try a different filter or check back later</p>
+        <p class="empty-title">{{ 'fitnessClass.no_results_title' | translate }}</p>
+        <p class="empty-subtitle">{{ 'fitnessClass.no_results_subtitle' | translate }}</p>
       </div>
     </section>
 
@@ -90,14 +90,12 @@
     <section *ngIf="muscleGroups.length === 0" class="loading-state">
       <div class="loading-content">
         <div class="loading-spinner"></div>
-        <p class="loading-title">Loading workouts...</p>
+        <p class="loading-title">{{ 'common.loading_workouts' | translate }}</p>
         <p class="loading-subtitle">
-          Please wait while we fetch amazing workout options
+          {{ 'common.loading_subtitle' | translate }}
         </p>
       </div>
     </section>
   </div>
 
-  <!-- Fixed Horizon Bar -->
-  <app-horizonbar class="absolute bottom-0 left-0 w-full z-50"></app-horizonbar>
 </div>

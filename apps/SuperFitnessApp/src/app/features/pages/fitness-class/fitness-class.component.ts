@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { MusclesGroup } from '../../../core/models/allMuscles';
 import { MusclesService } from '../../../core/services/muscles/muscles.service';
 import { CommonModule } from '@angular/common';
-import { CustomCardComponent } from '../../../shared/components/cutom-card/custom-card.component';
 import { Router } from '@angular/router';
 import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
 import { tabData } from '../../../shared/components/custom-tab/tab.model';
 import { CarouselModule } from 'primeng/carousel';
+import { TranslateModule } from '@ngx-translate/core';
 import { HorizonbarComponent } from '../home/components/horizonbar/horizonbar.component';
 import { CustomSliderComponent } from '../../../shared/components/custom-slider/custom-slider.component';
 
@@ -14,10 +14,10 @@ import { CustomSliderComponent } from '../../../shared/components/custom-slider/
   selector: 'app-fitness-class',
   imports: [
     CommonModule,
-    CustomCardComponent,
     CarouselModule,
     HorizonbarComponent,
     CustomSliderComponent,
+    TranslateModule,
   ],
   standalone: true,
   templateUrl: './fitness-class.component.html',
@@ -78,7 +78,7 @@ export class FitnessClassComponent {
 
   generateFilterTabs() {
     this.filterTabs = [
-      { id: 'full_body', title: 'Full Body' },
+      { id: 'full_body', title: 'fitnessClass.full_body' },
       ...this.muscleGroups.map((group) => ({
         id: group._id,
         title: group.name,

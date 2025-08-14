@@ -12,11 +12,12 @@ import { CustomSliderComponent } from '../../../shared/components/custom-slider/
 import { Subscription, interval } from 'rxjs';
 import { tabData } from '../../../shared/components/custom-tab/tab.model';
 import { HorizonbarComponent } from "../home/components/horizonbar/horizonbar.component";
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-healthy-nutri',
   standalone: true,
-  imports: [CommonModule, CustomCardComponent, CustomTabComponent, CustomSliderComponent, HorizonbarComponent, RouterLink],
+  imports: [CommonModule, CustomCardComponent, CustomTabComponent, CustomSliderComponent, HorizonbarComponent, RouterLink, TranslateModule],
   templateUrl: './healthy-nutri.component.html',
   styleUrl: './healthy-nutri.component.scss'
 })

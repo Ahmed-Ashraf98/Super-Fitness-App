@@ -1,3 +1,10 @@
+:host-context([dir='rtl']) .badge-pos {
+  left: auto;
+  right: 1rem;
+}
+:host-context([dir='rtl']) .flex.flex-col.order-1 {
+  text-align: right;
+}
 .hero{
     overflow: visible;
 }
