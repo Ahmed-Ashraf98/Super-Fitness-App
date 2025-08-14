@@ -1,0 +1,189 @@
+<!-- Overlay -->
+<div class="my-10">
+  <div
+    class="overlay"
+    [ngClass]="{ 'overlay-light': !themeVal, 'overlay-dark': themeVal }"
+  ></div>
+
+  <div class="single-class-container profile-wrapper">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p class="loading-title">Loading workout details...</p>
+        <p class="loading-subtitle">Please wait while we fetch the exercise information</p>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="empty-state">
+      <div class="empty-content">
+        <h2 class="empty-title">{{ error }}</h2>
+        <button (click)="goBack()" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full">
+          Go Back
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div *ngIf="!loading && !error && muscleGroupDetail" class="max-w-7xl mx-auto w-full">
+      <!-- Header -->
+      <section class="header-section">
+        <button (click)="goBack()" class="flex items-center text-orange-500 hover:text-orange-400 mb-4">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Classes
+        </button>
+        
+        <h1 class="hero-title">{{ muscleGroupDetail.name.toUpperCase() }}</h1>
+        <p class="subtitle-text">Transform your {{ muscleGroupDetail.name.toLowerCase() }} with our dynamic workouts</p>
+      </section>
+
+      <!-- Difficulty Tabs -->
+      <section class="filter-tabs-section">
+        <div class="tabs-container">
+          <div class="card">
+            <div class="flex flex-wrap space-x-2 justify-center">
+              <button
+                *ngFor="let level of difficultyLevels"
+                (click)="selectedDifficulty = level.id; onDifficultyChange()"
+                [ngClass]="{
+                  'bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-lg scale-105': selectedDifficulty === level.id,
+                  'bg-gray-700 text-gray-300 hover:bg-gray-600': selectedDifficulty !== level.id
+                }"
+                class="px-6 py-2 rounded-full font-bold uppercase transition-all duration-300 transform hover:scale-105"
+              >
+                {{ level.name }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content Grid -->
+      <section class="workouts-section">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Left Sidebar - Exercise List -->
+          <div class="lg:col-span-1">
+            <div class="bg-gray-800/50 backdrop-blur-md rounded-lg p-6 h-fit border border-gray-700/50">
+              <h3 class="text-xl font-bold mb-4 text-white">Exercises</h3>
+              <div class="space-y-4">
+                <div 
+                  *ngFor="let exercise of exercises; let i = index" 
+                  class="bg-gray-700/50 rounded-lg p-4 cursor-pointer hover:bg-gray-600/50 transition-colors border border-gray-600/50"
+                  (click)="selectExercise(exercise)"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
+                      <span class="text-white font-bold">{{ i + 1 }}</span>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="font-semibold text-sm text-white">{{ exercise.exercise }}</h4>
+                      <p class="text-gray-400 text-xs">{{ exercise.primary_equipment }}</p>
+                    </div>
+                    <button 
+                      class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
+                      (click)="playVideo(exercise.short_youtube_demonstration_link); $event.stopPropagation()"
+                    >
+                      <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 5v10l8-5-8-5z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="lg:col-span-2">
+            <div class="bg-gray-800/50 backdrop-blur-md rounded-lg p-6 border border-gray-700/50">
+              <!-- Selected Exercise Display -->
+              <div *ngIf="selectedExercise" class="space-y-6">
+                <!-- Video Player -->
+                <div class="relative">
+                  <div class="aspect-video bg-gray-700 rounded-lg overflow-hidden">
+                    <img 
+                      [src]="getVideoThumbnail(selectedExercise.short_youtube_demonstration_link)" 
+                      alt="Exercise thumbnail"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <button 
+                        (click)="playVideo(selectedExercise.short_youtube_demonstration_link)"
+                        class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors"
+                      >
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M8 5v10l8-5-8-5z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Exercise Details -->
+                <div>
+                  <h2 class="text-2xl font-bold mb-4 text-white">{{ selectedExercise.exercise }}</h2>
+                  <p class="text-gray-400 mb-6">
+                    {{ selectedExercise.exercise }} is a {{ selectedExercise.difficulty_level.toLowerCase() }} level exercise 
+                    targeting the {{ selectedExercise.target_muscle_group.toLowerCase() }}. 
+                    This exercise primarily works the {{ selectedExercise.prime_mover_muscle }} and uses {{ selectedExercise.primary_equipment.toLowerCase() }} equipment.
+                  </p>
+
+                  <!-- Exercise Stats -->
+                  <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-gray-700/50 rounded-lg p-4 border border-gray-600/50">
+                      <h4 class="text-orange-500 font-semibold mb-2">Equipment</h4>
+                      <p class="text-sm text-white">{{ selectedExercise.primary_equipment }}</p>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-lg p-4 border border-gray-600/50">
+                      <h4 class="text-orange-500 font-semibold mb-2">Difficulty</h4>
+                      <p class="text-sm text-white">{{ selectedExercise.difficulty_level }}</p>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-lg p-4 border border-gray-600/50">
+                      <h4 class="text-orange-500 font-semibold mb-2">Primary Muscle</h4>
+                      <p class="text-sm text-white">{{ selectedExercise.prime_mover_muscle }}</p>
+                    </div>
+                    <div class="bg-gray-700/50 rounded-lg p-4 border border-gray-600/50">
+                      <h4 class="text-orange-500 font-semibold mb-2">Mechanics</h4>
+                      <p class="text-sm text-white">{{ selectedExercise.mechanics }}</p>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div class="flex space-x-4">
+                    <button 
+                      (click)="playVideo(selectedExercise.short_youtube_demonstration_link)"
+                      class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                    >
+                      Watch Demo
+                    </button>
+                    <button 
+                      *ngIf="selectedExercise.in_depth_youtube_explanation_link"
+                      (click)="playVideo(selectedExercise.in_depth_youtube_explanation_link!)"
+                      class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                    >
+                      Detailed Explanation
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Default State -->
+              <div *ngIf="!selectedExercise" class="text-center py-12">
+                <div class="w-24 h-24 bg-gray-700/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/50">
+                  <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-white">Select an Exercise</h3>
+                <p class="text-gray-400">Choose an exercise from the list to view details and videos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

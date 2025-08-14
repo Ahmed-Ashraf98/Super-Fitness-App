@@ -5,10 +5,10 @@ import { APImusclesResponse, muscles } from '../models/allMuscles';
   providedIn: 'root', // كده يبقى متاح في كل المشروع
 })
 export class MusclesAdapter {
-  adapt(response: APImusclesResponse): muscles[] {
-    return response.map((item) => ({
-      message: item.message,
-      musclesGroup: item.musclesGroup,
-    }));
+  adapt(response: APImusclesResponse): muscles {
+    return {
+      message: response.message,
+      musclesGroup: response.musclesGroup,
+    };
   }
 }

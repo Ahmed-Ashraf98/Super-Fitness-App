@@ -34,6 +34,13 @@ export const appRoutes: Routes = [
       ),
   },
   {
+    path: 'class/:id',
+    loadComponent: () =>
+      import('./features/pages/single-class/single-class.component').then(
+        (c) => c.SingleClassComponent
+      ),
+  },
+  {
     path:'user-profile',
     canActivate: [AuthGuard],
     loadComponent: () =>
