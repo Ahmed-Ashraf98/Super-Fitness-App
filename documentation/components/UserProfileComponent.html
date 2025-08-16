@@ -1,0 +1,3287 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-profile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>DialogModule</code>
+                            <code>TranslateModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>CommonModule</code>
+                            <code>DropdownModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-profile.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_authApiService" >_authApiService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_router" >_router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_themeManager" >_themeManager</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_translateManager" >_translateManager</a>
+                            </li>
+                            <li>
+                                <a href="#editError" >editError</a>
+                            </li>
+                            <li>
+                                <a href="#editField" >editField</a>
+                            </li>
+                            <li>
+                                <a href="#editForm" >editForm</a>
+                            </li>
+                            <li>
+                                <a href="#editLoading" >editLoading</a>
+                            </li>
+                            <li>
+                                <a href="#editSuccess" >editSuccess</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#fb" >fb</a>
+                            </li>
+                            <li>
+                                <a href="#fetchIsDone" >fetchIsDone</a>
+                            </li>
+                            <li>
+                                <a href="#goalOptions" >goalOptions</a>
+                            </li>
+                            <li>
+                                <a href="#langVal" >langVal</a>
+                            </li>
+                            <li>
+                                <a href="#levelOptions" >levelOptions</a>
+                            </li>
+                            <li>
+                                <a href="#resetAttempted" >resetAttempted</a>
+                            </li>
+                            <li>
+                                <a href="#resetError" >resetError</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#resetLoading" >resetLoading</a>
+                            </li>
+                            <li>
+                                <a href="#resetSuccess" >resetSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#showEditPopup" >showEditPopup</a>
+                            </li>
+                            <li>
+                                <a href="#showLogoutDialog" >showLogoutDialog</a>
+                            </li>
+                            <li>
+                                <a href="#showNewPassword" >showNewPassword</a>
+                            </li>
+                            <li>
+                                <a href="#showPassword" >showPassword</a>
+                            </li>
+                            <li>
+                                <a href="#showPasswordChangeSuccess" >showPasswordChangeSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#showResetDialog" >showResetDialog</a>
+                            </li>
+                            <li>
+                                <a href="#themeVal" >themeVal</a>
+                            </li>
+                            <li>
+                                <a href="#userProfile" >userProfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeEditPopup" >closeEditPopup</a>
+                            </li>
+                            <li>
+                                <a href="#closeLogoutDialog" >closeLogoutDialog</a>
+                            </li>
+                            <li>
+                                <a href="#closeResetDialog" >closeResetDialog</a>
+                            </li>
+                            <li>
+                                <a href="#confirmLogout" >confirmLogout</a>
+                            </li>
+                            <li>
+                                <a href="#getUserPrefFromCookies" >getUserPrefFromCookies</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openEditPopup" >openEditPopup</a>
+                            </li>
+                            <li>
+                                <a href="#openLogoutDialog" >openLogoutDialog</a>
+                            </li>
+                            <li>
+                                <a href="#openResetDialog" >openResetDialog</a>
+                            </li>
+                            <li>
+                                <a href="#setLang" >setLang</a>
+                            </li>
+                            <li>
+                                <a href="#submitEdit" >submitEdit</a>
+                            </li>
+                            <li>
+                                <a href="#submitReset" >submitReset</a>
+                            </li>
+                            <li>
+                                <a href="#toggleLang" >toggleLang</a>
+                            </li>
+                            <li>
+                                <a href="#toggleShowNewPassword" >toggleShowNewPassword</a>
+                            </li>
+                            <li>
+                                <a href="#toggleShowPassword" >toggleShowPassword</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                            <li>
+                                <a href="#UpdateUserProfile" >UpdateUserProfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeEditPopup"></a>
+                    <span class="name">
+                        <span ><b>closeEditPopup</b></span>
+                        <a href="#closeEditPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeEditPopup()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeLogoutDialog"></a>
+                    <span class="name">
+                        <span ><b>closeLogoutDialog</b></span>
+                        <a href="#closeLogoutDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeLogoutDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeResetDialog"></a>
+                    <span class="name">
+                        <span ><b>closeResetDialog</b></span>
+                        <a href="#closeResetDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeResetDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmLogout"></a>
+                    <span class="name">
+                        <span ><b>confirmLogout</b></span>
+                        <a href="#confirmLogout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmLogout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserPrefFromCookies"></a>
+                    <span class="name">
+                        <span ><b>getUserPrefFromCookies</b></span>
+                        <a href="#getUserPrefFromCookies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserPrefFromCookies()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEditPopup"></a>
+                    <span class="name">
+                        <span ><b>openEditPopup</b></span>
+                        <a href="#openEditPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openEditPopup(field: "goal" | "level" | "weight")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>field</td>
+                                            <td>
+                                                        <code>&quot;goal&quot; | &quot;level&quot; | &quot;weight&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openLogoutDialog"></a>
+                    <span class="name">
+                        <span ><b>openLogoutDialog</b></span>
+                        <a href="#openLogoutDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openLogoutDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openResetDialog"></a>
+                    <span class="name">
+                        <span ><b>openResetDialog</b></span>
+                        <a href="#openResetDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openResetDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLang"></a>
+                    <span class="name">
+                        <span ><b>setLang</b></span>
+                        <a href="#setLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLang(lang: "en" | "ar")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lang</td>
+                                            <td>
+                                                        <code>&quot;en&quot; | &quot;ar&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitEdit"></a>
+                    <span class="name">
+                        <span ><b>submitEdit</b></span>
+                        <a href="#submitEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitReset"></a>
+                    <span class="name">
+                        <span ><b>submitReset</b></span>
+                        <a href="#submitReset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitReset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLang"></a>
+                    <span class="name">
+                        <span ><b>toggleLang</b></span>
+                        <a href="#toggleLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleLang()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleShowNewPassword"></a>
+                    <span class="name">
+                        <span ><b>toggleShowNewPassword</b></span>
+                        <a href="#toggleShowNewPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleShowNewPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleShowPassword"></a>
+                    <span class="name">
+                        <span ><b>toggleShowPassword</b></span>
+                        <a href="#toggleShowPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleShowPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateUserProfile"></a>
+                    <span class="name">
+                        <span ><b>UpdateUserProfile</b></span>
+                        <a href="#UpdateUserProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UpdateUserProfile(data: <a href="../interfaces/UpdateUserProfileData.html" target="_self">UpdateUserProfileData</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UpdateUserProfileData.html" target="_self" >UpdateUserProfileData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_authApiService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_authApiService</b></span>
+                        <a href="#_authApiService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthApiService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_router</b></span>
+                        <a href="#_router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_themeManager"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_themeManager</b></span>
+                        <a href="#_themeManager"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ThemeManagerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_translateManager"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_translateManager</b></span>
+                        <a href="#_translateManager"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslateManagerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editError"></a>
+                    <span class="name">
+                        <span ><b>editError</b></span>
+                        <a href="#editError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editField"></a>
+                    <span class="name">
+                        <span ><b>editField</b></span>
+                        <a href="#editField"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;goal&quot; | &quot;level&quot; | &quot;weight&quot; | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editForm"></a>
+                    <span class="name">
+                        <span ><b>editForm</b></span>
+                        <a href="#editForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    goal: [&#x27;&#x27;],
+    level: [&#x27;&#x27;],
+    weight: [&#x27;&#x27;]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editLoading"></a>
+                    <span class="name">
+                        <span ><b>editLoading</b></span>
+                        <a href="#editLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editSuccess"></a>
+                    <span class="name">
+                        <span ><b>editSuccess</b></span>
+                        <a href="#editSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>fb</b></span>
+                        <a href="#fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchIsDone"></a>
+                    <span class="name">
+                        <span ><b>fetchIsDone</b></span>
+                        <a href="#fetchIsDone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goalOptions"></a>
+                    <span class="name">
+                        <span ><b>goalOptions</b></span>
+                        <a href="#goalOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Gain Weight&#x27;, value: &#x27;Gain Weight&#x27; },
+    { label: &#x27;Lose Weight&#x27;, value: &#x27;Lose Weight&#x27; },
+    { label: &#x27;Get Fitter&#x27;, value: &#x27;Get Fitter&#x27; },
+    { label: &#x27;Gain More Flexible&#x27;, value: &#x27;Gain More Flexible&#x27; },
+    { label: &#x27;Learn The Basic&#x27;, value: &#x27;Learn The Basic&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="langVal"></a>
+                    <span class="name">
+                        <span ><b>langVal</b></span>
+                        <a href="#langVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="levelOptions"></a>
+                    <span class="name">
+                        <span ><b>levelOptions</b></span>
+                        <a href="#levelOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;Rookie&#x27;, value: &#x27;level1&#x27; },
+    { label: &#x27;Beginner&#x27;, value: &#x27;level2&#x27; },
+    { label: &#x27;Intermediate&#x27;, value: &#x27;level3&#x27; },
+    { label: &#x27;Advance&#x27;, value: &#x27;level4&#x27; },
+    { label: &#x27;True Beast&#x27;, value: &#x27;level5&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetAttempted"></a>
+                    <span class="name">
+                        <span ><b>resetAttempted</b></span>
+                        <a href="#resetAttempted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetError"></a>
+                    <span class="name">
+                        <span ><b>resetError</b></span>
+                        <a href="#resetError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    password: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]],
+    newPassword: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetLoading"></a>
+                    <span class="name">
+                        <span ><b>resetLoading</b></span>
+                        <a href="#resetLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetSuccess"></a>
+                    <span class="name">
+                        <span ><b>resetSuccess</b></span>
+                        <a href="#resetSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showEditPopup"></a>
+                    <span class="name">
+                        <span ><b>showEditPopup</b></span>
+                        <a href="#showEditPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showLogoutDialog"></a>
+                    <span class="name">
+                        <span ><b>showLogoutDialog</b></span>
+                        <a href="#showLogoutDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showNewPassword"></a>
+                    <span class="name">
+                        <span ><b>showNewPassword</b></span>
+                        <a href="#showNewPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPassword"></a>
+                    <span class="name">
+                        <span ><b>showPassword</b></span>
+                        <a href="#showPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPasswordChangeSuccess"></a>
+                    <span class="name">
+                        <span ><b>showPasswordChangeSuccess</b></span>
+                        <a href="#showPasswordChangeSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showResetDialog"></a>
+                    <span class="name">
+                        <span ><b>showResetDialog</b></span>
+                        <a href="#showResetDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeVal"></a>
+                    <span class="name">
+                        <span ><b>themeVal</b></span>
+                        <a href="#themeVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userProfile"></a>
+                    <span class="name">
+                        <span ><b>userProfile</b></span>
+                        <a href="#userProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UpdateUserProfileData | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/user-profile/user-profile.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UpdateUserProfileData } from &#x27;./../../../../../../../projects/auth-api/src/lib/interface/updateUserProfile&#x27;;
+import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ThemeManagerService } from &#x27;apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service&#x27;;
+import { TranslateManagerService } from &#x27;apps/SuperFitnessApp/src/app/core/services/TranslateManger/translate-manager-service.service&#x27;;import { AuthApiService } from &#x27;projects/auth-api/src/lib/auth-api.service&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { DropdownModule } from &#x27;primeng/dropdown&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x27;app-user-profile&#x27;,
+  templateUrl: &#x27;./user-profile.component.html&#x27;,
+  styleUrls: [&#x27;./user-profile.component.scss&#x27;],
+  standalone: true,
+  imports: [DialogModule, TranslateModule,ButtonModule, InputTextModule, ReactiveFormsModule, CommonModule, DropdownModule, FormsModule],
+})
+export class UserProfileComponent implements OnInit {
+
+  constructor() { }
+  themeVal: boolean &#x3D; false;
+  langVal: boolean &#x3D; false;
+  fetchIsDone &#x3D; false;
+
+  private readonly _themeManager &#x3D; inject(ThemeManagerService); 
+  private readonly _translateManager &#x3D; inject(TranslateManagerService);
+  private readonly _authApiService &#x3D; inject(AuthApiService);
+  private readonly _router&#x3D; inject(Router)
+  private readonly fb &#x3D; inject(FormBuilder);
+
+  // Password reset dialog state
+  showResetDialog &#x3D; false;
+  resetForm: FormGroup &#x3D; this.fb.group({
+    password: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]],
+    newPassword: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]]
+  });
+  resetLoading &#x3D; false;
+  resetError &#x3D; &#x27;&#x27;;
+  resetSuccess &#x3D; &#x27;&#x27;;
+  resetAttempted &#x3D; false;
+  showPassword &#x3D; false;
+  showNewPassword &#x3D; false;
+  showPasswordChangeSuccess &#x3D; false;
+
+  userProfile: UpdateUserProfileData | null &#x3D; null;
+  showEditPopup &#x3D; false;
+  editField: &#x27;goal&#x27; | &#x27;level&#x27; | &#x27;weight&#x27; | null &#x3D; null;
+  editForm: FormGroup &#x3D; this.fb.group({
+    goal: [&#x27;&#x27;],
+    level: [&#x27;&#x27;],
+    weight: [&#x27;&#x27;]
+  });
+  goalOptions &#x3D; [
+    { label: &#x27;Gain Weight&#x27;, value: &#x27;Gain Weight&#x27; },
+    { label: &#x27;Lose Weight&#x27;, value: &#x27;Lose Weight&#x27; },
+    { label: &#x27;Get Fitter&#x27;, value: &#x27;Get Fitter&#x27; },
+    { label: &#x27;Gain More Flexible&#x27;, value: &#x27;Gain More Flexible&#x27; },
+    { label: &#x27;Learn The Basic&#x27;, value: &#x27;Learn The Basic&#x27; }
+  ];
+  levelOptions &#x3D; [
+    { label: &#x27;Rookie&#x27;, value: &#x27;level1&#x27; },
+    { label: &#x27;Beginner&#x27;, value: &#x27;level2&#x27; },
+    { label: &#x27;Intermediate&#x27;, value: &#x27;level3&#x27; },
+    { label: &#x27;Advance&#x27;, value: &#x27;level4&#x27; },
+    { label: &#x27;True Beast&#x27;, value: &#x27;level5&#x27; }
+  ];
+  editLoading &#x3D; false;
+  editError &#x3D; &#x27;&#x27;;
+  editSuccess &#x3D; &#x27;&#x27;;
+
+  openResetDialog() {
+    this.resetForm.reset();
+    this.resetError &#x3D; &#x27;&#x27;;
+    this.resetSuccess &#x3D; &#x27;&#x27;;
+    this.resetAttempted &#x3D; false;
+    this.showResetDialog &#x3D; true;
+  }
+
+  closeResetDialog() {
+    this.showResetDialog &#x3D; false;
+  }
+
+  submitReset() {
+    this.resetAttempted &#x3D; true;
+    if (this.resetForm.invalid) return;
+  
+    this.resetLoading &#x3D; true;
+    this.resetError &#x3D; &#x27;&#x27;;
+    this.resetSuccess &#x3D; &#x27;&#x27;;
+    
+    const { password, newPassword } &#x3D; this.resetForm.value;
+  
+    this._authApiService.changePassword({ password, newPassword }).subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(&#x27;Password changed successfully:&#x27;, res);
+        localStorage.setItem(&#x27;token&#x27;, res.token);
+        this.resetSuccess &#x3D; &#x27;Password changed successfully!&#x27;;
+        this.resetLoading &#x3D; false;
+        this.resetAttempted &#x3D; false;
+        this.showPasswordChangeSuccess &#x3D; true;
+  
+        // ✅ تسجيل خروج إجباري لأن التوكن أصبح غير صالح
+        setTimeout(() &#x3D;&gt; {
+          // localStorage.removeItem(&#x27;token&#x27;); // نحذف التوكن الأول
+          this._authApiService.Logout().subscribe({
+            next: () &#x3D;&gt; {
+              localStorage.removeItem(&#x27;token&#x27;);
+              this._router.navigate([&#x27;/auth/login&#x27;]);
+              
+            },
+            error: (err) &#x3D;&gt; {
+              // حتى لو فشل اللوج آوت، نوجّه المستخدم
+              console.log(&#x27;Logout failed:&#x27; , err);
+            }
+          });
+          this.closeResetDialog();
+          this.showPasswordChangeSuccess &#x3D; false;
+        }, 1500);
+      },
+      error: (err) &#x3D;&gt; {
+        this.resetError &#x3D; err?.error?.message || &#x27;Failed to reset password.&#x27;;
+        this.resetLoading &#x3D; false;
+      }
+    });
+  }
+  
+
+
+  toggleTheme() {
+    this.themeVal &#x3D; !this.themeVal;
+    console.log(this.themeVal);
+    this._themeManager.toggleTheme();
+  }
+  toggleLang() {
+    this.langVal &#x3D; !this.langVal;
+    console.log(&#x60;Language Now is :  ${this.langVal}&#x60;);
+    this._translateManager.toggleLanguage();
+  }
+
+  setLang(lang: &#x27;en&#x27; | &#x27;ar&#x27;) {
+    this.langVal &#x3D; lang &#x3D;&#x3D;&#x3D; &#x27;ar&#x27;;
+    this._translateManager.changeLanguage(lang);
+  }
+
+  getUserPrefFromCookies() {
+    const theme &#x3D; this._themeManager.getCurrentTheme();
+    const lang &#x3D; this._translateManager.getCurrentLang();
+
+    if (theme &#x3D;&#x3D; &#x27;dark&#x27;) {
+      this.themeVal &#x3D; true;
+    }
+
+    if (lang &#x3D;&#x3D; &#x27;ar&#x27;) {
+      this.langVal &#x3D; true;
+    }
+  }
+
+  showLogoutDialog &#x3D; false;
+
+  openLogoutDialog() {
+    this.showLogoutDialog &#x3D; true;
+  }
+  closeLogoutDialog() {
+    this.showLogoutDialog &#x3D; false;
+  }
+  confirmLogout() {
+    this.closeLogoutDialog();
+    this._authApiService.Logout().subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(&#x27;Logout successful:&#x27;, res);
+        localStorage.removeItem(&#x27;token&#x27;);
+        this._router.navigate([&#x27;/home&#x27;]);
+      },
+      error: (err) &#x3D;&gt; {
+        console.error(&#x27;Logout failed:&#x27;, err);
+        // ممكن تعرض رسالة خطأ لو حبيت
+      }
+    });
+  }
+  
+  toggleShowPassword() {
+    this.showPassword &#x3D; !this.showPassword;
+  }
+  toggleShowNewPassword() {
+    this.showNewPassword &#x3D; !this.showNewPassword;
+  }
+
+  UpdateUserProfile(data: UpdateUserProfileData) {
+    this._authApiService.editProfile(data).subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(&#x27;UpdateUserProfile successful:&#x27;, res);
+      }
+    });
+  }
+
+  ngOnInit() {
+    this._themeManager.initTheme();
+    this.getUserPrefFromCookies();
+    this._authApiService.getProfileData().subscribe(data &#x3D;&gt; {
+      this.userProfile &#x3D; {
+        ...data.user,
+        gender: (data.user.gender &#x3D;&#x3D;&#x3D; &#x27;male&#x27; || data.user.gender &#x3D;&#x3D;&#x3D; &#x27;female&#x27;) ? data.user.gender : &#x27;male&#x27;
+      };
+      this.editForm.patchValue({
+        goal: data.user.goal,
+        level: data.user.activityLevel,
+        weight: data.user.weight
+      });
+    });
+  }
+
+  openEditPopup(field: &#x27;goal&#x27; | &#x27;level&#x27; | &#x27;weight&#x27;) {
+    this.editField &#x3D; field;
+    if (this.userProfile) {
+      this.editForm.patchValue({
+        goal: this.userProfile.goal,
+        level: this.userProfile.activityLevel,
+        weight: this.userProfile.weight
+      });
+    }
+    this.editError &#x3D; &#x27;&#x27;;
+    this.editSuccess &#x3D; &#x27;&#x27;;
+    this.showEditPopup &#x3D; true;
+  }
+
+  closeEditPopup() {
+    this.showEditPopup &#x3D; false;
+  }
+
+  submitEdit() {
+    if (!this.userProfile) return;
+    this.editLoading &#x3D; true;
+    this.editError &#x3D; &#x27;&#x27;;
+    this.editSuccess &#x3D; &#x27;&#x27;;
+    const updated: UpdateUserProfileData &#x3D; {
+      goal: this.editForm.value.goal,
+      activityLevel: this.editForm.value.level,
+      weight: this.editForm.value.weight
+
+    };
+    this._authApiService.editProfile(updated).subscribe({
+      next: (res) &#x3D;&gt; {
+        this.userProfile &#x3D; {
+          ...res.user,
+          gender: (res.user.gender &#x3D;&#x3D;&#x3D; &#x27;male&#x27; || res.user.gender &#x3D;&#x3D;&#x3D; &#x27;female&#x27;) ? res.user.gender : &#x27;male&#x27;
+        };
+        this.editSuccess &#x3D; &#x27;Profile updated!&#x27;;
+        this.editLoading &#x3D; false;
+        setTimeout(() &#x3D;&gt; this.closeEditPopup(), 1200);
+      },
+      error: (err) &#x3D;&gt; {
+        this.editError &#x3D; err?.error?.message || &#x27;Failed to update profile.&#x27;;
+        this.editLoading &#x3D; false;
+        console.log(&#x27;Failed to update profile:&#x27;, err);
+      }
+    });
+  }
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;overlay&quot;
+  [ngClass]&#x3D;&quot;{ &#x27;overlay-light&#x27;: !themeVal, &#x27;overlay-dark&#x27;: themeVal }&quot;
+&gt;&lt;/div&gt;
+&lt;div
+  class&#x3D;&quot;flex flex-col items-center mt-20 min-h-screen justify-center relative z-10 px-2 py-8&quot;
+  [ngClass]&#x3D;&quot;{ &#x27;text-dark&#x27;: !themeVal, &#x27;text-light&#x27;: themeVal }&quot;
+&gt;
+  &lt;div class&#x3D;&quot;w-full max-w-5xl mx-auto&quot;&gt;
+    &lt;!-- Profile top section --&gt;
+    &lt;div
+      class&#x3D;&quot;flex flex-col md:flex-row gap-4 md:gap-8 mb-8 w-full justify-center items-stretch&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;profile-top-card w-full md:w-1/3&quot;&gt;
+        &lt;div class&#x3D;&quot;profile-top-title&quot;&gt;{{ &#x27;profile.your_goal&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;profile-top-sub&quot;&gt;{{ &#x27;profile.tap_to_change&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex justify-center md:justify-start w-full&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;profile-top-btn flex items-center gap-2 cursor-pointer&quot;
+            (click)&#x3D;&quot;openEditPopup(&#x27;goal&#x27;)&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;profile-top-btn-text&quot;&gt;
+              {{ userProfile?.goal || (&#x27;profile.set_goal&#x27; | translate) }}
+            &lt;/span&gt;
+            &lt;img src&#x3D;&quot;/Change.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-[24px] h-[24px]&quot; /&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-top-card w-full md:w-1/3&quot;&gt;
+        &lt;div class&#x3D;&quot;profile-top-title&quot;&gt;{{ &#x27;profile.level&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;profile-top-sub&quot;&gt;{{ &#x27;profile.tap_to_change&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex justify-center md:justify-start w-full&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;profile-top-btn flex items-center gap-2&quot;
+            (click)&#x3D;&quot;openEditPopup(&#x27;level&#x27;)&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;profile-top-btn-text&quot;&gt;
+              {{ userProfile?.activityLevel || (&#x27;profile.set_level&#x27; | translate) }}
+            &lt;/span&gt;
+            &lt;img src&#x3D;&quot;/Change.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-[24px] h-[24px]&quot; /&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-top-card w-full md:w-1/3&quot;&gt;
+        &lt;div class&#x3D;&quot;profile-top-title&quot;&gt;{{ &#x27;profile.weight&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;profile-top-sub&quot;&gt;{{ &#x27;profile.tap_to_change&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex justify-center md:justify-start w-full&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;profile-top-btn flex items-center gap-2&quot;
+            (click)&#x3D;&quot;openEditPopup(&#x27;weight&#x27;)&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;profile-top-btn-text&quot;&gt;
+              {{ userProfile?.weight || (&#x27;profile.set_weight&#x27; | translate) }}
+            &lt;/span&gt;
+            &lt;img src&#x3D;&quot;/Change.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-[24px] h-[24px]&quot; /&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Grid for profile cards --&gt;
+    &lt;div
+      class&#x3D;&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 auto-rows-fr&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;profile-card&quot; (click)&#x3D;&quot;openResetDialog()&quot;&gt;
+        &lt;span class&#x3D;&quot;profile-icon&quot;&gt;
+          &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/ChangeIconOrange.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;/span&gt;
+        &lt;div&gt;{{ &#x27;profile.change_password&#x27; | translate }}&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/Language.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div class&#x3D;&quot;text-center mb-2&quot;&gt;{{ &#x27;profile.select_language&#x27; | translate }}&lt;/div&gt;
+        &lt;div class&#x3D;&quot;lang-btn-group&quot;&gt;
+          &lt;button
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;lang-btn&quot;
+            [ngClass]&#x3D;&quot;{ selected: !langVal }&quot;
+            (click)&#x3D;&quot;setLang(&#x27;en&#x27;)&quot;
+          &gt;
+            {{ &#x27;profile.english&#x27; | translate }}
+          &lt;/button&gt;
+          &lt;button
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;lang-btn&quot;
+            [ngClass]&#x3D;&quot;{ selected: langVal }&quot;
+            (click)&#x3D;&quot;setLang(&#x27;ar&#x27;)&quot;
+          &gt;
+            {{ &#x27;profile.arabic&#x27; | translate }}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/line-md_light-dark.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div class&#x3D;&quot;flex flex-col items-center&quot;&gt;
+          &lt;div&gt;
+            {{ &#x27;profile.mood&#x27; | translate }}
+            &lt;span class&#x3D;&quot;profile-accent&quot;&gt;{{ &#x27;profile.mood_dark&#x27; | translate }}&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;label class&#x3D;&quot;switch mt-2&quot;&gt;
+            &lt;input (click)&#x3D;&quot;toggleTheme()&quot; type&#x3D;&quot;checkbox&quot; checked /&gt;
+            &lt;span class&#x3D;&quot;slider&quot;&gt;&lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/Security Warning.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div&gt;{{ &#x27;profile.privacy_policy&#x27; | translate }}&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/Lock Setting.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div&gt;{{ &#x27;profile.security&#x27; | translate }}&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/Help.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div&gt;{{ &#x27;profile.help&#x27; | translate }}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Logout --&gt;
+    &lt;div (click)&#x3D;&quot;openLogoutDialog()&quot; class&#x3D;&quot;flex justify-center&quot;&gt;
+      &lt;div class&#x3D;&quot;profile-card logout cursor-pointer&quot;&gt;
+        &lt;img class&#x3D;&quot;m-4&quot; src&#x3D;&quot;/logout.png&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;div class&#x3D;&quot;profile-accent text-3xl&quot;&gt;{{ &#x27;profile.logout&#x27; | translate }}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Logout Confirmation Dialog --&gt;
+    &lt;p-dialog
+      header&#x3D;&quot;{{ &#x27;profile.confirm_logout&#x27; | translate }}&quot;
+      [(visible)]&#x3D;&quot;showLogoutDialog&quot;
+      [modal]&#x3D;&quot;true&quot;
+      [closable]&#x3D;&quot;false&quot;
+      [dismissableMask]&#x3D;&quot;true&quot;
+      [style]&#x3D;&quot;{ width: &#x27;350px&#x27;, &#x27;border-radius&#x27;: &#x27;18px&#x27; }&quot;
+      [contentStyle]&#x3D;&quot;{
+        background: themeVal ? &#x27;#181818&#x27; : &#x27;#fff&#x27;,
+        color: themeVal ? &#x27;#fff&#x27; : &#x27;#181818&#x27;,
+        padding: &#x27;2rem 1.5rem&#x27;
+      }&quot;
+      [baseZIndex]&#x3D;&quot;10000&quot;
+      [styleClass]&#x3D;&quot;
+        themeVal
+          ? &#x27;custom-dark-dialog pro-dialog&#x27;
+          : &#x27;custom-light-dialog pro-dialog&#x27;
+      &quot;
+      (onHide)&#x3D;&quot;closeLogoutDialog()&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;logout-dialog-content&quot;&gt;
+        &lt;i
+          class&#x3D;&quot;pi pi-sign-out&quot;
+          style&#x3D;&quot;color: #ff4100; font-size: 2.2rem; display: block; margin-bottom: 1.2rem;&quot;
+        &gt;&lt;/i&gt;
+        &lt;div class&#x3D;&quot;logout-dialog-title&quot;&gt;
+          {{ &#x27;profile.logout_question&#x27; | translate }}
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;logout-dialog-actions&quot;&gt;
+          &lt;button
+            pButton
+            type&#x3D;&quot;button&quot;
+            [label]&#x3D;&quot;&#x27;profile.cancel&#x27; | translate&quot;
+            class&#x3D;&quot;pro-btn&quot;
+            style&#x3D;&quot;background: #e0e0e0; color: #222; margin-right: 1rem&quot;
+            (click)&#x3D;&quot;closeLogoutDialog()&quot;
+          &gt;&lt;/button&gt;
+          &lt;button
+            pButton
+            type&#x3D;&quot;button&quot;
+            [label]&#x3D;&quot;&#x27;profile.logout_btn&#x27; | translate&quot;
+            class&#x3D;&quot;pro-btn&quot;
+            (click)&#x3D;&quot;confirmLogout()&quot;
+          &gt;&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/p-dialog&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- PrimeNG Dialog for Reset Password --&gt;
+&lt;p-dialog
+  header&#x3D;&quot;{{ &#x27;profile.change_password_header&#x27; | translate }}&quot;
+  [(visible)]&#x3D;&quot;showResetDialog&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [closable]&#x3D;&quot;true&quot;
+  [dismissableMask]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{ width: &#x27;400px&#x27;, &#x27;border-radius&#x27;: &#x27;18px&#x27; }&quot;
+  [contentStyle]&#x3D;&quot;{
+    background: themeVal ? &#x27;#181818&#x27; : &#x27;#fff&#x27;,
+    color: themeVal ? &#x27;#fff&#x27; : &#x27;#181818&#x27;,
+    padding: &#x27;2rem 1.5rem&#x27;
+  }&quot;
+  [baseZIndex]&#x3D;&quot;10000&quot;
+  [styleClass]&#x3D;&quot;
+    themeVal
+      ? &#x27;custom-dark-dialog pro-dialog text-light&#x27;
+      : &#x27;custom-light-dialog pro-dialog text-dark&#x27;
+  &quot;
+  (onHide)&#x3D;&quot;closeResetDialog()&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;resetForm&quot; (ngSubmit)&#x3D;&quot;submitReset()&quot; class&#x3D;&quot;pro-form&quot;&gt;
+    &lt;div class&#x3D;&quot;pro-dialog-title&quot;&gt;
+      &lt;i class&#x3D;&quot;pi pi-lock&quot; style&#x3D;&quot;color: #ff4100; font-size: 2rem&quot;&gt;&lt;/i&gt;
+      &lt;span&gt;{{ &#x27;profile.reset_your_password&#x27; | translate }}&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;pro-field p-field mb-4&quot;&gt;
+      &lt;div class&#x3D;&quot;pro-field-row&quot; style&#x3D;&quot;position: relative&quot;&gt;
+        &lt;input
+          id&#x3D;&quot;password&quot;
+          [type]&#x3D;&quot;showPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+          pInputText
+          formControlName&#x3D;&quot;password&quot;
+          class&#x3D;&quot;pro-input&quot;
+          [placeholder]&#x3D;&quot;&#x27;profile.password_placeholder&#x27; | translate&quot;
+        /&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          (click)&#x3D;&quot;toggleShowPassword()&quot;
+          class&#x3D;&quot;show-password-btn&quot;
+          tabindex&#x3D;&quot;-1&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;pi&quot; [ngClass]&#x3D;&quot;showPassword ? &#x27;pi-eye-slash&#x27; : &#x27;pi-eye&#x27;&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;pro-field p-field mb-4&quot;&gt;
+      &lt;div class&#x3D;&quot;pro-field-row&quot; style&#x3D;&quot;position: relative&quot;&gt;
+        &lt;input
+          id&#x3D;&quot;newPassword&quot;
+          [type]&#x3D;&quot;showNewPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+          pInputText
+          formControlName&#x3D;&quot;newPassword&quot;
+          class&#x3D;&quot;pro-input&quot;
+          [placeholder]&#x3D;&quot;&#x27;profile.new_password_placeholder&#x27; | translate&quot;
+        /&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          (click)&#x3D;&quot;toggleShowNewPassword()&quot;
+          class&#x3D;&quot;show-password-btn&quot;
+          tabindex&#x3D;&quot;-1&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;pi&quot; [ngClass]&#x3D;&quot;showNewPassword ? &#x27;pi-eye-slash&#x27; : &#x27;pi-eye&#x27;&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    @if (resetError) {
+      &lt;div class&#x3D;&quot;p-error mb-2&quot;&gt;{{ resetError }}&lt;/div&gt;
+    }
+    @if (resetSuccess) {
+      &lt;div class&#x3D;&quot;p-success mb-2&quot;&gt;{{ resetSuccess }}&lt;/div&gt;
+    }
+    &lt;button
+      pButton
+      type&#x3D;&quot;submit&quot;
+      [label]&#x3D;&quot;&#x27;profile.change_password_button&#x27; | translate&quot;
+      [disabled]&#x3D;&quot;resetForm.invalid || resetLoading&quot;
+      [style.background]&#x3D;&quot;&#x27;#ff4100&#x27;&quot;
+      [style.color]&#x3D;&quot;themeVal ? &#x27;#000&#x27; : &#x27;#fff&#x27;&quot;
+      class&#x3D;&quot;w-full pro-btn&quot;
+    &gt;&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+
+@if (showPasswordChangeSuccess) {
+&lt;div class&#x3D;&quot;password-success-overlay animate-fade-in&quot;&gt;
+  &lt;div class&#x3D;&quot;password-success-message&quot; [ngClass]&#x3D;&quot;{ dark: themeVal }&quot;&gt;
+    &lt;i class&#x3D;&quot;pi pi-check-circle&quot;&gt;&lt;/i&gt;
+    {{ &#x27;profile.password_changed_success&#x27; | translate }}
+  &lt;/div&gt;
+&lt;/div&gt;
+}
+
+&lt;!-- Edit User Data Popup --&gt;
+&lt;p-dialog
+  [header]&#x3D;&quot;&#x27;profile.edit_title&#x27; | translate:{ field: (editField | titlecase) }&quot;
+  [(visible)]&#x3D;&quot;showEditPopup&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [closable]&#x3D;&quot;true&quot;
+  [dismissableMask]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{ width: &#x27;500px&#x27;, &#x27;border-radius&#x27;: &#x27;18px&#x27; }&quot;
+  [contentStyle]&#x3D;&quot;{
+    background: themeVal ? &#x27;#181818&#x27; : &#x27;#fff&#x27;,
+    color: themeVal ? &#x27;#fff&#x27; : &#x27;#181818&#x27;,
+    padding: &#x27;2.5rem 2.5rem&#x27;,
+    overflow: &#x27;visible&#x27;
+  }&quot;
+  [baseZIndex]&#x3D;&quot;10000&quot;
+  [styleClass]&#x3D;&quot;
+    themeVal
+      ? &#x27;custom-dark-dialog pro-dialog text-light&#x27;
+      : &#x27;custom-light-dialog pro-dialog text-dark&#x27;
+  &quot;
+  (onHide)&#x3D;&quot;closeEditPopup()&quot;
+&gt;
+  &lt;form [formGroup]&#x3D;&quot;editForm&quot; (ngSubmit)&#x3D;&quot;submitEdit()&quot; class&#x3D;&quot;pro-form&quot;&gt;
+    &lt;div class&#x3D;&quot;pro-dialog-title&quot;&gt;
+      &lt;i class&#x3D;&quot;pi pi-user-edit&quot; style&#x3D;&quot;color: #ff4100; font-size: 2rem&quot;&gt;&lt;/i&gt;
+      &lt;span&gt;{{ &#x27;profile.edit_title&#x27; | translate:{ field: (editField | titlecase) } }}&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;editField &#x3D;&#x3D;&#x3D; &#x27;goal&#x27;&quot;&gt;
+      &lt;div class&#x3D;&quot;mb-2&quot;&gt;
+        {{ &#x27;profile.current&#x27; | translate }} &lt;b&gt;{{ userProfile?.goal }}&lt;/b&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;goal-radio-group&quot;&gt;
+        &lt;button
+          *ngFor&#x3D;&quot;let opt of goalOptions&quot;
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;goal-radio-btn&quot;
+          [ngClass]&#x3D;&quot;{ selected: editForm.value.goal &#x3D;&#x3D;&#x3D; opt.value, dark: themeVal }&quot;
+          (click)&#x3D;&quot;editForm.patchValue({ goal: opt.value })&quot;
+        &gt;
+          &lt;span&gt;{{ opt.label }}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;radio-indicator&quot;&gt;
+            &lt;span *ngIf&#x3D;&quot;editForm.value.goal &#x3D;&#x3D;&#x3D; opt.value&quot; class&#x3D;&quot;radio-dot&quot;&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;editField &#x3D;&#x3D;&#x3D; &#x27;level&#x27;&quot;&gt;
+      &lt;div class&#x3D;&quot;mb-2&quot;&gt;
+        {{ &#x27;profile.current&#x27; | translate }} &lt;b&gt;{{ userProfile?.activityLevel }}&lt;/b&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;goal-radio-group&quot;&gt;
+        &lt;button
+          *ngFor&#x3D;&quot;let opt of levelOptions&quot;
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;goal-radio-btn&quot;
+          [ngClass]&#x3D;&quot;{ selected: editForm.value.level &#x3D;&#x3D;&#x3D; opt.value, dark: themeVal }&quot;
+          (click)&#x3D;&quot;editForm.patchValue({ level: opt.value })&quot;
+        &gt;
+          &lt;span&gt;{{ opt.label }}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;radio-indicator&quot;&gt;
+            &lt;span *ngIf&#x3D;&quot;editForm.value.level &#x3D;&#x3D;&#x3D; opt.value&quot; class&#x3D;&quot;radio-dot&quot;&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;editField &#x3D;&#x3D;&#x3D; &#x27;weight&#x27;&quot;&gt;
+      &lt;div class&#x3D;&quot;mb-2&quot;&gt;
+        {{ &#x27;profile.current&#x27; | translate }} &lt;b&gt;{{ userProfile?.weight }}&lt;/b&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;weight-input-group&quot;&gt;
+        &lt;input
+          type&#x3D;&quot;number&quot;
+          formControlName&#x3D;&quot;weight&quot;
+          class&#x3D;&quot;pro-input weight-input&quot;
+          min&#x3D;&quot;1&quot;
+          max&#x3D;&quot;500&quot;
+        /&gt;
+        &lt;span class&#x3D;&quot;weight-unit&quot;&gt;kg&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;input
+        #weightSlider
+        type&#x3D;&quot;range&quot;
+        min&#x3D;&quot;1&quot;
+        max&#x3D;&quot;500&quot;
+        [value]&#x3D;&quot;editForm.value.weight&quot;
+        (input)&#x3D;&quot;editForm.patchValue({ weight: +weightSlider.value })&quot;
+        class&#x3D;&quot;weight-slider&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;editError&quot; class&#x3D;&quot;p-error mb-2&quot;&gt;{{ editError }}&lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;editSuccess&quot; class&#x3D;&quot;p-success mb-2&quot;&gt;{{ editSuccess }}&lt;/div&gt;
+    &lt;button
+      pButton
+      type&#x3D;&quot;submit&quot;
+      [label]&#x3D;&quot;&#x27;profile.save&#x27; | translate&quot;
+      [disabled]&#x3D;&quot;editForm.invalid || editLoading&quot;
+      [style.background]&#x3D;&quot;&#x27;#ff4100&#x27;&quot;
+      [style.color]&#x3D;&quot;themeVal ? &#x27;#000&#x27; : &#x27;#fff&#x27;&quot;
+      class&#x3D;&quot;w-full pro-btn&quot;
+    &gt;&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user-profile.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+    display: block;
+    width: 99vw;
+    min-height: 100vh; // نخليه مرن بدل height ثابت
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+    background-image: url(&#x27;/auth-bg.jpg&#x27;);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(25px);
+    z-index: 1;
+}
+body:not(.dark) .overlay, .custom-light-dialog .overlay {
+  background-color: #FFFFFF99;
+}
+body:not(.dark) .custom-light-dialog, .custom-light-dialog {
+  color: #242424;
+}
+
+.profile-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.profile-top-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+.profile-top-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.profile-top-sub {
+  font-size: 0.95rem;
+  color: #fff;
+  opacity: 0.7;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+.profile-top-btn {
+  min-width: 160px;
+  width: 100%;
+  max-width: 220px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 50px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(255,65,0,0.08);
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1024px) {
+  .profile-top-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.profile-top-btn span, .profile-top-btn-text {
+  text-align: left;
+  flex: 1;
+}
+.profile-top-btn img {
+  width: 24px;
+  height: 24px;
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+.profile-top-icon {
+  font-size: 1.2rem;
+}
+
+
+.profile-card {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: box-shadow 0.2s, border 0.2s;
+  
+    height: 100%; /* ✅ يجعل الكارت يتمدد حسب حجم صف الـ grid */
+  }
+  
+.profile-card:hover {
+  box-shadow: 0 12px 32px rgba(255,65,0,0.13);
+  border: 1.5px solid var(--primary-color);
+}
+.profile-icon {
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+  color: var(--primary-color);
+}
+.profile-accent {
+  color: var( --primary-color);
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile-logout-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+
+
+// Toggle switch for mood
+.switch {
+    position: relative;
+    display: flex;              /* 🔧 خليها flex */
+    align-items: center;        /* 🔧 عشان تبقى في النص رأسيًا */
+    justify-content: center;    /* لو حابب تكون في النص أفقيًا كمان */
+    width: 44px;
+    height: 24px;
+    margin-top: 0.5rem;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.4s;
+  }
+  .switch input:checked + .slider {
+    background-color: var(--primary-color);
+  }
+  .slider:before {
+    position: absolute;
+    content: &quot;&quot;;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  .switch input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  
+
+
+
+:root {
+  --primary-color: #ff4100;
+}
+
+.custom-dark-dialog .p-dialog-header {
+  background: #181818 !important;
+  color: #fff !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.custom-dark-dialog .p-dialog-content {
+  background: #181818 !important;
+  color: #fff !important;
+}
+.custom-dark-dialog .p-button {
+  background: var(--primary-color) !important;
+  color: #000 !important;
+  border: none !important;
+}
+.custom-light-dialog .p-dialog-header {
+  background: #fff !important;
+  color: #181818 !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.custom-light-dialog .p-dialog-content {
+  background: #fff !important;
+  color: #181818 !important;
+}
+.custom-light-dialog .p-button {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.p-error {
+  color: #ff4100 !important;
+}
+.p-success {
+  color: #00c853 !important;
+}
+  
+
+
+
+.pro-dialog .p-dialog {
+  border-radius: 18px !important;
+}
+.pro-dialog .p-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pro-field {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.2rem;
+}
+.pro-field-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.pro-dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  justify-content: center;
+}
+.pro-label {
+  font-weight: 500;
+  margin-bottom: 0;
+  color: inherit;
+  display: block;
+  letter-spacing: 0.01em;
+  min-width: 110px;
+  text-align: left;
+}
+.pro-input {
+  border-radius: 50px !important;
+  border: 1.5px solid var(--primary-color) !important;
+  font-size: 0.98rem;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  outline: none !important;
+  margin-bottom: 0;
+  width: 100%;
+  
+  text-align: left;
+}
+.pro-input:focus {
+  border: 1.5px solid var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(255,65,0,0.10);
+}
+.pro-input::placeholder {
+  color: var(--primary-color);
+  font-weight: 600;
+  opacity: 1;
+}
+.p-error {
+  margin-top: 0.18rem;
+  margin-bottom: 0;
+  font-size: 0.93em;
+  text-align: left;
+}
+.pro-btn {
+  border-radius: 50px !important;
+  font-size: 1.13rem !important;
+  font-weight: 700 !important;
+  margin-top: 0.7rem;
+  box-shadow: 0 4px 16px rgba(255,65,0,0.10);
+  background: linear-gradient(90deg, #ff4100 60%, #ff6a1a 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+.pro-btn:active, .pro-btn:focus {
+  filter: brightness(0.97);
+  box-shadow: 0 2px 8px rgba(255,65,0,0.13);
+}
+.pro-btn:hover {
+  background: linear-gradient(90deg, #ff6a1a 0%, #ff4100 100%) !important;
+  color: #fff !important;
+}
+  
+.show-password-btn {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 0 0.2rem;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.show-password-btn:hover {
+  color: #ff6a1a;
+}
+  
+.logout-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.logout-dialog-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: inherit;
+}
+.logout-dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+  
+.password-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.password-success-message {
+  background: #fff;
+  color: var(--primary-color);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 8px 32px rgba(255,65,0,0.13);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeInScale 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.password-success-message .pi {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+}
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fadeInScale 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+  
+.goal-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+.goal-radio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  font-size: 1.13rem;
+  font-weight: 600;
+  border: 2px solid #888;
+  border-radius: 50px;
+  background: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: border 0.2s, color 0.2s, background 0.2s;
+  outline: none;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+.goal-radio-btn:last-child {
+  margin-bottom: 0;
+}
+.goal-radio-btn.selected {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.goal-radio-btn.dark {
+  background: #232323;
+  color: #fff;
+  border-color: #444;
+}
+.goal-radio-btn.selected.dark {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: #232323;
+
+}
+.goal-radio-btn:not(.selected):hover {
+  border-color: var(--primary-color);
+}
+.radio-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  background: transparent;
+  margin-left: 1rem;
+  transition: border 0.2s;
+}
+.goal-radio-btn.selected .radio-indicator {
+  border-color: var(--primary-color);
+}
+.radio-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: block;
+}
+  
+.weight-input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.weight-input {
+  font-size: 2.1rem;
+  font-weight: 700;
+  width: 120px;
+  text-align: center;
+  border-radius: 18px;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: #fff;
+  padding: 0.6rem 0.5rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.weight-input:focus {
+  border: 2px solid #ff4100;
+}
+.weight-unit {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-left: 0.2rem;
+}
+.weight-slider {
+  width: 100%;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  accent-color: var(--primary-color);
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ff4100 60%, #ff6a1a 100%);
+}
+// Remove scrollbars from dialog content
+.pro-dialog .p-dialog-content {
+  overflow: visible !important;
+}
+  
+.overlay-light {
+  background-color: #FFFFFF99 !important;
+}
+.overlay-dark {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.text-dark {
+  color: #242424 !important;
+}
+.text-light {
+  color: #fff !important;
+}
+  
+body:not(.dark) .profile-top-title,
+.text-dark .profile-top-title {
+  color: #242424 !important;
+}
+body:not(.dark) .profile-top-sub,
+.text-dark .profile-top-sub {
+  color: #242424 !important;
+  opacity: 0.7;
+}
+body:not(.dark) .profile-card,
+.text-dark .profile-card {
+  color: #242424 !important;
+}
+
+body:not(.dark) .profile-icon,
+.text-dark .profile-icon {
+  color: #242424 !important;
+}
+body:not(.dark) .goal-radio-btn,
+.text-dark .goal-radio-btn {
+  color: #242424 !important;
+}
+body:not(.dark) .goal-radio-btn.selected,
+.text-dark .goal-radio-btn.selected {
+  color: var(--primary-color) !important;
+}
+body:not(.dark) .weight-input,
+.text-dark .weight-input {
+  color: #242424 !important;
+  border-color: #242424 !important;
+}
+body:not(.dark) .weight-unit,
+.text-dark .weight-unit {
+  color: #242424 !important;
+}
+  
+.lang-btn-group {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.lang-btn {
+  padding: 5px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  background: #fff;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  outline: none;
+  min-width: 110px;
+}
+.lang-btn.selected {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(255,65,0,0.10);
+}
+.lang-btn:not(.selected):hover {
+  background: #ffe3d3;
+  color: var(--primary-color);
+}
+  
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="overlay"  [ngClass]="{ \'overlay-light\': !themeVal, \'overlay-dark\': themeVal }"></div><div  class="flex flex-col items-center mt-20 min-h-screen justify-center relative z-10 px-2 py-8"  [ngClass]="{ \'text-dark\': !themeVal, \'text-light\': themeVal }">  <div class="w-full max-w-5xl mx-auto">    <!-- Profile top section -->    <div      class="flex flex-col md:flex-row gap-4 md:gap-8 mb-8 w-full justify-center items-stretch"    >      <div class="profile-top-card w-full md:w-1/3">        <div class="profile-top-title">{{ \'profile.your_goal\' | translate }}</div>        <div class="profile-top-sub">{{ \'profile.tap_to_change\' | translate }}</div>        <div class="flex justify-center md:justify-start w-full">          <button            class="profile-top-btn flex items-center gap-2 cursor-pointer"            (click)="openEditPopup(\'goal\')"          >            <span class="profile-top-btn-text">              {{ userProfile?.goal || (\'profile.set_goal\' | translate) }}            </span>            <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />          </button>        </div>      </div>      <div class="profile-top-card w-full md:w-1/3">        <div class="profile-top-title">{{ \'profile.level\' | translate }}</div>        <div class="profile-top-sub">{{ \'profile.tap_to_change\' | translate }}</div>        <div class="flex justify-center md:justify-start w-full">          <button            class="profile-top-btn flex items-center gap-2"            (click)="openEditPopup(\'level\')"          >            <span class="profile-top-btn-text">              {{ userProfile?.activityLevel || (\'profile.set_level\' | translate) }}            </span>            <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />          </button>        </div>      </div>      <div class="profile-top-card w-full md:w-1/3">        <div class="profile-top-title">{{ \'profile.weight\' | translate }}</div>        <div class="profile-top-sub">{{ \'profile.tap_to_change\' | translate }}</div>        <div class="flex justify-center md:justify-start w-full">          <button            class="profile-top-btn flex items-center gap-2"            (click)="openEditPopup(\'weight\')"          >            <span class="profile-top-btn-text">              {{ userProfile?.weight || (\'profile.set_weight\' | translate) }}            </span>            <img src="/Change.png" alt="" class="w-[24px] h-[24px]" />          </button>        </div>      </div>    </div>    <!-- Grid for profile cards -->    <div      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 auto-rows-fr"    >      <div class="profile-card" (click)="openResetDialog()">        <span class="profile-icon">          <img class="m-4" src="/ChangeIconOrange.png" alt="" />        </span>        <div>{{ \'profile.change_password\' | translate }}</div>      </div>      <div class="profile-card">        <img class="m-4" src="/Language.png" alt="" />        <div class="text-center mb-2">{{ \'profile.select_language\' | translate }}</div>        <div class="lang-btn-group">          <button            type="button"            class="lang-btn"            [ngClass]="{ selected: !langVal }"            (click)="setLang(\'en\')"          >            {{ \'profile.english\' | translate }}          </button>          <button            type="button"            class="lang-btn"            [ngClass]="{ selected: langVal }"            (click)="setLang(\'ar\')"          >            {{ \'profile.arabic\' | translate }}          </button>        </div>      </div>      <div class="profile-card">        <img class="m-4" src="/line-md_light-dark.png" alt="" />        <div class="flex flex-col items-center">          <div>            {{ \'profile.mood\' | translate }}            <span class="profile-accent">{{ \'profile.mood_dark\' | translate }}</span>          </div>          <label class="switch mt-2">            <input (click)="toggleTheme()" type="checkbox" checked />            <span class="slider"></span>          </label>        </div>      </div>      <div class="profile-card">        <img class="m-4" src="/Security Warning.png" alt="" />        <div>{{ \'profile.privacy_policy\' | translate }}</div>      </div>      <div class="profile-card">        <img class="m-4" src="/Lock Setting.png" alt="" />        <div>{{ \'profile.security\' | translate }}</div>      </div>      <div class="profile-card">        <img class="m-4" src="/Help.png" alt="" />        <div>{{ \'profile.help\' | translate }}</div>      </div>    </div>    <!-- Logout -->    <div (click)="openLogoutDialog()" class="flex justify-center">      <div class="profile-card logout cursor-pointer">        <img class="m-4" src="/logout.png" alt="" />        <div class="profile-accent text-3xl">{{ \'profile.logout\' | translate }}</div>      </div>    </div>    <!-- Logout Confirmation Dialog -->    <p-dialog      header="{{ \'profile.confirm_logout\' | translate }}"      [(visible)]="showLogoutDialog"      [modal]="true"      [closable]="false"      [dismissableMask]="true"      [style]="{ width: \'350px\', \'border-radius\': \'18px\' }"      [contentStyle]="{        background: themeVal ? \'#181818\' : \'#fff\',        color: themeVal ? \'#fff\' : \'#181818\',        padding: \'2rem 1.5rem\'      }"      [baseZIndex]="10000"      [styleClass]="        themeVal          ? \'custom-dark-dialog pro-dialog\'          : \'custom-light-dialog pro-dialog\'      "      (onHide)="closeLogoutDialog()"    >      <div class="logout-dialog-content">        <i          class="pi pi-sign-out"          style="color: #ff4100; font-size: 2.2rem; display: block; margin-bottom: 1.2rem;"        ></i>        <div class="logout-dialog-title">          {{ \'profile.logout_question\' | translate }}        </div>        <div class="logout-dialog-actions">          <button            pButton            type="button"            [label]="\'profile.cancel\' | translate"            class="pro-btn"            style="background: #e0e0e0; color: #222; margin-right: 1rem"            (click)="closeLogoutDialog()"          ></button>          <button            pButton            type="button"            [label]="\'profile.logout_btn\' | translate"            class="pro-btn"            (click)="confirmLogout()"          ></button>        </div>      </div>    </p-dialog>  </div></div><!-- PrimeNG Dialog for Reset Password --><p-dialog  header="{{ \'profile.change_password_header\' | translate }}"  [(visible)]="showResetDialog"  [modal]="true"  [closable]="true"  [dismissableMask]="true"  [style]="{ width: \'400px\', \'border-radius\': \'18px\' }"  [contentStyle]="{    background: themeVal ? \'#181818\' : \'#fff\',    color: themeVal ? \'#fff\' : \'#181818\',    padding: \'2rem 1.5rem\'  }"  [baseZIndex]="10000"  [styleClass]="    themeVal      ? \'custom-dark-dialog pro-dialog text-light\'      : \'custom-light-dialog pro-dialog text-dark\'  "  (onHide)="closeResetDialog()">  <form [formGroup]="resetForm" (ngSubmit)="submitReset()" class="pro-form">    <div class="pro-dialog-title">      <i class="pi pi-lock" style="color: #ff4100; font-size: 2rem"></i>      <span>{{ \'profile.reset_your_password\' | translate }}</span>    </div>    <div class="pro-field p-field mb-4">      <div class="pro-field-row" style="position: relative">        <input          id="password"          [type]="showPassword ? \'text\' : \'password\'"          pInputText          formControlName="password"          class="pro-input"          [placeholder]="\'profile.password_placeholder\' | translate"        />        <button          type="button"          (click)="toggleShowPassword()"          class="show-password-btn"          tabindex="-1"        >          <i class="pi" [ngClass]="showPassword ? \'pi-eye-slash\' : \'pi-eye\'"></i>        </button>      </div>    </div>    <div class="pro-field p-field mb-4">      <div class="pro-field-row" style="position: relative">        <input          id="newPassword"          [type]="showNewPassword ? \'text\' : \'password\'"          pInputText          formControlName="newPassword"          class="pro-input"          [placeholder]="\'profile.new_password_placeholder\' | translate"        />        <button          type="button"          (click)="toggleShowNewPassword()"          class="show-password-btn"          tabindex="-1"        >          <i class="pi" [ngClass]="showNewPassword ? \'pi-eye-slash\' : \'pi-eye\'"></i>        </button>      </div>    </div>    @if (resetError) {      <div class="p-error mb-2">{{ resetError }}</div>    }    @if (resetSuccess) {      <div class="p-success mb-2">{{ resetSuccess }}</div>    }    <button      pButton      type="submit"      [label]="\'profile.change_password_button\' | translate"      [disabled]="resetForm.invalid || resetLoading"      [style.background]="\'#ff4100\'"      [style.color]="themeVal ? \'#000\' : \'#fff\'"      class="w-full pro-btn"    ></button>  </form></p-dialog>@if (showPasswordChangeSuccess) {<div class="password-success-overlay animate-fade-in">  <div class="password-success-message" [ngClass]="{ dark: themeVal }">    <i class="pi pi-check-circle"></i>    {{ \'profile.password_changed_success\' | translate }}  </div></div>}<!-- Edit User Data Popup --><p-dialog  [header]="\'profile.edit_title\' | translate:{ field: (editField | titlecase) }"  [(visible)]="showEditPopup"  [modal]="true"  [closable]="true"  [dismissableMask]="true"  [style]="{ width: \'500px\', \'border-radius\': \'18px\' }"  [contentStyle]="{    background: themeVal ? \'#181818\' : \'#fff\',    color: themeVal ? \'#fff\' : \'#181818\',    padding: \'2.5rem 2.5rem\',    overflow: \'visible\'  }"  [baseZIndex]="10000"  [styleClass]="    themeVal      ? \'custom-dark-dialog pro-dialog text-light\'      : \'custom-light-dialog pro-dialog text-dark\'  "  (onHide)="closeEditPopup()">  <form [formGroup]="editForm" (ngSubmit)="submitEdit()" class="pro-form">    <div class="pro-dialog-title">      <i class="pi pi-user-edit" style="color: #ff4100; font-size: 2rem"></i>      <span>{{ \'profile.edit_title\' | translate:{ field: (editField | titlecase) } }}</span>    </div>    <div *ngIf="editField === \'goal\'">      <div class="mb-2">        {{ \'profile.current\' | translate }} <b>{{ userProfile?.goal }}</b>      </div>      <div class="goal-radio-group">        <button          *ngFor="let opt of goalOptions"          type="button"          class="goal-radio-btn"          [ngClass]="{ selected: editForm.value.goal === opt.value, dark: themeVal }"          (click)="editForm.patchValue({ goal: opt.value })"        >          <span>{{ opt.label }}</span>          <span class="radio-indicator">            <span *ngIf="editForm.value.goal === opt.value" class="radio-dot"></span>          </span>        </button>      </div>    </div>    <div *ngIf="editField === \'level\'">      <div class="mb-2">        {{ \'profile.current\' | translate }} <b>{{ userProfile?.activityLevel }}</b>      </div>      <div class="goal-radio-group">        <button          *ngFor="let opt of levelOptions"          type="button"          class="goal-radio-btn"          [ngClass]="{ selected: editForm.value.level === opt.value, dark: themeVal }"          (click)="editForm.patchValue({ level: opt.value })"        >          <span>{{ opt.label }}</span>          <span class="radio-indicator">            <span *ngIf="editForm.value.level === opt.value" class="radio-dot"></span>          </span>        </button>      </div>    </div>    <div *ngIf="editField === \'weight\'">      <div class="mb-2">        {{ \'profile.current\' | translate }} <b>{{ userProfile?.weight }}</b>      </div>      <div class="weight-input-group">        <input          type="number"          formControlName="weight"          class="pro-input weight-input"          min="1"          max="500"        />        <span class="weight-unit">kg</span>      </div>      <input        #weightSlider        type="range"        min="1"        max="500"        [value]="editForm.value.weight"        (input)="editForm.patchValue({ weight: +weightSlider.value })"        class="weight-slider"      />    </div>    <div *ngIf="editError" class="p-error mb-2">{{ editError }}</div>    <div *ngIf="editSuccess" class="p-success mb-2">{{ editSuccess }}</div>    <button      pButton      type="submit"      [label]="\'profile.save\' | translate"      [disabled]="editForm.invalid || editLoading"      [style.background]="\'#ff4100\'"      [style.color]="themeVal ? \'#000\' : \'#fff\'"      class="w-full pro-btn"    ></button>  </form></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

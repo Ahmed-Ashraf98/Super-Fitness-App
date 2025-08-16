@@ -1,0 +1,455 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  WhyUsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/home/components/why-us/why-us.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-why-us</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./why-us.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./why-us.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x27;app-why-us&#x27;,
+  imports: [CommonModule, TranslateModule],
+  templateUrl: &#x27;./why-us.component.html&#x27;,
+  styleUrl: &#x27;./why-us.component.css&#x27;
+})
+export class WhyUsComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mt-8 sm:mt-12 lg:mt-16 flex flex-col lg:flex-row gap-8 lg:gap-12&quot;&gt;
+  &lt;!-- Content Section --&gt;
+  &lt;div class&#x3D;&quot;w-full lg:w-3/5 content-text&quot;&gt;
+    &lt;div class&#x3D;&quot;relative&quot;&gt;
+      &lt;img src&#x3D;&quot;Whyus.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-full max-w-xs lg:max-w-sm&quot; /&gt;
+      &lt;div class&#x3D;&quot;flex absolute bottom-0&quot;&gt;
+        &lt;img src&#x3D;&quot;weight.png&quot; class&#x3D;&quot;ps-2 w-6 h-6&quot; alt&#x3D;&quot;&quot; /&gt;
+        &lt;p class&#x3D;&quot;ps-4 text-[#FF4100] text-sm sm:text-base&quot;&gt;{{ &#x27;why.badge&#x27; | translate }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;mt-8 sm:mt-12&quot;&gt;
+      &lt;div&gt;
+        &lt;h2
+          class&#x3D;&quot;text-[#242424] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase&quot;
+        &gt;
+          {{ &#x27;why.title_1&#x27; | translate }}
+        &lt;/h2&gt;
+        &lt;h2
+          class&#x3D;&quot;text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF4100] uppercase&quot;
+        &gt;
+          {{ &#x27;why.title_2_a&#x27; | translate }} &lt;span class&#x3D;&quot;text-[#242424] dark:text-white&quot;&gt;{{ &#x27;why.title_2_b&#x27; | translate }}&lt;/span&gt;
+        &lt;/h2&gt;
+        &lt;p
+          class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl font-normal pt-4 sm:pt-6 lg:pt-8 pe-0 lg:pe-8&quot;
+        &gt;
+          {{ &#x27;why.desc&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Features List --&gt;
+      &lt;div class&#x3D;&quot;mt-8 sm:mt-12 lg:mt-16 space-y-6 sm:space-y-8&quot;&gt;
+        &lt;div class&#x3D;&quot;flex items-start gap-4 sm:gap-6&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0&quot;
+          &gt;
+            &lt;p class&#x3D;&quot;text-white text-xs sm:text-sm font-bold&quot;&gt;01&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+            &lt;h4
+              class&#x3D;&quot;text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white&quot;
+            &gt;
+              {{ &#x27;why.f1_title&#x27; | translate }}
+            &lt;/h4&gt;
+            &lt;p
+              class&#x3D;&quot;text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300&quot;
+            &gt;
+              {{ &#x27;why.f1_desc&#x27; | translate }}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;flex items-start gap-4 sm:gap-6&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0&quot;
+          &gt;
+            &lt;p class&#x3D;&quot;text-white text-xs sm:text-sm font-bold&quot;&gt;02&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+            &lt;h4
+              class&#x3D;&quot;text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white&quot;
+            &gt;
+              {{ &#x27;why.f2_title&#x27; | translate }}
+            &lt;/h4&gt;
+            &lt;p
+              class&#x3D;&quot;text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300&quot;
+            &gt;
+              {{ &#x27;why.f2_desc&#x27; | translate }}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;flex items-start gap-4 sm:gap-6&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0&quot;
+          &gt;
+            &lt;p class&#x3D;&quot;text-white text-xs sm:text-sm font-bold&quot;&gt;03&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+            &lt;h4
+              class&#x3D;&quot;text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white&quot;
+            &gt;
+              {{ &#x27;why.f3_title&#x27; | translate }}
+            &lt;/h4&gt;
+            &lt;p
+              class&#x3D;&quot;text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300&quot;
+            &gt;
+              {{ &#x27;why.f3_desc&#x27; | translate }}
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Images Section --&gt;
+  &lt;div class&#x3D;&quot;w-full lg:w-2/5&quot;&gt;
+    &lt;div class&#x3D;&quot;grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4&quot;&gt;
+      &lt;div class&#x3D;&quot;space-y-2 sm:space-y-3 lg:space-y-4&quot;&gt;
+        &lt;img
+          src&#x3D;&quot;gm4.png&quot;
+          class&#x3D;&quot;w-full h-48 sm:h-56 lg:h-64 xl:h-72 object-cover rounded-xl&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+        &lt;img
+          src&#x3D;&quot;gm6.jpg&quot;
+          class&#x3D;&quot;w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover rounded-xl&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;space-y-2 sm:space-y-3 lg:space-y-4 mt-8 sm:mt-12 lg:mt-16&quot;&gt;
+        &lt;img
+          src&#x3D;&quot;gm5.jpg&quot;
+          class&#x3D;&quot;w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover rounded-xl&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+        &lt;img
+          src&#x3D;&quot;gm7.png&quot;
+          class&#x3D;&quot;w-full h-48 sm:h-56 lg:h-64 xl:h-72 object-cover rounded-xl&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mt-8 sm:mt-12 lg:mt-16 flex flex-col lg:flex-row gap-8 lg:gap-12">  <!-- Content Section -->  <div class="w-full lg:w-3/5 content-text">    <div class="relative">      <img src="Whyus.png" alt="" class="w-full max-w-xs lg:max-w-sm" />      <div class="flex absolute bottom-0">        <img src="weight.png" class="ps-2 w-6 h-6" alt="" />        <p class="ps-4 text-[#FF4100] text-sm sm:text-base">{{ \'why.badge\' | translate }}</p>      </div>    </div>    <div class="mt-8 sm:mt-12">      <div>        <h2          class="text-[#242424] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase"        >          {{ \'why.title_1\' | translate }}        </h2>        <h2          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF4100] uppercase"        >          {{ \'why.title_2_a\' | translate }} <span class="text-[#242424] dark:text-white">{{ \'why.title_2_b\' | translate }}</span>        </h2>        <p          class="text-[#242424] dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl font-normal pt-4 sm:pt-6 lg:pt-8 pe-0 lg:pe-8"        >          {{ \'why.desc\' | translate }}        </p>      </div>      <!-- Features List -->      <div class="mt-8 sm:mt-12 lg:mt-16 space-y-6 sm:space-y-8">        <div class="flex items-start gap-4 sm:gap-6">          <div            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0"          >            <p class="text-white text-xs sm:text-sm font-bold">01</p>          </div>          <div class="flex-1">            <h4              class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"            >              {{ \'why.f1_title\' | translate }}            </h4>            <p              class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"            >              {{ \'why.f1_desc\' | translate }}            </p>          </div>        </div>        <div class="flex items-start gap-4 sm:gap-6">          <div            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0"          >            <p class="text-white text-xs sm:text-sm font-bold">02</p>          </div>          <div class="flex-1">            <h4              class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"            >              {{ \'why.f2_title\' | translate }}            </h4>            <p              class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"            >              {{ \'why.f2_desc\' | translate }}            </p>          </div>        </div>        <div class="flex items-start gap-4 sm:gap-6">          <div            class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-FF4100 rounded-full flex items-center justify-center flex-shrink-0"          >            <p class="text-white text-xs sm:text-sm font-bold">03</p>          </div>          <div class="flex-1">            <h4              class="text-sm sm:text-base lg:text-lg font-bold capitalize mb-2 text-[#242424] dark:text-white"            >              {{ \'why.f3_title\' | translate }}            </h4>            <p              class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300"            >              {{ \'why.f3_desc\' | translate }}            </p>          </div>        </div>      </div>    </div>  </div>  <!-- Images Section -->  <div class="w-full lg:w-2/5">    <div class="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4">      <div class="space-y-2 sm:space-y-3 lg:space-y-4">        <img          src="gm4.png"          class="w-full h-48 sm:h-56 lg:h-64 xl:h-72 object-cover rounded-xl"          alt=""        />        <img          src="gm6.jpg"          class="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover rounded-xl"          alt=""        />      </div>      <div class="space-y-2 sm:space-y-3 lg:space-y-4 mt-8 sm:mt-12 lg:mt-16">        <img          src="gm5.jpg"          class="w-full h-40 sm:h-48 lg:h-56 xl:h-64 object-cover rounded-xl"          alt=""        />        <img          src="gm7.png"          class="w-full h-48 sm:h-56 lg:h-64 xl:h-72 object-cover rounded-xl"          alt=""        />      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'WhyUsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WhyUsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

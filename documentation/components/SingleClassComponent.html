@@ -1,0 +1,3450 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SingleClassComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-single-class</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                                <code><a href="../components/CustomSliderComponent.html" target="_self" >CustomSliderComponent</a></code>
+                            <code>CarouselModule</code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./single-class.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./single-class.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#advancedId" >advancedId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#beginnerId" >beginnerId</a>
+                            </li>
+                            <li>
+                                <a href="#difficultyLevels" >difficultyLevels</a>
+                            </li>
+                            <li>
+                                <a href="#embedUrl" >embedUrl</a>
+                            </li>
+                            <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <a href="#exercises" >exercises</a>
+                            </li>
+                            <li>
+                                <a href="#filterTabs" >filterTabs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#intermediateId" >intermediateId</a>
+                            </li>
+                            <li>
+                                <a href="#isPlaying" >isPlaying</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#muscleGroupDetail" >muscleGroupDetail</a>
+                            </li>
+                            <li>
+                                <a href="#muscleGroups" >muscleGroups</a>
+                            </li>
+                            <li>
+                                <a href="#musclesLoading" >musclesLoading</a>
+                            </li>
+                            <li>
+                                <a href="#notice" >notice</a>
+                            </li>
+                            <li>
+                                <a href="#selectedDifficulty" >selectedDifficulty</a>
+                            </li>
+                            <li>
+                                <a href="#selectedExercise" >selectedExercise</a>
+                            </li>
+                            <li>
+                                <a href="#selectedGroupId" >selectedGroupId</a>
+                            </li>
+                            <li>
+                                <a href="#tabResponsiveOptions" >tabResponsiveOptions</a>
+                            </li>
+                            <li>
+                                <a href="#themeVal" >themeVal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildEmbedUrl" >buildEmbedUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractYouTubeVideoId" >extractYouTubeVideoId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateFilterTabs" >generateFilterTabs</a>
+                            </li>
+                            <li>
+                                <a href="#getVideoThumbnail" >getVideoThumbnail</a>
+                            </li>
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#loadExercises" >loadExercises</a>
+                            </li>
+                            <li>
+                                <a href="#loadMuscleGroupDetail" >loadMuscleGroupDetail</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDifficultyChange" >onDifficultyChange</a>
+                            </li>
+                            <li>
+                                <a href="#onFilterChange" >onFilterChange</a>
+                            </li>
+                            <li>
+                                <a href="#onRecommendationSelect" >onRecommendationSelect</a>
+                            </li>
+                            <li>
+                                <a href="#onThumbnailError" >onThumbnailError</a>
+                            </li>
+                            <li>
+                                <a href="#playSelected" >playSelected</a>
+                            </li>
+                            <li>
+                                <a href="#playVideo" >playVideo</a>
+                            </li>
+                            <li>
+                                <a href="#selectExercise" >selectExercise</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setExercisesAndSelectFirst" >setExercisesAndSelectFirst</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#recommendationItems" >recommendationItems</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, router: Router, musclesService: <a href="../injectables/MusclesService.html" target="_self">MusclesService</a>, exerciseService: <a href="../injectables/ExerciseService.html" target="_self">ExerciseService</a>, themeService: <a href="../injectables/ThemeManagerService.html" target="_self">ThemeManagerService</a>, sanitizer: DomSanitizer)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>musclesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MusclesService.html" target="_self" >MusclesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>exerciseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExerciseService.html" target="_self" >ExerciseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeManagerService.html" target="_self" >ThemeManagerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                    <code>DomSanitizer</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildEmbedUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>buildEmbedUrl</b></span>
+                        <a href="#buildEmbedUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildEmbedUrl(videoUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, autoplay)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="254"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:254</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>videoUrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>autoplay</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractYouTubeVideoId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>extractYouTubeVideoId</b></span>
+                        <a href="#extractYouTubeVideoId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractYouTubeVideoId(url?: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateFilterTabs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateFilterTabs</b></span>
+                        <a href="#generateFilterTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateFilterTabs()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVideoThumbnail"></a>
+                    <span class="name">
+                        <span ><b>getVideoThumbnail</b></span>
+                        <a href="#getVideoThumbnail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getVideoThumbnail(videoUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="275"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:275</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>videoUrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="223"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:223</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadExercises"></a>
+                    <span class="name">
+                        <span ><b>loadExercises</b></span>
+                        <a href="#loadExercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadExercises(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>groupId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMuscleGroupDetail"></a>
+                    <span class="name">
+                        <span ><b>loadMuscleGroupDetail</b></span>
+                        <a href="#loadMuscleGroupDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadMuscleGroupDetail(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>groupId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDifficultyChange"></a>
+                    <span class="name">
+                        <span ><b>onDifficultyChange</b></span>
+                        <a href="#onDifficultyChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDifficultyChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="211"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:211</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFilterChange"></a>
+                    <span class="name">
+                        <span ><b>onFilterChange</b></span>
+                        <a href="#onFilterChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFilterChange(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>groupId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRecommendationSelect"></a>
+                    <span class="name">
+                        <span ><b>onRecommendationSelect</b></span>
+                        <a href="#onRecommendationSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRecommendationSelect(exerciseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exerciseId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onThumbnailError"></a>
+                    <span class="name">
+                        <span ><b>onThumbnailError</b></span>
+                        <a href="#onThumbnailError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onThumbnailError(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="282"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:282</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playSelected"></a>
+                    <span class="name">
+                        <span ><b>playSelected</b></span>
+                        <a href="#playSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>playSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:242</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playVideo"></a>
+                    <span class="name">
+                        <span ><b>playVideo</b></span>
+                        <a href="#playVideo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>playVideo(videoUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>videoUrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectExercise"></a>
+                    <span class="name">
+                        <span ><b>selectExercise</b></span>
+                        <a href="#selectExercise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectExercise(exercise: <a href="../interfaces/ExerciseGroup.html" target="_self">ExerciseGroup</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>exercise</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExerciseGroup.html" target="_self" >ExerciseGroup</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setExercisesAndSelectFirst"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setExercisesAndSelectFirst</b></span>
+                        <a href="#setExercisesAndSelectFirst"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setExercisesAndSelectFirst(list: ExerciseGroup[] | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>list</td>
+                                            <td>
+                                                        <code>ExerciseGroup[] | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="advancedId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>advancedId</b></span>
+                        <a href="#advancedId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;67c797e226895f87ce0aa94d&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="beginnerId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>beginnerId</b></span>
+                        <a href="#beginnerId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;67c797e226895f87ce0aa94b&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="difficultyLevels"></a>
+                    <span class="name">
+                        <span ><b>difficultyLevels</b></span>
+                        <a href="#difficultyLevels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { id: this.beginnerId, name: &#x27;singleClass.difficulty_beginner&#x27; },
+    { id: this.intermediateId, name: &#x27;singleClass.difficulty_intermediate&#x27; },
+    { id: this.advancedId, name: &#x27;singleClass.difficulty_advanced&#x27; },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="embedUrl"></a>
+                    <span class="name">
+                        <span ><b>embedUrl</b></span>
+                        <a href="#embedUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SafeResourceUrl | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exercises"></a>
+                    <span class="name">
+                        <span ><b>exercises</b></span>
+                        <a href="#exercises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ExerciseGroup[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterTabs"></a>
+                    <span class="name">
+                        <span ><b>filterTabs</b></span>
+                        <a href="#filterTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/tabData.html" target="_self" >tabData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="intermediateId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>intermediateId</b></span>
+                        <a href="#intermediateId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;67c797e226895f87ce0aa94c&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPlaying"></a>
+                    <span class="name">
+                        <span ><b>isPlaying</b></span>
+                        <a href="#isPlaying"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muscleGroupDetail"></a>
+                    <span class="name">
+                        <span ><b>muscleGroupDetail</b></span>
+                        <a href="#muscleGroupDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MuscleGroupDetail | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muscleGroups"></a>
+                    <span class="name">
+                        <span ><b>muscleGroups</b></span>
+                        <a href="#muscleGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MusclesGroup[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="musclesLoading"></a>
+                    <span class="name">
+                        <span ><b>musclesLoading</b></span>
+                        <a href="#musclesLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notice"></a>
+                    <span class="name">
+                        <span ><b>notice</b></span>
+                        <a href="#notice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedDifficulty"></a>
+                    <span class="name">
+                        <span ><b>selectedDifficulty</b></span>
+                        <a href="#selectedDifficulty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;67c797e226895f87ce0aa94b&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedExercise"></a>
+                    <span class="name">
+                        <span ><b>selectedExercise</b></span>
+                        <a href="#selectedExercise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ExerciseGroup | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedGroupId"></a>
+                    <span class="name">
+                        <span ><b>selectedGroupId</b></span>
+                        <a href="#selectedGroupId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabResponsiveOptions"></a>
+                    <span class="name">
+                        <span ><b>tabResponsiveOptions</b></span>
+                        <a href="#tabResponsiveOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { breakpoint: &#x27;1400px&#x27;, numVisible: 6, numScroll: 3 },
+    { breakpoint: &#x27;1200px&#x27;, numVisible: 5, numScroll: 3 },
+    { breakpoint: &#x27;992px&#x27;, numVisible: 4, numScroll: 2 },
+    { breakpoint: &#x27;768px&#x27;, numVisible: 3, numScroll: 2 },
+    { breakpoint: &#x27;576px&#x27;, numVisible: 2, numScroll: 1 },
+    { breakpoint: &#x27;420px&#x27;, numVisible: 1, numScroll: 1 },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeVal"></a>
+                    <span class="name">
+                        <span ><b>themeVal</b></span>
+                        <a href="#themeVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recommendationItems"></a>
+                        <span class="name"><b>recommendationItems</b><a href="#recommendationItems"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>recommendationItems()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/single-class/single-class.component.ts:68</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { MusclesService } from &#x27;../../../core/services/muscles/muscles.service&#x27;;
+import {
+  MuscleGroupDetail,
+  MusclesGroup,
+} from &#x27;../../../core/models/allMuscles&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { CustomSliderComponent } from &#x27;../../../shared/components/custom-slider/custom-slider.component&#x27;;
+import { CarouselModule } from &#x27;primeng/carousel&#x27;;
+import { tabData } from &#x27;../../../shared/components/custom-tab/tab.model&#x27;;
+import { Exercise, ExerciseGroup } from &#x27;../../../core/models/Exercise&#x27;;
+import { ExerciseService } from &#x27;../../../core/services/Exercise/exercise.service&#x27;;
+import { DomSanitizer, SafeResourceUrl } from &#x27;@angular/platform-browser&#x27;;
+import { ThemeManagerService } from &#x27;../../../core/services/ThemeManger/ThemeManagerService.service&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x27;app-single-class&#x27;,
+  standalone: true,
+  imports: [CommonModule, FormsModule, CustomSliderComponent, CarouselModule, TranslateModule],
+  templateUrl: &#x27;./single-class.component.html&#x27;,
+  styleUrls: [&#x27;./single-class.component.scss&#x27;],
+})
+export class SingleClassComponent implements OnInit {
+  muscleGroupDetail: MuscleGroupDetail | null &#x3D; null;
+  exercises: ExerciseGroup[] &#x3D; [];
+  selectedExercise: ExerciseGroup | null &#x3D; null;
+  selectedDifficulty: string &#x3D; &#x27;67c797e226895f87ce0aa94b&#x27;; // Beginner by default
+  loading &#x3D; true;
+  error &#x3D; &#x27;&#x27;;
+  themeVal &#x3D; false;
+  musclesLoading &#x3D; true;
+
+  // video state
+  isPlaying &#x3D; false;
+  embedUrl: SafeResourceUrl | null &#x3D; null;
+
+  // Optional notice when a difficulty has no data
+  notice &#x3D; &#x27;&#x27;;
+
+  // Tabs (muscle groups) for header carousel
+  muscleGroups: MusclesGroup[] &#x3D; [];
+  filterTabs: tabData[] &#x3D; [];
+  selectedGroupId &#x3D; &#x27;&#x27;;
+  tabResponsiveOptions &#x3D; [
+    { breakpoint: &#x27;1400px&#x27;, numVisible: 6, numScroll: 3 },
+    { breakpoint: &#x27;1200px&#x27;, numVisible: 5, numScroll: 3 },
+    { breakpoint: &#x27;992px&#x27;, numVisible: 4, numScroll: 2 },
+    { breakpoint: &#x27;768px&#x27;, numVisible: 3, numScroll: 2 },
+    { breakpoint: &#x27;576px&#x27;, numVisible: 2, numScroll: 1 },
+    { breakpoint: &#x27;420px&#x27;, numVisible: 1, numScroll: 1 },
+  ];
+
+  // Known difficulty IDs
+  private readonly beginnerId &#x3D; &#x27;67c797e226895f87ce0aa94b&#x27;;
+  private readonly intermediateId &#x3D; &#x27;67c797e226895f87ce0aa94c&#x27;;
+  private readonly advancedId &#x3D; &#x27;67c797e226895f87ce0aa94d&#x27;;
+
+  difficultyLevels &#x3D; [
+    { id: this.beginnerId, name: &#x27;singleClass.difficulty_beginner&#x27; },
+    { id: this.intermediateId, name: &#x27;singleClass.difficulty_intermediate&#x27; },
+    { id: this.advancedId, name: &#x27;singleClass.difficulty_advanced&#x27; },
+  ];
+
+  // Map exercises for recommendation slider (reuse custom slider API)
+  get recommendationItems() {
+    return this.exercises.map((e) &#x3D;&gt; ({
+      idMeal: e._id,
+      strMeal: e.exercise,
+      strMealThumb: this.getVideoThumbnail(e.short_youtube_demonstration_link),
+    }));
+  }
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private musclesService: MusclesService,
+    private exerciseService: ExerciseService,
+    private themeService: ThemeManagerService,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  ngOnInit() {
+    const groupId &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;);
+    if (groupId) {
+      this.selectedGroupId &#x3D; groupId;
+      this.loadMuscleGroupDetail(groupId);
+      this.loadExercises(groupId);
+    }
+
+    // Load all muscle groups for the header tabs
+    this.musclesLoading &#x3D; true;
+    this.musclesService.getAllmuscles().subscribe({
+      next: (res) &#x3D;&gt; {
+        this.muscleGroups &#x3D; res?.musclesGroup || [];
+        this.generateFilterTabs();
+        this.musclesLoading &#x3D; false;
+      },
+      error: (err) &#x3D;&gt; {
+        console.error(&#x27;Error loading muscle groups:&#x27;, err);
+        this.musclesLoading &#x3D; false;
+      },
+    });
+
+    this.themeVal &#x3D; this.themeService.getCurrentTheme() &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;;
+  }
+
+  private generateFilterTabs() {
+    this.filterTabs &#x3D; [
+      { id: &#x27;full_body&#x27;, title: &#x27;fitnessClass.full_body&#x27; },
+      ...this.muscleGroups.map((g) &#x3D;&gt; ({ id: g._id, title: g.name })),
+    ];
+  }
+
+  onFilterChange(groupId: string) {
+    // Highlight immediately and refresh data to first exercise of this group
+    this.selectedGroupId &#x3D; groupId;
+
+    if (groupId &#x3D;&#x3D;&#x3D; &#x27;full_body&#x27;) {
+      this.router.navigate([&#x27;/classes&#x27;]);
+      return;
+    }
+
+    if (groupId) {
+      // Reset difficulty to Beginner and clear current selection
+      this.selectedDifficulty &#x3D; this.beginnerId;
+      this.selectedExercise &#x3D; null;
+      this.isPlaying &#x3D; false;
+      this.embedUrl &#x3D; null;
+      this.loadMuscleGroupDetail(groupId);
+      this.loadExercises(groupId);
+    }
+  }
+
+  loadMuscleGroupDetail(groupId: string) {
+    this.loading &#x3D; true;
+    this.musclesService.getMuscleGroupDetail(groupId).subscribe({
+      next: (response) &#x3D;&gt; {
+        this.muscleGroupDetail &#x3D; response.muscleGroup;
+        this.loading &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+         this.error &#x3D; &#x27;singleClass.error_group_details&#x27;;
+        this.loading &#x3D; false;
+        console.error(&#x27;Error loading muscle group detail:&#x27;, error);
+      },
+    });
+  }
+
+  private setExercisesAndSelectFirst(list: ExerciseGroup[] | null) {
+    this.exercises &#x3D; list ?? [];
+    this.selectedExercise &#x3D;
+      this.exercises.length &gt; 0 ? this.exercises[0] : null;
+    this.isPlaying &#x3D; false;
+    this.embedUrl &#x3D; null;
+  }
+
+  loadExercises(groupId: string) {
+    this.notice &#x3D; &#x27;&#x27;;
+    this.exerciseService
+      .getRandomExercises(groupId, this.selectedDifficulty, 10)
+      .subscribe({
+        next: (response: Exercise) &#x3D;&gt; {
+          const exercises &#x3D; response?.exercises ?? [];
+
+          if (
+            exercises.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+            this.selectedDifficulty !&#x3D;&#x3D; this.beginnerId
+          ) {
+            // Fallback to Beginner if Intermediate/Advanced have no data
+            this.notice &#x3D; &#x27;singleClass.no_exercises_difficulty_fallback&#x27;;
+            this.exerciseService
+              .getRandomExercises(groupId, this.beginnerId, 10)
+              .subscribe({
+                next: (fallback) &#x3D;&gt; {
+                  const fallbackExercises &#x3D; fallback?.exercises ?? [];
+                  if (fallbackExercises.length &#x3D;&#x3D;&#x3D; 0) {
+                    this.notice &#x3D; &#x27;singleClass.no_exercises_available&#x27;;
+                    this.setExercisesAndSelectFirst([]);
+                  } else {
+                    this.setExercisesAndSelectFirst(fallbackExercises);
+                  }
+                },
+                error: (err) &#x3D;&gt; {
+                  console.error(&#x27;Error loading fallback exercises:&#x27;, err);
+                  this.notice &#x3D; &#x27;singleClass.error_fallback_exercises&#x27;;
+                  this.setExercisesAndSelectFirst([]);
+                },
+              });
+            return;
+          }
+
+          // Normal case (response has data or we&#x27;re already on beginner)
+          if (exercises.length &#x3D;&#x3D;&#x3D; 0) {
+            this.notice &#x3D; &#x27;singleClass.no_exercises_available&#x27;;
+          } else {
+            this.notice &#x3D; &#x27;&#x27;;
+          }
+          this.setExercisesAndSelectFirst(exercises);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error loading exercises:&#x27;, error);
+          this.notice &#x3D; &#x27;singleClass.error_load_exercises&#x27;;
+          this.setExercisesAndSelectFirst([]);
+        },
+      });
+  }
+
+  onDifficultyChange() {
+    const groupId &#x3D;
+      this.selectedGroupId || this.route.snapshot.paramMap.get(&#x27;id&#x27;) || &#x27;&#x27;;
+    if (groupId) {
+      // Clear current selection so the first result becomes active and reset player
+      this.selectedExercise &#x3D; null;
+      this.isPlaying &#x3D; false;
+      this.embedUrl &#x3D; null;
+      this.loadExercises(groupId);
+    }
+  }
+
+  goBack() {
+    this.router.navigate([&#x27;/classes&#x27;]);
+  }
+
+  playVideo(videoUrl: string) {
+    if (videoUrl) {
+      // open safely to avoid window.opener attacks
+      const newWindow &#x3D; window.open(&#x27;&#x27;, &#x27;_blank&#x27;);
+      if (newWindow) {
+        try {
+          newWindow.opener &#x3D; null;
+        } catch (e) {
+          // ignore if environment prevents setting opener
+        }
+        newWindow.location.href &#x3D; videoUrl;
+      }
+    }
+  }
+
+  playSelected() {
+    if (!this.selectedExercise) return;
+    const url &#x3D; this.selectedExercise.short_youtube_demonstration_link;
+    const embed &#x3D; this.buildEmbedUrl(url, true);
+    if (embed) {
+      this.embedUrl &#x3D; this.sanitizer.bypassSecurityTrustResourceUrl(embed);
+      this.isPlaying &#x3D; true;
+    } else {
+      this.notice &#x3D; &#x27;singleClass.error_play_selected&#x27;;
+    }
+  }
+
+  private buildEmbedUrl(videoUrl: string, autoplay &#x3D; false): string {
+    const id &#x3D; this.extractYouTubeVideoId(videoUrl);
+    const auto &#x3D; autoplay ? &#x27;1&#x27; : &#x27;0&#x27;;
+    return id
+      ? &#x60;https://www.youtube-nocookie.com/embed/${id}?autoplay&#x3D;${auto}&amp;rel&#x3D;0&amp;modestbranding&#x3D;1&#x60;
+      : &#x27;&#x27;;
+  }
+
+  selectExercise(exercise: ExerciseGroup) {
+    this.selectedExercise &#x3D; exercise;
+    this.isPlaying &#x3D; false;
+    this.embedUrl &#x3D; null;
+  }
+
+  onRecommendationSelect(exerciseId: string) {
+    const ex &#x3D; this.exercises.find((e) &#x3D;&gt; e._id &#x3D;&#x3D;&#x3D; exerciseId);
+    if (ex &amp;&amp; ex.short_youtube_demonstration_link) {
+      this.playVideo(ex.short_youtube_demonstration_link);
+    }
+  }
+
+  getVideoThumbnail(videoUrl: string): string {
+    const videoId &#x3D; this.extractYouTubeVideoId(videoUrl);
+    return videoId
+      ? &#x60;https://img.youtube.com/vi/${videoId}/hqdefault.jpg&#x60;
+      : &#x27;/auth-bg.jpg&#x27;;
+  }
+
+  onThumbnailError(event: Event) {
+    const img &#x3D; event.target as HTMLImageElement | null;
+    if (!img) return;
+    // Final fallback image to avoid broken thumbnails
+    img.src &#x3D; &#x27;/auth-bg.jpg&#x27;;
+  }
+
+  private extractYouTubeVideoId(url?: string | null): string | null {
+    if (!url) return null;
+    try {
+      const u &#x3D; new URL(url);
+      // youtu.be short links
+      if (u.hostname.includes(&#x27;youtu.be&#x27;)) return u.pathname.replace(&#x27;/&#x27;, &#x27;&#x27;);
+      // standard watch?v&#x3D; links
+      const v &#x3D; u.searchParams.get(&#x27;v&#x27;);
+      if (v) return v;
+      // /embed/{id}
+      const parts &#x3D; u.pathname.split(&#x27;/&#x27;).filter(Boolean);
+      const embedIdx &#x3D; parts.indexOf(&#x27;embed&#x27;);
+      if (embedIdx !&#x3D;&#x3D; -1 &amp;&amp; parts[embedIdx + 1]) return parts[embedIdx + 1];
+    } catch (e) {
+      // fallback to regex if URL constructor fails
+      const regExp &#x3D;
+        /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?v&#x3D;|embed\/|v\/|shorts\/))([A-Za-z0-9_-]{11})/;
+      const match &#x3D; url.match(regExp);
+      if (match &amp;&amp; match[1]) return match[1];
+    }
+    return null;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;mt-10 mb-30&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;overlay&quot;
+    [ngClass]&#x3D;&quot;{ &#x27;overlay-light&#x27;: !themeVal, &#x27;overlay-dark&#x27;: themeVal }&quot;
+  &gt;&lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;profile-wrapper single-class-container mt-10 mb-30&quot;&gt;
+    &lt;!-- Error State --&gt;
+    &lt;div *ngIf&#x3D;&quot;error &amp;&amp; !loading&quot; class&#x3D;&quot;empty-state&quot;&gt;
+      &lt;div class&#x3D;&quot;empty-content&quot;&gt;
+        &lt;h2 class&#x3D;&quot;empty-title&quot;&gt;{{ error | translate }}&lt;/h2&gt;
+        &lt;button
+          (click)&#x3D;&quot;goBack()&quot;
+          class&#x3D;&quot;bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full&quot;
+        &gt;
+          {{ &#x27;common.go_back&#x27; | translate }}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Main Content --&gt;
+    &lt;div *ngIf&#x3D;&quot;!loading &amp;&amp; !error &amp;&amp; muscleGroupDetail&quot; class&#x3D;&quot;w-full&quot;&gt;
+      &lt;!-- Header --&gt;
+      &lt;section class&#x3D;&quot;header-section&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;w-full flex items-center justify-center mt-[30px] relative z-20&quot;
+        &gt;
+          &lt;img src&#x3D;&quot;/workouts.png&quot; alt&#x3D;&quot;Workouts&quot; class&#x3D;&quot;max-w-full h-auto&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-4 flex items-center justify-center&quot;&gt;
+          &lt;button
+            (click)&#x3D;&quot;goBack()&quot;
+            class&#x3D;&quot;text-orange-500 hover:text-orange-400 text-sm&quot;
+          &gt;
+            {{ &#x27;singleClass.back_to_classes&#x27; | translate }}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Filter Tabs (carousel) --&gt;
+      &lt;section *ngIf&#x3D;&quot;muscleGroups.length &gt; 0&quot; class&#x3D;&quot;filter-tabs-section&quot;&gt;
+        &lt;div class&#x3D;&quot;tabs-container pointer&quot;&gt;
+          &lt;p-carousel
+            [value]&#x3D;&quot;filterTabs&quot;
+            [numVisible]&#x3D;&quot;5&quot;
+            [numScroll]&#x3D;&quot;5&quot;
+            [circular]&#x3D;&quot;false&quot;
+            [autoplayInterval]&#x3D;&quot;0&quot;
+            [showNavigators]&#x3D;&quot;true&quot;
+            [showIndicators]&#x3D;&quot;false&quot;
+            [responsiveOptions]&#x3D;&quot;tabResponsiveOptions&quot;
+          &gt;
+            &lt;ng-template pTemplate&#x3D;&quot;item&quot; let-tab&gt;
+              &lt;div class&#x3D;&quot;px-2&quot;&gt;
+                &lt;button
+                  (click)&#x3D;&quot;onFilterChange(tab.id)&quot;
+                  [ngClass]&#x3D;&quot;{
+                    active: selectedGroupId &#x3D;&#x3D;&#x3D; tab.id
+                  }&quot;
+                  class&#x3D;&quot;px-2 my-6 py-2 pointer  rounded-full font-semibold uppercase tracking-wide transition-all duration-300 w-full text-xs md:text-sm flex items-center justify-center gap-2&quot;
+                &gt;
+                  &lt;span class&#x3D;&quot;truncate pointer&quot;&gt;{{ tab.id &#x3D;&#x3D;&#x3D; &#x27;full_body&#x27; ? (&#x27;fitnessClass.full_body&#x27; | translate) : tab.title }}&lt;/span&gt;
+                &lt;/button&gt;
+              &lt;/div&gt;
+            &lt;/ng-template&gt;
+          &lt;/p-carousel&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Main Grid --&gt;
+      &lt;section class&#x3D;&quot;workouts-section&quot;&gt;
+        &lt;div class&#x3D;&quot;grid&quot;&gt;
+          &lt;!-- Left Sidebar --&gt;
+          &lt;aside class&#x3D;&quot;aside-panel&quot;&gt;
+            &lt;!-- Difficulty Row --&gt;
+            &lt;div class&#x3D;&quot;difficulty-row&quot;&gt;
+              &lt;button
+                *ngFor&#x3D;&quot;let level of difficultyLevels&quot;
+                (click)&#x3D;&quot;selectedDifficulty &#x3D; level.id; onDifficultyChange()&quot;
+                [ngClass]&#x3D;&quot;{ active: selectedDifficulty &#x3D;&#x3D;&#x3D; level.id }&quot;
+                class&#x3D;&quot;difficulty-p&quot;
+              &gt;
+                {{ level.name | translate }}
+              &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Notice --&gt;
+            &lt;div *ngIf&#x3D;&quot;notice&quot; class&#x3D;&quot;notice&quot;&gt;
+              {{ notice | translate }}
+            &lt;/div&gt;
+
+            &lt;!-- Exercise List --&gt;
+            &lt;div class&#x3D;&quot;ex-list&quot; role&#x3D;&quot;list&quot;&gt;
+              &lt;div
+                *ngFor&#x3D;&quot;let exercise of exercises; let i &#x3D; index&quot;
+                class&#x3D;&quot;exercise-item&quot;
+                [ngClass]&#x3D;&quot;{ selected: selectedExercise?._id &#x3D;&#x3D;&#x3D; exercise._id }&quot;
+                (click)&#x3D;&quot;selectExercise(exercise)&quot;
+              &gt;
+                &lt;img
+                  class&#x3D;&quot;thumb&quot;
+                  [src]&#x3D;&quot;
+                    getVideoThumbnail(exercise.short_youtube_demonstration_link)
+                  &quot;
+                  alt&#x3D;&quot;thumb&quot;
+                  loading&#x3D;&quot;lazy&quot;
+                  (error)&#x3D;&quot;onThumbnailError($event)&quot;
+                /&gt;
+                &lt;div class&#x3D;&quot;meta&quot;&gt;
+                  &lt;div class&#x3D;&quot;title&quot;&gt;{{ exercise.exercise }}&lt;/div&gt;
+                  &lt;div class&#x3D;&quot;sub&quot;&gt;
+                    {{ exercise.primary_equipment }} •
+                    {{ exercise.target_muscle_group }}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div
+                  style&#x3D;&quot;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 8px;
+                  &quot;
+                &gt;
+                  &lt;button
+                    (click)&#x3D;&quot;
+                      $event.stopPropagation();
+                      playVideo(exercise.short_youtube_demonstration_link)
+                    &quot;
+                    class&#x3D;&quot;play-small&quot;
+                    aria-label&#x3D;&quot;play&quot;
+                    title&#x3D;&quot;Open demo in new tab&quot;
+                  &gt;
+                    &lt;svg
+                      width&#x3D;&quot;14&quot;
+                      height&#x3D;&quot;14&quot;
+                      viewBox&#x3D;&quot;0 0 24 24&quot;
+                      fill&#x3D;&quot;none&quot;
+                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                    &gt;
+                      &lt;path d&#x3D;&quot;M8 5v14l11-7L8 5z&quot; fill&#x3D;&quot;white&quot; /&gt;
+                    &lt;/svg&gt;
+                  &lt;/button&gt;
+                  &lt;span class&#x3D;&quot;tag&quot;&gt;3x15&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;div
+                *ngIf&#x3D;&quot;exercises.length &#x3D;&#x3D;&#x3D; 0&quot;
+                class&#x3D;&quot;text-center py-8 text-gray-400&quot;
+              &gt;
+                 {{ &#x27;singleClass.no_exercises&#x27; | translate }}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/aside&gt;
+
+          &lt;!-- Main Content Area --&gt;
+          &lt;div&gt;
+            &lt;div class&#x3D;&quot;video-card&quot;&gt;
+              &lt;!-- Selected Exercise --&gt;
+              &lt;div *ngIf&#x3D;&quot;selectedExercise&quot;&gt;
+                &lt;div class&#x3D;&quot;video-hero&quot;&gt;
+                  &lt;ng-container *ngIf&#x3D;&quot;!isPlaying; else player&quot;&gt;
+                    &lt;img
+                      class&#x3D;&quot;hero-thumb&quot;
+                      [src]&#x3D;&quot;
+                        getVideoThumbnail(
+                          selectedExercise.short_youtube_demonstration_link
+                        )
+                      &quot;
+                      alt&#x3D;&quot;Exercise thumbnail&quot;
+                      loading&#x3D;&quot;lazy&quot;
+                      (error)&#x3D;&quot;onThumbnailError($event)&quot;
+                    /&gt;
+                    &lt;div
+                      style&#x3D;&quot;
+                        position: absolute;
+                        inset: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      &quot;
+                    &gt;
+                      &lt;button
+                        (click)&#x3D;&quot;playSelected()&quot;
+                        class&#x3D;&quot;play-big pointer&quot;
+                        aria-label&#x3D;&quot;play selected&quot;
+                      &gt;
+                        &lt;svg
+                          width&#x3D;&quot;28&quot;
+                          height&#x3D;&quot;28&quot;
+                          viewBox&#x3D;&quot;0 0 24 24&quot;
+                          fill&#x3D;&quot;none&quot;
+                        &gt;
+                          &lt;path d&#x3D;&quot;M8 5v14l11-7L8 5z&quot; fill&#x3D;&quot;white&quot; /&gt;
+                        &lt;/svg&gt;
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/ng-container&gt;
+
+                  &lt;ng-template #player&gt;
+                    &lt;iframe
+                      class&#x3D;&quot;w-full h-full pointer&quot;
+                      [src]&#x3D;&quot;embedUrl&quot;
+                      title&#x3D;&quot;Exercise player&quot;
+                      frameborder&#x3D;&quot;0&quot;
+                      allow&#x3D;&quot;autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture&quot;
+                      allowfullscreen
+                      style&#x3D;&quot;width: 100%; height: 100%; border: 0&quot;
+                    &gt;&lt;/iframe&gt;
+                  &lt;/ng-template&gt;
+
+                  &lt;!-- bottom overlay meta --&gt;
+                  &lt;div class&#x3D;&quot;video-meta &quot; *ngIf&#x3D;&quot;!isPlaying&quot; aria-hidden&#x3D;&quot;false&quot;&gt;
+                    &lt;h2&gt;{{ selectedExercise.target_muscle_group }} {{ &#x27;singleClass.exercise&#x27; | translate }}&lt;/h2&gt;
+                    &lt;p&gt;
+                      {{ selectedExercise.exercise }} — {{ &#x27;singleClass.quick_overview&#x27; | translate }}
+                    &lt;/p&gt;
+                    &lt;div class&#x3D;&quot;chips&quot;&gt;
+                      &lt;div class&#x3D;&quot;chip&quot;&gt;30 {{ &#x27;singleClass.min&#x27; | translate }}&lt;/div&gt;
+                      &lt;div class&#x3D;&quot;chip&quot;&gt;130 {{ &#x27;singleClass.cal&#x27; | translate }}&lt;/div&gt;
+                      &lt;div class&#x3D;&quot;chip&quot;&gt;{{ &#x27;singleClass.expert_workout&#x27; | translate }}&lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Exercise Details --&gt;
+                &lt;div class&#x3D;&quot;exercise-details&quot;&gt;
+                  &lt;h2
+                    style&#x3D;&quot;
+                      font-size: 1.6rem;
+                      font-weight: 800;
+                      color: #fff;
+                      margin: 0 0 8px;
+                    &quot;
+                  &gt;
+                    {{ selectedExercise.exercise }}
+                  &lt;/h2&gt;
+
+                  &lt;p style&#x3D;&quot;color: #cbd5e1; margin-bottom: 12px&quot;&gt;
+                    {{ selectedExercise.exercise }} is a
+                    {{ selectedExercise.difficulty_level.toLowerCase() }} level
+                    exercise targeting the
+                    {{ selectedExercise.target_muscle_group.toLowerCase() }}.
+                    This exercise primarily works the
+                    {{ selectedExercise.prime_mover_muscle }} and uses
+                    {{ selectedExercise.primary_equipment.toLowerCase() }}
+                    equipment.
+                  &lt;/p&gt;
+
+                  &lt;div
+                    style&#x3D;&quot;
+                      display: grid;
+                      grid-template-columns: repeat(2, 1fr);
+                      gap: 12px;
+                    &quot;
+                  &gt;
+                    &lt;div
+                      style&#x3D;&quot;
+                        background: rgba(255, 255, 255, 0.03);
+                        padding: 12px;
+                        border-radius: 10px;
+                      &quot;
+                    &gt;
+                      &lt;h4
+                        style&#x3D;&quot;
+                          color: #ff7a18;
+                          font-weight: 700;
+                          margin: 0 0 6px;
+                        &quot;
+                      &gt;
+                        Equipment
+                      &lt;/h4&gt;
+                      &lt;p style&#x3D;&quot;color: #fff; margin: 0&quot;&gt;
+                        {{ selectedExercise.primary_equipment }}
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      style&#x3D;&quot;
+                        background: rgba(255, 255, 255, 0.03);
+                        padding: 12px;
+                        border-radius: 10px;
+                      &quot;
+                    &gt;
+                      &lt;h4
+                        style&#x3D;&quot;
+                          color: #ff7a18;
+                          font-weight: 700;
+                          margin: 0 0 6px;
+                        &quot;
+                      &gt;
+                        Difficulty
+                      &lt;/h4&gt;
+                      &lt;p style&#x3D;&quot;color: #fff; margin: 0&quot;&gt;
+                        {{ selectedExercise.difficulty_level }}
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      style&#x3D;&quot;
+                        background: rgba(255, 255, 255, 0.03);
+                        padding: 12px;
+                        border-radius: 10px;
+                      &quot;
+                    &gt;
+                      &lt;h4
+                        style&#x3D;&quot;
+                          color: #ff7a18;
+                          font-weight: 700;
+                          margin: 0 0 6px;
+                        &quot;
+                      &gt;
+                        Primary Muscle
+                      &lt;/h4&gt;
+                      &lt;p style&#x3D;&quot;color: #fff; margin: 0&quot;&gt;
+                        {{ selectedExercise.prime_mover_muscle }}
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div
+                      style&#x3D;&quot;
+                        background: rgba(255, 255, 255, 0.03);
+                        padding: 12px;
+                        border-radius: 10px;
+                      &quot;
+                    &gt;
+                      &lt;h4
+                        style&#x3D;&quot;
+                          color: #ff7a18;
+                          font-weight: 700;
+                          margin: 0 0 6px;
+                        &quot;
+                      &gt;
+                        Mechanics
+                      &lt;/h4&gt;
+                      &lt;p style&#x3D;&quot;color: #fff; margin: 0&quot;&gt;
+                        {{ selectedExercise.mechanics }}
+                      &lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+
+                  &lt;div class&#x3D;&quot;actions&quot; style&#x3D;&quot;margin-top: 14px&quot;&gt;
+                    &lt;button
+                      (click)&#x3D;&quot;
+                        playVideo(
+                          selectedExercise.short_youtube_demonstration_link
+                        )
+                      &quot;
+                      class&#x3D;&quot;btn-primary&quot;
+                    &gt;
+                      {{ &#x27;singleClass.watch_demo&#x27; | translate }}
+                    &lt;/button&gt;
+                    &lt;button
+                      *ngIf&#x3D;&quot;selectedExercise.in_depth_youtube_explanation_link&quot;
+                      (click)&#x3D;&quot;
+                        playVideo(
+                          selectedExercise.in_depth_youtube_explanation_link!
+                        )
+                      &quot;
+                      class&#x3D;&quot;btn-outline&quot;
+                    &gt;
+                      {{ &#x27;singleClass.detailed_explanation&#x27; | translate }}
+                    &lt;/button&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+
+              &lt;!-- Default State when no selection --&gt;
+              &lt;div *ngIf&#x3D;&quot;!selectedExercise&quot; class&#x3D;&quot;text-center py-12&quot;&gt;
+                &lt;div
+                  class&#x3D;&quot;w-24 h-24 bg-gray-700/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/50&quot;
+                &gt;
+                  &lt;svg
+                    class&#x3D;&quot;w-12 h-12 text-gray-400&quot;
+                    fill&#x3D;&quot;none&quot;
+                    stroke&#x3D;&quot;currentColor&quot;
+                    viewBox&#x3D;&quot;0 0 24 24&quot;
+                  &gt;
+                    &lt;path
+                      stroke-linecap&#x3D;&quot;round&quot;
+                      stroke-linejoin&#x3D;&quot;round&quot;
+                      stroke-width&#x3D;&quot;2&quot;
+                      d&#x3D;&quot;M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z&quot;
+                    &gt;&lt;/path&gt;
+                  &lt;/svg&gt;
+                &lt;/div&gt;
+                &lt;h3 class&#x3D;&quot;text-xl font-semibold mb-2&quot; style&#x3D;&quot;color: #fff&quot;&gt;
+                  {{ &#x27;singleClass.select_exercise&#x27; | translate }}
+                &lt;/h3&gt;
+                &lt;p style&#x3D;&quot;color: #9ca3af&quot;&gt;
+                  {{ &#x27;singleClass.select_exercise_sub&#x27; | translate }}
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Recommendation For You --&gt;
+      &lt;section *ngIf&#x3D;&quot;exercises.length &gt; 0&quot; class&#x3D;&quot;mt-8&quot;&gt;
+        &lt;h3
+          style&#x3D;&quot;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+          &quot;
+        &gt;
+          {{ &#x27;singleClass.recommendation&#x27; | translate }}
+        &lt;/h3&gt;
+
+        &lt;app-custom-slider
+          [itemsList]&#x3D;&quot;recommendationItems&quot;
+          [numOfRows]&#x3D;&quot;1&quot;
+          [numOfColumns]&#x3D;&quot;3&quot;
+          [autoplayInterval]&#x3D;&quot;0&quot;
+          (mealSelected)&#x3D;&quot;onRecommendationSelect($event)&quot;
+        &gt;&lt;/app-custom-slider&gt;
+      &lt;/section&gt;
+      &lt;section *ngIf&#x3D;&quot;musclesLoading&quot; class&#x3D;&quot;loading-state&quot;&gt;
+        &lt;div class&#x3D;&quot;loading-content&quot;&gt;
+          &lt;div class&#x3D;&quot;loading-spinner&quot;&gt;&lt;/div&gt;
+          &lt;p class&#x3D;&quot;loading-title&quot;&gt;{{ &#x27;common.loading_workouts&#x27; | translate }}&lt;/p&gt;
+          &lt;p class&#x3D;&quot;loading-subtitle&quot;&gt;
+            {{ &#x27;common.loading_subtitle&#x27; | translate }}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./single-class.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  font-family: &#x27;Poppins&#x27;, sans-serif;
+  background-image: url(&#x27;/background.jpg&#x27;);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  backdrop-filter: blur(30px);
+  transition: background-color 0.3s ease;
+}
+
+/* Light mode overlay */
+.overlay-light {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark mode overlay */
+.overlay-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Light mode text colors */
+.overlay-light ~ .profile-wrapper {
+color: #242424;
+}
+
+.overlay-light ~ .profile-wrapper .logo-text,
+.overlay-light ~ .profile-wrapper .subtitle-text,
+.overlay-light ~ .profile-wrapper .hero-title {
+color: #242424;
+text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.profile-wrapper {
+position: relative;
+z-index: 2;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 100vh;
+justify-content: flex-start;
+padding: 1rem;
+max-width: 1400px;
+margin: 0 auto;
+gap: 2rem;
+}
+
+/* Header small */
+.header-section img {
+  max-height: 110px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Tabs container (carousel) */
+.tabs-container {
+  max-width: 1100px;
+  margin: 4px auto 10px; /* slight spacing around carousel */
+  padding: 0 6px;
+  z-index: 5;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* pills */
+.tabs-container button {
+  min-width: 96px;
+  height: 36px;
+  border-radius: 999px;
+  padding: 0 12px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  color: #dbeafe;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.tabs-container button:hover {
+  transform: translateY(-3px);
+}
+.tabs-container button.active {
+  background: linear-gradient(90deg, #ff7a18, #ff5722);
+  box-shadow: 0 10px 30px rgba(255, 90, 20, 0.18), 0 2px 6px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  transform: translateY(-4px);
+  border: none;
+}
+
+/* الصفحة الرئيسية: grid */
+.workouts-section .grid {
+  display: grid;
+  grid-template-columns: 409px 1fr;
+  gap: 1rem; /* reduce gap between sidebar and main */
+  padding: 0 1rem 1rem; /* inner padding to keep content off edges */
+}
+
+/* LEFT SIDEBAR */
+.aside-panel {
+  height: 736px;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 0.75rem; /* slightly tighter */
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6) inset;
+  overflow: hidden;
+}
+
+/* difficulty pills */
+.difficulty-row {
+  display: flex;
+  gap: 0.5rem;
+}
+.difficulty-p {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #e6eef6;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.difficulty-p:hover {
+  transform: translateY(-3px);
+}
+.difficulty-p.active {
+  background: linear-gradient(90deg, #ff7a18, #ff5722);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 90, 20, 0.18);
+}
+
+/* notice */
+.notice {
+  background: rgba(255, 146, 77, 0.12);
+  color: #ffd8bf;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 146, 77, 0.12);
+}
+
+/* exercise list scroll */
+.ex-list {
+  overflow-y: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* each item */
+.exercise-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01),
+    rgba(0, 0, 0, 0.12)
+  );
+}
+.exercise-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.exercise-item .thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.exercise-item .meta {
+  min-width: 0;
+  flex: 1;
+}
+.exercise-item .title {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.exercise-item .sub {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  opacity: 0.85;
+}
+.exercise-item .tag {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  color: #ffd8bf;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.pointer{
+  cursor: pointer !important;
+}
+/* selected */
+.exercise-item.selected {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 122, 40, 0.08),
+    rgba(255, 122, 40, 0.04)
+  );
+  border: 1px solid rgba(255, 122, 40, 0.18);
+  box-shadow: 0 14px 40px rgba(255, 102, 20, 0.06);
+}
+
+/* Play button inside list */
+.play-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #ff7a18, #ff5722);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255, 90, 20, 0.2);
+  border: none;
+}
+
+/* MAIN area (video card) */
+.video-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.25)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.video-hero {
+  position: relative;
+  height: 536px;
+  background: #111;
+}
+.hero-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.55);
+}
+
+/* big circular play */
+.play-big {
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 122, 40, 0.12)
+    ),
+    linear-gradient(90deg, #ff7a18, #ff5722);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(255, 90, 20, 0.24), 0 3px 10px rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.06);
+}
+
+/* video metadata overlay */
+.video-meta {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 28px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.video-meta h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+.video-meta p {
+  color: #d1d5db;
+  opacity: 0.95;
+  max-width: 70%;
+}
+
+/* stats chips */
+.chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.chip {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+/* details below */
+.exercise-details {
+  padding: 16px 22px 24px;
+}
+
+/* action buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+.btn-primary {
+  background: linear-gradient(90deg, #ff7a18, #ff5722);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 12px 32px rgba(255, 90, 20, 0.18);
+}
+.btn-outline {
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* recommendation cards */
+.recommendations {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+}
+.rec-card {
+  width: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.25)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 18px 50px rgba(2, 4, 10, 0.6);
+  transform-origin: center;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.rec-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 26px 60px rgba(2, 4, 10, 0.75);
+}
+.rec-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.rec-body {
+  padding: 12px 14px;
+}
+.rec-title {
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.rec-sub {
+  font-size: 0.88rem;
+  color: #d1d5db;
+}
+
+/* small badge bottom right like in figma */
+.rec-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a18, #ff5722);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* scrollbar styles for webkit */
+.ex-list::-webkit-scrollbar {
+  width: 8px;
+}
+.ex-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ex-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 122, 40, 0.18);
+  border-radius: 6px;
+}
+
+/* responsiveness */
+@media (max-width: 1024px) {
+  .workouts-section .grid {
+    grid-template-columns: 1fr;
+  }
+  .aside-panel {
+    height: auto;
+    order: 2;
+  }
+  .video-card {
+    order: 1;
+  }
+  .video-hero { height: 420px; }
+  .recommendations {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .recommendations .rec-card {
+    flex: 0 0 auto;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .profile-wrapper { padding: 1rem 0.75rem 1.5rem; gap: 0.75rem; }
+  .tabs-container { max-width: 100%; padding: 0 8px; }
+  .tabs-container button { min-width: 86px; font-size: 0.75rem; height: 34px; }
+  .video-hero { height: 320px; }
+  .video-meta p { max-width: 90%; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .tabs-container button { min-width: 74px; font-size: 0.7rem; height: 32px; }
+  .difficulty-row { flex-wrap: wrap; gap: 6px; }
+  .video-hero { height: 240px; }
+  .video-meta { left: 16px; right: 16px; bottom: 16px; }
+  .video-meta h2 { font-size: 20px; }
+  .chips { flex-wrap: wrap; }
+  .exercise-details { padding: 12px 14px 16px; }
+  /* Hide overlay text on the video for small screens */
+  .video-meta { display: none; }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .tabs-container { padding: 0 4px; }
+  .tabs-container button { min-width: 68px; font-size: 0.66rem; height: 30px; }
+  .video-hero { height: 200px; }
+  .play-big { width: 64px; height: 64px; }
+  .chips { gap: 6px; }
+}
+
+/* Loading State Styles (match Fitness Class) */
+.loading-state {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: pulse 2s infinite;
+}
+
+.loading-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.loading-subtitle {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Light mode styles for loading state */
+.overlay-light ~ .profile-wrapper .loading-content {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}
+.overlay-light ~ .profile-wrapper .loading-title {
+  color: #242424;
+}
+.overlay-light ~ .profile-wrapper .loading-subtitle {
+  color: #666666;
+}
+.overlay-light ~ .profile-wrapper .loading-spinner {
+  background: rgba(0, 0, 0, 0.1);
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="mt-10 mb-30">  <div    class="overlay"    [ngClass]="{ \'overlay-light\': !themeVal, \'overlay-dark\': themeVal }"  ></div>  <div class="profile-wrapper single-class-container mt-10 mb-30">    <!-- Error State -->    <div *ngIf="error && !loading" class="empty-state">      <div class="empty-content">        <h2 class="empty-title">{{ error | translate }}</h2>        <button          (click)="goBack()"          class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full"        >          {{ \'common.go_back\' | translate }}        </button>      </div>    </div>    <!-- Main Content -->    <div *ngIf="!loading && !error && muscleGroupDetail" class="w-full">      <!-- Header -->      <section class="header-section">        <div          class="w-full flex items-center justify-center mt-[30px] relative z-20"        >          <img src="/workouts.png" alt="Workouts" class="max-w-full h-auto" />        </div>        <div class="mt-4 flex items-center justify-center">          <button            (click)="goBack()"            class="text-orange-500 hover:text-orange-400 text-sm"          >            {{ \'singleClass.back_to_classes\' | translate }}          </button>        </div>      </section>      <!-- Filter Tabs (carousel) -->      <section *ngIf="muscleGroups.length > 0" class="filter-tabs-section">        <div class="tabs-container pointer">          <p-carousel            [value]="filterTabs"            [numVisible]="5"            [numScroll]="5"            [circular]="false"            [autoplayInterval]="0"            [showNavigators]="true"            [showIndicators]="false"            [responsiveOptions]="tabResponsiveOptions"          >            <ng-template pTemplate="item" let-tab>              <div class="px-2">                <button                  (click)="onFilterChange(tab.id)"                  [ngClass]="{                    active: selectedGroupId === tab.id                  }"                  class="px-2 my-6 py-2 pointer  rounded-full font-semibold uppercase tracking-wide transition-all duration-300 w-full text-xs md:text-sm flex items-center justify-center gap-2"                >                  <span class="truncate pointer">{{ tab.id === \'full_body\' ? (\'fitnessClass.full_body\' | translate) : tab.title }}</span>                </button>              </div>            </ng-template>          </p-carousel>        </div>      </section>      <!-- Main Grid -->      <section class="workouts-section">        <div class="grid">          <!-- Left Sidebar -->          <aside class="aside-panel">            <!-- Difficulty Row -->            <div class="difficulty-row">              <button                *ngFor="let level of difficultyLevels"                (click)="selectedDifficulty = level.id; onDifficultyChange()"                [ngClass]="{ active: selectedDifficulty === level.id }"                class="difficulty-p"              >                {{ level.name | translate }}              </button>            </div>            <!-- Notice -->            <div *ngIf="notice" class="notice">              {{ notice | translate }}            </div>            <!-- Exercise List -->            <div class="ex-list" role="list">              <div                *ngFor="let exercise of exercises; let i = index"                class="exercise-item"                [ngClass]="{ selected: selectedExercise?._id === exercise._id }"                (click)="selectExercise(exercise)"              >                <img                  class="thumb"                  [src]="                    getVideoThumbnail(exercise.short_youtube_demonstration_link)                  "                  alt="thumb"                  loading="lazy"                  (error)="onThumbnailError($event)"                />                <div class="meta">                  <div class="title">{{ exercise.exercise }}</div>                  <div class="sub">                    {{ exercise.primary_equipment }} •                    {{ exercise.target_muscle_group }}                  </div>                </div>                <div                  style="                    display: flex;                    flex-direction: column;                    align-items: flex-end;                    gap: 8px;                  "                >                  <button                    (click)="                      $event.stopPropagation();                      playVideo(exercise.short_youtube_demonstration_link)                    "                    class="play-small"                    aria-label="play"                    title="Open demo in new tab"                  >                    <svg                      width="14"                      height="14"                      viewBox="0 0 24 24"                      fill="none"                      xmlns="http://www.w3.org/2000/svg"                    >                      <path d="M8 5v14l11-7L8 5z" fill="white" />                    </svg>                  </button>                  <span class="tag">3x15</span>                </div>              </div>              <div                *ngIf="exercises.length === 0"                class="text-center py-8 text-gray-400"              >                 {{ \'singleClass.no_exercises\' | translate }}              </div>            </div>          </aside>          <!-- Main Content Area -->          <div>            <div class="video-card">              <!-- Selected Exercise -->              <div *ngIf="selectedExercise">                <div class="video-hero">                  <ng-container *ngIf="!isPlaying; else player">                    <img                      class="hero-thumb"                      [src]="                        getVideoThumbnail(                          selectedExercise.short_youtube_demonstration_link                        )                      "                      alt="Exercise thumbnail"                      loading="lazy"                      (error)="onThumbnailError($event)"                    />                    <div                      style="                        position: absolute;                        inset: 0;                        display: flex;                        align-items: center;                        justify-content: center;                      "                    >                      <button                        (click)="playSelected()"                        class="play-big pointer"                        aria-label="play selected"                      >                        <svg                          width="28"                          height="28"                          viewBox="0 0 24 24"                          fill="none"                        >                          <path d="M8 5v14l11-7L8 5z" fill="white" />                        </svg>                      </button>                    </div>                  </ng-container>                  <ng-template #player>                    <iframe                      class="w-full h-full pointer"                      [src]="embedUrl"                      title="Exercise player"                      frameborder="0"                      allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"                      allowfullscreen                      style="width: 100%; height: 100%; border: 0"                    ></iframe>                  </ng-template>                  <!-- bottom overlay meta -->                  <div class="video-meta " *ngIf="!isPlaying" aria-hidden="false">                    <h2>{{ selectedExercise.target_muscle_group }} {{ \'singleClass.exercise\' | translate }}</h2>                    <p>                      {{ selectedExercise.exercise }} — {{ \'singleClass.quick_overview\' | translate }}                    </p>                    <div class="chips">                      <div class="chip">30 {{ \'singleClass.min\' | translate }}</div>                      <div class="chip">130 {{ \'singleClass.cal\' | translate }}</div>                      <div class="chip">{{ \'singleClass.expert_workout\' | translate }}</div>                    </div>                  </div>                </div>                <!-- Exercise Details -->                <div class="exercise-details">                  <h2                    style="                      font-size: 1.6rem;                      font-weight: 800;                      color: #fff;                      margin: 0 0 8px;                    "                  >                    {{ selectedExercise.exercise }}                  </h2>                  <p style="color: #cbd5e1; margin-bottom: 12px">                    {{ selectedExercise.exercise }} is a                    {{ selectedExercise.difficulty_level.toLowerCase() }} level                    exercise targeting the                    {{ selectedExercise.target_muscle_group.toLowerCase() }}.                    This exercise primarily works the                    {{ selectedExercise.prime_mover_muscle }} and uses                    {{ selectedExercise.primary_equipment.toLowerCase() }}                    equipment.                  </p>                  <div                    style="                      display: grid;                      grid-template-columns: repeat(2, 1fr);                      gap: 12px;                    "                  >                    <div                      style="                        background: rgba(255, 255, 255, 0.03);                        padding: 12px;                        border-radius: 10px;                      "                    >                      <h4                        style="                          color: #ff7a18;                          font-weight: 700;                          margin: 0 0 6px;                        "                      >                        Equipment                      </h4>                      <p style="color: #fff; margin: 0">                        {{ selectedExercise.primary_equipment }}                      </p>                    </div>                    <div                      style="                        background: rgba(255, 255, 255, 0.03);                        padding: 12px;                        border-radius: 10px;                      "                    >                      <h4                        style="                          color: #ff7a18;                          font-weight: 700;                          margin: 0 0 6px;                        "                      >                        Difficulty                      </h4>                      <p style="color: #fff; margin: 0">                        {{ selectedExercise.difficulty_level }}                      </p>                    </div>                    <div                      style="                        background: rgba(255, 255, 255, 0.03);                        padding: 12px;                        border-radius: 10px;                      "                    >                      <h4                        style="                          color: #ff7a18;                          font-weight: 700;                          margin: 0 0 6px;                        "                      >                        Primary Muscle                      </h4>                      <p style="color: #fff; margin: 0">                        {{ selectedExercise.prime_mover_muscle }}                      </p>                    </div>                    <div                      style="                        background: rgba(255, 255, 255, 0.03);                        padding: 12px;                        border-radius: 10px;                      "                    >                      <h4                        style="                          color: #ff7a18;                          font-weight: 700;                          margin: 0 0 6px;                        "                      >                        Mechanics                      </h4>                      <p style="color: #fff; margin: 0">                        {{ selectedExercise.mechanics }}                      </p>                    </div>                  </div>                  <div class="actions" style="margin-top: 14px">                    <button                      (click)="                        playVideo(                          selectedExercise.short_youtube_demonstration_link                        )                      "                      class="btn-primary"                    >                      {{ \'singleClass.watch_demo\' | translate }}                    </button>                    <button                      *ngIf="selectedExercise.in_depth_youtube_explanation_link"                      (click)="                        playVideo(                          selectedExercise.in_depth_youtube_explanation_link!                        )                      "                      class="btn-outline"                    >                      {{ \'singleClass.detailed_explanation\' | translate }}                    </button>                  </div>                </div>              </div>              <!-- Default State when no selection -->              <div *ngIf="!selectedExercise" class="text-center py-12">                <div                  class="w-24 h-24 bg-gray-700/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/50"                >                  <svg                    class="w-12 h-12 text-gray-400"                    fill="none"                    stroke="currentColor"                    viewBox="0 0 24 24"                  >                    <path                      stroke-linecap="round"                      stroke-linejoin="round"                      stroke-width="2"                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"                    ></path>                  </svg>                </div>                <h3 class="text-xl font-semibold mb-2" style="color: #fff">                  {{ \'singleClass.select_exercise\' | translate }}                </h3>                <p style="color: #9ca3af">                  {{ \'singleClass.select_exercise_sub\' | translate }}                </p>              </div>            </div>          </div>        </div>      </section>      <!-- Recommendation For You -->      <section *ngIf="exercises.length > 0" class="mt-8">        <h3          style="            color: #fff;            font-weight: 800;            font-size: 1.1rem;            margin-bottom: 12px;          "        >          {{ \'singleClass.recommendation\' | translate }}        </h3>        <app-custom-slider          [itemsList]="recommendationItems"          [numOfRows]="1"          [numOfColumns]="3"          [autoplayInterval]="0"          (mealSelected)="onRecommendationSelect($event)"        ></app-custom-slider>      </section>      <section *ngIf="musclesLoading" class="loading-state">        <div class="loading-content">          <div class="loading-spinner"></div>          <p class="loading-title">{{ \'common.loading_workouts\' | translate }}</p>          <p class="loading-subtitle">            {{ \'common.loading_subtitle\' | translate }}          </p>        </div>      </section>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SingleClassComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SingleClassComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

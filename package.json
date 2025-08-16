@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:dev": "npx nx s SuperFitnessApp"
+    "start:dev": "npx nx s SuperFitnessApp",
+      "docs:build": "compodoc -p tsconfig.base.json -d documentation",
+       "docs:serve": "compodoc -s -d documentation"
   },
   "private": true,
   "dependencies": {

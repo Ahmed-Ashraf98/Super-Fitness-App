@@ -1,0 +1,808 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterLink</code>
+                            <code>RouterLinkActive</code>
+                            <code>CommonModule</code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./navbar.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_translate" >_translate</a>
+                            </li>
+                            <li>
+                                <a href="#isMenuOpen" >isMenuOpen</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeMenu" >closeMenu</a>
+                            </li>
+                            <li>
+                                <a href="#toggleLang" >toggleLang</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMenu" >toggleMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#isLoggedIn" >isLoggedIn</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeMenu"></a>
+                    <span class="name">
+                        <span ><b>closeMenu</b></span>
+                        <a href="#closeMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLang"></a>
+                    <span class="name">
+                        <span ><b>toggleLang</b></span>
+                        <a href="#toggleLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleLang()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMenu"></a>
+                    <span class="name">
+                        <span ><b>toggleMenu</b></span>
+                        <a href="#toggleMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_translate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_translate</b></span>
+                        <a href="#_translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslateManagerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMenuOpen"></a>
+                    <span class="name">
+                        <span ><b>isMenuOpen</b></span>
+                        <a href="#isMenuOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLoggedIn"></a>
+                        <span class="name"><b>isLoggedIn</b><a href="#isLoggedIn"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isLoggedIn()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/SuperFitnessApp/src/app/core/layout/navbar/navbar.component.ts:20</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject } from &#x27;@angular/core&#x27;;
+import { RouterLink, RouterLinkActive } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;../../services/auth/auth.service&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+import { TranslateManagerService } from &#x27;../../services/TranslateManger/translate-manager-service.service&#x27;;
+
+@Component({
+  selector: &#x27;app-navbar&#x27;,
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, CommonModule, TranslateModule],
+  templateUrl: &#x27;./navbar.component.html&#x27;,
+  styleUrl: &#x27;./navbar.component.css&#x27;,
+})
+export class NavbarComponent {
+  private readonly _translate &#x3D; inject(TranslateManagerService);
+  constructor(private authService: AuthService) {}
+  isMenuOpen &#x3D; false;
+
+  get isLoggedIn(): boolean {
+    return !!this.authService.getToken();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen &#x3D; !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen &#x3D; false;
+  }
+
+  toggleLang() {
+    this._translate.toggleLanguage();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- navbar.component.html --&gt;
+&lt;nav class&#x3D;&quot;navbar absolute top-0 left-0 w-full z-50 transition-colors duration-300&quot;&gt;
+  &lt;div class&#x3D;&quot;container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-20 py-4&quot;&gt;
+    &lt;!-- Logo --&gt;
+    &lt;a routerLink&#x3D;&quot;/home&quot; class&#x3D;&quot;flex-shrink-0&quot;&gt;
+      &lt;img src&#x3D;&quot;logo.png&quot; alt&#x3D;&quot;FitGym Logo&quot; class&#x3D;&quot;w-16 sm:w-20 lg:w-[86px] h-auto&quot; /&gt;
+    &lt;/a&gt;
+
+    &lt;!-- Links (Desktop) --&gt;
+    &lt;ul class&#x3D;&quot;hidden lg:flex items-center space-x-8&quot;&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/home&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;text-black dark:text-white hover:text-[#ff4100] font-bold&quot;&gt;
+          {{ &#x27;nav.home&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/about&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;text-black dark:text-white hover:text-[#ff4100] font-bold&quot;&gt;
+          {{ &#x27;nav.about&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/classes&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;text-black dark:text-white hover:text-[#ff4100] font-bold&quot;&gt;
+          {{ &#x27;nav.classes&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/healthy&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;text-black dark:text-white hover:text-[#ff4100] font-bold&quot;&gt;
+          {{ &#x27;nav.healthy&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Auth / User Icon --&gt;
+    &lt;div class&#x3D;&quot;flex items-center space-x-2 sm:space-x-4&quot;&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;!isLoggedIn; else userBlock&quot;&gt;
+        &lt;button routerLink&#x3D;&quot;/auth/login&quot; (click)&#x3D;&quot;closeMenu()&quot;
+                class&#x3D;&quot;hidden sm:inline-block bg-[#FF4100] text-white font-bold rounded-full px-4 py-2 hover:bg-orange-600 transition&quot;&gt;
+          {{ &#x27;nav.login&#x27; | translate }}
+        &lt;/button&gt;
+        &lt;button routerLink&#x3D;&quot;/auth/register&quot; (click)&#x3D;&quot;closeMenu()&quot;
+                class&#x3D;&quot;hidden sm:inline-block border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full px-4 py-2 hover:bg-[#FF4100] hover:text-white transition&quot;&gt;
+          {{ &#x27;nav.signup&#x27; | translate }}
+        &lt;/button&gt;
+      &lt;/ng-container&gt;
+      &lt;ng-template #userBlock&gt;
+        &lt;a routerLink&#x3D;&quot;/user-profile&quot; class&#x3D;&quot;w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white&quot;&gt;
+          &lt;img src&#x3D;&quot;/user.png&quot; alt&#x3D;&quot;User&quot; class&#x3D;&quot;w-full h-full object-cover&quot; /&gt;
+        &lt;/a&gt;
+      &lt;/ng-template&gt;
+
+      &lt;!-- Mobile menu button --&gt;
+      &lt;button (click)&#x3D;&quot;toggleMenu()&quot; class&#x3D;&quot;lg:hidden inline-flex items-center rounded-full justify-center p-2 bg-[#ff4100] rounded-lg text-white hover:bg-white/20 transition&quot;&gt;
+        &lt;svg class&#x3D;&quot;w-6 h-6&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;
+             stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot;&gt;
+          &lt;path d&#x3D;&quot;M4 6h16M4 12h16M4 18h16&quot; /&gt;
+        &lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Mobile Menu --&gt;
+ &lt;!-- backdrop: يغطي الشاشة بالكامل --&gt;
+&lt;div
+*ngIf&#x3D;&quot;isMenuOpen&quot;
+class&#x3D;&quot;fixed inset-0 bg-black/5 backdrop-blur-sm z-40&quot;
+(click)&#x3D;&quot;closeMenu()&quot;
+&gt;&lt;/div&gt;
+
+&lt;!-- side panel: القايمة الجانبية --&gt;
+&lt;div
+  *ngIf&#x3D;&quot;isMenuOpen&quot;
+  class&#x3D;&quot;lg:hidden transition-colors duration-300 fixed top-0 left-0 w-64 h-[271px] bg-[#242424] opacity-100 z-50 flex flex-col gap-6 pt-6 pr-4 pb-6 pl-4&quot;
+&gt;
+  &lt;!-- Header with Logo --&gt;
+  &lt;div class&#x3D;&quot;flex items-center justify-between&quot;&gt;
+    &lt;a routerLink&#x3D;&quot;/home&quot; (click)&#x3D;&quot;closeMenu()&quot; class&#x3D;&quot;flex-shrink-0&quot;&gt;
+      &lt;img src&#x3D;&quot;logo.png&quot; alt&#x3D;&quot;FitGym Logo&quot; class&#x3D;&quot;w-12 sm:w-16 h-auto&quot; /&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Navigation Links --&gt;
+  &lt;nav class&#x3D;&quot;flex-1&quot;&gt;
+    &lt;ul class&#x3D;&quot;flex flex-col space-y-6&quot;&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/home&quot; (click)&#x3D;&quot;closeMenu()&quot; class&#x3D;&quot;text-white font-bold hover:text-[#ff4100]&quot;&gt;
+          {{ &#x27;nav.home&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/about&quot; (click)&#x3D;&quot;closeMenu()&quot; class&#x3D;&quot;text-white font-bold hover:text-[#ff4100]&quot;&gt;
+          {{ &#x27;nav.about&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/classes&quot; (click)&#x3D;&quot;closeMenu()&quot; class&#x3D;&quot;text-white font-bold hover:text-[#ff4100]&quot;&gt;
+          {{ &#x27;nav.classes&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a routerLink&#x3D;&quot;/healthy&quot; (click)&#x3D;&quot;closeMenu()&quot; class&#x3D;&quot;text-white font-bold hover:text-[#ff4100]&quot;&gt;
+          {{ &#x27;nav.healthy&#x27; | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- Auth Buttons --&gt;
+  &lt;div *ngIf&#x3D;&quot;!isLoggedIn&quot; class&#x3D;&quot;flex flex-col space-y-2&quot;&gt;
+    &lt;button
+      routerLink&#x3D;&quot;/auth/login&quot;
+      (click)&#x3D;&quot;closeMenu()&quot;
+      class&#x3D;&quot;bg-[#FF4100] text-white font-bold rounded-full py-2 px-4 text-sm hover:bg-orange-600 transition&quot;
+    &gt;
+      {{ &#x27;nav.login&#x27; | translate }}
+    &lt;/button&gt;
+    &lt;button
+      routerLink&#x3D;&quot;/auth/register&quot;
+      (click)&#x3D;&quot;closeMenu()&quot;
+      class&#x3D;&quot;border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full py-2 px-4 text-sm hover:bg-[#FF4100] hover:text-white transition&quot;
+    &gt;
+      {{ &#x27;nav.signup&#x27; | translate }}
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Lang toggle --&gt;
+  &lt;div class&#x3D;&quot;px-4 pb-4 lg:hidden&quot;&gt;
+    &lt;button (click)&#x3D;&quot;toggleLang()&quot; class&#x3D;&quot;w-full bg-white/10 text-white rounded-full py-2 px-4&quot;&gt;
+      {{ &#x27;nav.toggle_lang&#x27; | translate }}
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;/nav&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- navbar.component.html --><nav class="navbar absolute top-0 left-0 w-full z-50 transition-colors duration-300">  <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-20 py-4">    <!-- Logo -->    <a routerLink="/home" class="flex-shrink-0">      <img src="logo.png" alt="FitGym Logo" class="w-16 sm:w-20 lg:w-[86px] h-auto" />    </a>    <!-- Links (Desktop) -->    <ul class="hidden lg:flex items-center space-x-8">      <li>        <a routerLink="/home" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">          {{ \'nav.home\' | translate }}        </a>      </li>      <li>        <a routerLink="/about" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">          {{ \'nav.about\' | translate }}        </a>      </li>      <li>        <a routerLink="/classes" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">          {{ \'nav.classes\' | translate }}        </a>      </li>      <li>        <a routerLink="/healthy" routerLinkActive="active" class="text-black dark:text-white hover:text-[#ff4100] font-bold">          {{ \'nav.healthy\' | translate }}        </a>      </li>    </ul>    <!-- Auth / User Icon -->    <div class="flex items-center space-x-2 sm:space-x-4">      <ng-container *ngIf="!isLoggedIn; else userBlock">        <button routerLink="/auth/login" (click)="closeMenu()"                class="hidden sm:inline-block bg-[#FF4100] text-white font-bold rounded-full px-4 py-2 hover:bg-orange-600 transition">          {{ \'nav.login\' | translate }}        </button>        <button routerLink="/auth/register" (click)="closeMenu()"                class="hidden sm:inline-block border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full px-4 py-2 hover:bg-[#FF4100] hover:text-white transition">          {{ \'nav.signup\' | translate }}        </button>      </ng-container>      <ng-template #userBlock>        <a routerLink="/user-profile" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-white">          <img src="/user.png" alt="User" class="w-full h-full object-cover" />        </a>      </ng-template>      <!-- Mobile menu button -->      <button (click)="toggleMenu()" class="lg:hidden inline-flex items-center rounded-full justify-center p-2 bg-[#ff4100] rounded-lg text-white hover:bg-white/20 transition">        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"             stroke-linecap="round" stroke-linejoin="round">          <path d="M4 6h16M4 12h16M4 18h16" />        </svg>      </button>    </div>  </div>  <!-- Mobile Menu --> <!-- backdrop: يغطي الشاشة بالكامل --><div*ngIf="isMenuOpen"class="fixed inset-0 bg-black/5 backdrop-blur-sm z-40"(click)="closeMenu()"></div><!-- side panel: القايمة الجانبية --><div  *ngIf="isMenuOpen"  class="lg:hidden transition-colors duration-300 fixed top-0 left-0 w-64 h-[271px] bg-[#242424] opacity-100 z-50 flex flex-col gap-6 pt-6 pr-4 pb-6 pl-4">  <!-- Header with Logo -->  <div class="flex items-center justify-between">    <a routerLink="/home" (click)="closeMenu()" class="flex-shrink-0">      <img src="logo.png" alt="FitGym Logo" class="w-12 sm:w-16 h-auto" />    </a>  </div>  <!-- Navigation Links -->  <nav class="flex-1">    <ul class="flex flex-col space-y-6">      <li>        <a routerLink="/home" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">          {{ \'nav.home\' | translate }}        </a>      </li>      <li>        <a routerLink="/about" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">          {{ \'nav.about\' | translate }}        </a>      </li>      <li>        <a routerLink="/classes" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">          {{ \'nav.classes\' | translate }}        </a>      </li>      <li>        <a routerLink="/healthy" (click)="closeMenu()" class="text-white font-bold hover:text-[#ff4100]">          {{ \'nav.healthy\' | translate }}        </a>      </li>    </ul>  </nav>  <!-- Auth Buttons -->  <div *ngIf="!isLoggedIn" class="flex flex-col space-y-2">    <button      routerLink="/auth/login"      (click)="closeMenu()"      class="bg-[#FF4100] text-white font-bold rounded-full py-2 px-4 text-sm hover:bg-orange-600 transition"    >      {{ \'nav.login\' | translate }}    </button>    <button      routerLink="/auth/register"      (click)="closeMenu()"      class="border-2 border-[#FF4100] text-[#FF4100] font-bold rounded-full py-2 px-4 text-sm hover:bg-[#FF4100] hover:text-white transition"    >      {{ \'nav.signup\' | translate }}    </button>  </div>  <!-- Lang toggle -->  <div class="px-4 pb-4 lg:hidden">    <button (click)="toggleLang()" class="w-full bg-white/10 text-white rounded-full py-2 px-4">      {{ \'nav.toggle_lang\' | translate }}    </button>  </div></div></nav></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
