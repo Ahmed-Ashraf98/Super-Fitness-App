@@ -1,0 +1,1676 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FitnessClassComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-fitness-class</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>CarouselModule</code>
+                                <code><a href="../components/CustomSliderComponent.html" target="_self" >CustomSliderComponent</a></code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./fitness-class.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fitness-class.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#displayedMuscleGroups" >displayedMuscleGroups</a>
+                            </li>
+                            <li>
+                                <a href="#filterTabs" >filterTabs</a>
+                            </li>
+                            <li>
+                                <a href="#muscleGroups" >muscleGroups</a>
+                            </li>
+                            <li>
+                                <a href="#selectedGroupId" >selectedGroupId</a>
+                            </li>
+                            <li>
+                                <a href="#tabResponsiveOptions" >tabResponsiveOptions</a>
+                            </li>
+                            <li>
+                                <a href="#themeVal" >themeVal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#generateFilterTabs" >generateFilterTabs</a>
+                            </li>
+                            <li>
+                                <a href="#getMuscleGroupImage" >getMuscleGroupImage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFilterChange" >onFilterChange</a>
+                            </li>
+                            <li>
+                                <a href="#onReadMore" >onReadMore</a>
+                            </li>
+                            <li>
+                                <a href="#shouldShow" >shouldShow</a>
+                            </li>
+                            <li>
+                                <a href="#updateDisplayedMuscleGroups" >updateDisplayedMuscleGroups</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#muscleSliderItems" >muscleSliderItems</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_MusclesService: <a href="../injectables/MusclesService.html" target="_self">MusclesService</a>, router: Router, themeService: <a href="../injectables/ThemeManagerService.html" target="_self">ThemeManagerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_MusclesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MusclesService.html" target="_self" >MusclesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeManagerService.html" target="_self" >ThemeManagerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateFilterTabs"></a>
+                    <span class="name">
+                        <span ><b>generateFilterTabs</b></span>
+                        <a href="#generateFilterTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateFilterTabs()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMuscleGroupImage"></a>
+                    <span class="name">
+                        <span ><b>getMuscleGroupImage</b></span>
+                        <a href="#getMuscleGroupImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMuscleGroupImage(muscleGroupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>muscleGroupId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFilterChange"></a>
+                    <span class="name">
+                        <span ><b>onFilterChange</b></span>
+                        <a href="#onFilterChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFilterChange(selectedId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selectedId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onReadMore"></a>
+                    <span class="name">
+                        <span ><b>onReadMore</b></span>
+                        <a href="#onReadMore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onReadMore(id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldShow"></a>
+                    <span class="name">
+                        <span ><b>shouldShow</b></span>
+                        <a href="#shouldShow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shouldShow(group: <a href="../interfaces/MusclesGroup.html" target="_self">MusclesGroup</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>group</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MusclesGroup.html" target="_self" >MusclesGroup</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateDisplayedMuscleGroups"></a>
+                    <span class="name">
+                        <span ><b>updateDisplayedMuscleGroups</b></span>
+                        <a href="#updateDisplayedMuscleGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateDisplayedMuscleGroups()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedMuscleGroups"></a>
+                    <span class="name">
+                        <span ><b>displayedMuscleGroups</b></span>
+                        <a href="#displayedMuscleGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MusclesGroup[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterTabs"></a>
+                    <span class="name">
+                        <span ><b>filterTabs</b></span>
+                        <a href="#filterTabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/tabData.html" target="_self" >tabData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="muscleGroups"></a>
+                    <span class="name">
+                        <span ><b>muscleGroups</b></span>
+                        <a href="#muscleGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MusclesGroup[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedGroupId"></a>
+                    <span class="name">
+                        <span ><b>selectedGroupId</b></span>
+                        <a href="#selectedGroupId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;full_body&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabResponsiveOptions"></a>
+                    <span class="name">
+                        <span ><b>tabResponsiveOptions</b></span>
+                        <a href="#tabResponsiveOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { breakpoint: &#x27;1400px&#x27;, numVisible: 6, numScroll: 3 },
+    { breakpoint: &#x27;1200px&#x27;, numVisible: 5, numScroll: 3 },
+    { breakpoint: &#x27;992px&#x27;, numVisible: 4, numScroll: 2 },
+    { breakpoint: &#x27;768px&#x27;, numVisible: 3, numScroll: 2 },
+    { breakpoint: &#x27;576px&#x27;, numVisible: 2, numScroll: 1 },
+    { breakpoint: &#x27;420px&#x27;, numVisible: 1, numScroll: 1 },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeVal"></a>
+                    <span class="name">
+                        <span ><b>themeVal</b></span>
+                        <a href="#themeVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="muscleSliderItems"></a>
+                        <span class="name"><b>muscleSliderItems</b><a href="#muscleSliderItems"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>muscleSliderItems()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/fitness-class/fitness-class.component.ts:42</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { MusclesGroup } from &#x27;../../../core/models/allMuscles&#x27;;
+import { MusclesService } from &#x27;../../../core/services/muscles/muscles.service&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ThemeManagerService } from &#x27;../../../core/services/ThemeManger/ThemeManagerService.service&#x27;;
+import { tabData } from &#x27;../../../shared/components/custom-tab/tab.model&#x27;;
+import { CarouselModule } from &#x27;primeng/carousel&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+import { CustomSliderComponent } from &#x27;../../../shared/components/custom-slider/custom-slider.component&#x27;;
+
+@Component({
+  selector: &#x27;app-fitness-class&#x27;,
+  imports: [
+    CommonModule,
+    CarouselModule,
+    CustomSliderComponent,
+    TranslateModule
+    
+],
+  standalone: true,
+  templateUrl: &#x27;./fitness-class.component.html&#x27;,
+  styleUrls: [&#x27;./fitness-class.component.scss&#x27;],
+})
+export class FitnessClassComponent {
+  muscleGroups: MusclesGroup[] &#x3D; [];
+  displayedMuscleGroups: MusclesGroup[] &#x3D; [];
+  selectedGroupId &#x3D; &#x27;full_body&#x27;;
+  themeVal &#x3D; false;
+  filterTabs: tabData[] &#x3D; [];
+
+  tabResponsiveOptions &#x3D; [
+    { breakpoint: &#x27;1400px&#x27;, numVisible: 6, numScroll: 3 },
+    { breakpoint: &#x27;1200px&#x27;, numVisible: 5, numScroll: 3 },
+    { breakpoint: &#x27;992px&#x27;, numVisible: 4, numScroll: 2 },
+    { breakpoint: &#x27;768px&#x27;, numVisible: 3, numScroll: 2 },
+    { breakpoint: &#x27;576px&#x27;, numVisible: 2, numScroll: 1 },
+    { breakpoint: &#x27;420px&#x27;, numVisible: 1, numScroll: 1 },
+  ];
+
+  // Map displayed muscle groups to slider items shape
+  get muscleSliderItems() {
+    return this.displayedMuscleGroups.map((g) &#x3D;&gt; ({
+      idMeal: g._id,
+      strMeal: g.name,
+      strMealThumb: this.getMuscleGroupImage(g._id),
+    }));
+  }
+
+  constructor(
+    private _MusclesService: MusclesService,
+    private router: Router,
+    private themeService: ThemeManagerService
+  ) {}
+
+  ngOnInit() {
+    this._MusclesService.getAllmuscles().subscribe((response) &#x3D;&gt; {
+      this.muscleGroups &#x3D; response.musclesGroup;
+      this.generateFilterTabs();
+      this.updateDisplayedMuscleGroups();
+    });
+
+    this.themeVal &#x3D; this.themeService.getCurrentTheme() &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;;
+  }
+
+  shouldShow(group: MusclesGroup): boolean {
+    return (
+      this.selectedGroupId &#x3D;&#x3D;&#x3D; &#x27;full_body&#x27; || this.selectedGroupId &#x3D;&#x3D;&#x3D; group._id
+    );
+  }
+
+  updateDisplayedMuscleGroups() {
+    this.displayedMuscleGroups &#x3D; this.muscleGroups.filter((group) &#x3D;&gt;
+      this.shouldShow(group)
+    );
+  }
+
+  generateFilterTabs() {
+    this.filterTabs &#x3D; [
+      { id: &#x27;full_body&#x27;, title: &#x27;fitnessClass.full_body&#x27; },
+      ...this.muscleGroups.map((group) &#x3D;&gt; ({
+        id: group._id,
+        title: group.name,
+      })),
+    ];
+  }
+
+  onFilterChange(selectedId: string) {
+    this.selectedGroupId &#x3D; selectedId;
+    this.updateDisplayedMuscleGroups();
+  }
+
+  onReadMore(id?: string) {
+    if (id) {
+      this.router.navigate([&#x27;/class&#x27;, id]);
+    }
+  }
+
+  getMuscleGroupImage(muscleGroupId: string): string {
+    return &#x27;https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w&#x3D;400&amp;h&#x3D;300&amp;fit&#x3D;crop&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Overlay --&gt;
+&lt;div class&#x3D;&quot;mt-10 mb-30&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;overlay&quot;
+    [ngClass]&#x3D;&quot;{ &#x27;overlay-light&#x27;: !themeVal, &#x27;overlay-dark&#x27;: themeVal }&quot;
+  &gt;&lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;fitness-container profile-wrapper&quot;&gt;
+    &lt;!-- Header Section --&gt;
+    &lt;section class&#x3D;&quot;header-section&quot;&gt;
+      &lt;div class&#x3D;&quot;logo-section&quot;&gt;
+        &lt;div class&#x3D;&quot;logo-container&quot;&gt;
+          &lt;img src&#x3D;&quot;/workouts.png&quot; alt&#x3D;&quot;healthy&quot; class&#x3D;&quot;main-logo&quot; /&gt;
+          &lt;div class&#x3D;&quot;subtitle-container&quot;&gt;
+            &lt;img
+              src&#x3D;&quot;/HealthyNutritions.png&quot;
+              alt&#x3D;&quot;Healthy Nutritions&quot;
+              class&#x3D;&quot;subtitle-logo&quot;
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;main-heading&quot;&gt;
+        &lt;h2 class&#x3D;&quot;hero-title&quot;&gt;
+          {{ &#x27;fitnessClass.hero_title_1&#x27; | translate }}
+          &lt;span class&#x3D;&quot;highlight-text&quot;&gt;{{ &#x27;fitnessClass.hero_title_2&#x27; | translate }}&lt;/span&gt;
+        &lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Filter Tabs Section (Carousel) --&gt;
+    &lt;section *ngIf&#x3D;&quot;muscleGroups.length &gt; 0&quot; class&#x3D;&quot;filter-tabs-section&quot;&gt;
+      &lt;div class&#x3D;&quot;tabs-container tabs-glass&quot;&gt;
+        &lt;p-carousel
+          [value]&#x3D;&quot;filterTabs&quot;
+          [numVisible]&#x3D;&quot;5&quot;
+          [numScroll]&#x3D;&quot;5&quot;
+          [circular]&#x3D;&quot;false&quot;
+          [autoplayInterval]&#x3D;&quot;0&quot;
+          [showNavigators]&#x3D;&quot;true&quot;
+          [showIndicators]&#x3D;&quot;false&quot;
+          [responsiveOptions]&#x3D;&quot;tabResponsiveOptions&quot;
+        &gt;
+          &lt;ng-template pTemplate&#x3D;&quot;item&quot; let-tab&gt;
+            &lt;div class&#x3D;&quot;px-2&quot;&gt;
+              &lt;button
+                (click)&#x3D;&quot;onFilterChange(tab.id)&quot;
+                [ngClass]&#x3D;&quot;{
+                  &#x27;bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-lg scale-105&#x27;:
+                    selectedGroupId &#x3D;&#x3D;&#x3D; tab.id,
+                  &#x27;bg-gray-800/70 text-gray-200 hover:bg-gray-700/80&#x27;:
+                    selectedGroupId !&#x3D;&#x3D; tab.id
+                }&quot;
+                class&#x3D;&quot;px-2 py-2 rounded-full font-semibold uppercase tracking-wide transition-all duration-300   w-full text-xs md:text-sm flex items-center justify-center gap-2 backdrop-blur-md border border-white/10&quot;
+              &gt;
+                &lt;span class&#x3D;&quot;truncate&quot;&gt;{{ tab.id &#x3D;&#x3D;&#x3D; &#x27;full_body&#x27; ? (&#x27;fitnessClass.full_body&#x27; | translate) : tab.title }}&lt;/span&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/ng-template&gt;
+        &lt;/p-carousel&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Workouts Section --&gt;
+    &lt;section *ngIf&#x3D;&quot;displayedMuscleGroups.length &gt; 0&quot; class&#x3D;&quot;workouts-section&quot;&gt;
+      &lt;div class&#x3D;&quot;workouts-slider-container&quot;&gt;
+        &lt;app-custom-slider
+          [itemsList]&#x3D;&quot;muscleSliderItems&quot;
+          [numOfRows]&#x3D;&quot;2&quot;
+          [numOfColumns]&#x3D;&quot;3&quot;
+          [autoplayInterval]&#x3D;&quot;0&quot;
+          (mealSelected)&#x3D;&quot;onReadMore($event)&quot;
+        &gt;&lt;/app-custom-slider&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- No Results State --&gt;
+    &lt;section
+      *ngIf&#x3D;&quot;displayedMuscleGroups.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; muscleGroups.length &gt; 0&quot;
+      class&#x3D;&quot;empty-state&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;empty-content&quot;&gt;
+        &lt;p class&#x3D;&quot;empty-title&quot;&gt;{{ &#x27;fitnessClass.no_results_title&#x27; | translate }}&lt;/p&gt;
+        &lt;p class&#x3D;&quot;empty-subtitle&quot;&gt;{{ &#x27;fitnessClass.no_results_subtitle&#x27; | translate }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Loading State --&gt;
+    &lt;section *ngIf&#x3D;&quot;muscleGroups.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;loading-state&quot;&gt;
+      &lt;div class&#x3D;&quot;loading-content&quot;&gt;
+        &lt;div class&#x3D;&quot;loading-spinner&quot;&gt;&lt;/div&gt;
+        &lt;p class&#x3D;&quot;loading-title&quot;&gt;{{ &#x27;common.loading_workouts&#x27; | translate }}&lt;/p&gt;
+        &lt;p class&#x3D;&quot;loading-subtitle&quot;&gt;
+          {{ &#x27;common.loading_subtitle&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./fitness-class.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  width: 99vw !important;
+  min-height: 100vh;
+  font-family: &#x27;Poppins&#x27;, sans-serif;
+  background-image: url(&#x27;/background.jpg&#x27;);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(30px);
+    transition: background-color 0.3s ease;
+}
+
+/* Light mode overlay */
+.overlay-light {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark mode overlay */
+.overlay-dark {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Light mode text colors */
+.overlay-light ~ .profile-wrapper {
+  color: #242424;
+}
+
+.overlay-light ~ .profile-wrapper .logo-text,
+.overlay-light ~ .profile-wrapper .subtitle-text,
+.overlay-light ~ .profile-wrapper .hero-title {
+  color: #242424;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.profile-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Header Section Styles */
+.header-section {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.main-logo,
+.subtitle-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.main-logo {
+  max-height: 120px;
+}
+
+.subtitle-logo {
+  max-height: 60px;
+  margin-top: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.subtitle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subtitle-text {
+  font-size: 1.2rem;
+  color: #ffffff;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.dumbbell-icon {
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.highlight-text {
+  color: #ff4100;
+  font-weight: 800;
+}
+
+/* Workouts Section */
+.workouts-section {
+  width: 100%;
+}
+
+/* Workouts Slider Container */
+.workouts-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.overlay-light ~ .profile-wrapper .workouts-slider-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Filter Tabs Section */
+.filter-tabs-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-glass {
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* PrimeNG carousel tweaks for tabs */
+:host ::ng-deep .p-carousel .p-carousel-content .p-carousel-item {
+  padding: 0.25rem 0.25rem;
+}
+
+:host ::ng-deep .p-carousel .p-carousel-prev,
+:host ::ng-deep .p-carousel .p-carousel-next {
+  width: 38px;
+  height: 38px;
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+:host ::ng-deep .p-carousel .p-carousel-prev:hover,
+:host ::ng-deep .p-carousel .p-carousel-next:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+:host ::ng-deep .p-carousel .p-carousel-indicators {
+  display: none;
+}
+
+.filter-tabs-section .card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.overlay-light ~ .profile-wrapper .filter-tabs-section .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Workout slide item */
+.workout-slide-item {
+  transition: transform 0.3s ease;
+}
+
+.workout-slide-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Empty State Styles */
+.empty-state {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.empty-content {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 500px;
+}
+
+.empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.empty-subtitle {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Loading State Styles */
+.loading-state {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.loading-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: pulse 2s infinite;
+}
+
+.loading-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.loading-subtitle {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Light mode styles for empty and loading states */
+.overlay-light ~ .profile-wrapper .empty-content,
+.overlay-light ~ .profile-wrapper .loading-content {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.overlay-light ~ .profile-wrapper .empty-title,
+.overlay-light ~ .profile-wrapper .loading-title {
+  color: #242424;
+}
+
+.overlay-light ~ .profile-wrapper .empty-subtitle,
+.overlay-light ~ .profile-wrapper .loading-subtitle {
+  color: #666666;
+}
+
+.overlay-light ~ .profile-wrapper .loading-spinner {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-wrapper {
+    padding: 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .header-section {
+    padding: 1rem 0;
+  }
+
+  .main-logo {
+    max-height: 80px;
+  }
+
+  .subtitle-logo {
+    max-height: 40px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .empty-content,
+  .loading-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-wrapper {
+    padding: 0.25rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle-text {
+    font-size: 1rem;
+  }
+  .tabs-container { padding: 0 6px; }
+  .tabs-container button { min-width: 86px; height: 34px; font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle-text {
+    font-size: 0.9rem;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Overlay --><div class="mt-10 mb-30">  <div    class="overlay"    [ngClass]="{ \'overlay-light\': !themeVal, \'overlay-dark\': themeVal }"  ></div>  <div class="fitness-container profile-wrapper">    <!-- Header Section -->    <section class="header-section">      <div class="logo-section">        <div class="logo-container">          <img src="/workouts.png" alt="healthy" class="main-logo" />          <div class="subtitle-container">            <img              src="/HealthyNutritions.png"              alt="Healthy Nutritions"              class="subtitle-logo"            />          </div>        </div>      </div>      <div class="main-heading">        <h2 class="hero-title">          {{ \'fitnessClass.hero_title_1\' | translate }}          <span class="highlight-text">{{ \'fitnessClass.hero_title_2\' | translate }}</span>        </h2>      </div>    </section>    <!-- Filter Tabs Section (Carousel) -->    <section *ngIf="muscleGroups.length > 0" class="filter-tabs-section">      <div class="tabs-container tabs-glass">        <p-carousel          [value]="filterTabs"          [numVisible]="5"          [numScroll]="5"          [circular]="false"          [autoplayInterval]="0"          [showNavigators]="true"          [showIndicators]="false"          [responsiveOptions]="tabResponsiveOptions"        >          <ng-template pTemplate="item" let-tab>            <div class="px-2">              <button                (click)="onFilterChange(tab.id)"                [ngClass]="{                  \'bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-lg scale-105\':                    selectedGroupId === tab.id,                  \'bg-gray-800/70 text-gray-200 hover:bg-gray-700/80\':                    selectedGroupId !== tab.id                }"                class="px-2 py-2 rounded-full font-semibold uppercase tracking-wide transition-all duration-300   w-full text-xs md:text-sm flex items-center justify-center gap-2 backdrop-blur-md border border-white/10"              >                <span class="truncate">{{ tab.id === \'full_body\' ? (\'fitnessClass.full_body\' | translate) : tab.title }}</span>              </button>            </div>          </ng-template>        </p-carousel>      </div>    </section>    <!-- Workouts Section -->    <section *ngIf="displayedMuscleGroups.length > 0" class="workouts-section">      <div class="workouts-slider-container">        <app-custom-slider          [itemsList]="muscleSliderItems"          [numOfRows]="2"          [numOfColumns]="3"          [autoplayInterval]="0"          (mealSelected)="onReadMore($event)"        ></app-custom-slider>      </div>    </section>    <!-- No Results State -->    <section      *ngIf="displayedMuscleGroups.length === 0 && muscleGroups.length > 0"      class="empty-state"    >      <div class="empty-content">        <p class="empty-title">{{ \'fitnessClass.no_results_title\' | translate }}</p>        <p class="empty-subtitle">{{ \'fitnessClass.no_results_subtitle\' | translate }}</p>      </div>    </section>    <!-- Loading State -->    <section *ngIf="muscleGroups.length === 0" class="loading-state">      <div class="loading-content">        <div class="loading-spinner"></div>        <p class="loading-title">{{ \'common.loading_workouts\' | translate }}</p>        <p class="loading-subtitle">          {{ \'common.loading_subtitle\' | translate }}        </p>      </div>    </section>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FitnessClassComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FitnessClassComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

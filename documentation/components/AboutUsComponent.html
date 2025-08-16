@@ -1,0 +1,448 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AboutUsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/about-us/about-us.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-about-us</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./about-us.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./about-us.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x27;app-about-us&#x27;,
+  imports: [CommonModule, TranslateModule, ],
+  templateUrl: &#x27;./about-us.component.html&#x27;,
+  styleUrl: &#x27;./about-us.component.css&#x27;
+})
+export class AboutUsComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;flex flex-col lg:flex-row pt-16 px-15 max-sm:px-10 max-sm:mt-5 md:pt-24 lg:pt-28 xl:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 gap-6 sm:gap-8 md:gap-10 lg:gap-12 about-section&quot;
+&gt;
+  &lt;!-- Content Section --&gt;
+  &lt;div class&#x3D;&quot;w-full lg:w-1/2 flex flex-col order-1 lg:order-2 justify-center content-col&quot;&gt;
+    &lt;!-- Header Badge --&gt;
+    &lt;div class&#x3D;&quot;relative mb-6 sm:mb-8 lg:mb-12&quot;&gt;
+      &lt;img
+        src&#x3D;&quot;workouts.png&quot;
+        alt&#x3D;&quot;About Us&quot;
+        class&#x3D;&quot;w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]&quot;
+      /&gt;
+      &lt;div class&#x3D;&quot;absolute bottom-2 left-4 flex items-center space-x-2 badge-pos&quot;&gt;
+        &lt;img src&#x3D;&quot;weight.png&quot; alt&#x3D;&quot;Icon&quot; class&#x3D;&quot;w-5 h-5 sm:w-6 sm:h-6&quot; /&gt;
+        &lt;span class&#x3D;&quot;text-[#FF4100] text-xs sm:text-sm md:text-base font-semibold&quot;&gt;
+          {{ &#x27;about.badge&#x27; | translate }}
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Title &amp; Description --&gt;
+    &lt;div class&#x3D;&quot;space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8&quot;&gt;
+      &lt;h2 class&#x3D;&quot;text-[#242424] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight&quot;&gt;
+        {{ &#x27;about.title_1&#x27; | translate }}
+      &lt;/h2&gt;
+      &lt;h2 class&#x3D;&quot;text-[#FF4100] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight&quot;&gt;
+        {{ &#x27;about.title_2_a&#x27; | translate }}
+        &lt;span class&#x3D;&quot;text-[#242424] dark:text-white&quot;&gt;{{ &#x27;about.title_2_b&#x27; | translate }}&lt;/span&gt;
+      &lt;/h2&gt;
+      &lt;p class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed&quot;&gt;
+        {{ &#x27;about.desc&#x27; | translate }}
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Features Grid --&gt;
+    &lt;div class&#x3D;&quot;grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 lg:mt-12&quot;&gt;
+      &lt;div class&#x3D;&quot;border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6&quot;&gt;
+        &lt;div class&#x3D;&quot;flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item&quot;&gt;
+          &lt;img src&#x3D;&quot;arrow2.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot; /&gt;
+          &lt;h4 class&#x3D;&quot;text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold&quot;&gt;
+            {{ &#x27;about.f1_title&#x27; | translate }}
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base&quot;&gt;
+          {{ &#x27;about.f1_desc&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6&quot;&gt;
+        &lt;div class&#x3D;&quot;flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item&quot;&gt;
+          &lt;img src&#x3D;&quot;arrow2.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot; /&gt;
+          &lt;h4 class&#x3D;&quot;text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold&quot;&gt;
+            {{ &#x27;about.f2_title&#x27; | translate }}
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base&quot;&gt;
+          {{ &#x27;about.f2_desc&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;pt-4 sm:pt-6&quot;&gt;
+        &lt;div class&#x3D;&quot;flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item&quot;&gt;
+          &lt;img src&#x3D;&quot;arrow2.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot; /&gt;
+          &lt;h4 class&#x3D;&quot;text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold&quot;&gt;
+            {{ &#x27;about.f3_title&#x27; | translate }}
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base&quot;&gt;
+          {{ &#x27;about.f3_desc&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;pt-4 sm:pt-6&quot;&gt;
+        &lt;div class&#x3D;&quot;flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item&quot;&gt;
+          &lt;img src&#x3D;&quot;arrow2.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot; /&gt;
+          &lt;h4 class&#x3D;&quot;text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold&quot;&gt;
+            {{ &#x27;about.f4_title&#x27; | translate }}
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base&quot;&gt;
+          {{ &#x27;about.f4_desc&#x27; | translate }}
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Call to Action --&gt;
+    &lt;div class&#x3D;&quot;relative flex cursor-pointer mt-6 sm:mt-8 lg:mt-10&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;bg-[#FF4100] rounded-full text-white py-2 sm:py-3 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm md:text-base font-semibold cursor-pointer hover:bg-orange-600 transition&quot;
+      &gt;
+        {{ &#x27;common.get_started&#x27; | translate }}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Images Section --&gt;
+  &lt;div class&#x3D;&quot;w-full lg:w-1/2 order-2 lg:order-1 flex justify-center lg:justify-start image-col&quot;&gt;
+    &lt;div class&#x3D;&quot;relative inline-block&quot;&gt;
+      &lt;!-- Main large image --&gt;
+      &lt;img
+        src&#x3D;&quot;gm1.png&quot;
+        alt&#x3D;&quot;Main Workout&quot;
+        class&#x3D;&quot;w-full max-w-sm h-auto object-cover rounded-xl shadow-lg max-sm:ml-0 ml-6 lg:ml-12&quot;
+      /&gt;
+
+      &lt;!-- Top small image --&gt;
+      &lt;div class&#x3D;&quot;absolute top-20 -right-60 img-top-right z-20 max-xl:hidden&quot;&gt;
+        &lt;img src&#x3D;&quot;gm3.png&quot; alt&#x3D;&quot;Bench Workout&quot; class&#x3D;&quot;w-36 sm:w-40 lg:w-44 xl:w-55 h-auto object-cover rounded-xl shadow-lg&quot; /&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Bottom medium image --&gt;
+      &lt;div class&#x3D;&quot;absolute bottom-5 -right-40 img-bottom-right z-10 max-xl:hidden&quot;&gt;
+        &lt;img src&#x3D;&quot;gm2.png&quot; alt&#x3D;&quot;Cardio Workout&quot; class&#x3D;&quot;w-44 sm:w-48 lg:w-56 xl:w-70 h-auto object-cover rounded-xl shadow-lg&quot; /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="flex flex-col lg:flex-row pt-16 px-15 max-sm:px-10 max-sm:mt-5 md:pt-24 lg:pt-28 xl:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-24 gap-6 sm:gap-8 md:gap-10 lg:gap-12 about-section">  <!-- Content Section -->  <div class="w-full lg:w-1/2 flex flex-col order-1 lg:order-2 justify-center content-col">    <!-- Header Badge -->    <div class="relative mb-6 sm:mb-8 lg:mb-12">      <img        src="workouts.png"        alt="About Us"        class="w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]"      />      <div class="absolute bottom-2 left-4 flex items-center space-x-2 badge-pos">        <img src="weight.png" alt="Icon" class="w-5 h-5 sm:w-6 sm:h-6" />        <span class="text-[#FF4100] text-xs sm:text-sm md:text-base font-semibold">          {{ \'about.badge\' | translate }}        </span>      </div>    </div>    <!-- Title & Description -->    <div class="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">      <h2 class="text-[#242424] dark:text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">        {{ \'about.title_1\' | translate }}      </h2>      <h2 class="text-[#FF4100] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">        {{ \'about.title_2_a\' | translate }}        <span class="text-[#242424] dark:text-white">{{ \'about.title_2_b\' | translate }}</span>      </h2>      <p class="text-[#242424] dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed">        {{ \'about.desc\' | translate }}      </p>    </div>    <!-- Features Grid -->    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 lg:mt-12">      <div class="border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6">        <div class="flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item">          <img src="arrow2.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5" />          <h4 class="text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold">            {{ \'about.f1_title\' | translate }}          </h4>        </div>        <p class="text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base">          {{ \'about.f1_desc\' | translate }}        </p>      </div>      <div class="border-b border-gray-200 dark:border-gray-700 pb-4 sm:pb-6">        <div class="flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item">          <img src="arrow2.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5" />          <h4 class="text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold">            {{ \'about.f2_title\' | translate }}          </h4>        </div>        <p class="text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base">          {{ \'about.f2_desc\' | translate }}        </p>      </div>      <div class="pt-4 sm:pt-6">        <div class="flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item">          <img src="arrow2.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5" />          <h4 class="text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold">            {{ \'about.f3_title\' | translate }}          </h4>        </div>        <p class="text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base">          {{ \'about.f3_desc\' | translate }}        </p>      </div>      <div class="pt-4 sm:pt-6">        <div class="flex items-center mb-3 sm:mb-4 space-x-2 sm:space-x-3 feature-item">          <img src="arrow2.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5" />          <h4 class="text-[#242424] dark:text-white text-sm sm:text-base lg:text-lg font-bold">            {{ \'about.f4_title\' | translate }}          </h4>        </div>        <p class="text-[#242424] dark:text-gray-300 text-xs sm:text-sm lg:text-base">          {{ \'about.f4_desc\' | translate }}        </p>      </div>    </div>    <!-- Call to Action -->    <div class="relative flex cursor-pointer mt-6 sm:mt-8 lg:mt-10">      <button        class="bg-[#FF4100] rounded-full text-white py-2 sm:py-3 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm md:text-base font-semibold cursor-pointer hover:bg-orange-600 transition"      >        {{ \'common.get_started\' | translate }}      </button>    </div>  </div>  <!-- Images Section -->  <div class="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center lg:justify-start image-col">    <div class="relative inline-block">      <!-- Main large image -->      <img        src="gm1.png"        alt="Main Workout"        class="w-full max-w-sm h-auto object-cover rounded-xl shadow-lg max-sm:ml-0 ml-6 lg:ml-12"      />      <!-- Top small image -->      <div class="absolute top-20 -right-60 img-top-right z-20 max-xl:hidden">        <img src="gm3.png" alt="Bench Workout" class="w-36 sm:w-40 lg:w-44 xl:w-55 h-auto object-cover rounded-xl shadow-lg" />      </div>      <!-- Bottom medium image -->      <div class="absolute bottom-5 -right-40 img-bottom-right z-10 max-xl:hidden">        <img src="gm2.png" alt="Cardio Workout" class="w-44 sm:w-48 lg:w-56 xl:w-70 h-auto object-cover rounded-xl shadow-lg" />      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AboutUsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AboutUsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
