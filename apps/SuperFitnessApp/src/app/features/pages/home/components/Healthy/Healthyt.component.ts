@@ -1,40 +1,24 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  Inject,
-  PLATFORM_ID,
-} from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { Router } from '@angular/router';
-import { HealthyServiceService } from '../../../core/services/healthey/healthy-service.service';
-import { CommonModule } from '@angular/common';
-import {
-  Meals,
-  MealDetails,
-  Category,
-} from '../../../core/models/healthy-Interfaces';
-import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
-import { CustomTabComponent } from '../../../shared/components/custom-tab/custom-tab.component';
-import { CustomSliderComponent } from '../../../shared/components/custom-slider/custom-slider.component';
-import { Subscription, interval } from 'rxjs';
-import { tabData } from '../../../shared/components/custom-tab/tab.model';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Category, MealDetails, Meals } from 'apps/SuperFitnessApp/src/app/core/models/healthy-Interfaces';
+import { interval, Subscription } from 'rxjs';
+import { tabData } from 'apps/SuperFitnessApp/src/app/shared/components/custom-tab/tab.model';
+import { HealthyServiceService } from 'apps/SuperFitnessApp/src/app/core/services/healthey/healthy-service.service';
+import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
+import { TranslateManagerService } from 'apps/SuperFitnessApp/src/app/core/services/TranslateManger/translate-manager-service.service';
+import { Route, Router } from '@angular/router';
+import { CustomSliderComponent } from "apps/SuperFitnessApp/src/app/shared/components/custom-slider/custom-slider.component";
+import { CustomTabComponent } from 'apps/SuperFitnessApp/src/app/shared/components/custom-tab/custom-tab.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { TranslateManagerService } from '../../../core/services/TranslateManger/translate-manager-service.service';
 
 @Component({
-  selector: 'app-healthy-nutri',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CustomTabComponent,
-    CustomSliderComponent,
-    TranslateModule,
-  ],
-  templateUrl: './healthy-nutri.component.html',
-  styleUrl: './healthy-nutri.component.scss',
+  selector: 'app-healthyt',
+  imports: [CommonModule, CustomTabComponent, CustomSliderComponent, TranslateModule ],
+  templateUrl: './Healthyt.component.html',
+  styleUrl: './Healthyt.component.scss',
 })
-export class HealthyNutriComponent implements OnInit, OnDestroy {
+export class HealthytComponent implements OnInit , OnDestroy {
+
   categories: Category[] = [];
   displayedMeals: Meals[] = [];
   selectedMealDetails: MealDetails | null = null;
@@ -44,8 +28,7 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
   private themeSubscription?: Subscription;
   private mealsSubscription?: Subscription;
 
-  // Tabs will be built dynamically from API
-  filterTabs: tabData[] = [{ id: 'breakfast', title: 'Breakfast' }];
+ 
 
   constructor(
     private healthyService: HealthyServiceService,
@@ -55,26 +38,14 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  getCategories(): void {
-    this.healthyService.getCategories().subscribe({
-      next: (categories) => {
-        this.categories = categories;
-        this.filterTabs = [
-          { id: 'breakfast', title: 'Breakfast' },
-          ...categories
-            .filter((cat) => cat.strCategory.toLowerCase() !== 'breakfast')
-            .map((cat) => ({ id: cat.strCategory, title: cat.strCategory })),
-        ];
-      },
-    });
-  }
+  
 
   getMealDetails(mealId: string): void {
     this.healthyService.getMealDetails(mealId).subscribe({
       next: (meal) => {
         this.selectedMealDetails = meal;
-        this.router.navigate(['/single-meal', mealId]);
-      },
+        this.router.navigate(['/single-meal',mealId]   );
+      } 
     });
   }
 
@@ -94,7 +65,7 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
       },
       error: () => {
         this.isLoading = false; // 🔹 Stop loading on error
-      },
+      }
     });
   }
 
@@ -105,7 +76,6 @@ export class HealthyNutriComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.themeManager.initTheme();
     this.getUserPrefFromCookies();
-    this.getCategories();
     this.filterMealsByType('breakfast'); // Load breakfast by default
 
     if (isPlatformBrowser(this.platformId)) {

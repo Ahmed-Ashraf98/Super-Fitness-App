@@ -24,7 +24,9 @@
       <div class="main-heading">
         <h2 class="hero-title">
           {{ 'healthy.hero_title_1' | translate }}
-          <span class="highlight-text">{{ 'healthy.hero_title_2' | translate }}</span>
+          <span class="highlight-text">{{
+            'healthy.hero_title_2' | translate
+          }}</span>
           {{ 'healthy.hero_title_3' | translate }}
         </h2>
       </div>
@@ -41,26 +43,23 @@
       </div>
     </section>
 
- <!-- Loading Screen -->
+    <!-- Loading Screen -->
 
+    <!-- Meals Section -->
+    <section
+      *ngIf="!isLoading && displayedMeals.length > 0"
+      class="meals-section"
+    >
+      <div class="meals-slider-container">
+        <app-custom-slider
+          [itemsList]="displayedMeals"
+          [numOfRows]="2"
+          [numOfColumns]="3"
+          [autoplayInterval]="0"
+          (mealSelected)="getMealDetails($event)"
+        ></app-custom-slider>
+      </div>
+    </section>
 
-<!-- Meals Section -->
-<section *ngIf="!isLoading && displayedMeals.length > 0" class="meals-section">
-  <div class="meals-slider-container">
-    <app-custom-slider
-      [itemsList]="displayedMeals"
-      [numOfRows]="2"
-      [numOfColumns]="3"
-      [autoplayInterval]="0"
-      (mealSelected)="getMealDetails($event)"
-    ></app-custom-slider>
   </div>
-</section>
-
-
-    
-    <!-- Horizon Bar -->
-   
-  </div>
-
 </div>
