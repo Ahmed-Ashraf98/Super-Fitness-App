@@ -2,18 +2,16 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Category, MealDetails, Meals } from 'apps/SuperFitnessApp/src/app/core/models/healthy-Interfaces';
 import { interval, Subscription } from 'rxjs';
-import { tabData } from 'apps/SuperFitnessApp/src/app/shared/components/custom-tab/tab.model';
 import { HealthyServiceService } from 'apps/SuperFitnessApp/src/app/core/services/healthey/healthy-service.service';
 import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
 import { TranslateManagerService } from 'apps/SuperFitnessApp/src/app/core/services/TranslateManger/translate-manager-service.service';
-import { Route, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { CustomSliderComponent } from "apps/SuperFitnessApp/src/app/shared/components/custom-slider/custom-slider.component";
-import { CustomTabComponent } from 'apps/SuperFitnessApp/src/app/shared/components/custom-tab/custom-tab.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-healthyt',
-  imports: [CommonModule, CustomTabComponent, CustomSliderComponent, TranslateModule ],
+  imports: [CommonModule, CustomSliderComponent, TranslateModule ],
   templateUrl: './Healthyt.component.html',
   styleUrl: './Healthyt.component.scss',
 })
