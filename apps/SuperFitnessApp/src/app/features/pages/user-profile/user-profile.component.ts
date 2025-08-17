@@ -63,11 +63,11 @@ export class UserProfileComponent implements OnInit {
     { label: 'Learn The Basic', value: 'Learn The Basic' }
   ];
   levelOptions = [
-    { label: 'Rookie', value: 'Rookie' },
-    { label: 'Beginner', value: 'Beginner' },
-    { label: 'Intermediate', value: 'Intermediate' },
-    { label: 'Advance', value: 'Advance' },
-    { label: 'True Beast', value: 'True Beast' }
+    { label: 'Rookie', value: 'level1' },
+    { label: 'Beginner', value: 'level2' },
+    { label: 'Intermediate', value: 'level3' },
+    { label: 'Advance', value: 'level4' },
+    { label: 'True Beast', value: 'level5' }
   ];
   editLoading = false;
   editError = '';

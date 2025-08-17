@@ -1,0 +1,709 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeroComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/SuperFitnessApp/src/app/features/pages/home/components/hero/hero.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-hero</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/HorizonbarComponent.html" target="_self" >HorizonbarComponent</a></code>
+                            <code>TranslateModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./hero.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./hero.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#themeVal" >themeVal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(themeService: <a href="../injectables/ThemeManagerService.html" target="_self">ThemeManagerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/home/components/hero/hero.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeManagerService.html" target="_self" >ThemeManagerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/home/components/hero/hero.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/home/components/hero/hero.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeVal"></a>
+                    <span class="name">
+                        <span ><b>themeVal</b></span>
+                        <a href="#themeVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed(() &#x3D;&gt; this.themeService.getCurrentTheme() &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/SuperFitnessApp/src/app/features/pages/home/components/hero/hero.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, computed } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { HorizonbarComponent } from &#x27;apps/SuperFitnessApp/src/app/features/pages/home/components/horizonbar/horizonbar.component&#x27;;
+import { ThemeManagerService } from &#x27;apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service&#x27;;
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+
+@Component({
+  selector: &#x27;app-hero&#x27;,
+  standalone: true,
+  imports: [CommonModule, HorizonbarComponent, TranslateModule],
+  templateUrl: &#x27;./hero.component.html&#x27;,
+  styleUrls: [&#x27;./hero.component.scss&#x27;],
+})
+export class HeroComponent implements OnInit {
+  // نستخدم computed عشان دايمًا يحدث القيمة مع تغيّر الثيم
+  themeVal &#x3D; computed(() &#x3D;&gt; this.themeService.getCurrentTheme() &#x3D;&#x3D;&#x3D; &#x27;dark&#x27;);
+
+  constructor(private themeService: ThemeManagerService) {}
+
+  ngOnInit() {
+    // تهيئة الثيم من الكوكيز عند البداية
+    this.themeService.initTheme().subscribe((theme) &#x3D;&gt; {
+      // تحديث فوري بعد قراءة الكوكيز
+      // هنا مش محتاج تعمل set بنفسك لأن computed هيعيد الحساب تلقائي
+    });
+  }
+
+  // دالة للتبديل (لو استخدمتها في زر)
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Overlay --&gt;
+&lt;section class&#x3D;&quot;hero&quot;&gt;
+  &lt;div class&#x3D;&quot;hero-bg&quot;&gt;&lt;/div&gt;
+
+  &lt;!-- الـ overlay --&gt;
+  &lt;div
+  class&#x3D;&quot;overlay&quot;
+  [ngClass]&#x3D;&quot;{ &#x27;overlay-light&#x27;: !themeVal(), &#x27;overlay-dark&#x27;: themeVal() }&quot;
+&gt;&lt;/div&gt;
+  &lt;!-- محتوى الهيرو --&gt;
+  &lt;div
+    class&#x3D;&quot;relative z-10 flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20&quot;
+  &gt;
+    &lt;!-- نص الهيرو --&gt;
+    &lt;div class&#x3D;&quot;w-full lg:w-3/5 text-left mb-8 lg:mb-0 hero-text&quot;&gt;
+      &lt;h1
+        class&#x3D;&quot;text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold uppercase mb-4 sm:mb-6 leading-tight text-gray-900 dark:text-gray-100&quot;
+      &gt;
+        &lt;span class&#x3D;&quot;block&quot;&gt;{{ &#x27;home.hero.title_1&#x27; | translate }}&lt;/span&gt;
+        &lt;span class&#x3D;&quot;block text-[#ff4100]&quot;&gt;{{ &#x27;home.hero.title_2&#x27; | translate }}&lt;/span&gt;
+        &lt;span class&#x3D;&quot;block&quot;&gt;{{ &#x27;home.hero.title_3&#x27; | translate }}&lt;/span&gt;
+      &lt;/h1&gt;
+      &lt;div class&#x3D;&quot;flex items-start gap-3 sm:gap-4 mb-6 sm:mb-10&quot;&gt;
+        &lt;span class&#x3D;&quot;block w-1 h-16 sm:h-20 md:h-24 bg-[#ff4100] rounded&quot;&gt;&lt;/span&gt;
+        &lt;div
+          class&#x3D;&quot;flex-1 space-y-1 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 dark:text-gray-300&quot;
+        &gt;
+          &lt;p&gt;{{ &#x27;home.hero.p1&#x27; | translate }}&lt;/p&gt;
+          &lt;p&gt;{{ &#x27;home.hero.p2&#x27; | translate }}&lt;/p&gt;
+          &lt;p&gt;{{ &#x27;home.hero.p3&#x27; | translate }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- إحصائيات --&gt;
+      &lt;div class&#x3D;&quot;grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12&quot;&gt;
+        &lt;div class&#x3D;&quot;text-left&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-xl sm:text-2xl font-bold text-gray-900 dark:text-white&quot;&gt;1200+&lt;/h3&gt;
+          &lt;p class&#x3D;&quot;text-sm sm:text-base text-gray-700 dark:text-gray-300&quot;&gt;{{ &#x27;home.hero.stats_active_members&#x27; | translate }}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;text-left&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-xl sm:text-2xl font-bold text-gray-900 dark:text-white&quot;&gt;12+&lt;/h3&gt;
+          &lt;p class&#x3D;&quot;text-sm sm:text-base text-gray-700 dark:text-gray-300&quot;&gt;{{ &#x27;home.hero.stats_certified_trainers&#x27; | translate }}&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;text-left&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-xl sm:text-2xl font-bold text-gray-900 dark:text-white&quot;&gt;20+&lt;/h3&gt;
+          &lt;p class&#x3D;&quot;text-sm sm:text-base text-gray-700 dark:text-gray-300&quot;&gt;{{ &#x27;home.hero.stats_years_experience&#x27; | translate }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- أزرار النداء --&gt;
+      &lt;div class&#x3D;&quot;flex flex-row justify-center lg:justify-start gap-4 sm:gap-6&quot;&gt;
+        &lt;!-- زر Get Started --&gt;
+        &lt;div class&#x3D;&quot;relative inline-flex items-center&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;bg-[#ff4100] text-white rounded-full py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-semibold hover:bg-orange-600 transition&quot;
+          &gt;
+            {{ &#x27;common.get_started&#x27; | translate }}
+          &lt;/button&gt;
+          &lt;div
+            class&#x3D;&quot;w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-[#ff4100] flex items-center justify-center border-2 border-white absolute -right-4 top-1/2 transform -translate-y-1/2 cta-arrow&quot;
+          &gt;
+            &lt;img src&#x3D;&quot;arrow.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;!-- زر Explore More --&gt;
+        &lt;div class&#x3D;&quot;relative inline-flex items-center&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;border-2 border-[#ff4100] text-[#ff4100] rounded-full py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-semibold hover:bg-[#ff4100] hover:text-white transition&quot;
+          &gt;
+            {{ &#x27;common.explore_more&#x27; | translate }}
+          &lt;/button&gt;
+          &lt;div
+            class&#x3D;&quot;w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-[#ff4100] flex items-center justify-center border-2 border-white absolute -right-4 top-1/2 transform -translate-y-1/2 cta-arrow&quot;
+          &gt;
+            &lt;img src&#x3D;&quot;arrow.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;w-4 h-4 sm:w-5 sm:h-5&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+
+    &lt;!-- صورة المدرب --&gt;
+    &lt;div class&#x3D;&quot;w-full lg:w-2/5 flex justify-center lg:justify-end&quot;&gt;
+      &lt;img
+        src&#x3D;&quot;man.png&quot;
+        alt&#x3D;&quot;Trainer&quot;
+        class&#x3D;&quot;w-4/5 sm:w-3/4 md:w-2/3 lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-contain&quot;
+      /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- شريط أفقي أسفل الـ Hero --&gt;
+&lt;/section&gt;
+&lt;app-horizonbar class&#x3D;&quot;relative&quot;&gt;&lt;/app-horizonbar&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./hero.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">section.hero {
+    position: relative;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+    overflow: hidden;
+  }
+  
+  .hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url(&#x27;/auth-bg.jpg&#x27;);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  
+  .hero .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    backdrop-filter: blur(30px);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Light Mode */
+  .hero .overlay-light {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Dark Mode */
+  .hero .overlay-dark {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* RTL adjustments */
+  :host-context([dir&#x3D;&#x27;rtl&#x27;]) .hero-text {
+    text-align: right;
+  }
+  :host-context([dir&#x3D;&#x27;rtl&#x27;]) .cta-arrow {
+    right: auto !important;
+    left: -1rem !important;
+    transform: translateY(-50%) scaleX(-1) !important;
+  }
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Overlay --><section class="hero">  <div class="hero-bg"></div>  <!-- الـ overlay -->  <div  class="overlay"  [ngClass]="{ \'overlay-light\': !themeVal(), \'overlay-dark\': themeVal() }"></div>  <!-- محتوى الهيرو -->  <div    class="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20"  >    <!-- نص الهيرو -->    <div class="w-full lg:w-3/5 text-left mb-8 lg:mb-0 hero-text">      <h1        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold uppercase mb-4 sm:mb-6 leading-tight text-gray-900 dark:text-gray-100"      >        <span class="block">{{ \'home.hero.title_1\' | translate }}</span>        <span class="block text-[#ff4100]">{{ \'home.hero.title_2\' | translate }}</span>        <span class="block">{{ \'home.hero.title_3\' | translate }}</span>      </h1>      <div class="flex items-start gap-3 sm:gap-4 mb-6 sm:mb-10">        <span class="block w-1 h-16 sm:h-20 md:h-24 bg-[#ff4100] rounded"></span>        <div          class="flex-1 space-y-1 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-gray-700 dark:text-gray-300"        >          <p>{{ \'home.hero.p1\' | translate }}</p>          <p>{{ \'home.hero.p2\' | translate }}</p>          <p>{{ \'home.hero.p3\' | translate }}</p>        </div>      </div>      <!-- إحصائيات -->      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">        <div class="text-left">          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">1200+</h3>          <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300">{{ \'home.hero.stats_active_members\' | translate }}</p>        </div>        <div class="text-left">          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">12+</h3>          <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300">{{ \'home.hero.stats_certified_trainers\' | translate }}</p>        </div>        <div class="text-left">          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">20+</h3>          <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300">{{ \'home.hero.stats_years_experience\' | translate }}</p>        </div>      </div>      <!-- أزرار النداء -->      <div class="flex flex-row justify-center lg:justify-start gap-4 sm:gap-6">        <!-- زر Get Started -->        <div class="relative inline-flex items-center">          <button            class="bg-[#ff4100] text-white rounded-full py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-semibold hover:bg-orange-600 transition"          >            {{ \'common.get_started\' | translate }}          </button>          <div            class="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-[#ff4100] flex items-center justify-center border-2 border-white absolute -right-4 top-1/2 transform -translate-y-1/2 cta-arrow"          >            <img src="arrow.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5">          </div>        </div>              <!-- زر Explore More -->        <div class="relative inline-flex items-center">          <button            class="border-2 border-[#ff4100] text-[#ff4100] rounded-full py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-base font-semibold hover:bg-[#ff4100] hover:text-white transition"          >            {{ \'common.explore_more\' | translate }}          </button>          <div            class="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-[#ff4100] flex items-center justify-center border-2 border-white absolute -right-4 top-1/2 transform -translate-y-1/2 cta-arrow"          >            <img src="arrow.png" alt="" class="w-4 h-4 sm:w-5 sm:h-5">          </div>        </div>      </div>          </div>    <!-- صورة المدرب -->    <div class="w-full lg:w-2/5 flex justify-center lg:justify-end">      <img        src="man.png"        alt="Trainer"        class="w-4/5 sm:w-3/4 md:w-2/3 lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-contain"      />    </div>  </div>  <!-- شريط أفقي أسفل الـ Hero --></section><app-horizonbar class="relative"></app-horizonbar></div>'
+    var COMPONENTS = [{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AccountFormComponent', 'selector': 'app-account-form'},{'name': 'ActivityLevelComponent', 'selector': 'app-activity-level'},{'name': 'AgeComponent', 'selector': 'app-age'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChatbotFloatingComponent', 'selector': 'app-chatbot-floating'},{'name': 'ChatbotInputComponent', 'selector': 'app-chatbot-input'},{'name': 'ChatbotWindowComponent', 'selector': 'app-chatbot-window'},{'name': 'CustomCardComponent', 'selector': 'app-custom-card'},{'name': 'CustomSliderComponent', 'selector': 'app-custom-slider'},{'name': 'CustomTabComponent', 'selector': 'app-custom-tab'},{'name': 'FitnessClassComponent', 'selector': 'app-fitness-class'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPassComponent', 'selector': 'app-forget-pass'},{'name': 'GenderComponent', 'selector': 'app-gender'},{'name': 'GoalComponent', 'selector': 'app-goal'},{'name': 'HealthyNutriComponent', 'selector': 'app-healthy-nutri'},{'name': 'HeightComponent', 'selector': 'app-height'},{'name': 'HeroComponent', 'selector': 'app-hero'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HorizonbarComponent', 'selector': 'app-horizonbar'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MessageCardComponent', 'selector': 'app-message-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'RegisterComponent', 'selector': 'app-regester'},{'name': 'SingleClassComponent', 'selector': 'app-single-class'},{'name': 'SingleMealComponent', 'selector': 'app-single-meal'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'WeightComponent', 'selector': 'app-weight'},{'name': 'WhyUsComponent', 'selector': 'app-why-us'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeroComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeroComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

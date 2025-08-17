@@ -1,0 +1,1164 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@fitness-org/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@fitness-org/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#aiResponse" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>aiResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#angularApp" title="apps/SuperFitnessApp/src/server.ts" ><b>angularApp</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#app" title="apps/SuperFitnessApp/src/server.ts" ><b>app</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfig" title="apps/SuperFitnessApp/src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appInit" title="apps/SuperFitnessApp/src/app/shared/utils/app.utils.ts" ><b>appInit</b>&nbsp;&nbsp;&nbsp;(apps/.../app.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#baseURL" title="apps/SuperFitnessApp-e2e/playwright.config.ts" ><b>baseURL</b>&nbsp;&nbsp;&nbsp;(apps/.../playwright.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#bootstrap" title="apps/SuperFitnessApp/src/main.server.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#browserDistFolder" title="apps/SuperFitnessApp/src/server.ts" ><b>browserDistFolder</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#chatbotReducers" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.reducers.ts" ><b>chatbotReducers</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#chatbotSelectors" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.selectors.ts" ><b>chatbotSelectors</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#chatHistory" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.selectors.ts" ><b>chatHistory</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#clearChat" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>clearChat</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#closeChat" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>closeChat</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="apps/SuperFitnessApp/src/app/app.config.server.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="Environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(Environments/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="Environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(Environments/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="Environments/environment_OLD.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(Environments/.../environment_OLD.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="apps/SuperFitnessApp/src/app/environments/environment.development.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.development.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#headerInterceptor" title="apps/SuperFitnessApp/src/app/core/auth/interceptors/header.interceptor.ts" ><b>headerInterceptor</b>&nbsp;&nbsp;&nbsp;(apps/.../header.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#httpLoaderFactory" title="apps/SuperFitnessApp/src/app/shared/utils/translateUtils.ts" ><b>httpLoaderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../translateUtils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialChatState" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.state.ts" ><b>initialChatState</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isOpen" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.selectors.ts" ><b>isOpen</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadingStatus" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.selectors.ts" ><b>loadingStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#openChat" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>openChat</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHandler" title="apps/SuperFitnessApp/src/server.ts" ><b>reqHandler</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sendMessage" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>sendMessage</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverConfig" title="apps/SuperFitnessApp/src/app/app.config.server.ts" ><b>serverConfig</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverDistFolder" title="apps/SuperFitnessApp/src/server.ts" ><b>serverDistFolder</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverRoutes" title="apps/SuperFitnessApp/src/app/app.routes.server.ts" ><b>serverRoutes</b>&nbsp;&nbsp;&nbsp;(apps/.../app.routes.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#toggleReadyStatus" title="apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts" ><b>toggleReadyStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../chatbot.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#validsignup" title="apps/SuperFitnessApp/src/app/shared/utils/validsignup.ts" ><b>validsignup</b>&nbsp;&nbsp;&nbsp;(apps/.../validsignup.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>apps/SuperFitnessApp/src/app/store/chatbot/chatbot.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aiResponse"></a>
+                    <span class="name">
+                        <span ><b>aiResponse</b></span>
+                        <a href="#aiResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Chatbot] AI Response&#x27;,
+  props&lt;{ content: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearChat"></a>
+                    <span class="name">
+                        <span ><b>clearChat</b></span>
+                        <a href="#clearChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[Chatbot] Clear Chat&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeChat"></a>
+                    <span class="name">
+                        <span ><b>closeChat</b></span>
+                        <a href="#closeChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[Chatbot] Close Chat&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openChat"></a>
+                    <span class="name">
+                        <span ><b>openChat</b></span>
+                        <a href="#openChat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[Chatbot] Open Chat&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendMessage"></a>
+                    <span class="name">
+                        <span ><b>sendMessage</b></span>
+                        <a href="#sendMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Chatbot] Send Message&#x27;,
+  props&lt;{ content: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleReadyStatus"></a>
+                    <span class="name">
+                        <span ><b>toggleReadyStatus</b></span>
+                        <a href="#toggleReadyStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[Chatbot] Toggle Ready Status&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="angularApp"></a>
+                    <span class="name">
+                        <span ><b>angularApp</b></span>
+                        <a href="#angularApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AngularNodeAppEngine()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app"></a>
+                    <span class="name">
+                        <span ><b>app</b></span>
+                        <a href="#app"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="browserDistFolder"></a>
+                    <span class="name">
+                        <span ><b>browserDistFolder</b></span>
+                        <a href="#browserDistFolder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>resolve(serverDistFolder, &#x27;../browser&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reqHandler"></a>
+                    <span class="name">
+                        <span ><b>reqHandler</b></span>
+                        <a href="#reqHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createNodeRequestHandler(app)</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverDistFolder"></a>
+                    <span class="name">
+                        <span ><b>serverDistFolder</b></span>
+                        <a href="#serverDistFolder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>dirname(fileURLToPath(import.meta.url))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [
+    provideAppInitializer(appInit),
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes),
+    provideHttpClient(withFetch(), withInterceptors([headerInterceptor])),
+    importProvidersFrom([
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: httpLoaderFactory,
+          deps: [HttpClient],
+        },
+      }),
+    ]),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: { darkModeSelector: &#x27;.dark&#x27; },
+      },
+    }),
+    provideStore({
+      chatbot: chatbotReducers,
+    }),
+
+  ],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/shared/utils/app.utils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appInit"></a>
+                    <span class="name">
+                        <span ><b>appInit</b></span>
+                        <a href="#appInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const themeManager &#x3D; inject(ThemeManagerService);
+  const translateManager &#x3D; inject(TranslateManagerService);
+  return forkJoin([themeManager.initTheme(), translateManager.initTranslate()]);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp-e2e/playwright.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseURL"></a>
+                    <span class="name">
+                        <span ><b>baseURL</b></span>
+                        <a href="#baseURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env[&#x27;BASE_URL&#x27;] || &#x27;http://localhost:4200&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/main.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bootstrap"></a>
+                    <span class="name">
+                        <span ><b>bootstrap</b></span>
+                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; bootstrapApplication(AppComponent, config)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/store/chatbot/chatbot.reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatbotReducers"></a>
+                    <span class="name">
+                        <span ><b>chatbotReducers</b></span>
+                        <a href="#chatbotReducers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialChatState,
+
+  on(ChatbotActions.openChat, (state) &#x3D;&gt; ({
+    ...state,
+    isOpen: true,
+    isLoading: true,
+  })),
+
+  on(ChatbotActions.sendMessage, (state, { content }) &#x3D;&gt; ({
+    ...state,
+    chatHistory: [...state.chatHistory, { role: ChatbotRole.USER, content }],
+    isLoading: true,
+  })),
+  on(ChatbotActions.aiResponse, (state, { content }) &#x3D;&gt; ({
+    ...state,
+    chatHistory: [...state.chatHistory, { role: ChatbotRole.AI, content }],
+    isLoading: false,
+  })),
+
+  on(ChatbotActions.closeChat, () &#x3D;&gt; initialChatState),
+
+  on(ChatbotActions.clearChat, () &#x3D;&gt; initialChatState)
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/store/chatbot/chatbot.selectors.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatbotSelectors"></a>
+                    <span class="name">
+                        <span ><b>chatbotSelectors</b></span>
+                        <a href="#chatbotSelectors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;ChatbotState&gt;(&#x27;chatbot&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chatHistory"></a>
+                    <span class="name">
+                        <span ><b>chatHistory</b></span>
+                        <a href="#chatHistory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  chatbotSelectors,
+  (state) &#x3D;&gt; state.chatHistory
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(chatbotSelectors, (state) &#x3D;&gt; state.isOpen)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadingStatus"></a>
+                    <span class="name">
+                        <span ><b>loadingStatus</b></span>
+                        <a href="#loadingStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  chatbotSelectors,
+  (state) &#x3D;&gt; state.isLoading
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/app.config.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mergeApplicationConfig(appConfig, serverConfig)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverConfig"></a>
+                    <span class="name">
+                        <span ><b>serverConfig</b></span>
+                        <a href="#serverConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [provideServerRendering(), provideServerRouting(serverRoutes)],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>Environments/environment.prod.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    production: true,
+    baseUrl: &#x27;https://fitness.elevateegy.com&#x27;,
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>Environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    production: false,
+    apiKey: &#x27;devKey&#x27;,
+    baseUrl: &#x27;https://fitness.elevateegy.com&#x27;,
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>Environments/environment_OLD.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    production: false,
+    apiKey: &#x27;devKey&#x27;,
+    baseUrl: &#x27;https://fitness.elevateegy.com&#x27;,
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/environments/environment.development.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  GEMINI_API_KEY: &#x27;AIzaSyB_ccamjlZB9gA5mJFLB959dTaRb9ueAv0&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/core/auth/interceptors/header.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="headerInterceptor"></a>
+                    <span class="name">
+                        <span ><b>headerInterceptor</b></span>
+                        <a href="#headerInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req, next) &#x3D;&gt; {
+  const trans &#x3D; inject(TranslateManagerService);
+
+  const excludedUrls &#x3D; [&#x27;/signup&#x27;, &#x27;/signin&#x27;, &#x27;/healthy&#x27;, &#x27;/about&#x27;, &#x27;/classes&#x27;, &#x27;/home&#x27;, &#x27;https://www.themealdb.com/api/json/v1/1/categories.php&#x27;,
+    &#x27;https://www.themealdb.com/api/json/v1/1/lookup.php&#x27;,
+    &#x27;https://www.themealdb.com/api/json/v1/1/filter.php&#x27;];
+  const isExcluded &#x3D; excludedUrls.some(url &#x3D;&gt; req.url.startsWith(url));
+
+  if (isExcluded) {
+    return next(req);
+  }
+
+  const currentLang &#x3D; trans.getCurrentLang();
+
+
+  const currentToken &#x3D; typeof window !&#x3D;&#x3D; &#x27;undefined&#x27; ? localStorage.getItem(&#x27;token&#x27;) : null;
+
+  if (currentToken) {
+    req &#x3D; req.clone({
+      setHeaders: {
+        Authorization: &#x60;Bearer ${currentToken}&#x60;,
+        &#x27;accept-language&#x27;: currentLang &#x3D;&#x3D;&#x3D; &#x27;ar&#x27; ? &#x27;ar&#x27; : &#x27;en&#x27;,
+      },
+    });
+  }
+
+
+  return next(req);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/shared/utils/translateUtils.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="httpLoaderFactory"></a>
+                    <span class="name">
+                        <span ><b>httpLoaderFactory</b></span>
+                        <a href="#httpLoaderFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TranslateHttpLoader</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  http: HttpClient
+) &#x3D;&gt; new TranslateHttpLoader(http, &#x27;./i18n/&#x27;, &#x27;.json&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/store/chatbot/chatbot.state.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialChatState"></a>
+                    <span class="name">
+                        <span ><b>initialChatState</b></span>
+                        <a href="#initialChatState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ChatbotState.html" target="_self" >ChatbotState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  chatHistory: [],
+  isLoading: false,
+  error: null,
+  isOpen: false,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/app.routes.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverRoutes"></a>
+                    <span class="name">
+                        <span ><b>serverRoutes</b></span>
+                        <a href="#serverRoutes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ServerRoute[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    path: &#x27;**&#x27;,
+    renderMode: RenderMode.Prerender,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/SuperFitnessApp/src/app/shared/utils/validsignup.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validsignup"></a>
+                    <span class="name">
+                        <span ><b>validsignup</b></span>
+                        <a href="#validsignup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+name:[Validators.required,Validators.minLength(2),Validators.maxLength(20)],
+Password:[Validators.required, Validators.pattern(/^(?&#x3D;.*?[A-Z])(?&#x3D;.*?[a-z])(?&#x3D;.*?[0-9])(?&#x3D;.*?[#?!@$%^&amp;*-]).{8,}$/)],
+email:[Validators.email,Validators.required],
+phone:[Validators.required,Validators.maxLength(11),Validators.minLength(11)],
+street: [Validators.required, Validators.minLength(5)],
+city: [Validators.required, Validators.minLength(2)],
+zipCode: [Validators.required, Validators.pattern(/^\d{4}$/)],
+state: [Validators.required, Validators.minLength(2)],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
