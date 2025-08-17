@@ -57,9 +57,13 @@
                   [ngClass]="{
                     active: selectedGroupId === tab.id
                   }"
-                  class="px-2 my-6 py-2 pointer  rounded-full font-semibold uppercase tracking-wide transition-all duration-300 w-full text-xs md:text-sm flex items-center justify-center gap-2"
+                  class="px-2 my-6 py-2 pointer rounded-full font-semibold uppercase tracking-wide transition-all duration-300 w-full text-xs md:text-sm flex items-center justify-center gap-2"
                 >
-                  <span class="truncate pointer">{{ tab.id === 'full_body' ? ('fitnessClass.full_body' | translate) : tab.title }}</span>
+                  <span class="truncate pointer">{{
+                    tab.id === 'full_body'
+                      ? ('fitnessClass.full_body' | translate)
+                      : tab.title
+                  }}</span>
                 </button>
               </div>
             </ng-template>
@@ -148,7 +152,7 @@
                 *ngIf="exercises.length === 0"
                 class="text-center py-8 text-gray-400"
               >
-                 {{ 'singleClass.no_exercises' | translate }}
+                {{ 'singleClass.no_exercises' | translate }}
               </div>
             </div>
           </aside>
@@ -210,15 +214,29 @@
                   </ng-template>
 
                   <!-- bottom overlay meta -->
-                  <div class="video-meta " *ngIf="!isPlaying" aria-hidden="false">
-                    <h2>{{ selectedExercise.target_muscle_group }} {{ 'singleClass.exercise' | translate }}</h2>
+                  <div
+                    class="video-meta"
+                    *ngIf="!isPlaying"
+                    aria-hidden="false"
+                  >
+                    <h2>
+                      {{ selectedExercise.target_muscle_group }}
+                      {{ 'singleClass.exercise' | translate }}
+                    </h2>
                     <p>
-                      {{ selectedExercise.exercise }} — {{ 'singleClass.quick_overview' | translate }}
+                      {{ selectedExercise.exercise }} —
+                      {{ 'singleClass.quick_overview' | translate }}
                     </p>
                     <div class="chips">
-                      <div class="chip">30 {{ 'singleClass.min' | translate }}</div>
-                      <div class="chip">130 {{ 'singleClass.cal' | translate }}</div>
-                      <div class="chip">{{ 'singleClass.expert_workout' | translate }}</div>
+                      <div class="chip">
+                        30 {{ 'singleClass.min' | translate }}
+                      </div>
+                      <div class="chip">
+                        130 {{ 'singleClass.cal' | translate }}
+                      </div>
+                      <div class="chip">
+                        {{ 'singleClass.expert_workout' | translate }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -417,7 +435,9 @@
       <section *ngIf="musclesLoading" class="loading-state">
         <div class="loading-content">
           <div class="loading-spinner"></div>
-          <p class="loading-title">{{ 'common.loading_workouts' | translate }}</p>
+          <p class="loading-title">
+            {{ 'common.loading_workouts' | translate }}
+          </p>
           <p class="loading-subtitle">
             {{ 'common.loading_subtitle' | translate }}
           </p>

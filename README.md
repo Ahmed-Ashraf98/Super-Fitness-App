@@ -146,6 +146,7 @@ Serve the SSR Node server directly (after building server bundle):
 ```bash
 npx nx build SuperFitnessApp
 node dist/apps/SuperFitnessApp/server/main.js
+
 ```
 
 To run the app with live SSR development (custom setups may use `@nguniversal/express-engine` integrations).
@@ -160,12 +161,12 @@ npx nx build SuperFitnessApp:server --prod
 ```
 
 2. Start Node SSR server:
-
 ```bash
 node dist/apps/SuperFitnessApp/server/main.js
 ```
 
 (If you have a start script in `package.json`, use `npm run start:ssr` if provided.)
+
 
 ## Testing
 
@@ -180,7 +181,6 @@ E2E tests expect a reachable instance of the SSR server or the dev server. The w
 - Prettier is configured for consistent formatting.
 
 Run linters and formatters:
-
 ```bash
 npx nx lint SuperFitnessApp
 npx nx format:write
@@ -189,7 +189,6 @@ npx nx format:write
 ## Packaging the `auth-api` library
 
 The `auth-api` library lives under `projects/auth-api` and exposes typed adapters and services for authentication. It can be built and published independently (if desired):
-
 ```bash
 npx nx build auth-api
 # package artifacts will be under dist/libs/auth-api or dist/projects/auth-api (depending on your nx config)
@@ -262,4 +261,3 @@ If you want, I can also:
 - Provide a condensed Arabic README version.
 - Generate a printable architecture diagram (SVG/PNG) from the Mermaid diagram.
 - Create a `CONTRIBUTING.md` or `DEVELOPER_SETUP.md` with step-by-step onboarding instructions.
-

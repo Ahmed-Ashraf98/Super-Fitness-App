@@ -1,5 +1,5 @@
 <!-- Overlay -->
-<div class="mt-10 mb-30">
+<div class="my-4">
   <div
     class="overlay"
     [ngClass]="{ 'overlay-light': !themeVal, 'overlay-dark': themeVal }"
@@ -79,7 +79,7 @@
       <div class="workouts-slider-container">
         <app-custom-slider
           [itemsList]="muscleSliderItems"
-          [numOfRows]="2"
+          [numOfRows]="1"
           [numOfColumns]="3"
           [autoplayInterval]="0"
           (mealSelected)="onReadMore($event)"

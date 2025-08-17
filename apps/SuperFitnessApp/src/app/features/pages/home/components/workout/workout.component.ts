@@ -1,27 +1,28 @@
-import { Component } from '@angular/core';
-import { MusclesGroup } from '../../../core/models/allMuscles';
-import { MusclesService } from '../../../core/services/muscles/muscles.service';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ThemeManagerService } from '../../../core/services/ThemeManger/ThemeManagerService.service';
-import { tabData } from '../../../shared/components/custom-tab/tab.model';
-import { CarouselModule } from 'primeng/carousel';
+
+import { Carousel, CarouselModule } from 'primeng/carousel';
 import { TranslateModule } from '@ngx-translate/core';
-import { CustomSliderComponent } from '../../../shared/components/custom-slider/custom-slider.component';
+import { CustomSliderComponent } from 'apps/SuperFitnessApp/src/app/shared/components/custom-slider/custom-slider.component';
+import { MusclesGroup } from 'apps/SuperFitnessApp/src/app/core/models/allMuscles';
+import { tabData } from 'apps/SuperFitnessApp/src/app/shared/components/custom-tab/tab.model';
+import { MusclesService } from 'apps/SuperFitnessApp/src/app/core/services/muscles/muscles.service';
+import { ThemeManagerService } from 'apps/SuperFitnessApp/src/app/core/services/ThemeManger/ThemeManagerService.service';
 
 @Component({
-  selector: 'app-fitness-class',
+  selector: 'app-workout',
   imports: [
     CommonModule,
     CarouselModule,
     CustomSliderComponent,
     TranslateModule,
+    Carousel,
   ],
-  standalone: true,
-  templateUrl: './fitness-class.component.html',
-  styleUrls: ['./fitness-class.component.scss'],
+  templateUrl: './workout.component.html',
+  styleUrls: ['./workout.component.scss'],
 })
-export class FitnessClassComponent {
+export class WorkoutComponent implements OnInit {
   muscleGroups: MusclesGroup[] = [];
   displayedMuscleGroups: MusclesGroup[] = [];
   selectedGroupId = 'full_body';
@@ -37,7 +38,6 @@ export class FitnessClassComponent {
     { breakpoint: '420px', numVisible: 1, numScroll: 1 },
   ];
 
-  // Map displayed muscle groups to slider items shape
   get muscleSliderItems() {
     return this.displayedMuscleGroups.map((g) => ({
       idMeal: g._id,

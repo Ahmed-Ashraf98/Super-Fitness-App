@@ -19,7 +19,13 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-single-class',
   standalone: true,
-  imports: [CommonModule, FormsModule, CustomSliderComponent, CarouselModule, TranslateModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CustomSliderComponent,
+    CarouselModule,
+    TranslateModule,
+  ],
   templateUrl: './single-class.component.html',
   styleUrls: ['./single-class.component.scss'],
 })
@@ -142,7 +148,7 @@ export class SingleClassComponent implements OnInit {
         this.loading = false;
       },
       error: (error) => {
-         this.error = 'singleClass.error_group_details';
+        this.error = 'singleClass.error_group_details';
         this.loading = false;
         console.error('Error loading muscle group detail:', error);
       },
