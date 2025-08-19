@@ -77,13 +77,15 @@ export class WorkoutComponent implements OnInit {
   generateFilterTabs() {
     this.filterTabs = [
       { id: 'full_body', title: 'fitnessClass.full_body' },
-      ...this.muscleGroups.map((group) => ({
-        id: group._id,
-        title: group.name,
-      })),
+      ...this.muscleGroups
+        .filter(group => group._id !== 'full_body')
+        .map(group => ({
+          id: group._id,
+          title: group.name,
+        })),
     ];
   }
-
+  
   onFilterChange(selectedId: string) {
     this.selectedGroupId = selectedId;
     this.updateDisplayedMuscleGroups();

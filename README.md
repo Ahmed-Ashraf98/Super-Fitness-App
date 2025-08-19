@@ -3,6 +3,7 @@
 **SuperFitnessApp** is an Nx-managed full-stack Angular monorepo that delivers a fitness-focused web application with Server-Side Rendering (SSR), modular architecture, authentication, health-tracking APIs, a chatbot feature, and a reusable `auth-api` library.  
 
 📖 **Online Documentation**: [Super Fitness App Docs](https://super-fitness-app-docs.netlify.app/)  
+📺 **YouTube Video**: [Watch Demo](https://youtu.be/Zy7qq_AvB4A?si=bFees3b5N6iBUv1W)
 
 ---
 
